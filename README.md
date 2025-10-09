@@ -39,7 +39,6 @@ This repository contains a collection of sample applications built with [Cloudfl
 These samples demonstrate how to integrate RealtimeKit into various web frameworks, including:
 * [React](./react-samples/)
 * [Angular](./angular-samples/)
-* [Vue](./vue-samples/)
 * [HTML](./html-samples/)
 
 
