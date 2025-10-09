@@ -1,0 +1,48 @@
+/* Meeting Control Bar Component Styles */
+
+#controlbar-left,
+#controlbar-center,
+#controlbar-right {
+  gap: 8px;
+}
+
+#controlbar-left > *,
+#controlbar-center > *,
+#controlbar-right > * {
+  margin-right: 4px;
+}
+
+#controlbar-left > *:last-child,
+#controlbar-center > *:last-child,
+#controlbar-right > *:last-child {
+  margin-right: 0;
+}
+
+/* Ensure proper spacing and alignment for control bar elements */
+rtk-fullscreen-toggle,
+rtk-settings-toggle,
+rtk-screen-share-toggle,
+rtk-mic-toggle,
+rtk-camera-toggle,
+rtk-stage-toggle,
+rtk-leave-button,
+rtk-more-toggle,
+rtk-chat-toggle,
+rtk-polls-toggle,
+rtk-participants-toggle,
+rtk-plugins-toggle,
+rtk-controlbar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom sidebar button styling */
+#custom-sidebar-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+#custom-sidebar-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

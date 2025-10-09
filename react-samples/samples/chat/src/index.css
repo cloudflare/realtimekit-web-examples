@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+}
+
+@layer components {
+  .squircle {
+    clip-path: url(#squircle);
+  }
+
+  .icon-btn {
+    @apply h-9 px-2 bg-gray-200 border rounded-md;
+    @apply inline-flex place-items-center justify-center gap-2;
+  }
+
+  .icon-btn > svg {
+    @apply h-5 w-5;
+  }
+}

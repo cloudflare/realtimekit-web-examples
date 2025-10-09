@@ -1,0 +1,9 @@
+<rtk-ui-provider
+  [meeting]="meeting"
+  (rtkStatesUpdate)="onRtkStatesUpdate($event)"
+  [showSetupScreen]="true"
+  style="height: 100%; width: 100%; display: block;"
+>
+  <app-custom-rtk-meeting></app-custom-rtk-meeting>
+  <rtk-dialog-manager></rtk-dialog-manager>
+</rtk-ui-provider>

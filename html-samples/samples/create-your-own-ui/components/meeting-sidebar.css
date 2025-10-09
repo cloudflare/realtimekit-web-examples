@@ -1,0 +1,26 @@
+/* Meeting Sidebar Component Styles */
+
+#meeting-sidebar-ui {
+  background: rgba(0, 0, 0, 0.9);
+  border-left: 1px solid #333;
+}
+
+/* Custom warnings tab styling */
+[slot="warnings"] {
+  background: #1a1a1a;
+  color: #fff;
+  min-height: 200px;
+}
+
+[slot="warnings"] .text-lg {
+  color: #fbbf24;
+}
+
+/* Ensure proper spacing for sidebar content */
+rtk-chat,
+rtk-polls,
+rtk-participants,
+rtk-plugins {
+  height: 100%;
+  width: 100%;
+}

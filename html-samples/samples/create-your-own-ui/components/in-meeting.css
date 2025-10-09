@@ -1,0 +1,70 @@
+/* In Meeting Component Styles */
+
+/* Main layout */
+.in-meeting-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Header styling */
+header {
+  flex-shrink: 0;
+  background: #000;
+  border-bottom: 1px solid #333;
+}
+
+/* Main content area */
+main {
+  background: #1a1a1a;
+  position: relative;
+}
+
+rtk-stage, rtk-grid {
+  background: black;
+}
+
+/* Fix sidebar icon colors */
+rtk-sidebar-ui {
+  --rtk-icon-color: white;
+  color: white;
+}
+
+/* Stage styling */
+rtk-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Footer styling */
+footer {
+  flex-shrink: 0;
+  background: #000;
+  border-top: 1px solid #333;
+  padding: 8px 0;
+}
+
+/* Ensure proper layout for RTK components */
+rtk-grid,
+rtk-participants-audio {
+  width: 100%;
+}
+
+/* Position notifications in bottom left */
+rtk-notifications {
+  position: absolute !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  z-index: 1000 !important;
+  width: auto !important;
+  max-width: 400px !important;
+}
+
+/* Sidebar positioning within stage */
+#meeting-sidebar-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 10;
+  background: var(--rtk-colors-background-1000);
+}

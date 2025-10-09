@@ -1,0 +1,25 @@
+.loader-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+    color: rgb(41, 41, 41);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-container h3 {
+    margin: 10px;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    font-weight: 500;
+}
+.loader-container p {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    color: rgb(58, 58, 58);
+}

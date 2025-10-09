@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  /* Ensure RTK components are properly contained */
+  rtk-ui-provider {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  /* Fix sidebar positioning and visibility */
+  rtk-sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 20;
+    pointer-events: auto;
+  }
+  
+  /* Ensure stage container doesn't overflow and allows sidebar positioning */
+  rtk-stage {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Fix grid container */
+  rtk-grid {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ensure header and controlbar take full width */
+  rtk-header,
+  rtk-controlbar {
+    width: 100%;
+    display: block;
+  }
+}

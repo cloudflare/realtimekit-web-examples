@@ -1,0 +1,30 @@
+/* Meeting Header Component Styles */
+
+#header-left,
+#header-center,
+#header-right {
+  padding: 0 16px;
+}
+
+#header-left > *,
+#header-right > * {
+  margin-right: 8px;
+}
+
+#header-left > *:last-child,
+#header-right > *:last-child {
+  margin-right: 0;
+}
+
+/* Ensure proper spacing for header elements */
+rtk-logo,
+rtk-recording-indicator,
+rtk-livestream-indicator,
+rtk-meeting-title,
+rtk-grid-pagination,
+rtk-participant-count,
+rtk-viewer-count,
+rtk-clock {
+  display: flex;
+  align-items: center;
+}

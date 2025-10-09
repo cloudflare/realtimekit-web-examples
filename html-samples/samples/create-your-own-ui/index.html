@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Your Own UI | RealtimeKit</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/dist/browser.js"></script>
+
+    <!-- Simple reactive state management -->
+    <script>
+      // Simple reactive state implementation
+      window.createReactiveState = function(initialState) {
+        const listeners = new Set();
+        const state = { ...initialState };
+        
+        const proxy = new Proxy(state, {
+          set(target, key, value) {
+            target[key] = value;
+            listeners.forEach(listener => listener());
+            return true;
+          }
+        });
+        
+        const subscribe = function(callback) {
+          listeners.add(callback);
+          return function unsubscribe() {
+            listeners.delete(callback);
+          };
+        };
+        
+        return { state: proxy, subscribe };
+      };
+    </script>
+
+    <!-- Import helper to load UI Kit components -->
+    <script type="module">
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/loader/index.es2017.js';
+      defineCustomElements();
+    </script>
+
+    <script type="module">
+      import * as RealtimeKitUI from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/dist/index.js';
+      window.RealtimeKitUI = RealtimeKitUI;
+    </script>
+
+    <!-- Import RealtimeKit Core via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@latest/dist/browser.js"></script>
+
+    <!-- Import our modules -->
+    <script src="./types.js"></script>
+    <script src="./store.js"></script>
+    <script src="./utils.js"></script>
+    
+    <!-- Import components -->
+    <script src="./components/setup-screen.js"></script>
+    <script src="./components/media-preview-modal.js"></script>
+    <script src="./components/audio-preview.js"></script>
+    <script src="./components/video-preview.js"></script>
+    <script src="./components/meeting-header.js"></script>
+    <script src="./components/meeting-control-bar.js"></script>
+    <script src="./components/meeting-sidebar.js"></script>
+    <script src="./components/in-meeting.js"></script>
+    <script src="./components/custom-rtk-meeting.js"></script>
+
+    <!-- Component styles -->
+    <link rel="stylesheet" href="./components/setup-screen.css">
+    <link rel="stylesheet" href="./components/media-preview-modal.css">
+    <link rel="stylesheet" href="./components/audio-preview.css">
+    <link rel="stylesheet" href="./components/video-preview.css">
+    <link rel="stylesheet" href="./components/meeting-header.css">
+    <link rel="stylesheet" href="./components/meeting-control-bar.css">
+    <link rel="stylesheet" href="./components/meeting-sidebar.css">
+    <link rel="stylesheet" href="./components/in-meeting.css">
+    <link rel="stylesheet" href="./components/custom-rtk-meeting.css">
+  </head>
+  <body class="bg-black text-white">
+    <div id="app" class="h-screen w-screen">
+      <!-- RTK UI Provider will be inserted here -->
+    </div>
+
+    <script>
+      let meeting = null;
+      let appCleanup = null;
+
+      async function initializeApp() {
+        const searchParams = new URL(window.location.href).searchParams;
+        const authToken = searchParams.get('authToken');
+
+        if (!authToken) {
+          alert(
+            "An authToken wasn't passed, please pass an authToken in the URL query to join a meeting."
+          );
+          return;
+        }
+
+        try {
+          // Initialize RealtimeKit client
+          meeting = await RealtimeKitClient.init({
+            authToken,
+            defaults: {
+              audio: false,
+              video: false,
+            },
+          });
+
+          // Expose meeting object to window for debugging
+          window.meeting = meeting;
+
+          // Create RTK UI Provider wrapper
+          const appElement = document.getElementById('app');
+          appElement.innerHTML = `
+            <rtk-ui-provider id="rtk-ui-provider" show-setup-screen="true" style="height: 100%; width: 100%; display: block;">
+              <div id="custom-meeting-container" style="height: 100%; width: 100%;"></div>
+              <rtk-dialog-manager></rtk-dialog-manager>
+            </rtk-ui-provider>
+          `;
+
+          // Set up RTK UI Provider
+          const rtkUiProvider = document.getElementById('rtk-ui-provider');
+          
+          // Listen for state updates from RTK UI Provider
+          rtkUiProvider.addEventListener('rtkStatesUpdate', (event) => {
+            console.log('RTK states updated:', event.detail, window.StatesStore);
+            if (window.StatesStore && window.StatesStore.statesStore) {
+              window.StatesStore.statesStore.setStates(event.detail);
+            }
+          });
+
+          rtkUiProvider.meeting = meeting;
+
+          // Initialize the custom meeting component
+          const customMeetingContainer = document.getElementById('custom-meeting-container');
+          appCleanup = window.CustomRtkMeeting.create(customMeetingContainer, meeting);
+
+        } catch (error) {
+          console.error('Failed to initialize meeting:', error);
+          alert('Failed to initialize meeting. Please check your auth token.');
+        }
+      }
+
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', () => {
+        if (appCleanup) {
+          appCleanup();
+        }
+      });
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeApp);
+      } else {
+        initializeApp();
+      }
+    </script>
+  </body>
+</html>

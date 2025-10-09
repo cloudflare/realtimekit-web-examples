@@ -1,0 +1,121 @@
+.meeting-container {
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: autos;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.meeting-header {
+    display: flex;
+    flex-direction:row;
+    flex-grow: 1;
+    margin-right: 40px;
+    justify-content: flex-end;
+}
+
+.meeting-grid {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.meeting-controlbar {
+    display: flex;
+    flex-direction: row;
+    background: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+}
+
+.active-controlbar-button {
+    fill: red;
+}
+
+.auction-container {
+    background: #f0f1f2;
+    margin:0 10px;
+    border-radius: 10px;
+    width: 60%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    position: relative;
+    min-width: 450px;
+}
+.auction-img {
+    flex-grow: 1;
+    height: 300px;
+}
+
+.auction-toggle-button {
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    height: max-content;
+    background-color: rgb(255, 255, 255);
+    color: rgb(4, 4, 4);
+    cursor: pointer;
+    margin: 3px;
+    border-radius: 6px;
+}
+.auction-toggle-button:hover {
+    background: rgb(228, 224, 224);
+}
+
+.auction-desc {
+    position: absolute;
+    background: rgba(39, 39, 39, 0.735);
+    padding: 15px;
+    bottom: 51px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    line-height: 19px;
+    display: none;
+}
+.show-auction-popup {
+    display: none;
+    border: solid  1px rgb(251, 251, 251);
+    outline: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+    color: rgb(77, 77, 77);
+    justify-self: flex-end;
+    cursor: pointer;
+}
+
+.auction-container:hover .auction-desc {
+    display: block;
+}
+
+.hide-auction-popup {
+    display: flex;
+}
+
+@media screen and (max-width: 800px) {
+    .meeting-grid {
+        position: relative;
+    }
+    .auction-container {
+       position: absolute;
+       z-index: 900;
+       max-width: 100%;
+       width: 100%;
+       height: 100%;
+       margin: 0;
+    }
+    .show-auction-popup {
+        display: flex;
+    }
+    .hide-auction-popup {
+        display: none;
+    }
+}

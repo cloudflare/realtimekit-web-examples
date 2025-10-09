@@ -1,0 +1,27 @@
+/* Audio Preview Component Styles */
+
+#audio-device-select,
+#speaker-device-select {
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+#audio-device-select:focus,
+#speaker-device-select:focus {
+  outline: none;
+  border-color: #2160FD;
+}
+
+#test-speaker-btn {
+  background-color: #1F1F1F !important;
+  border: 1px solid #333;
+}
+
+#test-speaker-btn:hover {
+  background-color: #333 !important;
+}
+
+#audio-visualizer {
+  margin-top: 8px;
+  height: 40px;
+}

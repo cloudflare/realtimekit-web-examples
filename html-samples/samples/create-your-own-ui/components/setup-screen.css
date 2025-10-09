@@ -1,0 +1,29 @@
+/* Setup Screen Component Styles */
+
+/* Ensure proper layout for setup screen */
+.setup-screen-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Custom styles for participant name input */
+#participant-name-input:focus {
+  outline: none;
+  border-color: #2160FD;
+}
+
+/* Join button disabled state */
+#join-btn[style*="not-allowed"] {
+  opacity: 0.6;
+}
+
+/* Media preview button positioning */
+#media-preview-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+/* User actions positioning */
+#user-actions {
+  gap: 8px;
+}

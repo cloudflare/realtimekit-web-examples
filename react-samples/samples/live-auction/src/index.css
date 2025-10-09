@@ -1,0 +1,11 @@
+html, body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  max-height: 100vh;
+  margin: 0;
+  background: rgb(255, 255, 255);
+  color: rgb(31, 31, 31);
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,27 @@
+/* Media Preview Modal Component Styles */
+
+.media-preview-modal {
+  z-index: 1000;
+}
+
+.media-preview-modal rtk-dialog {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Tab button hover effects */
+#audio-tab-btn:hover,
+#video-tab-btn:hover {
+  background-color: rgba(33, 96, 253, 0.1);
+}
+
+/* Active tab styling */
+#audio-tab-btn.bg-\[#2160FD\],
+#video-tab-btn.bg-\[#2160FD\] {
+  background-color: #2160FD !important;
+}
+
+/* Preview content area */
+#preview-content {
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,58 @@
+.RtkDialog aside button {
+    @apply cursor-pointer transition-colors;
+    @apply box-border flex w-full items-center justify-between rounded-l-sm px-4 py-3;
+    @apply cursor-pointer shadow-none;
+    @apply border-none outline-none;
+  }
+  
+  .RtkDialog aside button.active {
+    background: rgba(26,144,255,0.15);
+    border-right: theme('borderWidth.2') solid theme('colors.blue.500');
+  }
+  
+  .RtkDialog main {
+    @apply p-10 pl-6;
+    width: 30rem;
+    background-color: #191919;
+  }
+  
+  .RtkDialog {
+    @apply fixed inset-0 box-border rounded-md;
+    @apply flex-col items-center justify-center;
+    /* Hide dialog by default */
+    @apply invisible hidden;
+    color: white;
+  
+    z-index: 60;
+  
+    backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .RtkDialog #dialog {
+    @apply relative max-h-full max-w-full rounded-md;
+    min-height: 320px;
+    background-color: #262626;
+  }
+  
+  .RtkDialog #dismiss-btn {
+    @apply absolute top-3 right-3 z-50;
+  }
+  
+  .RtkDialog header {
+    @apply absolute top-3 left-3 z-50;
+    @apply text-xl font-semibold;
+  }
+  
+  .RtkDialog::slotted(*) {
+    @apply max-h-full max-w-full;
+  }
+  
+  /* Show only when open="true" */
+  .RtkDialog[data-open] {
+    @apply visible flex;
+  }
+  
+  /* Hide dialog by default */
+  .RtkDialog[data-open='false'] {
+    @apply invisible hidden;
+  }

@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}
+
+/* Fix rtk-stage and rtk-grid background */
+rtk-stage, rtk-grid {
+  background-color: black !important;
+}
+
+/* Fix meeting control bar width and background */
+app-meeting-control-bar {
+  width: 100%;
+  background-color: black !important;
+}
+
+/* Fix sidebar icon colors */
+rtk-sidebar-ui {
+  --rtk-icon-color: white;
+  color: white;
+}
+
+rtk-sidebar-ui .rtk-icon,
+rtk-sidebar-ui rtk-icon {
+  color: white !important;
+  fill: white !important;
+}

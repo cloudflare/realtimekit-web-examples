@@ -1,0 +1,19 @@
+{
+  "name": "html-samples",
+  "scripts": {
+    "format": "prettier -w samples",
+    "build": "npm run postbuild",
+    "postbuild": "./postbuild.sh",
+    "deploy": "wrangler pages deploy ./dist"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "proseWrap": "always"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.1"
+  },
+  "dependencies": {
+    "serve": "^14.1.2"
+  }
+}

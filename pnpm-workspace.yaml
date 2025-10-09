@@ -1,0 +1,5 @@
+packages:
+  - '*'
+  - '*/samples/*'
+  - '*/react-samples/*'
+  - 'recording-sdk-app-samples/react-samples/*'

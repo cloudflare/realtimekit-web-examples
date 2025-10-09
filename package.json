@@ -1,0 +1,11 @@
+{
+  "name": "realtimekit-web-samples-monorepo",
+  "private": true,
+  "scripts": {
+    "install-all": "pnpm -r install",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "pnpm": "^7.0.0"
+  }
+}

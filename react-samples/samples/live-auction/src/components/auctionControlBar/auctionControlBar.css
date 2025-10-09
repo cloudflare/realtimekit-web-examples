@@ -1,0 +1,67 @@
+.bidding-component {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    padding:10px;
+    background: #E5E7EB;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.display-bid {
+    margin-right: 5px;
+    color: rgb(3, 3, 3);
+}
+.display-bid span {
+    color: rgb(0, 0, 0);
+}
+
+.bid-collector {
+    margin-left: 5px;
+}
+
+.bid-collector input {
+    border: solid 1px #97999d;
+    background: #c0c3c8;
+    border-radius: 6px;
+    outline: none;
+    padding: 8px;
+    color: rgb(12, 12, 12);
+}
+.bid-collector input::placeholder {
+    color: rgb(118, 116, 116);
+}
+.bid-collector button {
+    border: solid  1px #9e77e0;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 6px;
+    padding: 7px;
+    background-color: #754cba;
+    color: white;
+    cursor: pointer;
+}
+.pagination {
+    display: flex;
+    flex-direction: row;
+    background: #c0c3c8;
+    border-radius: 16px;
+    overflow: hidden;
+    border: solid  1px #97999d;
+    color: rgb(107, 107, 107);
+    align-items: center;
+}
+.pagination span {
+    margin: 0 10px;
+}
+
+.pagination button {
+    border: none;
+    outline: none;
+    padding: 7px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: none;
+    color: white;
+    cursor: pointer;
+}

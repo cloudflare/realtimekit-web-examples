@@ -1,0 +1,31 @@
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: inherit;
+    fill: pink;
+}
+
+.icon-wrapper img {
+    display: flex;
+    align-self: center;
+    background: none;
+}
+
+.img-sm {
+    width: 16px;
+    height: 16px;
+}
+
+.img-md {
+    width: 24px;
+    height: 24px;
+}
+
+.img-lg {
+    width: 32px;
+    height: 32px;
+}

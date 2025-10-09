@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angular Samples - Cloudflare RealtimeKit</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Light gray background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top */
+            min-height: 100vh;
+            padding-top: 40px; /* Add some padding at the top */
+        }
+        #root {
+            background-color: #ffffff; /* White card background */
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 700px;
+        }
+        h1 {
+            color: #f38020; /* Cloudflare Orange */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0; /* Light separator line */
+            padding-bottom: 15px;
+        }
+        li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #0053a0; /* Cloudflare Blue */
+            font-size: 18px;
+            font-weight: 500;
+            display: block; /* Make the whole area clickable */
+            padding: 8px 0;
+            transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        a:hover {
+            color: #f38020; /* Cloudflare Orange on hover */
+            transform: translateX(5px);
+        }
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            #root {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h1>Cloudflare RealtimeKit Angular Samples</h1>
+        <ul>
+            <li><a href="/samples/create-your-own-ui/dist">Create Your Own UI</a></li>
+            <li><a href="/samples/default-meeting-ui/dist">Default Meeting UI</a></li>
+            <li><a href="/samples/with-video-transformer/dist">With Video Transformer</a></li>
+        </ul>
+    </div>
+</body>
+</html>

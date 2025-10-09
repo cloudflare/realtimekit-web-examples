@@ -1,0 +1,24 @@
+/* Video Preview Component Styles */
+
+#video-device-select {
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+#video-device-select:focus {
+  outline: none;
+  border-color: #2160FD;
+}
+
+#video-preview-tile,
+#video-preview-tile-off {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#video-off-icon {
+  font-size: 48px;
+  color: #666;
+}
