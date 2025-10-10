@@ -11,9 +11,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy React Examples
-    defaults:
-      run:
-        working-directory: ./react-examples
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,9 +29,11 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+        working-directory: ./
 
       - name: Build
         run: pnpm run build
+        working-directory: ./react-examples
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
