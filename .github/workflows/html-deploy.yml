@@ -1,19 +1,19 @@
-name: Deploy HTML Samples
+name: Deploy HTML Examples
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'html-samples/**'
+      - 'html-examples/**'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy HTML Samples
+    name: Deploy HTML Examples
     defaults:
       run:
-        working-directory: ./html-samples
+        working-directory: ./html-examples
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,5 +42,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4.42.1'
-          command: pages deploy ./dist --project-name=realtimekit-html-samples
-          workingDirectory: ./html-samples
+          command: pages deploy ./dist --project-name=realtimekit-html-examples
+          workingDirectory: ./html-examples

@@ -3,10 +3,10 @@
   <a href="https://cloudflare.com">
     <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/6EYsdkdfBcHtgPmgp3YtkD/0b203affd2053988264b9253b13de6b3/logo-thumbnail.png" alt="Logo" width="180">
   </a>
-  <h3 align="center">RealtimeKit Web Samples</h3>
+  <h3 align="center">RealtimeKit Web Examples</h3>
 
   <p align="center">
-    A collection of sample applications to demonstrate the power of Cloudflare RealtimeKit.
+    A collection of example applications to demonstrate the power of Cloudflare RealtimeKit.
     <br />
     <a href="https://developers.cloudflare.com/realtime/realtimekit/"><strong>Explore the RealtimeKit docs »</strong></a>
     <br />
@@ -26,7 +26,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Running the Samples](#running-the-samples)
+* [Running the Examples](#running-the-examples)
 * [About](#about)
 
 
@@ -34,12 +34,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This repository contains a collection of sample applications built with [Cloudflare RealtimeKit](https://github.com/cloudflare/realtimekit), a real-time video and audio SDK for building custom, collaborative communication experiences.
+This repository contains a collection of example applications built with [Cloudflare RealtimeKit](https://github.com/cloudflare/realtimekit), a real-time video and audio SDK for building custom, collaborative communication experiences.
 
-These samples demonstrate how to integrate RealtimeKit into various web frameworks, including:
-* [React](./react-samples/)
-* [Angular](./angular-samples/)
-* [HTML](./html-samples/)
+These examples demonstrate how to integrate RealtimeKit into various web frameworks, including:
+* [React](./react-examples/)
+* [Angular](./angular-examples/)
+* [HTML](./html-examples/)
 
 
 <!-- GETTING STARTED -->
@@ -73,13 +73,13 @@ pnpm install
 ```
 
 <!-- RUNNING THE SAMPLES -->
-## Running the Samples
+## Running the Examples
 
-Each sample is a self-contained application. To run a specific sample:
+Each example is a self-contained application. To run a specific example:
 
-1. Navigate to the sample's directory. For example:
+1. Navigate to the example's directory. For example:
 ```sh
-cd react-samples/samples/default-meeting-ui
+cd react-examples/examples/default-meeting-ui
 ```
 
 2. Start the development server:
@@ -87,7 +87,7 @@ cd react-samples/samples/default-meeting-ui
 pnpm run dev
 ```
 
-_For more detailed instructions, please refer to the `README.md` file within each sample's directory._
+_For more detailed instructions, please refer to the `README.md` file within each example's directory._
 
 ## About
 
