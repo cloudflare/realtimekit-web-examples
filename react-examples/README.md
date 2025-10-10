@@ -1,4 +1,4 @@
-# Cloudflare RealtimeKit React UI Samples
+# Cloudflare RealtimeKit React UI Examples
 
 ## Contents
 1. [Introduction](#introduction)
@@ -16,16 +16,16 @@ This repository consists of all the different ways in which you can use Cloudfla
 React UI and other packages to its full extent to get the best live
 audio/video experience.
 
-## Samples
+## Examples
 
-Here are the list of available samples at the moment.
+Here are the list of available examples at the moment.
 
-1. [Default Meeting UI](./samples/default-meeting-ui/)
-2. [Using Background Transformer to modify your background](./samples/with-background-transformer/)
-3. [Audio Room](./samples/audio-room/)
-4. [Facetime](./samples/facetime/)
-5. [Chat](./samples/chat/)
-6. [Live Auction App](./samples/live-auction/)
+1. [Default Meeting UI](./examples/default-meeting-ui/)
+2. [Using Background Transformer to modify your background](./examples/with-background-transformer/)
+3. [Audio Room](./examples/audio-room/)
+4. [Facetime](./examples/facetime/)
+5. [Chat](./examples/chat/)
+6. [Live Auction App](./examples/live-auction/)
 
 ## Usage
 
@@ -38,21 +38,21 @@ Make sure you've created your Cloudflare account at https://dash.cloudflare.com/
 1. Follow the [Cloudflare RealtimeKit documentation](https://developers.cloudflare.com/realtime/realtimekit/) to create a new Room.
 2. Create a new Session Token to join the room.
 
-Once you're done, you'll get an `authToken`, which you can use in a sample as explained below.
+Once you're done, you'll get an `authToken`, which you can use in an example as explained below.
 
-Here are steps to try out the samples:
+Here are steps to try out the examples:
 
 1. Clone the repo:
 
 ```sh
-git clone https://github.com/cloudflare/realtimekit-web-samples.git
+git clone https://github.com/cloudflare/realtimekit-web-examples.git
 ```
 
-2. Change directory to the sample you want to try, for example: in
+2. Change directory to the example you want to try, for example: in
    `default-meeting-ui`:
 
 ```sh
-cd samples/default-meeting-ui
+cd examples/default-meeting-ui
 ```
 
 3. Install the packages with your preferred package manager and start a
