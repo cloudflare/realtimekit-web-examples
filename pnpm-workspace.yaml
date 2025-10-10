@@ -2,4 +2,6 @@ packages:
   - '*'
   - '*/examples/*'
   - '*/react-examples/*'
+  - '*/angular-examples/*'
+  - '*/html-examples/*'
   - 'recording-sdk-app-samples/react-examples/*'
