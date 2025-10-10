@@ -1,19 +1,19 @@
-name: Deploy React Samples
+name: Deploy React Examples
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'react-samples/**'
+      - 'react-examples/**'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy React Samples
+    name: Deploy React Examples
     defaults:
       run:
-        working-directory: ./react-samples
+        working-directory: ./react-examples
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,5 +42,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4.42.1'
-          command: pages deploy ./dist --project-name=realtimekit-react-samples
-          workingDirectory: ./react-samples
+          command: pages deploy ./dist --project-name=realtimekit-react-examples
+          workingDirectory: ./react-examples
