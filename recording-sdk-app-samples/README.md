@@ -1,14 +1,14 @@
-# Cloudflare RealtimeKit SDK Recording App Samples 
+# Cloudflare RealtimeKit SDK Recording App Examples 
 
-This repository consists of recording sample apps created using Cloudflare RealtimeKit Recording SDK, our Core SDKs, and, fully customizeable UI kits.
+This repository consists of recording example apps created using Cloudflare RealtimeKit Recording SDK, our Core SDKs, and, fully customizeable UI kits.
 
 Guide: https://docs.realtime.cloudflare.com/guides/recording/create-record-app-using-sdks
 
-## Samples
+## Examples
 
-Here are a few available samples.
+Here are a few available examples.
 
-1. React samples
+1. React examples
   A. recording-with-watermark <br>
   B. screenshare-focused <br>
   C. screenshare-focused-with-snapshot-capture <br>
@@ -25,20 +25,20 @@ Make sure you've created your Cloudflare account at https://dash.cloudflare.com/
 1. Follow the [Cloudflare RealtimeKit documentation](https://developers.cloudflare.com/realtime/realtimekit/) to create a new Room.
 2. Create a new Session Token to join the room.
 
-Once you're done, you'll get an `authToken`, which you can use in a sample as explained below.
+Once you're done, you'll get an `authToken`, which you can use in an example as explained below.
 
-Here are steps to try out the samples:
+Here are steps to try out the examples:
 
 1. Clone the repo:
 
 ```sh
-git clone https://github.com/cloudflare/realtimekit-web-samples.git
+git clone https://github.com/cloudflare/realtimekit-web-examples.git
 ```
 
-2. Change directory to the sample you want to try, for example: to use recording-with-watermark react-sample use the following command:
+2. Change directory to the example you want to try, for example: to use recording-with-watermark react-example use the following command:
 
 ```sh
-cd react-samples/recording-with-watermark
+cd react-examples/recording-with-watermark
 ```
 
 3. Install the packages with your preferred package manager and start a
