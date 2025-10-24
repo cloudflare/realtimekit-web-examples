@@ -4,6 +4,6 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   // NOTE: Not using StrictMode to avoid the double execution of useEffect
-  // while trying out the sample
+  // while trying out the example
   <App />,
 );

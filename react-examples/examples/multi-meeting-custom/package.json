@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "@cloudflare/realtimekit": "^1.1.6",
-    "@cloudflare/realtimekit-react": "^1.1.6",
-    "@cloudflare/realtimekit-react-ui": "^1.0.5",
-    "@cloudflare/realtimekit-ui": "^1.0.5",
+    "@cloudflare/realtimekit": "^1.2.0-staging.22",
+    "@cloudflare/realtimekit-react": "^1.2.0-staging.22",
+    "@cloudflare/realtimekit-react-ui": "^1.0.6-staging.7",
+    "@cloudflare/realtimekit-ui": "^1.0.6-staging.7",
     "@cloudflare/realtimekit-ui-addons": "^0.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

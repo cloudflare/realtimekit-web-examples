@@ -1,6 +1,6 @@
-# Default Meeting UI Sample
+# Default Meeting UI Example
 
-This sample showcases the simplest way to integrate RealtimeKit in your
+This example showcases the simplest way to integrate RealtimeKit in your
 app!
 
 ---

@@ -1,6 +1,6 @@
-# With Background Transformer UI Sample
+# With Background Transformer UI Example
 
-This sample showcases how you can modify your background while in a RealtimeKit video call
+This example showcases how you can modify your background while in a RealtimeKit video call
 with the [`@cloudflare/realtimekit-virtual-background`](https://www.npmjs.com/package/@cloudflare/realtimekit-virtual-background) package.
 
 ---

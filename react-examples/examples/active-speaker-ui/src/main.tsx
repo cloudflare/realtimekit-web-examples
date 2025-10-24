@@ -9,6 +9,6 @@ provideRtkDesignSystem(document.body, {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // NOTE: Not using StrictMode to avoid the double execution of useEffect
-  // while trying out the sample
+  // while trying out the example
   <App />
 );

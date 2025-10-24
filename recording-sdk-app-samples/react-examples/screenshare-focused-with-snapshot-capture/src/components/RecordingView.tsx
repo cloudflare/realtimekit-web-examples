@@ -69,7 +69,7 @@ export default function RecordingView() {
                     
                     /**
                      * NOTE(ravindra-dyte): alter the body params as per your need.
-                     * Below is just a sample
+                     * Below is just a example
                      */
                     await fetch(import.meta.env.VITE_THUMBNAIL_POST_ENDPOINT, {
                         method: 'POST',

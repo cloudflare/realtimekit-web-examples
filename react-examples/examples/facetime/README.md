@@ -1,6 +1,6 @@
-# Facetime UI Sample
+# Facetime UI Example
 
-This sample showcases how you can build a Facetime like UI with RealtimeKit's React UI Kit!
+This example showcases how you can build a Facetime like UI with RealtimeKit's React UI Kit!
 
 ---
 

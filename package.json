@@ -1,5 +1,5 @@
 {
-  "name": "realtimekit-web-samples-monorepo",
+  "name": "realtimekit-web-examples-monorepo",
   "private": true,
   "scripts": {
     "install-all": "pnpm -r install",

@@ -59,12 +59,12 @@ This project uses [pnpm](https://pnpm.io/) as a package manager. You can install
 
 1. Clone the repository
 ```sh
-git clone https://github.com/cloudflare/realtimekit-web-samples.git
+git clone https://github.com/cloudflare/realtimekit-web-examples.git
 ```
 
 2. Navigate to the project directory
 ```sh
-cd realtimekit-web-samples
+cd realtimekit-web-examples
 ```
 
 3. Install dependencies from the root of the monorepo
@@ -72,7 +72,7 @@ cd realtimekit-web-samples
 pnpm install
 ```
 
-<!-- RUNNING THE SAMPLES -->
+<!-- RUNNING THE EXAMPLES -->
 ## Running the Examples
 
 Each example is a self-contained application. To run a specific example:

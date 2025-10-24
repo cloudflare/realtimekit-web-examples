@@ -1,5 +1,5 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "html-samples",
+	"name": "html-examples",
     "pages_build_output_dir": "dist"
 }

@@ -1,6 +1,6 @@
-# Default Meeting UI Sample
+# Default Meeting UI Example
 
-This sample showcases the simplest way to integrate Cloudflare RealtimeKit's UI Kit in your app!
+This example showcases the simplest way to integrate Cloudflare RealtimeKit's UI Kit in your app!
 
 ---
 

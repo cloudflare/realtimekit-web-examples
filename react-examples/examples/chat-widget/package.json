@@ -13,10 +13,10 @@
 		"typecheck": "tsc --project tsconfig.json --noEmit"
 	},
 	"dependencies": {
-		"@cloudflare/realtimekit": "^1.1.6",
-		"@cloudflare/realtimekit-react": "^1.1.6",
-		"@cloudflare/realtimekit-ui": "^1.0.5",
-		"@cloudflare/realtimekit-react-ui": "^1.0.5",
+		"@cloudflare/realtimekit": "^1.2.0-staging.22",
+		"@cloudflare/realtimekit-react": "^1.2.0-staging.22",
+		"@cloudflare/realtimekit-ui": "^1.0.6-staging.7",
+		"@cloudflare/realtimekit-react-ui": "^1.0.6-staging.7",
 		"@cloudflare/realtimekit-ui-addons": "^0.0.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
@@ -28,7 +28,7 @@
 		"@types/react-dom": "^18.2.14",
 		"@typescript-eslint/eslint-plugin": "^6.9.1",
 		"@typescript-eslint/parser": "^6.9.1",
-		"@vitejs/plugin-react-swc": "^3.4.1",
+		"@vitejs/plugin-react": "^4.3.0",
 		"autoprefixer": "^10.4.16",
 		"eslint": "^8.53.0",
 		"eslint-config-prettier": "^9.0.0",

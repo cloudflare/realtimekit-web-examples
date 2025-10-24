@@ -1,2 +1,2 @@
 npx @dytesdk/upgrade-to-rtk .
-for dir in samples/*; do (cd "$dir" && npm run build); done
+for dir in examples/*; do (cd "$dir" && npm run build); done

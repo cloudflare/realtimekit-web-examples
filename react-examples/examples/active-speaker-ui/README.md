@@ -1,6 +1,6 @@
-# Active Speaker UI Sample
+# Active Speaker UI Example
 
-This sample showcases how you can build a UI to display only the active speaker while screenshare in an webinar meeting with RealtimeKit's React UI Kit!
+This example showcases how you can build a UI to display only the active speaker while screenshare in an webinar meeting with RealtimeKit's React UI Kit!
 
 ---
 

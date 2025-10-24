@@ -1,6 +1,6 @@
 # Back to Back Meetings
 
-A sample designed for continuous meeting workflows where participants need to transition seamlessly from one meeting to the next without interruption. Perfect for scenarios like back-to-back appointments, consecutive interviews, or sequential consultations.
+A example designed for continuous meeting workflows where participants need to transition seamlessly from one meeting to the next without interruption. Perfect for scenarios like back-to-back appointments, consecutive interviews, or sequential consultations.
 
 ## Features
 
