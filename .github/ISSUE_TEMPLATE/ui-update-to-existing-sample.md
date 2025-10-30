@@ -1,13 +1,13 @@
 ---
-name: UI Update to Existing Sample
-about: Suggest an idea for upgrading the current UI/UX of one of the current samples
+name: UI Update to Existing Example
+about: Suggest an idea for upgrading the current UI/UX of one of the current examples
 title: ''
 labels: hacktoberfest
 assignees: ''
 
 ---
 
-**Is your UI update related to a current sample app? Please describe.**
+**Is your UI update related to a current example app? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
 **Describe the update/upgrade you'd like**

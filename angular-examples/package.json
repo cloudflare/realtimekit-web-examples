@@ -1,7 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "samples/*"
+    "examples/*"
   ],
   "scripts": {
     "update-cloudflare-realtime-deps": "./update-cloudflare-realtime-deps.sh",

@@ -1,7 +1,7 @@
 {
-  "name": "html-samples",
+  "name": "html-examples",
   "scripts": {
-    "format": "prettier -w samples",
+    "format": "prettier -w examples",
     "build": "npm run postbuild",
     "postbuild": "./postbuild.sh",
     "deploy": "wrangler pages deploy ./dist"

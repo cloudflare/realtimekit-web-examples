@@ -1,6 +1,6 @@
 # Create Your Own UI
 
-Unlike traditional samples where devs are given a fixed UI, this sample let's you pick your own variant from a variety of variants for a component.
+Unlike traditional examples where devs are given a fixed UI, this example let's you pick your own variant from a variety of variants for a component.
 
 For example, There are a few variants of [Setup Screen component file](./src/components/setup-screen.tsx).
 

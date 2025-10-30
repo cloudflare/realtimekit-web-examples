@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to install dependencies and update RealtimeKit packages in all samples
+# Script to install dependencies and update RealtimeKit packages in all examples
 # Exits on first error to prevent cascading failures
 
 set -e  # Exit on any error
@@ -37,14 +37,14 @@ fi
 
 # Get script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SAMPLES_DIR="$SCRIPT_DIR/examples"
+EXAMPLES_DIR="$SCRIPT_DIR/examples"
 
 # Get latest package versions
 print_info "Fetching latest package versions..."
-REALTIMEKIT_VERSION=$(npm view "@cloudflare/realtimekit" version 2>/dev/null || echo "1.1.5")
-REALTIMEKIT_REACT_VERSION=$(npm view "@cloudflare/realtimekit-react" version 2>/dev/null || echo "1.1.5")
-REALTIMEKIT_REACT_UI_VERSION=$(npm view "@cloudflare/realtimekit-react-ui" version 2>/dev/null || echo "1.0.4")
-REALTIMEKIT_UI_VERSION=$(npm view "@cloudflare/realtimekit-ui" version 2>/dev/null || echo "1.0.4")
+REALTIMEKIT_VERSION=$(npm view "@cloudflare/realtimekit" version 2>/dev/null || echo "1.2.0")
+REALTIMEKIT_REACT_VERSION=$(npm view "@cloudflare/realtimekit-react" version 2>/dev/null || echo "1.2.0")
+REALTIMEKIT_REACT_UI_VERSION=$(npm view "@cloudflare/realtimekit-react-ui" version 2>/dev/null || echo "1.0.6")
+REALTIMEKIT_UI_VERSION=$(npm view "@cloudflare/realtimekit-ui" version 2>/dev/null || echo "1.0.6")
 REALTIMEKIT_UI_ADDONS_VERSION=$(npm view "@cloudflare/realtimekit-ui-addons" version 2>/dev/null || echo "0.0.4")
 
 print_info "Using versions:"
@@ -60,26 +60,26 @@ rm -rf node_modules package-lock.json
 print_info "Nuking NPM Cache due to trust issues..."
 npm cache clean --force
 
-print_info "Installing dependencies in all sample repositories..."
+print_info "Installing dependencies in all example repositories..."
 
-# Process each sample directory
-for sample_dir in "$SAMPLES_DIR"/*; do
-    if [ -d "$sample_dir" ] && [ -f "$sample_dir/package.json" ]; then
-        sample_name=$(basename "$sample_dir")
+# Process each example directory
+for example_dir in "$EXAMPLES_DIR"/*; do
+    if [ -d "$example_dir" ] && [ -f "$example_dir/package.json" ]; then
+        example_name=$(basename "$example_dir")
         echo ""
-        print_info "=== Processing $sample_name ==="
+        print_info "=== Processing $example_name ==="
         
-        cd "$sample_dir" || {
-            print_error "Failed to enter directory $sample_dir"
+        cd "$example_dir" || {
+            print_error "Failed to enter directory $example_dir"
             exit 1
         }
         
         # Clean install - remove node_modules
-        print_info "Cleaning node_modules in $sample_name..."
+        print_info "Cleaning node_modules in $example_name..."
         rm -rf node_modules
         
         # Ensure all required RealtimeKit packages are present in package.json
-        print_info "Ensuring all RealtimeKit packages are present in $sample_name..."
+        print_info "Ensuring all RealtimeKit packages are present in $example_name..."
         
         # Function to add package if not present
         add_package_if_missing() {
@@ -99,7 +99,7 @@ for sample_dir in "$SAMPLES_DIR"/*; do
         add_package_if_missing "@cloudflare/realtimekit-ui-addons" "$REALTIMEKIT_UI_ADDONS_VERSION"
         
         # Update package.json versions
-        print_info "Updating package.json versions in $sample_name..."
+        print_info "Updating package.json versions in $example_name..."
         
         # Update RealtimeKit packages in package.json
         if grep -q "@cloudflare/realtimekit\"" package.json; then
@@ -128,16 +128,16 @@ for sample_dir in "$SAMPLES_DIR"/*; do
         fi
 
         # Single npm install after updating all versions
-        print_info "Installing all dependencies in $sample_name..."
+        print_info "Installing all dependencies in $example_name..."
         if ! npm install --legacy-peer-deps --no-workspaces; then
-            print_error "Failed to install dependencies in $sample_name"
+            print_error "Failed to install dependencies in $example_name"
             exit 1
         fi
         
         cd - > /dev/null
-        print_success "✓ Completed $sample_name"
+        print_success "✓ Completed $example_name"
     fi
 done
 
 echo ""
-print_success "🎉 All samples processed successfully!"
+print_success "🎉 All examples processed successfully!"

@@ -1,6 +1,6 @@
 # Create Your Own UI
 
-This sample showcases how to create your own UI using Cloudflare RealtimeKit's Angular UI Kit and other packages.
+This example showcases how to create your own UI using Cloudflare RealtimeKit's Angular UI Kit and other packages.
 
 ## How to run?
 
@@ -12,7 +12,7 @@ To learn more, refer to [the source code](./src/app/app.component.ts)
 
 ## Architecture
 
-This Angular sample is equivalent to the Cloudflare RealtimeKit `create-your-own-ui` sample and includes:
+This Angular example is equivalent to the Cloudflare RealtimeKit `create-your-own-ui` example and includes:
 
 ### Components
 - **CustomRtkMeetingComponent**: Main meeting component that handles different meeting states

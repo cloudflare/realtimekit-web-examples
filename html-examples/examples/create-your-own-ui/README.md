@@ -1,6 +1,6 @@
-# Create Your Own UI Sample
+# Create Your Own UI Example
 
-This sample demonstrates how to create a custom meeting UI using Cloudflare RealtimeKit with vanilla HTML, CSS, and JavaScript. It showcases custom components for setup screen, in-meeting experience, control bar, sidebar, and media preview functionality.
+This example demonstrates how to create a custom meeting UI using Cloudflare RealtimeKit with vanilla HTML, CSS, and JavaScript. It showcases custom components for setup screen, in-meeting experience, control bar, sidebar, and media preview functionality.
 
 ## Features
 
@@ -23,17 +23,17 @@ This sample demonstrates how to create a custom meeting UI using Cloudflare Real
 ### Installation
 
 1. Clone or download this repository
-2. Navigate to the `html-samples` directory
+2. Navigate to the `html-examples` directory
 3. Install dependencies (optional, for development server):
    ```bash
    npm install
    ```
 
-### Running the Sample
+### Running the Example
 
 1. Start a local server:
    ```bash
-   npx serve samples/create-your-own-ui
+   npx serve examples/create-your-own-ui
    ```
 
 2. Open your browser and navigate to:
@@ -120,7 +120,7 @@ All dependencies are loaded via CDN, no build process required.
 
 ## Browser Support
 
-This sample works in modern browsers that support:
+This example works in modern browsers that support:
 - ES6 modules
 - Custom elements
 - WebRTC
@@ -147,4 +147,4 @@ If components aren't updating when states change, ensure you're subscribing to t
 
 ## License
 
-This sample is provided as-is for demonstration purposes.
+This example is provided as-is for demonstration purposes.

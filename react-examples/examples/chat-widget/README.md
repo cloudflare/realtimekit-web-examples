@@ -1,6 +1,6 @@
 # RealtimeKit Chat Widget demo
 
-This sample showcases how you can build a Chat widget using RealtimeKit Chat SDK
+This example showcases how you can build a Chat widget using RealtimeKit Chat SDK
 
 ---
 
@@ -14,6 +14,6 @@ This sample showcases how you can build a Chat widget using RealtimeKit Chat SDK
 
 ## Getting started
 
-1. rename `.env.sample` to `.env` and update the variables with your organization details
+1. rename `.env.example` to `.env` and update the variables with your organization details
 2. `npm install`
 3. `npm run dev`

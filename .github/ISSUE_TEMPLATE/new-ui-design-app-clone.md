@@ -1,6 +1,6 @@
 ---
 name: New UI Design/App Clone
-about: Suggest an idea for this Sample App repo
+about: Suggest an idea for this Example App repo
 title: ''
 labels: ''
 assignees: ''

@@ -1,3 +1,3 @@
-# Multiple Meeting UI Sample
+# Multiple Meeting UI Example
 
 [See source](./src/App.tsx)
