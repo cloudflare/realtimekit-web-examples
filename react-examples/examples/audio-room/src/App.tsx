@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { RealtimeKitProvider, useRealtimeKitClient } from '@cloudflare/realtimekit-react';
 import AudioRoom from './components/AudioRoom';
+import { RtkUiProvider } from '@cloudflare/realtimekit-react-ui';
 
 function App() {
   const [meeting, initMeeting] = useRealtimeKitClient();
@@ -31,7 +32,9 @@ function App() {
   // `mode="fill"` to the component.
   return (
     <RealtimeKitProvider value={meeting} fallback={<></>}>
-      <AudioRoom />
+      <RtkUiProvider meeting={meeting} showSetupScreen>
+        <AudioRoom />
+      </RtkUiProvider>
     </RealtimeKitProvider>
   );
 }

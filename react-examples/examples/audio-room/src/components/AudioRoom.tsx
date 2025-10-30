@@ -1,16 +1,16 @@
 import { useRealtimeKitMeeting, useRealtimeKitSelector } from '@cloudflare/realtimekit-react';
-import { RtkButton, provideRtkDesignSystem } from '@cloudflare/realtimekit-react-ui';
+import { RtkButton, RtkEndedScreen, provideRtkDesignSystem } from '@cloudflare/realtimekit-react-ui';
 import { useEffect } from 'react';
 import Room from './Room';
 
 export default function AudioRoom() {
   const { meeting } = useRealtimeKitMeeting();
-  const roomJoined = useRealtimeKitSelector((meeting) => meeting.self.roomJoined);
+  const roomState = useRealtimeKitSelector((meeting) => meeting.self.roomState);
 
   useEffect(() => {
     meeting.self.on('roomLeft', () => {
       // handle navigation to other screen here after user has left the room.
-      alert("You've left the room");
+      console.log("You've left the room");
     });
 
     provideRtkDesignSystem(document.body, {
@@ -18,7 +18,7 @@ export default function AudioRoom() {
     });
   }, []);
 
-  if (!roomJoined) {
+  if (roomState === 'init') {
     // Show a page before joining the room, which allows you to join
     // the meeting
 
@@ -38,6 +38,11 @@ export default function AudioRoom() {
       </div>
     );
   }
+  
+  if(roomState === 'ended' || roomState === 'left') {
+    return <RtkEndedScreen/>;
+  }
+    
 
   return <Room />;
 }

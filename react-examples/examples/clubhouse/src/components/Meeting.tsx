@@ -1,4 +1,4 @@
-import { RtkParticipantsAudio, RtkSetupScreen } from '@cloudflare/realtimekit-react-ui';
+import { RtkEndedScreen, RtkParticipantsAudio, RtkSetupScreen } from '@cloudflare/realtimekit-react-ui';
 import { useRealtimeKitMeeting, useRealtimeKitSelector } from '@cloudflare/realtimekit-react';
 import User from './User';
 import Requests from './Requests';
@@ -13,6 +13,7 @@ export default function Meeting() {
   const { meeting } = useRealtimeKitMeeting();
   const audioEnabled = useRealtimeKitSelector((m) => m.self.audioEnabled);
   const roomJoined = useRealtimeKitSelector((m) => m.self.roomJoined);
+  const roomState = useRealtimeKitSelector((m) => m.self.roomState);
 
   const title = useRealtimeKitSelector((m) => m.meta.meetingTitle);
 
@@ -40,6 +41,10 @@ export default function Meeting() {
 
   if (!roomJoined && window.location.search.includes('showSetupScreen')) {
     return <RtkSetupScreen meeting={meeting} size="sm" />;
+  }
+
+  if(roomState === 'left' || roomState === 'ended') {
+    return <RtkEndedScreen/>;
   }
 
   return (
@@ -80,11 +85,21 @@ export default function Meeting() {
         <div className="border-t w-full flex items-center justify-between p-4 text-xs">
           <div className="flex items-center gap-2">
             <button
-              className="icon-btn text-red-500"
-              onClick={() => meeting.leaveRoom()}
+              className="icon-btn text-red-500 disabled:opacity-50"
+              onClick={() => meeting.stage.leave()}
+              disabled={status !== 'ON_STAGE'}
             >
               <XSquare />
-              Leave
+              Leave Stage
+            </button>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              className="icon-btn text-red-500"
+              onClick={() => meeting.leave()}
+            >
+              <XSquare />
+              Leave Meeting
             </button>
           </div>
 
