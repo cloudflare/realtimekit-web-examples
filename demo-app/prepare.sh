@@ -25,63 +25,23 @@ build_and_copy_examples() {
   npm run build || true
 
   # for html examples
-  if [ "$framework_dir" == "html-examples" ]; then
-    mkdir -p "$PUBLIC_DIR/$framework_name"
-    
-    echo "📁 Copying all examples from ${framework_dir}"
-
-    # Copy dist contents
-    cp -r "./dist/" "$PUBLIC_DIR/$framework_name/"
-    # Delete the dist folder after successful copy
-    rm -rf "./dist"
-    return 0
-  fi
+  mkdir -p "$PUBLIC_DIR/$framework_name"
   
-  # Navigate to <framework>/examples
-  if [ -d "examples" ]; then
-    # Create public directory in demo-app for this framework
-    mkdir -p "$PUBLIC_DIR/$framework_name"
+  echo "📁 Copying all examples from ${framework_dir} to demo-app"
 
+  # Copy dist contents
+  cp -r "./dist/" "$PUBLIC_DIR/$framework_name/"
+  # Delete the dist folder after successful copy
+  rm -rf "./dist"
+  return 0
 
-    cd examples
-    
-    # Iterate over each example directory
-
-    # for react/angular examples
-    for example_dir in */; do
-      if [ -d "$example_dir" ]; then
-        example_name="${example_dir%/}"
-        
-        echo "📁 Copying ${example_name}..."
-        
-        # Check if dist directory exists
-        if [ -d "$example_dir/dist" ]; then
-          # Create destination directory
-          mkdir -p "$PUBLIC_DIR/$framework_name/$example_name"
-          
-          # Copy dist contents
-          cp -r "$example_dir/dist/." "$PUBLIC_DIR/$framework_name/$example_name/"
-          
-          # Delete the dist folder after successful copy
-          rm -rf "$example_dir/dist"
-          
-          echo "✅ ${example_name} copied successfully"
-        else
-          echo "⚠️  No dist directory found for ${example_name}"
-        fi
-      fi
-    done
-  else
-    echo "⚠️  No examples directory found in ${framework_dir}"
-  fi
-  
   # Return to project root for next iteration
   cd "$PROJECT_ROOT"
 }
 
 # Process each framework
-# build_and_copy_examples "react-examples" "react-examples"
-# build_and_copy_examples "angular-examples" "angular-examples"
+build_and_copy_examples "react-examples" "react-examples"
+build_and_copy_examples "angular-examples" "angular-examples"
 build_and_copy_examples "html-examples" "html-examples"
 
 echo "Done! All examples have been built and copied to demo-app/public/"

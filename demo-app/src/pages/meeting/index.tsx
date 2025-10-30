@@ -1,6 +1,5 @@
 import { Link, useSearchParams } from "react-router-dom";
 import "../../App.css";
-// import { Icon } from "../../components/icons";
 import { useEffect, useState } from "react";
 
 type LoadingState = "loaded" | "loading" | "errored";
@@ -11,7 +10,7 @@ const Meeting = () => {
   const example = search.get("example");
   const [loadingState, setLoadingState] = useState<LoadingState>("loading");
 
-  const url = `http://localhost:5173/${example}/index.html?authToken=${token}`;
+  const url = `${window.location.origin}/${example}/index.html?authToken=${token}`;
 
   const isValidUrl = async () => {
     try {
