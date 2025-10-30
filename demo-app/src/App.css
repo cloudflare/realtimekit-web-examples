@@ -1,0 +1,13 @@
+[data-theme="dark"] .dots-background {
+background: #040404;
+  background-image: radial-gradient(circle, #232323 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 12px 12px;
+}
+
+[data-theme="light"] .dots-background {
+    background: white;
+  background-image: radial-gradient(circle, #dcdcdc 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 12px 12px;
+}

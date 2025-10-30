@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@custom-variant light ([data-theme="light"] &);
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    /* Tailwind preflight already resets margin */
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body[data-theme="light"] {
+    background-color: #ffffff;
+  }
+
+  body[data-theme="dark"] {
+    background-color: #000000;
+  }
+}
+
+@layer utilities {
+  .font-handwritten {
+    font-family: 'Shadows Into Light', cursive;
+  }
+}
