@@ -9,7 +9,9 @@ import {
   RtkCameraToggle,
   RtkChatToggle,
   RtkDialogManager,
+  RtkEndedScreen,
   RtkGrid,
+  RtkLeaveButton,
   RtkLogo,
   RtkMeetingTitle,
   RtkMicToggle,
@@ -35,6 +37,7 @@ if (config.root) {
 function Meeting() {
   const { meeting } = useRealtimeKitMeeting();
   const roomJoined = useRealtimeKitSelector((m) => m.self.roomJoined);
+  const roomState = useRealtimeKitSelector((m) => m.self.roomState);
 
   const [states, updateStates] = useReducer(
     (state: any, payload: any) => ({
@@ -46,6 +49,10 @@ function Meeting() {
 
   if (!meeting) {
     return <RtkSpinner />;
+  }
+
+  if(roomState === 'ended' || roomState === 'left'){
+    return <RtkEndedScreen />
   }
 
   if (!roomJoined) {
@@ -69,12 +76,19 @@ function Meeting() {
         <RtkGrid meeting={meeting} config={config} />
         {states.activeSidebar && <RtkSidebar meeting={meeting} states={states} />}
       </main>
-      <footer className="p-2 flex place-items-center justify-center">
-        <RtkMicToggle meeting={meeting} />
-        <RtkCameraToggle meeting={meeting} />
-        <RtkScreenShareToggle meeting={meeting} />
-        <RtkChatToggle meeting={meeting} />
-        <RtkPollsToggle meeting={meeting} />
+      <footer className="p-2 flex items-center w-full">
+        <div className="flex flex-1">
+          <RtkLeaveButton />
+        </div>
+        <div className="flex gap-2 justify-center flex-1">
+          <RtkMicToggle meeting={meeting} />
+          <RtkCameraToggle meeting={meeting} />
+          <RtkScreenShareToggle meeting={meeting} />
+          <RtkChatToggle meeting={meeting} />
+          <RtkPollsToggle meeting={meeting} />
+        </div>
+        <div className="flex flex-1"> 
+        </div>
       </footer>
     </div>
   );

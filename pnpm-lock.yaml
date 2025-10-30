@@ -359,20 +359,20 @@ importers:
   react-examples/examples/active-speaker-ui:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
@@ -414,20 +414,20 @@ importers:
   react-examples/examples/async-video-survey:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       autoprefixer:
         specifier: ^10.4.15
         version: 10.4.21(postcss@8.5.6)
@@ -469,20 +469,20 @@ importers:
   react-examples/examples/audio-room:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -524,20 +524,20 @@ importers:
   react-examples/examples/back-to-back-meetings:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -576,20 +576,20 @@ importers:
   react-examples/examples/chat:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -631,20 +631,20 @@ importers:
   react-examples/examples/chat-widget:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -716,20 +716,20 @@ importers:
   react-examples/examples/clubhouse:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -771,20 +771,20 @@ importers:
   react-examples/examples/create-your-own-ui:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -826,20 +826,20 @@ importers:
   react-examples/examples/default-meeting-ui:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -866,20 +866,20 @@ importers:
   react-examples/examples/facetime:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -924,20 +924,20 @@ importers:
   react-examples/examples/live-auction:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -979,20 +979,20 @@ importers:
   react-examples/examples/multi-meeting:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1034,20 +1034,20 @@ importers:
   react-examples/examples/multi-meeting-custom:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1092,20 +1092,20 @@ importers:
   react-examples/examples/screenshare-focused-ui-with-custom-addons:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       '@cloudflare/realtimekit-virtual-background':
         specifier: 0.0.2
         version: 0.0.2
@@ -1150,20 +1150,20 @@ importers:
   react-examples/examples/simple-group-call:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -1205,20 +1205,20 @@ importers:
   react-examples/examples/simple-ui:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1257,20 +1257,20 @@ importers:
   react-examples/examples/with-background-transformer:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22
+        specifier: ^1.2.0
+        version: 1.2.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0-staging.22
-        version: 1.2.0-staging.22(react@18.3.1)
+        specifier: ^1.2.0
+        version: 1.2.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6-staging.7
-        version: 1.0.6-staging.7
+        specifier: ^1.0.6
+        version: 1.0.6
       '@cloudflare/realtimekit-ui-addons':
         specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
       '@cloudflare/realtimekit-virtual-background':
         specifier: 0.0.2
         version: 0.0.2
@@ -1307,7 +1307,7 @@ importers:
         version: 1.0.5
       '@cloudflare/realtimekit-recording-sdk':
         specifier: 0.0.1
-        version: 0.0.1(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.1(@cloudflare/realtimekit@1.2.0)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1356,7 +1356,7 @@ importers:
         version: 1.0.5
       '@cloudflare/realtimekit-recording-sdk':
         specifier: 0.0.1
-        version: 0.0.1(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.1(@cloudflare/realtimekit@1.2.0)
       '@dyteinternals/utils':
         specifier: ^3.0.0
         version: 3.4.0
@@ -1420,7 +1420,7 @@ importers:
         version: 1.0.5
       '@cloudflare/realtimekit-recording-sdk':
         specifier: 0.0.1
-        version: 0.0.1(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.1(@cloudflare/realtimekit@1.2.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -1472,7 +1472,7 @@ importers:
         version: 1.0.5
       '@cloudflare/realtimekit-recording-sdk':
         specifier: 0.0.1
-        version: 0.0.1(@cloudflare/realtimekit@1.2.0-staging.22)
+        version: 0.0.1(@cloudflare/realtimekit@1.2.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -2323,6 +2323,9 @@ packages:
   '@cloudflare/realtimekit-react-ui@1.0.6-staging.7':
     resolution: {integrity: sha512-RKZph6F/OOURkv6RoO62dXnaWtLjLb60Ku3sVTG4t25L2N/Lv56Pjjx/9VqD/NLOiXhwZy0xkU0M4N/N88XIaQ==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-react-ui/-/realtimekit-react-ui-1.0.6-staging.7.tgz}
 
+  '@cloudflare/realtimekit-react-ui@1.0.6':
+    resolution: {integrity: sha512-QZRCtj7ecxE4nqWYroOPCehdT3GCw3ah8h75bl4ORm05CjdxQ0ATU6HM1/OvjpeHVYwXnDY3aT+7VSftswYS9w==}
+
   '@cloudflare/realtimekit-react@1.1.7':
     resolution: {integrity: sha512-yjfvVptiQm3Kp+SLRC9t1a9WWuipKNpzuHLnx20/3dYFUZEEuqJJ8oJ8AZrC8spJhUWwWsnGnZfyMi9W5LnQsQ==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-react/-/realtimekit-react-1.1.7.tgz}
     peerDependencies:
@@ -2330,6 +2333,11 @@ packages:
 
   '@cloudflare/realtimekit-react@1.2.0-staging.22':
     resolution: {integrity: sha512-GEDMsbW1GqtcWnt0Ktq/AWvdt33udThPm80NaEHYK80yfXUEHL0Jxf2JrW3hm5N0E0qsEmsqvoaSFaoJ3LKa9g==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-react/-/realtimekit-react-1.2.0-staging.22.tgz}
+    peerDependencies:
+      react: '>=16.8.6'
+
+  '@cloudflare/realtimekit-react@1.2.0':
+    resolution: {integrity: sha512-oajZirLj+rjPCL/QwsgKh8RpDKxQBIcocH8boBoA0JMQm4dQL3mYKvBbS+vct+qx3H0jM8QKFpDvYguiWqKROA==}
     peerDependencies:
       react: '>=16.8.6'
 
@@ -2350,6 +2358,9 @@ packages:
   '@cloudflare/realtimekit-ui@1.0.6-staging.7':
     resolution: {integrity: sha512-tOedDvs7Z/syzZ0BdCaeCLhiB5r+mbXurmhG4dOBwsNLWjYdKT3qhsGZEjbeJT5aYlxm24AHiQ2ZeoqBNupzcQ==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-ui/-/realtimekit-ui-1.0.6-staging.7.tgz}
 
+  '@cloudflare/realtimekit-ui@1.0.6':
+    resolution: {integrity: sha512-EQSh7HogAsCt3n/V2t7eERwqHVjt3Q/M3qsYBknzVbVaiZJiKhwD1Hb7FvTQDvrcKGAxsqnt+ngX9nnwuk3hwg==}
+
   '@cloudflare/realtimekit-virtual-background@0.0.2':
     resolution: {integrity: sha512-4rP9zswpnDwizlfZdf/Ym4AzZiKCQedK4/BqkWhxqk05SKCYNp9nIW+OEot/2dVJgA5/O9mR3X5hoZ5/EGURhw==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-virtual-background/-/realtimekit-virtual-background-0.0.2.tgz}
 
@@ -2358,6 +2369,9 @@ packages:
 
   '@cloudflare/realtimekit@1.2.0-staging.22':
     resolution: {integrity: sha512-xNFxGGb/TEs9IBFbpjbEF3n3cCTQGiCPLeqNWY2vGILWgnXQQd9zxRc4byyHiH/3A13GqfFvxpPUFtyLWAK1nQ==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit/-/realtimekit-1.2.0-staging.22.tgz}
+
+  '@cloudflare/realtimekit@1.2.0':
+    resolution: {integrity: sha512-y/fmonqXlTCGMpGNoxT3S11FJMV3/Cf4dyp7xMPnnIQ3g1Gi5o2Ey9FxBY/8HUJlJIGtghikPsBbPpcojkxUxw==}
 
   '@cloudflare/unenv-preset@2.7.7':
     resolution: {integrity: sha512-HtZuh166y0Olbj9bqqySckz0Rw9uHjggJeoGbDx5x+sgezBXlxO6tQSig2RZw5tgObF8mWI8zaPvQMkQZtAODw==, tarball: https://registry.npmjs.org/@cloudflare/unenv-preset/-/unenv-preset-2.7.7.tgz}
@@ -8375,7 +8389,7 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.2.0
       '@angular-devkit/architect': 0.1502.11(chokidar@3.5.3)
-      '@angular-devkit/build-webpack': 0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1))(webpack@5.76.1(esbuild@0.17.8))
+      '@angular-devkit/build-webpack': 0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)))(webpack@5.76.1(esbuild@0.17.8))
       '@angular-devkit/core': 15.2.11(chokidar@3.5.3)
       '@angular/compiler-cli': 15.2.10(@angular/compiler@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(typescript@4.8.4)
       '@babel/core': 7.20.12
@@ -8432,7 +8446,7 @@ snapshots:
       typescript: 4.8.4
       webpack: 5.76.1(esbuild@0.17.8)
       webpack-dev-middleware: 6.1.2(webpack@5.76.1(esbuild@0.17.8))
-      webpack-dev-server: 4.11.1(webpack@5.76.1)
+      webpack-dev-server: 4.11.1(webpack@5.76.1(esbuild@0.17.8))
       webpack-merge: 5.8.0
       webpack-subresource-integrity: 5.1.0(webpack@5.76.1(esbuild@0.17.8))
     optionalDependencies:
@@ -8453,12 +8467,12 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@angular-devkit/build-webpack@0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1))(webpack@5.76.1(esbuild@0.17.8))':
+  '@angular-devkit/build-webpack@0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)))(webpack@5.76.1(esbuild@0.17.8))':
     dependencies:
       '@angular-devkit/architect': 0.1502.11(chokidar@3.5.3)
       rxjs: 6.6.7
       webpack: 5.76.1(esbuild@0.17.8)
-      webpack-dev-server: 4.11.1(webpack@5.76.1)
+      webpack-dev-server: 4.11.1(webpack@5.76.1(esbuild@0.17.8))
     transitivePeerDependencies:
       - chokidar
 
@@ -9508,23 +9522,23 @@ snapshots:
     dependencies:
       '@cloudflare/realtimekit-ui': 1.0.5
 
-  '@cloudflare/realtimekit-react-ui@1.0.6-staging.7':
+  '@cloudflare/realtimekit-react-ui@1.0.6':
     dependencies:
-      '@cloudflare/realtimekit-ui': 1.0.6-staging.7
+      '@cloudflare/realtimekit-ui': 1.0.6
 
   '@cloudflare/realtimekit-react@1.1.7(react@18.3.1)':
     dependencies:
       '@cloudflare/realtimekit': 1.1.7
       react: 18.3.1
 
-  '@cloudflare/realtimekit-react@1.2.0-staging.22(react@18.3.1)':
+  '@cloudflare/realtimekit-react@1.2.0(react@18.3.1)':
     dependencies:
-      '@cloudflare/realtimekit': 1.2.0-staging.22
+      '@cloudflare/realtimekit': 1.2.0
       react: 18.3.1
 
-  '@cloudflare/realtimekit-recording-sdk@0.0.1(@cloudflare/realtimekit@1.2.0-staging.22)':
+  '@cloudflare/realtimekit-recording-sdk@0.0.1(@cloudflare/realtimekit@1.2.0)':
     dependencies:
-      '@cloudflare/realtimekit': 1.2.0-staging.22
+      '@cloudflare/realtimekit': 1.2.0
 
   '@cloudflare/realtimekit-ui-addons@0.0.4(@cloudflare/realtimekit-ui@1.0.5)(@cloudflare/realtimekit@1.1.7)':
     dependencies:
@@ -9532,10 +9546,10 @@ snapshots:
       '@cloudflare/realtimekit-ui': 1.0.5
       '@cloudflare/realtimekit-virtual-background': 0.0.2
 
-  '@cloudflare/realtimekit-ui-addons@0.0.4(@cloudflare/realtimekit-ui@1.0.6-staging.7)(@cloudflare/realtimekit@1.2.0-staging.22)':
+  '@cloudflare/realtimekit-ui-addons@0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)':
     dependencies:
-      '@cloudflare/realtimekit': 1.2.0-staging.22
-      '@cloudflare/realtimekit-ui': 1.0.6-staging.7
+      '@cloudflare/realtimekit': 1.2.0
+      '@cloudflare/realtimekit-ui': 1.0.6
       '@cloudflare/realtimekit-virtual-background': 0.0.2
 
   '@cloudflare/realtimekit-ui@1.0.5':
@@ -9546,7 +9560,7 @@ snapshots:
       lodash-es: 4.17.21
       resize-observer-polyfill: 1.5.1
 
-  '@cloudflare/realtimekit-ui@1.0.6-staging.7':
+  '@cloudflare/realtimekit-ui@1.0.6':
     dependencies:
       '@floating-ui/dom': 1.7.4
       hark: 1.2.3
@@ -9564,7 +9578,7 @@ snapshots:
       uuid: 8.3.2
       worker-timers: 7.0.60
 
-  '@cloudflare/realtimekit@1.2.0-staging.22':
+  '@cloudflare/realtimekit@1.2.0':
     dependencies:
       '@protobuf-ts/runtime': 2.11.1
       bowser: 2.12.1
@@ -15546,7 +15560,7 @@ snapshots:
 
   web-vitals@2.1.4: {}
 
-  webpack-dev-middleware@5.3.4(webpack@5.76.1):
+  webpack-dev-middleware@5.3.4(webpack@5.76.1(esbuild@0.17.8)):
     dependencies:
       colorette: 2.0.20
       memfs: 3.5.3
@@ -15565,7 +15579,7 @@ snapshots:
     optionalDependencies:
       webpack: 5.76.1(esbuild@0.17.8)
 
-  webpack-dev-server@4.11.1(webpack@5.76.1):
+  webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4
@@ -15595,7 +15609,7 @@ snapshots:
       sockjs: 0.3.24
       spdy: 4.0.2
       webpack: 5.76.1(esbuild@0.17.8)
-      webpack-dev-middleware: 5.3.4(webpack@5.76.1)
+      webpack-dev-middleware: 5.3.4(webpack@5.76.1(esbuild@0.17.8))
       ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil

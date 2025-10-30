@@ -41,11 +41,11 @@ EXAMPLES_DIR="$SCRIPT_DIR/examples"
 
 # Get latest package versions
 print_info "Fetching latest package versions..."
-REALTIMEKIT_VERSION=$(echo "1.2.0-staging.22" || npm view "@cloudflare/realtimekit" version 2>/dev/null || echo "1.1.5")
-REALTIMEKIT_REACT_VERSION=$(echo "1.2.0-staging.22" || npm view "@cloudflare/realtimekit-react" version 2>/dev/null || echo "1.1.5")
-REALTIMEKIT_REACT_UI_VERSION=$(echo "1.0.6-staging.7" || npm view "@cloudflare/realtimekit-react-ui" version 2>/dev/null || echo "1.0.4")
-REALTIMEKIT_UI_VERSION=$(echo "1.0.6-staging.7" || npm view "@cloudflare/realtimekit-ui" version 2>/dev/null || echo "1.0.4")
-REALTIMEKIT_UI_ADDONS_VERSION=$(echo "0.0.4" || npm view "@cloudflare/realtimekit-ui-addons" version 2>/dev/null || echo "0.0.4")
+REALTIMEKIT_VERSION=$(npm view "@cloudflare/realtimekit" version 2>/dev/null || echo "1.2.0")
+REALTIMEKIT_REACT_VERSION=$(npm view "@cloudflare/realtimekit-react" version 2>/dev/null || echo "1.2.0")
+REALTIMEKIT_REACT_UI_VERSION=$(npm view "@cloudflare/realtimekit-react-ui" version 2>/dev/null || echo "1.0.6")
+REALTIMEKIT_UI_VERSION=$(npm view "@cloudflare/realtimekit-ui" version 2>/dev/null || echo "1.0.6")
+REALTIMEKIT_UI_ADDONS_VERSION=$(npm view "@cloudflare/realtimekit-ui-addons" version 2>/dev/null || echo "0.0.4")
 
 print_info "Using versions:"
 echo "  @cloudflare/realtimekit: $REALTIMEKIT_VERSION"
