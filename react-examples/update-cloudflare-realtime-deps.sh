@@ -37,7 +37,7 @@ fi
 
 # Get script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SAMPLES_DIR="$SCRIPT_DIR/samples"
+SAMPLES_DIR="$SCRIPT_DIR/examples"
 
 # Get latest package versions
 print_info "Fetching latest package versions..."
