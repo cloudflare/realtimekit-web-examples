@@ -1,10 +1,12 @@
 import { Icon } from "../icons";
-
 export interface FileNode {
   name: string;
+  id?: string;
   type: "file" | "folder";
   preset?: string;
-  usecase?: "video" | "audio" | "livestream" | "webinar";
+  githubUrl?: string;
+  docsUrl?: string;
+  usecase?: "video" | "audio" | "livestream" | "webinar" | "all";
   children?: FileNode[];
   content?: string;
 }

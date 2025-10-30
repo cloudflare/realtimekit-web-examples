@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "../logo";
 import type { FileNode } from "./FileTree";
 import { addParticipant, createMeeting } from "../../api";
 import { useNavigate } from "react-router-dom";
+import { Icon } from "../icons";
 
 const Editor = ({
   children,
@@ -32,9 +32,10 @@ const Editor = ({
     const input = formRef.current.querySelector("input");
     input?.focus();
     setTerminalOutput("$ rtk ~\n");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formRef.current, selectedFile]);
 
-  const submit = async () => {
+  const joinMeeting = async () => {
     if (!formRef.current) return;
     const data = new FormData(formRef.current);
     const name = data.get("name") as string;
@@ -85,7 +86,7 @@ const Editor = ({
       setTerminalOutput((prev) => {
         return `${prev}$ rtk ~ <span style="color: green;">✓ auth token generated. Joining meeting...</span>\n`;
       });
-      navigate(`/meeting?token=${data.token}&example=${expanded?.name}`);
+      navigate(`/meeting?token=${data.token}&example=${expanded?.id}`);
     } catch (error: unknown) {
       setTerminalOutput((prev) => {
         return `${prev}$ rtk ~ <span style="color: red;">✗ error: ${
@@ -160,7 +161,7 @@ const Editor = ({
                     <input
                       name="name"
                       type="text"
-                      className="text-white italic border-[1px] light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
+                      className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
                       placeholder="Amelia James"
                     />
                     <span className="text-sm text-lime-800 light:text-lime-600">
@@ -177,7 +178,7 @@ const Editor = ({
                       <input
                         name="meeting-title"
                         type="text"
-                        className="text-white italic border-[1px] light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
+                        className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
                         placeholder="Sprint Retrospective"
                       />
                     </div>
@@ -191,7 +192,7 @@ const Editor = ({
                       <input
                         name="meeting-id"
                         type="text"
-                        className="text-white italic border-[1px] light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
+                        className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
                         placeholder="****-44556"
                       />
                     </div>
@@ -231,10 +232,32 @@ const Editor = ({
 
         {/* Terminal */}
         <div className="grow border-t border-orange-200/20 light:border-amber-400 bg-[#040404] light:bg-slate-800 flex flex-col">
-          <div className="px-4 py-1 border-b border-orange-200/20 light:border-gray-300 bg-[#080808] light:bg-slate-700">
+          <div className="px-4 py-1 border-b border-orange-200/20 light:border-gray-300 bg-[#080808] light:bg-slate-700 flex flex-row items-center justify-between">
             <span className="text-orange-100 light:text-gray-200 text-xs font-semibold">
               Terminal
             </span>
+            <div className="flex flex-row items-center justify-center gap-2">
+              {expanded?.githubUrl && (
+                <a
+                  href={expanded?.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-50 cursor-pointer hover:text-orange-300 transition-colors light:text-neutral-700 light:hover:text-neutral-900"
+                >
+                  <Icon name="github" />
+                </a>
+              )}
+              {expanded?.docsUrl && (
+                <a
+                  href={expanded?.docsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-50 cursor-pointer hover:text-orange-300 transition-colors light:text-neutral-700 light:hover:text-neutral-900"
+                >
+                  <Icon name="docs" />
+                </a>
+              )}
+            </div>
           </div>
           <div className="flex-1 p-4 overflow-auto flex flex-col gap-3">
             <pre
@@ -244,7 +267,7 @@ const Editor = ({
             {selectedFile && (
               <button
                 className="cursor-pointer px-4 py-2 font-mono text-xs bg-orange-900/30 hover:bg-orange-800/40 light:bg-slate-600 light:hover:bg-slate-500 text-orange-100 light:text-gray-100 border border-orange-700/50 light:border-slate-500 rounded transition-colors w-fit"
-                onClick={submit}
+                onClick={joinMeeting}
               >
                 $ join now
               </button>

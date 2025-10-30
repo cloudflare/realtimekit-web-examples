@@ -2,10 +2,13 @@ import type { FileNode } from "../components/editor/FileTree";
 
 const sampleFiles: FileNode[] = [
   {
-    name: "custom-ui",
+    name: "create-your-own-ui",
+    id: "angular-examples/create-your-own-ui",
     type: "folder",
     usecase: "video",
     preset: "",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/create-your-own-ui",
+    docsUrl: "",
     children: [
       {
         name: "create.ts",
@@ -21,63 +24,12 @@ const sampleFiles: FileNode[] = [
   },
   {
     name: "default-meeting",
+    id: "angular-examples/default-meeting-ui",
     type: "folder",
-    usecase: "video",
+    usecase: "all",
     preset: "",
-    children: [
-      {
-        name: "create.ts",
-        type: "file",
-        content: "// creates a new meeting",
-      },
-      {
-        name: "join.ts",
-        type: "file",
-        content: "// joins an existing meeting",
-      },
-    ],
-  },
-  {
-    name: "default-meeting",
-    type: "folder",
-    usecase: "webinar",
-    preset: "",
-    children: [
-      {
-        name: "create.ts",
-        type: "file",
-        content: "// creates a new meeting",
-      },
-      {
-        name: "join.ts",
-        type: "file",
-        content: "// joins an existing meeting",
-      },
-    ],
-  },
-  {
-    name: "default-meeting",
-    type: "folder",
-    usecase: "livestream",
-    preset: "",
-    children: [
-      {
-        name: "create.ts",
-        type: "file",
-        content: "// creates a new meeting",
-      },
-      {
-        name: "join.ts",
-        type: "file",
-        content: "// joins an existing meeting",
-      },
-    ],
-  },
-  {
-    name: "default-meeting",
-    type: "folder",
-    usecase: "audio",
-    preset: "",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examplesdefault-meeting",
+    docsUrl: "",
     children: [
       {
         name: "create.ts",
@@ -93,9 +45,12 @@ const sampleFiles: FileNode[] = [
   },
   {
     name: "background-effects",
+    id: "angular-examples/with-video-transformer",
     type: "folder",
-    usecase: "video",
+    usecase: "all",
     preset: "",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/with-video-transformer",
+    docsUrl: "",
     children: [
       {
         name: "create.ts",
@@ -108,7 +63,7 @@ const sampleFiles: FileNode[] = [
         content: "// joins an existing meeting",
       },
     ],
-  },
+  }
 ];
 
 export default sampleFiles;

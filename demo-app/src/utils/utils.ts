@@ -8,5 +8,5 @@ export const getFiles = (framework: string, usecase: string | null = 'video') =>
     : framework === 'angular' 
     ? angularFiles : vanillaFiles;
 
-    return files.filter((file) => file.usecase === usecase);
+    return files.filter((file) => file.usecase === usecase || file.usecase === "all");
 }

@@ -49,12 +49,12 @@ const Header = ({
 }) => {
   const frameworks: { label: string; id: Framework }[] = [
     {
-      label: "Vanilla",
-      id: "vanilla",
-    },
-    {
       label: "React",
       id: "react",
+    },
+    {
+      label: "Vanilla",
+      id: "vanilla",
     },
     {
       label: "Angular",

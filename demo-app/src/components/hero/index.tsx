@@ -179,7 +179,7 @@ const Hero = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-white flex lg:flex-row flex-col h-full gap-4 px-6 min-h-[80vh]">
+      <div className="relative z-10 text-white flex lg:flex-row flex-col h-full gap-2 px-0 min-h-[80vh]">
         {/* left section */}
         <div className="flex-col gap-4 flex-1 flex lg:items-start items-center justify-center min-h-[40vh]">
           <h1 className="text-4xl font-bold text-orange-50 light:text-neutral-700">

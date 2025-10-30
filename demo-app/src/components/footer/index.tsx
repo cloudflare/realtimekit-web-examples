@@ -26,17 +26,17 @@ const Footer = () => {
             <h3 className="text-orange-50 light:text-neutral-700 text-2xl font-bold">
               RealtimeKit
             </h3>
-            <p className="text-orange-100 light:text-neutral-600 text-sm italic">
+            <p className="text-orange-50 light:text-neutral-700 text-sm italic">
               /ˈriːəltaɪmkɪt/
             </p>
-            <p className="text-orange-100 light:text-neutral-600 text-sm">
+            <p className="text-orange-50 light:text-neutral-700 text-sm">
               noun
             </p>
-            <p className="text-orange-100 light:text-neutral-600 text-sm leading-relaxed">
+            <p className="text-orange-50 light:text-neutral-700 text-sm leading-relaxed">
               A toolkit for building & shipping real-time applications in
               minutes.
             </p>
-            <p className="text-orange-200 light:text-neutral-400 text-sm">
+            <p className="text-neutral-400 light:text-neutral-500 text-sm">
               Copyright © Cloudflare. since 2025. All rights reserved.
             </p>
           </div>
@@ -51,7 +51,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-orange-100 hover:text-orange-200  light:text-neutral-600 light:hover:text-neutral-700 text-sm flex items-center gap-2 transition-colors group"
+                  className="text-orange-50 hover:text-orange-200  light:text-neutral-700 light:hover:text-neutral-900 text-sm flex items-center gap-2 transition-colors group"
                 >
                   <span>{link.label}</span>
                   <svg
@@ -81,7 +81,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-orange-200 hover:text-orange-300 transition-colors light:text-neutral-600 light:hover:text-neutral-700"
+                  className="text-orange-50 hover:text-orange-300 transition-colors light:text-neutral-700 light:hover:text-neutral-900"
                 >
                   <Icon name={social.name} size={22} />
                 </a>
