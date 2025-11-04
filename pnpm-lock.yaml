@@ -544,6 +544,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      resize-observer-polyfill:
+        specifier: ^1.5.1
+        version: 1.5.1
       zustand:
         specifier: ^4.4.1
         version: 4.5.7(@types/react@18.3.26)(react@18.3.1)
@@ -8322,7 +8325,7 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.2.0
       '@angular-devkit/architect': 0.1502.11(chokidar@3.5.3)
-      '@angular-devkit/build-webpack': 0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1))(webpack@5.76.1(esbuild@0.17.8))
+      '@angular-devkit/build-webpack': 0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)))(webpack@5.76.1(esbuild@0.17.8))
       '@angular-devkit/core': 15.2.11(chokidar@3.5.3)
       '@angular/compiler-cli': 15.2.10(@angular/compiler@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(typescript@4.8.4)
       '@babel/core': 7.20.12
@@ -8379,7 +8382,7 @@ snapshots:
       typescript: 4.8.4
       webpack: 5.76.1(esbuild@0.17.8)
       webpack-dev-middleware: 6.1.2(webpack@5.76.1(esbuild@0.17.8))
-      webpack-dev-server: 4.11.1(webpack@5.76.1)
+      webpack-dev-server: 4.11.1(webpack@5.76.1(esbuild@0.17.8))
       webpack-merge: 5.8.0
       webpack-subresource-integrity: 5.1.0(webpack@5.76.1(esbuild@0.17.8))
     optionalDependencies:
@@ -8400,12 +8403,12 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@angular-devkit/build-webpack@0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1))(webpack@5.76.1(esbuild@0.17.8))':
+  '@angular-devkit/build-webpack@0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)))(webpack@5.76.1(esbuild@0.17.8))':
     dependencies:
       '@angular-devkit/architect': 0.1502.11(chokidar@3.5.3)
       rxjs: 6.6.7
       webpack: 5.76.1(esbuild@0.17.8)
-      webpack-dev-server: 4.11.1(webpack@5.76.1)
+      webpack-dev-server: 4.11.1(webpack@5.76.1(esbuild@0.17.8))
     transitivePeerDependencies:
       - chokidar
 
@@ -15401,7 +15404,7 @@ snapshots:
 
   web-vitals@2.1.4: {}
 
-  webpack-dev-middleware@5.3.4(webpack@5.76.1):
+  webpack-dev-middleware@5.3.4(webpack@5.76.1(esbuild@0.17.8)):
     dependencies:
       colorette: 2.0.20
       memfs: 3.5.3
@@ -15420,7 +15423,7 @@ snapshots:
     optionalDependencies:
       webpack: 5.76.1(esbuild@0.17.8)
 
-  webpack-dev-server@4.11.1(webpack@5.76.1):
+  webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4
@@ -15450,7 +15453,7 @@ snapshots:
       sockjs: 0.3.24
       spdy: 4.0.2
       webpack: 5.76.1(esbuild@0.17.8)
-      webpack-dev-middleware: 5.3.4(webpack@5.76.1)
+      webpack-dev-middleware: 5.3.4(webpack@5.76.1(esbuild@0.17.8))
       ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
