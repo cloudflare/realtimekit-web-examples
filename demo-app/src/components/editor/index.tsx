@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Logo } from "../logo";
 import type { FileNode } from "./FileTree";
 import { addParticipant, createMeeting } from "../../api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Icon } from "../icons";
 
 const Editor = ({
@@ -19,11 +19,13 @@ const Editor = ({
   ) => React.ReactNode;
   usecase: string;
 }) => {
+  const [search] = useSearchParams();
   const formRef = useRef<HTMLFormElement>(null);
   const [expanded, setExpanded] = useState<FileNode | null>();
   const [selectedFile, setSelectedFile] = useState<FileNode | null | undefined>(
     null
   );
+  const mode = search.get("mode") ?? "editor";
   const [terminalOutput, setTerminalOutput] = useState<string>("$ rtk ~\n");
   const navigate = useNavigate();
 
@@ -39,6 +41,12 @@ const Editor = ({
     if (!formRef.current) return;
     const data = new FormData(formRef.current);
     const name = data.get("name") as string;
+    const token = data.get("token") as string;
+    if (token) {
+      navigate(`/meeting?authToken=${token}&url=${expanded?.url}`);
+      return;
+    }
+
     const meetingName = data.get("meeting-title") as string;
     let meetingId = data.get("meeting-id") as string;
 
@@ -86,7 +94,7 @@ const Editor = ({
       setTerminalOutput((prev) => {
         return `${prev}$ rtk ~ <span style="color: green;">✓ auth token generated. Joining meeting...</span>\n`;
       });
-      navigate(`/meeting?token=${data.token}&url=${expanded?.url}`);
+      navigate(`/meeting?authToken=${data.token}&url=${expanded?.url}`);
     } catch (error: unknown) {
       setTerminalOutput((prev) => {
         return `${prev}$ rtk ~ <span style="color: red;">✗ error: ${
@@ -126,100 +134,169 @@ const Editor = ({
         {/* Code Editor */}
         <div className="flex-1 p-4 overflow-auto min-h-0">
           {selectedFile ? (
-            <form ref={formRef}>
-              <div className="font-mono text-white light:text-gray-500">
-                <div>
-                  <span className="text-gray-600 text-sm mr-2">1. </span>
-                  <span className="text-sm text-lime-800 light:text-lime-600">
-                    {selectedFile.content}
-                  </span>
-                </div>
-                <div className="text-sm gap-1 flex flex-col">
+            mode === "editor" ? (
+              <form ref={formRef}>
+                <div className="font-mono text-white light:text-gray-500">
                   <div>
-                    <span className="text-gray-600 text-sm mr-2">2. </span>
-                    <span className="text-blue-400/60 light:text-blue-600">
-                      const{" "}
-                    </span>
-                    <span className="text-blue-400/80 light:text-blue-500">
-                      meeting
-                    </span>{" "}
-                    ={" "}
-                    <span className="text-blue-400/80 light:text-blue-500">
-                      RealtimeKitClient
-                    </span>
-                    .
-                    <span className="text-amber-200/80 light:text-amber-600">
-                      config(
-                    </span>
-                    <span className="text-fuchsia-300 light:text-fuchsia-700">{`{`}</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-600 text-sm mr-2">3. </span>
-                    <span className="text-cyan-200/80 light:text-cyan-600">
-                      &ensp; name:{" "}
-                    </span>
-                    <input
-                      name="name"
-                      type="text"
-                      className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
-                      placeholder="Amelia James"
-                    />
+                    <span className="text-gray-600 text-sm mr-2">1. </span>
                     <span className="text-sm text-lime-800 light:text-lime-600">
-                      {" "}
-                      // input name here
+                      {selectedFile.content}
                     </span>
                   </div>
-                  {selectedFile.name.includes("create") && (
+                  <div className="text-sm gap-1 flex flex-col">
                     <div>
-                      <span className="text-gray-600 text-sm mr-2">4. </span>
+                      <span className="text-gray-600 text-sm mr-2">2. </span>
+                      <span className="text-blue-400/60 light:text-blue-600">
+                        const{" "}
+                      </span>
+                      <span className="text-blue-400/80 light:text-blue-500">
+                        meeting
+                      </span>{" "}
+                      ={" "}
+                      <span className="text-blue-400/80 light:text-blue-500">
+                        RealtimeKitClient
+                      </span>
+                      .
+                      <span className="text-amber-200/80 light:text-amber-600">
+                        config(
+                      </span>
+                      <span className="text-fuchsia-300 light:text-fuchsia-700">{`{`}</span>
+                    </div>
+                    <div>
+                      <span className="text-gray-600 text-sm mr-2">3. </span>
                       <span className="text-cyan-200/80 light:text-cyan-600">
-                        &ensp; meeting-title:{" "}
+                        &ensp; name:{" "}
                       </span>
                       <input
-                        name="meeting-title"
+                        name="name"
                         type="text"
                         className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
-                        placeholder="Sprint Retrospective"
+                        placeholder="Amelia James"
                       />
-                    </div>
-                  )}
-                  {selectedFile.name.includes("join") && (
-                    <div>
-                      <span className="text-gray-600 text-sm mr-2">4. </span>
-                      <span className="text-cyan-200/80 light:text-cyan-600">
-                        &ensp; meeting-id:{" "}
+                      <span className="text-sm text-lime-800 light:text-lime-600">
+                        {" "}
+                        // input name here
                       </span>
-                      <input
-                        name="meeting-id"
-                        type="text"
-                        className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
-                        placeholder="****-44556"
-                      />
                     </div>
-                  )}
-                  <div>
-                    <span className="text-gray-600 text-sm mr-2">5. </span>
-                    <span className="text-fuchsia-300 light:text-fuchsia-700">{`}`}</span>
-                    <span className="text-amber-200/80 light:text-amber-600">
-                      )
-                    </span>
-                    ;
-                  </div>
-                  <div>
-                    <span className="text-gray-600 text-sm mr-2">6. </span>
-                    <span className="text-blue-400/80 light:text-blue-500">
-                      meeting
-                    </span>
-                    .
-                    <span className="text-amber-200/80 light:text-amber-600">
-                      join
-                    </span>
-                    <span className="text-fuchsia-300 light:text-fuchsia-700">{`()`}</span>
-                    ;
+                    {selectedFile.name.includes("create") && (
+                      <div>
+                        <span className="text-gray-600 text-sm mr-2">4. </span>
+                        <span className="text-cyan-200/80 light:text-cyan-600">
+                          &ensp; meeting-title:{" "}
+                        </span>
+                        <input
+                          name="meeting-title"
+                          type="text"
+                          className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
+                          placeholder="Sprint Retrospective"
+                        />
+                      </div>
+                    )}
+                    {selectedFile.name.includes("join") && (
+                      <div>
+                        <span className="text-gray-600 text-sm mr-2">4. </span>
+                        <span className="text-cyan-200/80 light:text-cyan-600">
+                          &ensp; meeting-id:{" "}
+                        </span>
+                        <input
+                          name="meeting-id"
+                          type="text"
+                          className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
+                          placeholder="****-44556"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <span className="text-gray-600 text-sm mr-2">5. </span>
+                      <span className="text-fuchsia-300 light:text-fuchsia-700">{`}`}</span>
+                      <span className="text-amber-200/80 light:text-amber-600">
+                        )
+                      </span>
+                      ;
+                    </div>
+                    <div>
+                      <span className="text-gray-600 text-sm mr-2">6. </span>
+                      <span className="text-blue-400/80 light:text-blue-500">
+                        meeting
+                      </span>
+                      .
+                      <span className="text-amber-200/80 light:text-amber-600">
+                        join
+                      </span>
+                      <span className="text-fuchsia-300 light:text-fuchsia-700">{`()`}</span>
+                      ;
+                    </div>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            ) : (
+              <form ref={formRef}>
+                <div className="font-mono text-white light:text-gray-500">
+                  <div>
+                    <span className="text-gray-600 text-sm mr-2">1. </span>
+                    <span className="text-sm text-lime-800 light:text-lime-600">
+                      {selectedFile.content}
+                    </span>
+                  </div>
+                  <div className="text-sm gap-1 flex flex-col">
+                    <div>
+                      <span className="text-gray-600 text-sm mr-2">2. </span>
+                      <span className="text-blue-400/60 light:text-blue-600">
+                        const{" "}
+                      </span>
+                      <span className="text-blue-400/80 light:text-blue-500">
+                        meeting
+                      </span>{" "}
+                      ={" "}
+                      <span className="text-blue-400/80 light:text-blue-500">
+                        RealtimeKitClient
+                      </span>
+                      .
+                      <span className="text-amber-200/80 light:text-amber-600">
+                        config(
+                      </span>
+                      <span className="text-fuchsia-300 light:text-fuchsia-700">{`{`}</span>
+                    </div>
+                    <div>
+                      <span className="text-gray-600 text-sm mr-2">3. </span>
+                      <span className="text-cyan-200/80 light:text-cyan-600">
+                        &ensp; authToken:{" "}
+                      </span>
+                      <input
+                        name="token"
+                        type="text"
+                        className="text-white italic border light:border-gray-300 border-gray-800 light:text-gray-600 text-sm placeholder:text-gray-600 cursor-text focus:outline-none bg-gray-900 light:bg-gray-200 px-1 py-0.5"
+                        placeholder="***5ergvfd"
+                      />
+                      <span className="text-sm text-lime-800 light:text-lime-600">
+                        {" "}
+                        // input auth token here
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-gray-600 text-sm mr-2">4. </span>
+                      <span className="text-fuchsia-300 light:text-fuchsia-700">{`}`}</span>
+                      <span className="text-amber-200/80 light:text-amber-600">
+                        )
+                      </span>
+                      ;
+                    </div>
+                    <div>
+                      <span className="text-gray-600 text-sm mr-2">5. </span>
+                      <span className="text-blue-400/80 light:text-blue-500">
+                        meeting
+                      </span>
+                      .
+                      <span className="text-amber-200/80 light:text-amber-600">
+                        join
+                      </span>
+                      <span className="text-fuchsia-300 light:text-fuchsia-700">{`()`}</span>
+                      ;
+                    </div>
+                  </div>
+                </div>
+              </form>
+            )
           ) : (
             <div className="flex items-center flex-col gap-4 justify-center h-full text-orange-200 light:text-gray-500 text-sm">
               <Logo size={60} className="text-orange-500 light:fill-none" />
