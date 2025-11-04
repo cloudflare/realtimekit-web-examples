@@ -2,8 +2,6 @@
   "name": "realtimekit-web-examples-monorepo",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter demo-app build",
-    "start": "pnpm --filter demo-app dev",
     "install-all": "pnpm -r install &&",
     "preinstall": "npx only-allow pnpm"
   },
