@@ -23,24 +23,9 @@
     background-color: #000000;
   }
 
-  /* Custom Scrollbar Styles - Dark Theme */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(113, 113, 113, 0.5) rgba(67, 67, 67, 0.5);
-  }
-
-  *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: rgba(72, 72, 72, 0.5);
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background: rgba(99, 99, 99, 0.5);
-    border-radius: 4px;
+    scrollbar-color: rgba(2, 2, 2, 0.5) rgba(142, 141, 141, 0.5);
   }
 }
 

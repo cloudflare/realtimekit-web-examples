@@ -6,10 +6,11 @@ import { getFiles } from "../../utils/utils";
 
 const VanillaExamples = () => {
   const [searchParams] = useSearchParams();
-  const usecaseParam = searchParams.get("usecase");
+  const usecaseParam = searchParams.get("usecase") ?? "video";
+  const mode = searchParams.get("mode") ?? "editor";
   const files = useMemo(() => {
-    return getFiles("vanilla", usecaseParam);
-  }, [usecaseParam]);
+    return getFiles("vanilla", usecaseParam, mode);
+  }, [usecaseParam, mode]);
   return (
     <div className="w-full h-full">
       <Hero>
