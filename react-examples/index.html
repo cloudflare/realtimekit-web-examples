@@ -3,99 +3,26 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React Examples - Cloudflare Realtime Kit</title>
+    <title>RealtimeKit - React Examples</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        html, body {
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5; /* Light gray background */
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align to top */
-            min-height: 100vh;
-            padding-top: 40px; /* Add some padding at the top */
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
         }
-        #root {
-            background-color: #ffffff; /* White card background */
-            padding: 30px 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 700px;
-        }
-        h1 {
-            color: #f38020; /* Cloudflare Orange */
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-            font-weight: 600;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        iframe {
+            display: block;
             margin: 0;
-        }
-        li {
-            margin-bottom: 15px;
-            border-bottom: 1px solid #e0e0e0; /* Light separator line */
-            padding-bottom: 15px;
-        }
-        li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        a {
-            text-decoration: none;
-            color: #0053a0; /* Cloudflare Blue */
-            font-size: 18px;
-            font-weight: 500;
-            display: block; /* Make the whole area clickable */
-            padding: 8px 0;
-            transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
-        }
-        a:hover {
-            color: #f38020; /* Cloudflare Orange on hover */
-            transform: translateX(5px);
-        }
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            #root {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            a {
-                font-size: 16px;
-            }
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <div id="root">
-        <h1>Cloudflare RealtimeKit React Examples</h1>
-        <ul>
-            <li><a href="/examples/active-speaker-ui/dist">Active Speaker UI</a></li>
-            <li><a href="/examples/async-video-survey/dist">Async Video Survey</a></li>
-            <li><a href="/examples/audio-room/dist">Audio Room</a></li>
-            <li><a href="/examples/chat/dist">Chat</a></li>
-            <li><a href="/examples/chat-widget/dist">Chat Widget</a></li>
-            <li><a href="/examples/clubhouse/dist">Clubhouse</a></li>
-            <li><a href="/examples/create-your-own-ui/dist">Create Your Own UI</a></li>
-            <li><a href="/examples/default-meeting-ui/dist">Default Meeting UI</a></li>
-            <li><a href="/examples/facetime/dist">Facetime</a></li>
-            <li><a href="/examples/live-auction/dist">Live Auction</a></li>
-            <li><a href="/examples/back-to-back-meetings/dist">Back-to-Back Meetings</a></li>
-            <li><a href="/examples/multi-meeting/dist">Multiple Meeting UI</a></li>
-            <li><a href="/examples/multi-meeting-custom/dist">Multiple Meeting UI with Custom UI</a></li>
-            <li><a href="/examples/screenshare-focused-ui-with-custom-addons/dist">Screenshare Focused UI with Custom Addons</a></li>
-            <li><a href="/examples/simple-group-call/dist">Simple Group Call</a></li>
-            <li><a href="/examples/simple-ui/dist">Simple UI</a></li>
-            <li><a href="/examples/with-background-transformer/dist">With Background Transformer</a></li>
-        </ul>
-    </div>
+    <iframe data-theme="dark" src="https://examples-120.pages.dev/react?mode=token"></iframe>
 </body>
 </html>
