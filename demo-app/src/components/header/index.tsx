@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Logo } from "../logo";
 import { sketchyProvider } from "../sketchy/sketchyProvider";
 import { Icon } from "../icons";
+import { useSearchParams } from "react-router-dom";
 
 // Create wrapped components with sketchy borders
 const NavItem = ({
   children,
+  className,
   onClick,
 }: {
   children: React.ReactNode;
+  className?: string;
   onClick?: () => void;
 }) => (
   <span
-    className="cursor-pointer text-[#858181] light:text-gray-700 px-3 py-5 text-sm"
+    className={`cursor-pointer text-[#858181] light:text-gray-700 px-3 py-5 text-sm ${className}`}
     onClick={onClick}
   >
     {children}
@@ -25,14 +28,6 @@ const SketchyNavItem = sketchyProvider(NavItem, {
   strokeWidth: 2,
   roughness: 0.5,
 });
-
-// // Circular border
-// const SketchyNavItem = sketchyProvider(NavItem, {
-//   type: "circle",
-//   color: "#fed7aa",
-//   strokeWidth: 1,
-//   roughness: 0.5,
-// });
 
 type Framework = "vanilla" | "react" | "angular";
 
@@ -47,20 +42,29 @@ const Header = ({
   theme: "dark" | "light";
   setTheme: (theme: "dark" | "light") => void;
 }) => {
-  const frameworks: { label: string; id: Framework }[] = [
-    {
-      label: "React",
-      id: "react",
-    },
-    {
-      label: "Vanilla",
-      id: "vanilla",
-    },
-    {
-      label: "Angular",
-      id: "angular",
-    },
-  ];
+  const [search] = useSearchParams();
+  const mode = search.get("mode") ?? "editor";
+  const frameworks = useMemo<
+    { label: string; id: Framework; disabled: boolean }[]
+  >(() => {
+    return [
+      {
+        label: "React",
+        id: "react",
+        disabled: mode === "token" && selected !== "react",
+      },
+      {
+        label: "Vanilla",
+        id: "vanilla",
+        disabled: mode === "token" && selected !== "vanilla",
+      },
+      {
+        label: "Angular",
+        id: "angular",
+        disabled: mode === "token" && selected !== "angular",
+      },
+    ];
+  }, [mode, selected]);
 
   return (
     <div
@@ -76,7 +80,14 @@ const Header = ({
           return <SketchyNavItem key={el.id}>{el.label}</SketchyNavItem>;
         }
         return (
-          <NavItem key={el.id} onClick={() => setSelected(el.id)}>
+          <NavItem
+            className={`${el.disabled ? "opacity-40" : ""}`}
+            key={el.id}
+            onClick={() => {
+              if (el.disabled) return;
+              setSelected(el.id);
+            }}
+          >
             {el.label}
           </NavItem>
         );
