@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prepare": "./prepare.sh",
     "dev": "vite",
     "build": "tsc -b && npm run prepare && vite build",
     "lint": "eslint .",

@@ -2,6 +2,7 @@ import { Icon } from "../icons";
 export interface FileNode {
   name: string;
   id?: string;
+  url?: string;
   type: "file" | "folder";
   preset?: string;
   githubUrl?: string;

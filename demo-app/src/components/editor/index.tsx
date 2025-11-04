@@ -86,7 +86,7 @@ const Editor = ({
       setTerminalOutput((prev) => {
         return `${prev}$ rtk ~ <span style="color: green;">✓ auth token generated. Joining meeting...</span>\n`;
       });
-      navigate(`/meeting?token=${data.token}&example=${expanded?.id}`);
+      navigate(`/meeting?token=${data.token}&url=${expanded?.url}`);
     } catch (error: unknown) {
       setTerminalOutput((prev) => {
         return `${prev}$ rtk ~ <span style="color: red;">✗ error: ${

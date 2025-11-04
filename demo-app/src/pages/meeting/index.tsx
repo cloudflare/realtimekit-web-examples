@@ -7,10 +7,8 @@ type LoadingState = "loaded" | "loading" | "errored";
 const Meeting = () => {
   const [search] = useSearchParams();
   const token = search.get("token");
-  const example = search.get("example");
+  const url = search.get("url") ?? "";
   const [loadingState, setLoadingState] = useState<LoadingState>("loading");
-
-  const url = `${window.location.origin}/${example}/index.html?authToken=${token}`;
 
   const isValidUrl = async () => {
     try {
@@ -37,7 +35,7 @@ const Meeting = () => {
     );
   }
 
-  if (!token || !example || loadingState === "errored") {
+  if (!token || !url || loadingState === "errored") {
     return (
       <div className="dots-background w-full min-h-screen flex flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
         <h1 className="text-xl font-bold gap-2 text-orange-100 light:text-gray-900 flex items-center justify-center">
@@ -45,7 +43,7 @@ const Meeting = () => {
         </h1>
         <pre className="bg-orange-900/20 border border-orange-700/20 p-2 rounded text-sm">
           Error: {!token && "missing authentication token. "}
-          {!example && "missing example name."}
+          {!url && "missing example url."}
           {loadingState === "errored" &&
             "The example you are trying to run does not exist."}
         </pre>
