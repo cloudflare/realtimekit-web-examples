@@ -25,8 +25,9 @@ find "$EXAMPLES_DIR" -mindepth 1 -maxdepth 1 -type d | while read example_dir_pa
     if [ -d "$source_dist_path" ]; then
         echo "Found $source_dist_path for example: $example_name"
         echo "Moving $source_dist_path to $destination_example_path"
-        # Move the examples/example_name/dist directory to dist/example_name
-        cp -r "$source_dist_path" "$destination_example_path"
+        # Copy the contents of examples/example_name/dist to dist/example_name
+        mkdir -p "$destination_example_path"
+        cp -r "$source_dist_path/"* "$destination_example_path/"
     else
         echo "No dist directory found in $example_dir_path (for example $example_name). Skipping."
     fi

@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "update-cloudflare-realtime-deps": "./update-cloudflare-realtime-deps.sh",
-    "build": "npm run build --workspaces --if-present && npm run postbuild",
+    "build": "npm run build --workspaces --if-present",
     "postbuild": "./postbuild.sh",
     "format": "prettier -w .",
     "deploy": "wrangler pages deploy ./dist"
