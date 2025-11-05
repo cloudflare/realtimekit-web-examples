@@ -17,7 +17,11 @@ export default {
 		}
 		
 		// For all other routes (404s), serve index.html for client-side routing
-		const indexRequest = new Request(new URL('/', url), request);
+		const indexUrl = new URL('/', url.origin);
+		const indexRequest = new Request(indexUrl.toString(), {
+			method: request.method,
+			headers: request.headers,
+		});
 		return env.ASSETS.fetch(indexRequest);
 	},
 };
