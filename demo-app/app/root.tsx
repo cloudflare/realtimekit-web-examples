@@ -9,7 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./index.css";
-import "./app.css";
+import "./App.css";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const links: Route.LinksFunction = () => [

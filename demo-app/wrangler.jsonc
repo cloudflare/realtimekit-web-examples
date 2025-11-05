@@ -1,7 +1,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "examples",
-  "main": "./workers/app.ts",
+  "main": "./build/server/index.js",
+  "assets": {
+    "directory": "./build/client"
+  },
   "compatibility_date": "2024-01-01",
   "observability": {
     "enabled": false,
