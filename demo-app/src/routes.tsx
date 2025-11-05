@@ -1,4 +1,5 @@
 // src/routes.tsx
+import React from "react";
 import { type RouteObject } from "react-router-dom";
 import Layout from "./layout";
 import VanillaExample from "./pages/vanilla";
