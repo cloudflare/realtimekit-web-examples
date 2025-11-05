@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - fix/new-demo-app
+    paths:
+      - 'demo-app/**'
 
 jobs:
   deploy:
@@ -32,7 +34,7 @@ jobs:
 
       - name: Build
         run: pnpm run build
-        working-directory: ./
+        working-directory: ./demo-app
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
@@ -40,5 +42,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4.42.1'
-          command: pages deploy ./dist --project-name=demo-app
+          command: pages deploy ./dist --project-name=realtimekit-demo-app
           workingDirectory: ./demo-app
