@@ -1,7 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "html-examples",
-  "main": "dist/index.html",
   "assets": {
     "directory": "dist"
   },
