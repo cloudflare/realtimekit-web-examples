@@ -25,3 +25,6 @@ dist-ssr
 react-examples
 angular-examples
 html-examples
+
+.wrangler
+.react-router

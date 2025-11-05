@@ -1,11 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "examples",
-  "main": "./build/server/index.js",
-  "assets": {
-    "directory": "./build/client"
-  },
+  "main": "./workers/app.ts",
   "compatibility_date": "2024-01-01",
+  "assets": {
+    "directory": "./build/client",
+    "binding": "ASSETS"
+  },
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,
