@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "react-examples",
+	"name": "demo-app",
 	"main": "dist/index.html",
 	"assets": {
 		"directory": "dist"

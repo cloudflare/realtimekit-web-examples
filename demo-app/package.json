@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "wrangler pages deploy ./dist"
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
    "react": "^18.2.0",

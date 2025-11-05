@@ -4,7 +4,7 @@
     "format": "prettier -w examples",
     "build": "npm run postbuild",
     "postbuild": "./postbuild.sh",
-    "deploy": "wrangler pages deploy ./dist"
+    "deploy": "wrangler deploy"
   },
   "prettier": {
     "singleQuote": true,

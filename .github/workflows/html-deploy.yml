@@ -36,11 +36,11 @@ jobs:
         run: pnpm run build
         working-directory: ./html-examples
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4.42.1'
-          command: pages deploy ./dist --project-name=realtimekit-html-examples
+          command: deploy
           workingDirectory: ./html-examples
