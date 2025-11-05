@@ -27,7 +27,7 @@ const Meeting = () => {
 
   if (loadingState === "loading") {
     return (
-      <div className="dots-background w-full min-h-screen flex flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
+      <div className="w-full min-h-screen flex flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
         <pre className="bg-orange-900/20 border border-orange-700/20 p-2 rounded text-sm">
           Loading...
         </pre>
@@ -37,7 +37,7 @@ const Meeting = () => {
 
   if (!token || !url || loadingState === "errored") {
     return (
-      <div className="dots-background w-full min-h-screen flex flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
+      <div className="w-full min-h-screen flex flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
         <h1 className="text-xl font-bold gap-2 text-orange-100 light:text-gray-900 flex items-center justify-center">
           Uh Oh! Invalid Meeting URL
         </h1>
