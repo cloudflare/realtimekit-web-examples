@@ -1,4 +1,4 @@
-// src/routes.tsx
+// @ts-expect-error - NOTE(ikabra): React is needed for JSX transformation in Workers build
 import React from "react";
 import { type RouteObject } from "react-router-dom";
 import Layout from "./layout";
