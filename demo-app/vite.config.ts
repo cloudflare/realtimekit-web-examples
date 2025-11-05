@@ -1,15 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { reactRouter } from "@react-router/dev/vite";
+import { cloudflare } from "@cloudflare/vite-plugin";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [react()],
-  build: {
-    rollupOptions: {
-      input: './src/entry-client.tsx',
-    },
-    outDir: 'dist/client',
-  },
-  ssr: {
-    noExternal: ['react-router', 'react-router-dom'],
-  },
+  plugins: [
+    tailwindcss(),
+    reactRouter(),
+    cloudflare(),
+    tsconfigPaths(),
+  ],
 });

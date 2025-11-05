@@ -1,0 +1,1 @@
+@keyframes pill-pop{0%,to{opacity:.3;transform:scale(1)}50%{opacity:.7;transform:scale(1.05)}}.animate-pill-pop{animation:pill-pop 4s ease-in-out infinite}

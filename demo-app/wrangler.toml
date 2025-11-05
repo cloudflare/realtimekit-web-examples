@@ -1,6 +1,0 @@
-name = "my-react-router-app"
-main = "dist/worker.js"
-compatibility_date = "2024-05-01"
-
-[site]
-bucket = "./dist/client"
