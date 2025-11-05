@@ -1,6 +1,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "demo-app",
+	"main": "src/worker.ts",
 	"assets": {
 		"directory": "dist"
 	},
