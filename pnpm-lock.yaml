@@ -13,6 +13,10 @@ importers:
         version: 7.33.7
 
   angular-examples:
+    dependencies:
+      '@cloudflare/kv-asset-handler':
+        specifier: ^0.4.0
+        version: 0.4.0
     devDependencies:
       prettier:
         specifier: ^2.8.0
@@ -354,6 +358,9 @@ importers:
 
   html-examples:
     dependencies:
+      '@cloudflare/kv-asset-handler':
+        specifier: ^0.4.0
+        version: 0.4.0
       serve:
         specifier: ^14.1.2
         version: 14.2.5
