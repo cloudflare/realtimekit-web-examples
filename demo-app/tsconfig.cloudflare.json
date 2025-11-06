@@ -6,8 +6,7 @@
     "app/**/.server/**/*",
     "app/**/.client/**/*",
     "workers/**/*",
-    "worker-configuration.d.ts",
-    "build/server/**/*"
+    "worker-configuration.d.ts"
   ],
   "compilerOptions": {
     "composite": true,
@@ -24,8 +23,6 @@
       "~/*": ["./app/*"]
     },
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "noEmit": true
+    "resolveJsonModule": true
   }
 }

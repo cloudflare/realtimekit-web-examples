@@ -1,5 +1,4 @@
-import { createRequestHandler, type ServerBuild } from "react-router";
-import * as build from "../build/server/index.js";
+import { createRequestHandler } from "react-router";
 
 declare module "react-router" {
   export interface AppLoadContext {
@@ -10,16 +9,13 @@ declare module "react-router" {
   }
 }
 
-const requestHandler = createRequestHandler(build as unknown as ServerBuild, "production");
+const requestHandler = createRequestHandler(
+  () => import("virtual:react-router/server-build"),
+  import.meta.env.MODE
+);
 
 export default {
   async fetch(request, env, ctx) {
-    // Handle static assets first
-    const url = new URL(request.url);
-    if (url.pathname.startsWith("/assets/") || url.pathname === "/favicon.ico") {
-      return env.ASSETS.fetch(request);
-    }
-
     return requestHandler(request, {
       cloudflare: { env, ctx },
     });

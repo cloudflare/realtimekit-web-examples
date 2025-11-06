@@ -4,11 +4,14 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
+  optimizeDeps: {
+    exclude: ["virtual:react-router/server-build"],
+  },
   plugins: [
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
     tailwindcss(),
     reactRouter(),
-    ...(mode === "development" ? [cloudflare({ persistState: true })] : []),
     tsconfigPaths(),
   ],
-}));
+});

@@ -42,7 +42,7 @@ export default function Layout() {
           setTheme={setTheme}
         />
       )}
-      <Outlet /> {/* Render child route here */}
+      <Outlet />
       {location.pathname !== "/meeting" && <Footer />}
     </div>
   );

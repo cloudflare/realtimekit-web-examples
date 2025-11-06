@@ -10,33 +10,35 @@
     "preview": "npm run build && vite preview",
     "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types",
-    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b"
+    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
+    "postinstall": "npm run typecheck"
   },
   "dependencies": {
-    "isbot": "^5.1.31",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-router": "^7.9.4"
+    "isbot": "5.1.31",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "react-router": "7.9.2",
+    "react-router-dom": "^7.9.5"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.13.19",
+    "@cloudflare/vite-plugin": "1.13.7",
     "@eslint/js": "^9.36.0",
-    "@react-router/dev": "^7.9.4",
-    "@tailwindcss/vite": "^4.1.16",
-    "@types/node": "^24.6.0",
-    "@types/react": "^19.1.13",
-    "@types/react-dom": "^19.1.9",
+    "@react-router/dev": "7.9.2",
+    "@tailwindcss/vite": "4.1.13",
+    "@types/node": "22",
+    "@types/react": "19.1.15",
+    "@types/react-dom": "19.1.9",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.16",
-    "typescript": "~5.9.3",
+    "tailwindcss": "4.1.13",
+    "typescript": "5.9.2",
     "typescript-eslint": "^8.45.0",
-    "vite": "^7.1.7",
-    "vite-tsconfig-paths": "^5.1.4",
-    "wrangler": "^4.40.0"
+    "vite": "7.1.7",
+    "vite-tsconfig-paths": "5.1.4",
+    "wrangler": "4.40.2"
   }
 }

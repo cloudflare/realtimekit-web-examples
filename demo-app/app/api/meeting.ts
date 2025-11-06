@@ -14,7 +14,7 @@ export const createMeeting = async (name: string) => {
         })
     })
     
-    const data = await response.json();
+    const data = await response.json() as { message: string, data: { id: string } };
     
     if (!response.ok) {
         throw new Error(data.message || `API request failed with status ${response.status}`);

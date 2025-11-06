@@ -15,7 +15,6 @@ export default async function handleRequest(
   const userAgent = request.headers.get("user-agent");
 
   const body = await renderToReadableStream(
-    // @ts-expect-error - React 19 type compatibility issue
     <ServerRouter context={routerContext} url={request.url} />,
     {
       onError(error: unknown) {

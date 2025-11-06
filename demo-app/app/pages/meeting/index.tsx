@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router";
-import "../../App.css";
+import "../../index.css";
 
 type LoadingState = "loaded" | "loading" | "errored";
 

@@ -16,7 +16,7 @@ export const addParticipant = async (name: string, meetingId: string, presetName
         })
     })
     
-    const data = await response.json();
+    const data = await response.json() as { message: string, data: { token: string } };
     
     if (!response.ok) {
         throw new Error(data.message || `API request failed with status ${response.status}`);

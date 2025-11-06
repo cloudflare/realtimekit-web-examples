@@ -29,3 +29,5 @@ html-examples
 
 .wrangler
 .react-router
+
+*.tsbuildinfo
