@@ -63,4 +63,10 @@ else
     echo "Warning: $WORKER_FILE not found in the root directory."
 fi
 
+# Create .assetsignore to prevent _worker.js from being uploaded as an asset
+ASSETSIGNORE_FILE="$OUTPUT_DIR/.assetsignore"
+echo "Creating $ASSETSIGNORE_FILE to exclude _worker.js from asset uploads"
+echo "_worker.js" > "$ASSETSIGNORE_FILE"
+echo ".assetsignore file created successfully."
+
 echo "Postbuild script finished successfully."
