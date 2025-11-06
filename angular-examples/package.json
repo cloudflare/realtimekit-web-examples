@@ -17,5 +17,8 @@
   "prettier": {
     "singleQuote": true,
     "proseWrap": "always"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.0"
   }
 }
