@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useSearchParams } from "react-router";
 import "../../index.css";
 
@@ -6,34 +6,9 @@ type LoadingState = "loaded" | "loading" | "errored";
 
 const Meeting = () => {
   const [search] = useSearchParams();
-  const token = search.get("token");
+  const token = search.get("authToken");
   const url = search.get("url") ?? "";
   const [loadingState, setLoadingState] = useState<LoadingState>("loading");
-
-  const isValidUrl = async () => {
-    try {
-      await fetch(url);
-      setLoadingState("loaded");
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (e) {
-      setLoadingState("errored");
-    }
-  };
-
-  useEffect(() => {
-    isValidUrl();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url]);
-
-  if (loadingState === "loading") {
-    return (
-      <div className="w-full min-h-screen flex flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
-        <pre className="bg-orange-900/20 border border-orange-700/20 p-2 rounded text-sm">
-          Loading...
-        </pre>
-      </div>
-    );
-  }
 
   if (!token || !url || loadingState === "errored") {
     return (
@@ -61,9 +36,16 @@ const Meeting = () => {
 
   return (
     <div className="w-full h-full flex items-center justify-center">
+      {loadingState === "loading" && (
+        <div className="w-full min-h-screen flex absolute z-40 flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
+          <pre className="bg-orange-900/20 border border-orange-700/20 p-2 rounded text-sm">
+            Loading...
+          </pre>
+        </div>
+      )}
       <iframe
-        src={url}
-        className="w-full h-full border-none"
+        src={`${url}?authToken=${token}`}
+        className="w-full h-[100vh] border-none"
         sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
         onError={() => setLoadingState("errored")}
         onLoad={() => setLoadingState("loaded")}

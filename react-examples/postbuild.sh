@@ -51,4 +51,16 @@ else
     echo "Warning: $ROOT_INDEX_HTML_SOURCE not found in the root directory."
 fi
 
+# Copy _worker.js to dist directory for SPA routing support
+WORKER_FILE="_worker.js"
+WORKER_DEST="$OUTPUT_DIR/$WORKER_FILE"
+
+if [ -f "$WORKER_FILE" ]; then
+    echo "Copying $WORKER_FILE to $WORKER_DEST"
+    cp "$WORKER_FILE" "$WORKER_DEST"
+    echo "Worker file copied successfully."
+else
+    echo "Warning: $WORKER_FILE not found in the root directory."
+fi
+
 echo "Postbuild script finished successfully."
