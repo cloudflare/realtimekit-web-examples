@@ -1,13 +1,73 @@
+import { type Dispatch, type SetStateAction } from "react";
 import { Logo } from "../logo";
 import { Icon } from "../icons";
+// import { useSearchParams } from "react-router";
+// import sketchyProvider from "../sketchy/sketchyProvider";
+
+// type Framework = "vanilla" | "react" | "angular";
+
+// const NavItem = ({
+//   children,
+//   className,
+//   onClick,
+// }: {
+//   children: React.ReactNode;
+//   className?: string;
+//   onClick?: () => void;
+// }) => (
+//   <span
+//     className={`cursor-pointer text-[#858181] light:text-gray-700 p-2 ${className}`}
+//     onClick={onClick}
+//   >
+//     {children}
+//   </span>
+// );
+
+// const SketchyNavItem = sketchyProvider(NavItem, {
+//   type: "border",
+//   color: "#fed7aa",
+//   strokeWidth: 2,
+//   roughness: 0.5,
+//   offset: 8,
+// });
 
 const Header = ({
   theme,
   setTheme,
-}: {
+}: // selectedFramework,
+// setSelectedFramework,
+{
   theme: "dark" | "light";
   setTheme: (theme: "dark" | "light") => void;
+  selectedFramework: "vanilla" | "react" | "angular";
+  setSelectedFramework: Dispatch<
+    SetStateAction<"vanilla" | "react" | "angular">
+  >;
 }) => {
+  // const [searchParams] = useSearchParams();
+  // const mode = searchParams.get("mode") ?? "editor";
+  // const frameworks = useMemo<
+  //   { label: string; id: Framework; disabled: boolean }[]
+  // >(() => {
+  //   return [
+  //     {
+  //       label: "React",
+  //       id: "react",
+  //       disabled: mode === "token" && selectedFramework !== "react",
+  //     },
+  //     {
+  //       label: "Vanilla",
+  //       id: "vanilla",
+  //       disabled: mode === "token" && selectedFramework !== "vanilla",
+  //     },
+  //     {
+  //       label: "Angular",
+  //       id: "angular",
+  //       disabled: mode === "token" && selectedFramework !== "angular",
+  //     },
+  //   ];
+  // }, [mode, selectedFramework]);
+
   return (
     <div
       className={`
@@ -17,6 +77,25 @@ const Header = ({
      `}
     >
       <Logo className="text-orange-500 light:fill-none" />
+      {/* <div className="flex items-center gap-4 my-2">
+        {frameworks.map((el) => {
+          if (selectedFramework === el.id) {
+            return <SketchyNavItem key={el.id}>{el.label}</SketchyNavItem>;
+          }
+          return (
+            <NavItem
+              className={`${el.disabled ? "opacity-40" : ""}`}
+              key={el.id}
+              onClick={() => {
+                if (el.disabled) return;
+                setSelectedFramework(el.id);
+              }}
+            >
+              {el.label}
+            </NavItem>
+          );
+        })}
+      </div> */}
       <div className="flex-grow flex-row items-center justify-end gap-4 flex text-[#858181] light:text-gray-500">
         <a
           target="_blank"

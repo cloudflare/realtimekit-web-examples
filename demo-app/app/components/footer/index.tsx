@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="w-full text-sm flex flex-row items-center font-mono py-2 text-orange-200 justify-center bg-[#040404] light:bg-white border-t border-orange-200/20 light:border-orange-300 flex-grow">
+    <footer className="fixed bottom-0 w-full text-sm flex flex-row items-center font-mono py-2 text-orange-200 justify-center bg-[#040404] light:bg-white border-t border-orange-200/20 light:border-orange-300">
       Cloudflare &#8201;
       <a
         href="https://www.cloudflare.com/en-gb/website-terms/"

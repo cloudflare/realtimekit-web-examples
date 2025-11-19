@@ -33,9 +33,14 @@ export default function Layout() {
   }, [selected, navigate, location.search, location.pathname]);
 
   return (
-    <div className="dots-background w-full min-h-full flex flex-col justify-start">
+    <div className="dots-background w-full min-h-screen flex flex-col justify-start">
       {location.pathname !== "/meeting" && (
-        <Header theme={theme} setTheme={setTheme} />
+        <Header
+          selectedFramework={selected}
+          setSelectedFramework={setSelected}
+          theme={theme}
+          setTheme={setTheme}
+        />
       )}
       <Outlet
         context={{
@@ -43,7 +48,11 @@ export default function Layout() {
           setSelectedFramework: setSelected,
         }}
       />
-      {location.pathname !== "/meeting" && <Footer />}
+      {location.pathname !== "/meeting" && (
+        <div className="mt-auto">
+          <Footer />
+        </div>
+      )}
     </div>
   );
 }

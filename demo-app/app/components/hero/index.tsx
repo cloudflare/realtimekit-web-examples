@@ -236,11 +236,11 @@ const Hero = ({
       <div className="relative z-10 text-white flex lg:flex-row flex-col h-full gap-2 px-0 min-h-[80vh]">
         {/* left section */}
         <div className="flex-col gap-4 flex-1 flex lg:items-start items-center justify-center min-h-[40vh]">
-          <h1 className="text-4xl font-bold text-orange-50 light:text-neutral-700">
+          <h1 className="text-4xl gap-3 flex font-semibold text-orange-50 light:text-neutral-700">
+            Cloudflare's
             <span className="font-handwritten font-normal italic text-orange-500">
-              Cloudflare's{" "}
+              RealtimeKit
             </span>
-            RealtimeKit
           </h1>
           <p className="text-lg text-orange-50 light:text-neutral-500">
             Build Realtime AI apps with <SketchyComponent /> latency – at any
