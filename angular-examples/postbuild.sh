@@ -51,8 +51,8 @@ else
     echo "Warning: $ROOT_INDEX_HTML_SOURCE not found in the root directory."
 fi
 
-# Copy _worker.js to dist directory for SPA routing support
-WORKER_FILE="_worker.js"
+# Copy worker.js to dist directory for SPA routing support
+WORKER_FILE="worker.js"
 WORKER_DEST="$OUTPUT_DIR/$WORKER_FILE"
 
 if [ -f "$WORKER_FILE" ]; then
@@ -63,10 +63,10 @@ else
     echo "Warning: $WORKER_FILE not found in the root directory."
 fi
 
-# Create .assetsignore to prevent _worker.js from being uploaded as an asset
+# Create .assetsignore to prevent worker.js from being uploaded as an asset
 ASSETSIGNORE_FILE="$OUTPUT_DIR/.assetsignore"
-echo "Creating $ASSETSIGNORE_FILE to exclude _worker.js from asset uploads"
-echo "_worker.js" > "$ASSETSIGNORE_FILE"
+echo "Creating $ASSETSIGNORE_FILE to exclude worker.js from asset uploads"
+echo "worker.js" > "$ASSETSIGNORE_FILE"
 echo ".assetsignore file created successfully."
 
 echo "Postbuild script finished successfully."

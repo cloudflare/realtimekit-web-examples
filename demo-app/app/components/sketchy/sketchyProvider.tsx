@@ -62,8 +62,8 @@ export const sketchyProvider = <P extends object>(
             roughness
           )
         : generateSketchyBorderPaths(
-            dimensions.width,
-            dimensions.height,
+            dimensions.width + offset,
+            dimensions.height + offset,
             roughness
           );
 
@@ -77,16 +77,19 @@ export const sketchyProvider = <P extends object>(
           }
         : type === "circle"
         ? {
-            className: "absolute inset-0 overflow-visible pointer-events-none flex items-center justify-center",
+            className:
+              "absolute inset-0 overflow-visible pointer-events-none flex items-center justify-center",
             width: dimensions.width + 16,
             height: dimensions.height + 16,
             style: { transform: "translate(-8px, -8px)" },
           }
         : {
-            className: "absolute top-0 left-0 overflow-visible pointer-events-none",
-            width: dimensions.width + 8,
-            height: dimensions.height + 8,
-            style: { transform: "translate(-4px, -4px)" },
+            className: "absolute inset-0 overflow-visible pointer-events-none",
+            width: dimensions.width + offset,
+            height: dimensions.height + offset,
+            style: {
+              transform: `translate(-${offset}px, -${offset}px)`,
+            },
           };
 
     return (

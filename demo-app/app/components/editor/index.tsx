@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Logo } from "../logo";
 import type { FileNode } from "./FileTree";
 import { addParticipant, createMeeting } from "../../api";
-import { useNavigate, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import { Icon } from "../icons";
 
 const Editor = ({
@@ -27,7 +27,6 @@ const Editor = ({
   );
   const mode = search.get("mode") ?? "editor";
   const [terminalOutput, setTerminalOutput] = useState<string>("$ rtk ~\n");
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!formRef.current) return;
@@ -43,7 +42,7 @@ const Editor = ({
     const name = data.get("name") as string;
     const token = data.get("token") as string;
     if (token) {
-      navigate(`/meeting?authToken=${token}&url=${expanded?.url}`);
+      window.open(`/meeting?authToken=${token}&url=${expanded?.url}`, '_blank');
       return;
     }
 
@@ -94,7 +93,7 @@ const Editor = ({
       setTerminalOutput((prev) => {
         return `${prev}$ rtk ~ <span style="color: green;">✓ auth token generated. Joining meeting...</span>\n`;
       });
-      navigate(`/meeting?authToken=${data.token}&url=${expanded?.url}`);
+      window.open(`/meeting?authToken=${data.token}&url=${expanded?.url}`, '_blank');
     } catch (error: unknown) {
       setTerminalOutput((prev) => {
         return `${prev}$ rtk ~ <span style="color: red;">✗ error: ${

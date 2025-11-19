@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
 import { pillsConfig } from "./pills.config";
 import { Icon } from "../../components/icons";
@@ -80,6 +80,33 @@ const SketchyComponent = sketchyProvider(
   }
 );
 
+const NavItem = ({
+  children,
+  className,
+  onClick,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+}) => (
+  <span
+    className={`cursor-pointer text-[#858181] light:text-gray-700 p-2 ${className}`}
+    onClick={onClick}
+  >
+    {children}
+  </span>
+);
+
+const SketchyNavItem = sketchyProvider(NavItem, {
+  type: "border",
+  color: "#fed7aa",
+  strokeWidth: 2,
+  roughness: 0.5,
+  offset: 8,
+});
+
+type Framework = "vanilla" | "react" | "angular";
+
 interface Usecase {
   label: string;
   id: string;
@@ -111,6 +138,8 @@ const usecases: Usecase[] = [
 
 const Hero = ({
   children,
+  selectedFramework,
+  setSelectedFramework,
 }: {
   children: (
     selectedFile: FileNode | null | undefined,
@@ -120,17 +149,42 @@ const Hero = ({
       React.SetStateAction<FileNode | null | undefined>
     >
   ) => React.ReactNode;
+  selectedFramework: Framework;
+  setSelectedFramework: (framework: Framework) => void;
 }) => {
   const [pills, setPills] = useState<PillPosition[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const usecaseParam = searchParams.get("usecase");
+  const mode = searchParams.get("mode") ?? "editor";
   const [selected, setSelected] = useState<string>(() => {
     if (usecaseParam && usecases.some((u) => u.id === usecaseParam)) {
       return usecaseParam;
     }
     return usecases[0].id;
   });
+
+  const frameworks = useMemo<
+    { label: string; id: Framework; disabled: boolean }[]
+  >(() => {
+    return [
+      {
+        label: "React",
+        id: "react",
+        disabled: mode === "token" && selectedFramework !== "react",
+      },
+      {
+        label: "Vanilla",
+        id: "vanilla",
+        disabled: mode === "token" && selectedFramework !== "vanilla",
+      },
+      {
+        label: "Angular",
+        id: "angular",
+        disabled: mode === "token" && selectedFramework !== "angular",
+      },
+    ];
+  }, [mode, selectedFramework]);
 
   // Update URL when selected changes
   useEffect(() => {
@@ -192,6 +246,26 @@ const Hero = ({
             Build Realtime AI apps with <SketchyComponent /> latency – at any
             scale!
           </p>
+          {/* Framework Navigation */}
+          <div className="flex items-center gap-4 my-2">
+            {frameworks.map((el) => {
+              if (selectedFramework === el.id) {
+                return <SketchyNavItem key={el.id}>{el.label}</SketchyNavItem>;
+              }
+              return (
+                <NavItem
+                  className={`${el.disabled ? "opacity-40" : ""}`}
+                  key={el.id}
+                  onClick={() => {
+                    if (el.disabled) return;
+                    setSelectedFramework(el.id);
+                  }}
+                >
+                  {el.label}
+                </NavItem>
+              );
+            })}
+          </div>
           <div className="flex items-center md:justify-start justify-center gap-4 my-4 flex-wrap">
             {usecases.map((usecase) => {
               return (

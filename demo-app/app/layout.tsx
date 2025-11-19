@@ -8,7 +8,7 @@ type Framework = "vanilla" | "react" | "angular";
 
 export default function Layout() {
   const [selected, setSelected] = useState<Framework>("react");
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -35,14 +35,14 @@ export default function Layout() {
   return (
     <div className="dots-background w-full min-h-full flex flex-col justify-start">
       {location.pathname !== "/meeting" && (
-        <Header
-          selected={selected}
-          setSelected={setSelected}
-          theme={theme}
-          setTheme={setTheme}
-        />
+        <Header theme={theme} setTheme={setTheme} />
       )}
-      <Outlet />
+      <Outlet
+        context={{
+          selectedFramework: selected,
+          setSelectedFramework: setSelected,
+        }}
+      />
       {location.pathname !== "/meeting" && <Footer />}
     </div>
   );
