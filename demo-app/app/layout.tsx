@@ -1,58 +1,25 @@
-import { useState, useEffect } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router";
-import Header from "./components/header";
-import Footer from "./components/footer";
-// import Meeting from "./pages/meeting";
-
-type Framework = "vanilla" | "react" | "angular";
+import { Outlet, useLocation } from "react-router";
+import { ContextProvider } from "./context/provider";
+import Header from "~/components/Header";
+import Footer from "~/components/Footer";
 
 export default function Layout() {
-  const [selected, setSelected] = useState<Framework>("react");
-  const [theme, setTheme] = useState<"dark" | "light">("light");
-  const navigate = useNavigate();
   const location = useLocation();
+  const isMeetingPage = location.pathname === '/meeting';
 
-  // Update body data-theme attribute for all routes
-  useEffect(() => {
-    document.body.setAttribute("data-theme", theme);
-  }, [theme]);
-
-  // Sync selected state with current route
-  useEffect(() => {
-    const path = location.pathname.substring(1) || "react";
-    if (path === "vanilla" || path === "react" || path === "angular") {
-      setSelected(path as Framework);
-    }
-  }, [location.pathname]);
-
-  // Navigate when selected changes, but only if we're not on /meeting route
-  useEffect(() => {
-    const currentPath = location.pathname.substring(1);
-    if (currentPath.includes("meeting")) return;
-    navigate(`/${selected}${location.search}`);
-  }, [selected, navigate, location.search, location.pathname]);
-
+  if (isMeetingPage) {
+    return <ContextProvider><Outlet /></ContextProvider>
+  }
+  
   return (
-    <div className="dots-background w-full min-h-screen flex flex-col justify-start">
-      {location.pathname !== "/meeting" && (
-        <Header
-          selectedFramework={selected}
-          setSelectedFramework={setSelected}
-          theme={theme}
-          setTheme={setTheme}
-        />
-      )}
-      <Outlet
-        context={{
-          selectedFramework: selected,
-          setSelectedFramework: setSelected,
-        }}
-      />
-      {location.pathname !== "/meeting" && (
-        <div className="mt-auto">
-          <Footer />
+    <ContextProvider>
+      <div className="relative box-border bg-neutral w-full min-h-screen pt-24 pb-10 flex flex-col">
+        <Header />
+        <div className="flex-1 w-full md:z-0 z-[90000]">
+          <Outlet />
         </div>
-      )}
-    </div>
+        <Footer />
+      </div>
+    </ContextProvider>
   );
 }

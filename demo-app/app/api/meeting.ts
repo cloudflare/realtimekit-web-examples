@@ -1,4 +1,12 @@
-export const createMeeting = async (name: string) => {
+export const createMeeting = async ({
+    meetingName,
+    recordOnStart,
+    aiSummary
+}: {
+    meetingName: string;
+    recordOnStart: boolean;
+    aiSummary: boolean;
+}) => {
     const apiKey = import.meta.env.VITE_API_KEY;
     const orgId = import.meta.env.VITE_ORG_ID;
     const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -10,7 +18,9 @@ export const createMeeting = async (name: string) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            title: name
+            title: meetingName ?? "RealtimeKit Meeting",
+            record_on_start: recordOnStart,
+            summarize_on_end: aiSummary
         })
     })
     

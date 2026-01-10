@@ -1,4 +1,12 @@
-export const addParticipant = async (name: string, meetingId: string, presetName: string) => {
+export const addParticipant = async ({
+    name,
+    meetingId,
+    presetName
+}: {
+    name: string;
+    meetingId: string;
+    presetName: string;
+}) => {
     const apiKey = import.meta.env.VITE_API_KEY;
     const orgId = import.meta.env.VITE_ORG_ID;
     const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -12,7 +20,7 @@ export const addParticipant = async (name: string, meetingId: string, presetName
         body: JSON.stringify({
             name,
             preset_name: presetName,
-            custom_participant_id: (Math.random() * 1000).toString()
+            custom_participant_id: `${(Math.random() * 1000).toString()}-${name}`
         })
     })
     

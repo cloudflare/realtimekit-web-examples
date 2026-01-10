@@ -1,93 +1,51 @@
-import type { FileNode } from "../components/editor/FileTree";
-
-const sampleFiles: FileNode[] = [
+const sampleFiles = [
   {
     name: "background-effects",
+    platform: "web",
     usecase: "all",
     id: "html-examples/with-background-transformer",
     url: "https://html-examples.cf-realtime.workers.dev/with-background-transformer",
     preset: "",
+    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4f207e68e54aa12e120ed_Video%20Calling%20App%20with%20AR%20Filters.png",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/with-background-transformer",
-    docsUrl: "",
-    type: "folder",
-    children: [
-      {
-        name: "create.ts",
-        type: "file",
-        content: "// creates a new meeting",
-      },
-      {
-        name: "join.ts",
-        type: "file",
-        content: "// joins an existing meeting",
-      },
-    ],
+    description: "Add background blur/replacement to live video in a vanilla JS calling UI.",
+    blogUrl:"",
   },
   {
     name: "default-meeting",
+    platform: "web",
     usecase: "all",
     id: "html-examples/default-meeting-ui",
     url: "https://html-examples.cf-realtime.workers.dev/default-meeting-ui",
     preset: "",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/default-meeting",
-    docsUrl: "",
-    type: "folder",
-    children: [
-      {
-        name: "create.ts",
-        type: "file",
-        content: "// creates a new meeting",
-      },
-      {
-        name: "join.ts",
-        type: "file",
-        content: "// joins an existing meeting",
-      },
-    ],
+    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/65ce0fd3da4cadff9e9f8f1f_video_calling_app.png",
+    description: "A ready-to-run vanilla JS meeting UI using the default RealtimeKit experience.",
+    blogUrl:"",
   },
   {
     name: "create-your-own-ui",
+    platform: "web",
     usecase: "video",
     id: "html-examples/create-your-own-ui",
     url: "https://html-examples.cf-realtime.workers.dev/create-your-own-ui",
-    preset: "",
+    preset: "group_call_host",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/create-your-own-ui",
-    docsUrl: "",
-    type: "folder",
-    children: [
-      {
-        name: "create.ts",
-        type: "file",
-        content: "// creates a new meeting",
-      },
-      {
-        name: "join.ts",
-        type: "file",
-        content: "// joins an existing meeting",
-      },
-    ],
+    description: "A vanilla JS starter for building a custom meeting UI without a framework.",
+    blogUrl:"",
+    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4f179ecb8e747ca804f74_Transcription%20in%20Video%20Calling%20App.png",
   },
   {
     name: "ui-kit-addons",
+    platform: "web",
     usecase: "all",
     id: "html-examples/with-ui-addons",
     url: "https://html-examples.cf-realtime.workers.dev/with-ui-addons",
     preset: "",
+    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64fea4edc7b5f153041a3feb_Chess%20with%20Live%20Video%20Calling.png",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/with-ui-addons",
-    docsUrl: "",
-    type: "folder",
-    children: [
-      {
-        name: "create.ts",
-        type: "file",
-        content: "// creates a new meeting",
-      },
-      {
-        name: "join.ts",
-        type: "file",
-        content: "// joins an existing meeting",
-      },
-    ],
+    description: "A vanilla JS meeting UI showcasing optional UI add-ons and enhancements.",
+    blogUrl:"",
   }
 ];
 

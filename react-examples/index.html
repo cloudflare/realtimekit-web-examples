@@ -22,7 +22,10 @@
         }
     </style>
 </head>
-<body>
-    <iframe data-theme="dark" src="https://examples.cf-realtime.workers.dev/react?mode=token"></iframe>
-</body>
+<body></body>
+<script>
+    if (window.location.pathname === '/') {
+        window.location.href = 'https://examples.cf-realtime.workers.dev/react';
+    }
+</script>
 </html>

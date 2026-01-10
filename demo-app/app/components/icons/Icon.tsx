@@ -1,7 +1,7 @@
 import React from "react";
 import iconsData from "./icons.json";
 
-type IconName = keyof typeof iconsData;
+export type IconName = keyof typeof iconsData;
 
 interface IconProps {
   name: IconName;

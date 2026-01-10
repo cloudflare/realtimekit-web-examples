@@ -5,11 +5,13 @@
 @layer base {
   html, body, #root {
     height: 100%;
+    box-sizing: border-box;
   }
 
   body {
     /* Tailwind preflight already resets margin */
     min-height: 100vh;
+    box-sizing: border-box;
     font-family: system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
