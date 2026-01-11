@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router";
 import { ContextProvider } from "./context/provider";
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
+import Header from "~/components/RTKHeader";
+import Footer from "~/components/RTKFooter";
 
 export default function Layout() {
   const location = useLocation();
