@@ -1,4 +1,4 @@
-import { Logo } from "./Logo";
+import { Logo } from "./RTKLogo";
 import { Icon } from "./icons";
 import { useSharedState } from "../context/hook";
 import { useNavigate } from "react-router";
