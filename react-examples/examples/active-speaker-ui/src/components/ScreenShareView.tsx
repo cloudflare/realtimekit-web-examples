@@ -28,6 +28,7 @@ export default function ScreenShareView({
     <RtkScreenshareView
       meeting={meeting}
       participant={participant}
+      key={participant.id}
       className="flex-1 relative"
       // hidden default full screen button
       hideFullScreenButton
