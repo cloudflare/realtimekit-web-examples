@@ -1,6 +1,6 @@
 import { useMeetingStore } from '../lib/meeting-store';
 import { useActiveSpeaker } from '../lib/useActiveSpeaker';
-import { RtkParticipantTile } from '@cloudflare/realtimekit-react-ui';
+import { RtkAvatar, RtkParticipantTile } from '@cloudflare/realtimekit-react-ui';
 import { useRealtimeKitMeeting } from '@cloudflare/realtimekit-react';
 import { HTMLAttributes } from 'react';
 
@@ -23,6 +23,8 @@ export default function ActiveSpeaker(
       size={props.isSmall ? 'sm' : size}
       states={states}
       {...props}
-    />
+    >
+      <RtkAvatar participant={activeSpeaker} />
+    </RtkParticipantTile>
   );
 }
