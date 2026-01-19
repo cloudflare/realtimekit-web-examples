@@ -24,9 +24,10 @@ find "$EXAMPLES_DIR" -mindepth 1 -maxdepth 1 -type d | while read example_dir_pa
     # Check if the dist subdirectory exists within the example directory
     if [ -d "$source_dist_path" ]; then
         echo "Found $source_dist_path for example: $example_name"
-        echo "Moving $source_dist_path to $destination_example_path"
-        # Move the examples/example_name/dist directory to dist/example_name
-        cp -r "$source_dist_path" "$destination_example_path"
+        echo "Moving $source_dist_path contents to $destination_example_path"
+        # Copy the contents of examples/example_name/dist to dist/example_name
+        mkdir -p "$destination_example_path"
+        cp -r "$source_dist_path/"* "$destination_example_path/"
     else
         echo "No dist directory found in $example_dir_path (for example $example_name). Skipping."
     fi
@@ -49,5 +50,23 @@ if [ -f "$ROOT_INDEX_HTML_SOURCE" ]; then
 else
     echo "Warning: $ROOT_INDEX_HTML_SOURCE not found in the root directory."
 fi
+
+# Copy worker.js to dist directory for SPA routing support
+WORKER_FILE="worker.js"
+WORKER_DEST="$OUTPUT_DIR/$WORKER_FILE"
+
+if [ -f "$WORKER_FILE" ]; then
+    echo "Copying $WORKER_FILE to $WORKER_DEST"
+    cp "$WORKER_FILE" "$WORKER_DEST"
+    echo "Worker file copied successfully."
+else
+    echo "Warning: $WORKER_FILE not found in the root directory."
+fi
+
+# Create .assetsignore to prevent worker.js from being uploaded as an asset
+ASSETSIGNORE_FILE="$OUTPUT_DIR/.assetsignore"
+echo "Creating $ASSETSIGNORE_FILE to exclude worker.js from asset uploads"
+echo "worker.js" > "$ASSETSIGNORE_FILE"
+echo ".assetsignore file created successfully."
 
 echo "Postbuild script finished successfully."

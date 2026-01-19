@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import "tailwindcss";
+@custom-variant light ([data-theme="light"] &);
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  body {
+    /* Tailwind preflight already resets margin */
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body[data-theme="light"] {
+    background-color: #ffffff;
+  }
+
+  body[data-theme="dark"] {
+    background-color: #000000;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(2, 2, 2, 0.5) rgba(142, 141, 141, 0.5);
+  }
+}
+
+@layer utilities {
+  .font-handwritten {
+    font-family: 'Shadows Into Light', cursive;
+  }
+}
+
+[data-theme="dark"] .dots-background {
+background: #040404;
+  background-image: radial-gradient(circle, #232323 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 12px 12px;
+}
+
+[data-theme="light"] .dots-background {
+    background: white;
+  background-image: radial-gradient(circle, #dcdcdc 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 12px 12px;
+}

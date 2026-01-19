@@ -5,10 +5,10 @@
   ],
   "scripts": {
     "update-cloudflare-realtime-deps": "./update-cloudflare-realtime-deps.sh",
-    "build": "npm run build --workspaces --if-present && npm run postbuild",
+    "build": "npm run build --workspaces --if-present",
     "postbuild": "./postbuild.sh",
     "format": "prettier -w .",
-    "deploy": "wrangler pages deploy ./dist"
+    "deploy": "wrangler deploy"
   },
   "devDependencies": {
     "prettier": "^2.8.0",
@@ -17,5 +17,8 @@
   "prettier": {
     "singleQuote": true,
     "proseWrap": "always"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.0"
   }
 }

@@ -14,6 +14,7 @@
     "@cloudflare/realtimekit-ui-addons": "^0.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "resize-observer-polyfill": "^1.5.1",
     "zustand": "^4.4.1",
     "@cloudflare/realtimekit": "^1.2.0",
     "@cloudflare/realtimekit-ui": "^1.0.6"

@@ -78,7 +78,7 @@ export const useContainerSize = (meetingIdentifier: string): BreakpointSize => {
 
 // Helper function to set up ResizeObserver
 const setupResizeObserver = (containerElement: HTMLElement, meetingIdentifier: string) => {
-  const resizeObserver = new ResizeObserver((entries) => {
+  const resizeObserver = new ResizeObserver((entries: ResizeObserverEntry[]) => {
     for (const entry of entries) {
       const { width } = entry.contentRect;
       const newSize = getSizeFromWidth(width);
