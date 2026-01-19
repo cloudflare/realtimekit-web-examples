@@ -16,7 +16,7 @@ const Index = () => {
         </h1>
         <p className="lg:text-2xl md:text-xl text-lg text-center px-12 text-orange-50 light:text-neutral-500 mb-2">
           Build Realtime AI apps with{" "}
-          <i className="text-orange-200 light:text-orange-500">lowest</i>{" "}
+          <i className="text-orange-500 light:text-orange-500">lowest</i>{" "}
           latency – at any scale!
         </p>  
       </div>

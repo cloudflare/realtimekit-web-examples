@@ -46,7 +46,7 @@ const Card = ({
           <h3 className="!text-lg sm:text-base font-semibold light:text-neutral-900 text-neutral-50">
             {name.replaceAll("-", " ").split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
           </h3>
-          <div className="flex items-center gap-1 text-orange-600 text-sm bg-orange-100 px-2 py-1 rounded-full">{platform?.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")} <Icon name={platform} size={14} /></div>
+          <div className="flex items-center gap-1 text-orange-400 light:text-orange-600 text-sm bg-orange-500/30 light:bg-orange-100 px-2 py-1 rounded-full">{platform?.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")} <Icon name={platform} size={14} /></div>
         </div>
         <p className="text-xs sm:text-sm text-neutral-400 light:text-neutral-500">
           by RealtimeKit Team
@@ -60,7 +60,7 @@ const Card = ({
         <div onClick={() => {
           const state = btoa(encodeURIComponent(`${name}_${framework}_${selectedUsecase}`));
           navigate(`/meeting?state=${state}`, { state: { url, preset: usecase === 'all' ? getPresetName(usecase) : preset } })
-        }} className="px-2 mx-3 py-1 my-2 rounded-md text-sm cursor-pointer font-medium text-orange-400 bg-orange-500/30 light:text-orange-600 light:bg-orange-100 border-orange-500/40 border flex flex-row items-center gap-1">
+        }} className="px-2 mx-3 py-1 my-2 rounded-md text-sm cursor-pointer font-medium bg-orange-600 text-white light:text-orange-600 light:bg-orange-100 border-orange-500 border flex flex-row items-center gap-1">
           <span>Demo</span>
           <Icon name="arrow" />
         </div>
