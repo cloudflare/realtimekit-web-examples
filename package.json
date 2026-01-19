@@ -6,6 +6,6 @@
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
-    "pnpm": "^7.0.0"
+    "pnpm": "^10.27.0"
   }
 }
