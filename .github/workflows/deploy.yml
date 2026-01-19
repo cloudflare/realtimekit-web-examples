@@ -1,4 +1,6 @@
 name: Deploy Web Examples
+permissions:
+  contents: read
 
 on:
   push:
