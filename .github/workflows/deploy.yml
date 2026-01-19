@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - main
-      - fix/new-demo-app
     paths:
       - 'demo-app/**'
 
