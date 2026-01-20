@@ -8,7 +8,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/active-speaker-ui",
     description: "A video meeting UI that automatically highlights the current active speaker.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4f109de8dcc67e6076c88_Async%20Interview%20Platform.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Async%20Interview%20Platform.png",
     usecase: "webinar",
   },
   {
@@ -20,7 +20,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/async-video-survey",
     description: "An asynchronous video survey flow where respondents record answers without a live call.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/65490380ce74f9e08193ae89_Async%20Survey.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Async%20Survey.png",
     usecase: "video",
   },
   {
@@ -32,7 +32,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/audio-room",
     description: "A live audio-only room experience for discussions, panels, and community hangouts.",
     blogUrl:"",
-   picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4f0e4afd549954f2b5aea_Video%20Calling%20App%20-%20Flutter.png",
+   picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20Flutter.png",
     usecase: "audio",
   },
   {
@@ -44,7 +44,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/back-to-back-meetings",
     description: "A multi-session meeting experience optimized for running consecutive meetings.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4eef3ba81bdeeb5d185fc_Video%20Calling%20App%20-%20WPF.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20WPF.png",
     usecase: "video",
   },
   {
@@ -56,7 +56,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/clubhouse",
     description: "A stage-and-audience style live audio experience with moderated participation.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4ee91f5ddcd2d97c984aa_Video%20Chat%20App%20-%20Angular.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Chat%20App%20-%20Angular.png",
     usecase: "livestream",
   },
   {
@@ -68,7 +68,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/create-your-own-ui",
     description: "A minimal starter showing how to build a fully custom RealtimeKit UI.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4f179ecb8e747ca804f74_Transcription%20in%20Video%20Calling%20App.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Transcription%20in%20Video%20Calling%20App.png",
     usecase: "video",
   },
   {
@@ -78,7 +78,7 @@ const sampleFiles = [
     url: "https://react-examples.realtime.cloudflare.com/default-meeting-ui",
     preset: "",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/default-meeting",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/65ce0fd3da4cadff9e9f8f1f_video_calling_app.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
     description: "The standard batteries-included meeting UI showcasing the default RealtimeKit experience.",
     blogUrl:"",
     usecase: "all",
@@ -92,7 +92,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/facetime",
     description: "A FaceTime-inspired calling UI with a familiar layout and interactions.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64fea15451efba349f7fbdcd_Live%20Proctoring%20System%20-%20II.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Live%20Proctoring%20System%20-%20II.png",
     usecase: "video",
   },
   {
@@ -104,7 +104,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/live-auction",
     description: "A livestream-oriented experience tailored for real-time auctions.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/6549044ce4166d2c0c3cd09e_Live%20Auction.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Live%20Auction.png",
     usecase: "livestream",
   },
   {
@@ -116,7 +116,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/multi-meeting",
     description: "A multi-room meeting demo for managing and switching between multiple sessions.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4efba23ffa5cf4aa2d301_Video%20Calling%20App%20-%20Express.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20Electron.png",
     usecase: "video",
   },
   {
@@ -128,7 +128,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/with-background-transformer",
     description: "A video calling demo with background blur/replacement using a video transformer pipeline.",
     blogUrl:"",
-    picture: "https://cdn.prod.website-files.com/64143b3d25deb17f90fb6010/64b4f207e68e54aa12e120ed_Video%20Calling%20App%20with%20AR%20Filters.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20with%20AR%20Filters.png",
     usecase: "all",
   }
 ];
