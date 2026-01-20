@@ -36,7 +36,7 @@ jobs:
         working-directory: ./react-examples
 
       - name: Deploy to Cloudflare Workers
-        run: pnpm dlx wrangler@4.42.1 deploy
+        run: pnpm dlx wrangler@4.59.2 deploy
         working-directory: ./react-examples
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
