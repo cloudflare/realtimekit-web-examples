@@ -3,7 +3,7 @@ name: Deploy React Examples
 on:
   push:
     branches:
-      - main
+      - fix/assets
     paths:
       - 'react-examples/**'
 

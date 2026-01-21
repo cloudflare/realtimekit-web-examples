@@ -3,7 +3,7 @@ name: Deploy HTML Examples
 on:
   push:
     branches:
-      - main
+      - fix/assets
     paths:
       - 'html-examples/**'
 
