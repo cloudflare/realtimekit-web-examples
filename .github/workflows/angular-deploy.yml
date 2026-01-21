@@ -1,11 +1,12 @@
 name: Deploy Angular Examples
 
 on:
-  push:
-    branches:
-      - fix/assets
-    paths:
-      - 'angular-examples/**'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'angular-examples/**'
 
 jobs:
   deploy:

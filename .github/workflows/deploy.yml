@@ -3,11 +3,12 @@ permissions:
   contents: read
 
 on:
-  push:
-    branches:
-      - fix/assets
-    paths:
-      - 'demo-app/**'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'demo-app/**'
 
 jobs:
   deploy:

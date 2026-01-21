@@ -1,11 +1,12 @@
 name: Deploy React Examples
 
 on:
-  push:
-    branches:
-      - fix/assets
-    paths:
-      - 'react-examples/**'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'react-examples/**'
 
 jobs:
   deploy:

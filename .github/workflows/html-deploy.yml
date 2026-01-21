@@ -1,11 +1,12 @@
 name: Deploy HTML Examples
 
 on:
-  push:
-    branches:
-      - fix/assets
-    paths:
-      - 'html-examples/**'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'html-examples/**'
 
 jobs:
   deploy:
