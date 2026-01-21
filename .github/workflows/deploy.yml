@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
@@ -38,7 +38,7 @@ jobs:
         working-directory: ./demo-app
 
       - name: Deploy to Cloudflare Workers
-        run: pnpm dlx wrangler@4.42.1 deploy
+        run: pnpm dlx wrangler@4.59.2 deploy
         working-directory: ./demo-app
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
