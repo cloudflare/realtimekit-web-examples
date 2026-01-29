@@ -14,7 +14,6 @@ type LoadingState = "loaded" | "loading" | "errored";
 const Meeting = () => {
   const location = useLocation();
   const { theme, setTheme } = useSharedState();
-  const data = location.state as { preset?: string } | undefined;
   const [mode, setMode] = useState<Mode>(() => {
     const searchParams = new URLSearchParams(location.search);
     return searchParams.get("meetingId") ? "join" : "create";
@@ -28,17 +27,21 @@ const Meeting = () => {
   const preset = useMemo(() => {
     const searchParams = new URLSearchParams(location.search);
     const stateParam = searchParams.get("state");
-    let decodedState: string = "default-meeting-ui_react";;
-    if (stateParam) {
-      try {
-        decodedState = atob(decodeURIComponent(stateParam));
-      } catch {
-        // Ignore decode errors, use default
+    let presetParam = searchParams.get("preset");
+    if (!presetParam) {
+      let decodedState: string = "default-meeting-ui_react";;
+      if (stateParam) {
+        try {
+          decodedState = atob(decodeURIComponent(stateParam));
+        } catch {
+          // Ignore decode errors, use default
+        }
       }
+      const [, , usecase] = (decodedState).split("_");
+      presetParam = getGuestPreset(usecase as Usecase)
     }
-    const [, , usecase] = (decodedState).split("_");
-    return data?.preset ?? getGuestPreset(usecase as Usecase);
-  }, [location.search, data?.preset]);
+    return presetParam;
+  }, []);
 
   const [form, setForm] = useState({
     waitingRoom: false,
@@ -52,7 +55,7 @@ const Meeting = () => {
 
   const url = useMemo(() => {
     const searchParams = new URLSearchParams(location.search);
-    const stateParam = searchParams.get("state");
+      const stateParam = searchParams.get("state");
     let decodedState: string = "default-meeting-ui_react";;
     if (stateParam) {
       try {
@@ -64,7 +67,7 @@ const Meeting = () => {
     const [demo, frameWork] = (decodedState).split("_");
     const url = `https://${frameWork}-examples.cf-realtime.workers.dev/${demo}`;
     return url;
-  }, [location.search]);
+  }, []);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -73,7 +76,7 @@ const Meeting = () => {
       setForm(prev => ({ ...prev, meetingId }));
       setMode("join");
     }
-  }, [location.search]);
+  }, []);
 
   useEffect(() => {
     if (!preset) return;
