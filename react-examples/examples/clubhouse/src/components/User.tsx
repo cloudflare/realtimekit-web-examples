@@ -26,7 +26,7 @@ export default function User({
         </div>
       </div>
       <div className="text-xs font-medium flex items-center gap-0.5 flex-wrap">
-        {participant.presetName === 'webinar_presenter' &&
+        {participant.presetName === 'Webinar Host Demo' &&
           participant.stageStatus === 'ON_STAGE' && (
             <StarIcon className="h-4 w-4 text-green-600" />
           )}

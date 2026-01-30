@@ -6,7 +6,7 @@ const sampleFiles = [
     id: "angular-examples/create-your-own-ui",
     url: "https://angular-examples.realtime.cloudflare.com/create-your-own-ui",
     usecase: "video",
-    preset: "group_call_host",
+    preset: "Video Call Host Demo",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/create-your-own-ui",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Transcription%20in%20Video%20Calling%20App.png",
     description: "An Angular starter demonstrating how to assemble a custom RealtimeKit meeting UI.",

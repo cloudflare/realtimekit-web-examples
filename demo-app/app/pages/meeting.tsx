@@ -62,7 +62,7 @@ const Meeting = () => {
     preset,
     meetingId: "",
     yourName: "",
-    meetingName: `Demo ${name}`,
+    meetingName: `${name} Demo`,
   });
 
   useEffect(() => {
