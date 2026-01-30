@@ -8,6 +8,19 @@ import { useSharedState } from "~/context/hook";
 import { getGuestPreset } from "~/utils/utils";
 
 
+const fromBase64Url = (input: string) => {
+  const b64 = input.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((input.length + 3) % 4);
+  const json = decodeURIComponent(escape(atob(b64)));
+  return json;
+}
+
+const defaultPayload = {
+  name: 'default-meeting-ui',
+  framework: 'react',
+  usecase: 'video',
+  url: 'https://react-examples.realtime.cloudflare.com/default-meeting-ui',
+}
+
 type Mode = "create" | "join";
 type LoadingState = "loaded" | "loading" | "errored";
 
@@ -24,23 +37,22 @@ const Meeting = () => {
   const [loadingState, setLoadingState] = useState<LoadingState>("loading");
   const [presets, setPresets] = useState<Awaited<ReturnType<typeof getPresets>>>([]);
 
-  const preset = useMemo(() => {
+  const {url, preset, name} = useMemo(() => {
     const searchParams = new URLSearchParams(location.search);
     const stateParam = searchParams.get("state");
     let presetParam = searchParams.get("preset");
-    if (!presetParam) {
-      let decodedState: string = "default-meeting-ui_react";;
-      if (stateParam) {
-        try {
-          decodedState = atob(decodeURIComponent(stateParam));
-        } catch {
-          // Ignore decode errors, use default
-        }
-      }
-      const [, , usecase] = (decodedState).split("_");
-      presetParam = getGuestPreset(usecase as Usecase)
+    let payload = defaultPayload;
+    if (stateParam) {
+      payload = JSON.parse(fromBase64Url(stateParam));
     }
-    return presetParam;
+    if (!presetParam) {
+      presetParam = getGuestPreset(payload.usecase as Usecase)
+    }
+    return {
+      ...payload, 
+      preset: presetParam, 
+      name: payload.name.replaceAll("-", " ").split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+    };
   }, []);
 
   const [form, setForm] = useState({
@@ -50,24 +62,8 @@ const Meeting = () => {
     preset,
     meetingId: "",
     yourName: "",
-    meetingName: "",
+    meetingName: `Demo ${name}`,
   });
-
-  const url = useMemo(() => {
-    const searchParams = new URLSearchParams(location.search);
-      const stateParam = searchParams.get("state");
-    let decodedState: string = "default-meeting-ui_react";;
-    if (stateParam) {
-      try {
-        decodedState = atob(decodeURIComponent(stateParam));
-      } catch {
-        // Ignore decode errors, use default
-      }
-    }
-    const [demo, frameWork] = (decodedState).split("_");
-    const url = `https://${frameWork}-examples.cf-realtime.workers.dev/${demo}`;
-    return url;
-  }, []);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -150,7 +146,7 @@ const Meeting = () => {
           {theme === "dark" ? (
             <Icon name="dark" className="cursor-pointer " />
           ) : (
-            <Icon name="light" size={26} className="cursor-pointer " />
+            <Icon name="light" className="cursor-pointer " />
           )}
         </a>
       <div className="w-full max-w-[400px] h-[60vh]">
@@ -188,6 +184,7 @@ const Meeting = () => {
                 Your Name <span className="text-red-500">*</span>
               </label>
               <input
+                autoFocus
                 value={form.yourName}
                 onChange={(e) => setForm((prev) => ({ ...prev, yourName: e.target.value }))}
                 placeholder={"Your name"}

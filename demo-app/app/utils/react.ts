@@ -108,10 +108,10 @@ const sampleFiles = [
     usecase: "livestream",
   },
   {
-    name: "multi-meeitng",
+    name: "multi-meeting",
     platform: "web",
-    id: "react-examples/multi-meeitng",
-    url: "https://react-examples.realtime.cloudflare.com/multi-meeitng",
+    id: "react-examples/multi-meeting",
+    url: "https://react-examples.realtime.cloudflare.com/multi-meeting",
     preset: "group_call_host",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/multi-meeting",
     description: "A multi-room meeting demo for managing and switching between multiple sessions.",
