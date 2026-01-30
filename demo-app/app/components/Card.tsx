@@ -18,7 +18,7 @@ type CardProps = {
 };
 
 const Card = ({
-    // url,
+    url,
     name,
     githubUrl,
     // platform,
@@ -28,10 +28,15 @@ const Card = ({
     blogUrl,
     description,
   }: CardProps) => {
-  const { framework, usecase: selectedUsecase } = useSharedState()
+  const { framework, usecase: selectedUsecase } = useSharedState();
+  const toBase64Url = (input: string) => {
+    const b64 = btoa(unescape(encodeURIComponent(input)));
+    return b64.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+  }
+
   return (
     <div
-      className="light:bg-white bg-black rounded-xl overflow-hidden border border-[#1d1d21] light:border-gray-200 text-left flex flex-col w-[31%] min-w-[300px] min-h-[380px]"
+      className="light:bg-white bg-black rounded-xl overflow-hidden border border-[#1d1d21] light:border-gray-200 text-left flex flex-col w-full min-w-[300px] min-h-[380px]"
     >
       <div className="w-full h-40">
         {
@@ -58,7 +63,7 @@ const Card = ({
       <div className="mx-5 border-t border-[#2a242b] light:border-gray-200" />
       <div className="flex flex-row items-center justify-between gap-2 mt-auto">
         <div onClick={() => {
-          const state = btoa(encodeURIComponent(`${name}_${framework}_${selectedUsecase}`));
+         const state = toBase64Url(JSON.stringify({ name, framework, usecase: selectedUsecase, url }));
           window.open(`/meeting?state=${state}&preset=${usecase === 'all' ? getPresetName(selectedUsecase) : preset}`, "_blank")
         }} className="px-2 mx-3 py-1 my-2 rounded-md text-sm cursor-pointer font-medium bg-orange-600 text-white light:text-orange-600 light:bg-orange-100 border-orange-500 border flex flex-row items-center gap-1">
           <span>Demo</span>

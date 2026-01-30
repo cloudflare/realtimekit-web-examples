@@ -13,7 +13,7 @@ const Grid = () => {
 
   return (
     <>
-      <div className="inline-flex flex-row flex-wrap justify-start w-full lg:gap-8 md:gap-6 gap-4 ">
+      <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-items-start lg:gap-8 md:gap-6 gap-4">
         {list.map((el) => {
           return <Card key={el.id} {...el} platform={el.platform as keyof typeof iconsData} />;
         })}
