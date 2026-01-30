@@ -19,7 +19,7 @@ const Header = () => {
           href="https://realtime.cloudflare.com/"
           className="flex items-center justify-center py-4"
         >
-          <Icon size={24} name="docs" className="cursor-pointer " />
+          <Icon size={24} name="globe" className="cursor-pointer " />
         </a>
         <a
           target="_blank"
@@ -36,7 +36,7 @@ const Header = () => {
           {theme === "dark" ? (
             <Icon name="dark" className="cursor-pointer " />
           ) : (
-            <Icon name="light" size={26} className="cursor-pointer " />
+            <Icon name="light" className="cursor-pointer " />
           )}
         </a>
       </div>
