@@ -29,7 +29,7 @@ const sampleFiles = [
     usecase: "video",
     id: "html-examples/create-your-own-ui",
     url: "https://html-examples.realtime.cloudflare.com/create-your-own-ui",
-    preset: "group_call_host",
+    preset: "Video Call Host Demo",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/create-your-own-ui",
     description: "A vanilla JS starter for building a custom meeting UI without a framework.",
     blogUrl:"",

@@ -66,22 +66,22 @@ export function Meeting(
     
     const chatHostControl = await ChatHostControl.init({
         meeting,
-        hostPresets: ['group_call_host', 'webinar_presenter'],
-        targetPresets: ['group_call_host', 'group_call_participant', 'webinar_presenter', 'webinar_viewer'],
+        hostPresets: ['Video Call Host Demo', 'Webinar Host Demo'],
+        targetPresets: ['Video Call Host Demo', 'Video Call Participant Demo', 'Webinar Host Demo', 'Webinar Participant Demo'],
         addActionInParticipantMenu: true,
     });
     
     const micHostControl = await MicHostControl.init({
         meeting,
-        hostPresets: ['group_call_host', 'webinar_presenter'],
-        targetPresets: ['group_call_host', 'group_call_participant', 'webinar_presenter', 'webinar_viewer'],
+        hostPresets: ['Video Call Host Demo', 'Webinar Host Demo'],
+        targetPresets: ['Video Call Host Demo', 'Video Call Participant Demo', 'Webinar Host Demo', 'Webinar Participant Demo'],
         addActionInParticipantMenu: true,
     });
     
     const cameraHostControl = await CameraHostControl.init({
         meeting,
-        hostPresets: ['group_call_host', 'webinar_presenter'],
-        targetPresets: ['group_call_host', 'group_call_participant', 'webinar_presenter', 'webinar_viewer'],
+        hostPresets: ['Video Call Host Demo', 'Webinar Host Demo'],
+        targetPresets: ['Video Call Host Demo', 'Video Call Participant Demo', 'Webinar Host Demo', 'Webinar Participant Demo'],
         addActionInParticipantMenu: true,
     });
 

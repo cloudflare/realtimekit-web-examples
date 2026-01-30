@@ -33,16 +33,16 @@ export const modes = [
 ];
 
 export const getPresetName = (usecase: Usecase) => {
-  if (usecase === 'audio') return 'audio_room_host';
-  if (usecase === 'video') return 'group_call_host';
-  if (usecase === 'livestream') return 'livestream_host';
-  if (usecase === 'webinar') return 'webinar_presenter';
+  if (usecase === 'audio') return 'Audio Call Host Demo';
+  if (usecase === 'video') return 'Video Call Host Demo';
+  if (usecase === 'livestream') return 'Livestream Host Demo';
+  if (usecase === 'webinar') return 'Webinar Host Demo';
 }
 
 export const getGuestPreset = (usecase: Usecase) => {
-  if (usecase === 'audio') return 'audio_room_viewer';
-  if (usecase === 'video') return 'group_call_participant';
-  if (usecase === 'livestream') return 'livestream_viewer';
-  if (usecase === 'webinar') return 'webinar_viewer';
-  return "group_call_participant";
+  if (usecase === 'audio') return 'Audio Call Participant Demo';
+  if (usecase === 'video') return 'Video Call Participant Demo';
+  if (usecase === 'livestream') return 'Livestream Viewer Demo';
+  if (usecase === 'webinar') return 'Webinar Participant Demo';
+  return "Video Call Participant Demo";
 }

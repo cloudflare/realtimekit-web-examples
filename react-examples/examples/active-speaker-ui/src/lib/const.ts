@@ -1,6 +1,6 @@
 import { defaultIconPack } from '@cloudflare/realtimekit-react-ui';
 import type { RTKPlugin } from '@cloudflare/realtimekit';
-const HOST_PRESET = 'group_call_host';
+const HOST_PRESET = 'Video Call Host Demo';
 export const WHITEBOARD_ID = "ae79b269-24ca-4f8a-8112-f96084c8c19a";
 export const iconPack = {
     ...defaultIconPack,
