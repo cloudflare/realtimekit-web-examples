@@ -20,7 +20,7 @@ const Index = () => {
           latency – at any scale!
         </p>  
       </div>
-      <div className="mt-8 bg-neutral-950 light:bg-neutral-50/60 md:py-12 flex flex-row items-center justify-center py-6 w-full min-h-[60vh]">
+      <div className="mt-8 bg-neutral-950 light:bg-neutral-50 md:py-12 flex flex-row items-center justify-center py-6 w-full min-h-[60vh]">
       <div className="flex md:flex-row items-start justify-between flex-col w-4/5 max-w-[1200px] gap-4 relative">
         <Sidebar />
         <Grid />

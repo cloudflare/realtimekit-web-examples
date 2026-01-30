@@ -54,7 +54,7 @@ const Sidebar = () => {
     ];
 
     return (
-        <div className='md:!w-[200px] flex flex-col gap-4 w-full'>
+        <div className='md:!w-[200px] md:py-0 py-4 flex flex-col gap-4 w-full sticky md:top-10 top-0 bg-neutral-950 light:bg-neutral-50'>
             <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search Examples' className='focus:outline-none w-full px-2 py-1.5 light:bg-white bg-neutral-800 border light:border-neutral-300 border-neutral-700 rounded-md light:text-neutral-700 text-neutral-200' />
             <p className='font-bold light:text-neutral-700 text-neutral-300'>Use Case</p>
             <div className='flex md:flex-col md:w-full md:items-start flex-row items-center flex-wrap w-fit'>
