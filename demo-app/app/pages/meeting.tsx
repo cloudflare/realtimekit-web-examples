@@ -53,7 +53,17 @@ const Meeting = () => {
       preset: presetParam, 
       name: payload.name.replaceAll("-", " ").split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
     };
-  }, []);
+  }, [location.search]);
+
+  useEffect(() => {
+    setLoading(true);
+    const searchParams = new URLSearchParams(location.search);
+    const authToken = searchParams.get("authToken");
+    if (authToken) {
+      setToken(authToken);
+    }
+    setLoading(false);
+  }, [location.search])
 
   const [form, setForm] = useState({
     waitingRoom: false,
@@ -72,7 +82,7 @@ const Meeting = () => {
       setForm(prev => ({ ...prev, meetingId }));
       setMode("join");
     }
-  }, []);
+  }, [location.search]);
 
   useEffect(() => {
     if (!preset) return;
@@ -130,6 +140,7 @@ const Meeting = () => {
       <iframe
         src={`${url}?authToken=${token}`}
         className="w-full h-[100vh] border-none"
+        allow="camera; microphone; display-capture"
         sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
         onError={() => setLoadingState("errored")}
         onLoad={() => setLoadingState("loaded")}

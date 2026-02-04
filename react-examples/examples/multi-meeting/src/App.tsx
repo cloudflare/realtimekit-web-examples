@@ -3,7 +3,7 @@ import { Meeting } from './Meeting';
 
 function App() {
   const url = new URL(window.location.href);
-  const urlAuthToken1 = url.searchParams.get('authToken1');
+  const urlAuthToken1 = url.searchParams.get('authToken');
   const urlAuthToken2 = url.searchParams.get('authToken2');
   const autoInitializeMeeting1 = url.searchParams.get('autoInitializeMeeting1');
   const autoInitializeMeeting2 = url.searchParams.get('autoInitializeMeeting2');
