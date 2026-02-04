@@ -32,14 +32,14 @@ export const modes = [
   },
 ];
 
-export const getPresetName = (usecase: Usecase) => {
+export const getPresetName = (usecase: Usecase): string => {
   if (usecase === 'audio') return 'Audio Call Host Demo';
-  if (usecase === 'video') return 'Video Call Host Demo';
   if (usecase === 'livestream') return 'Livestream Host Demo';
   if (usecase === 'webinar') return 'Webinar Host Demo';
+  return 'Video Call Host Demo';
 }
 
-export const getGuestPreset = (usecase: Usecase) => {
+export const getGuestPreset = (usecase: Usecase): string => {
   if (usecase === 'audio') return 'Audio Call Participant Demo';
   if (usecase === 'video') return 'Video Call Participant Demo';
   if (usecase === 'livestream') return 'Livestream Viewer Demo';

@@ -5,7 +5,7 @@ import { getPresets } from "~/api/preset";
 import { Icon } from "~/components/icons";
 import type { Usecase } from "~/context";
 import { useSharedState } from "~/context/hook";
-import { getGuestPreset } from "~/utils/utils";
+import { getGuestPreset, getPresetName } from "~/utils/utils";
 
 
 const fromBase64Url = (input: string) => {
@@ -41,12 +41,13 @@ const Meeting = () => {
     const searchParams = new URLSearchParams(location.search);
     const stateParam = searchParams.get("state");
     let presetParam = searchParams.get("preset");
+    const mode = searchParams.get("meetingId") ? "join" : "create";
     let payload = defaultPayload;
     if (stateParam) {
       payload = JSON.parse(fromBase64Url(stateParam));
     }
     if (!presetParam) {
-      presetParam = getGuestPreset(payload.usecase as Usecase)
+      presetParam = mode === "create" ? getPresetName(payload.usecase as Usecase) : getGuestPreset(payload.usecase as Usecase) as string;
     }
     return {
       ...payload, 
@@ -257,7 +258,7 @@ const Meeting = () => {
             {
               mode === "create" && advanced ? (
                 <div className="border-t border-b border-neutral-700 light:border-neutral-200 py-4 flex flex-col gap-4">
-                  <label className="flex items-center gap-3 text-neutral-50 light:text-neutral-900">
+                  {/* <label className="flex items-center gap-3 text-neutral-50 light:text-neutral-900">
                     <input
                       type="checkbox"
                       checked={form.waitingRoom}
@@ -265,7 +266,7 @@ const Meeting = () => {
                       className="h-4 w-4 rounded border cursor-pointer"
                     />
                     <span className="text-sm">Waiting Room</span>
-                  </label>
+                  </label> */}
 
                   <div className="space-y-2">
                     <div className="text-md font-semibold text-neutral-50 light:text-neutral-900">
