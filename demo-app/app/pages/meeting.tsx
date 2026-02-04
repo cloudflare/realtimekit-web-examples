@@ -167,7 +167,7 @@ const Meeting = () => {
             <button
               type="button"
               onClick={() => setMode("create")}
-              className={`px-4 py-1 rounded-full transition-colors cursor-pointer ${
+              className={`px-4 py-1 rounded-full transition-colors !cursor-pointer ${
                 mode === "create"
                   ? "bg-neutral-950 text-neutral-50 light:bg-white light:text-neutral-900"
                   : "text-neutral-300 hover:text-neutral-50 light:text-neutral-700 light:hover:text-neutral-900"
@@ -178,7 +178,7 @@ const Meeting = () => {
             <button
               type="button"
               onClick={() => setMode("join")}
-              className={`px-4 py-1 rounded-full text-sm transition-colors cursor-pointer ${
+              className={`px-4 py-1 rounded-full text-sm transition-colors !cursor-pointer ${
                 mode === "join"
                   ? "bg-neutral-950 text-neutral-50 light:bg-white light:text-neutral-900"
                   : "text-neutral-300 hover:text-neutral-50 light:text-neutral-700 light:hover:text-neutral-900"
@@ -321,7 +321,7 @@ const Meeting = () => {
               type="button"
               disabled={!isValid}
               onClick={joinMeeting}
-              className={`w-full rounded-md py-2 font-semibold transition-colors ${
+              className={`w-full rounded-md py-2 font-semibold cursor-pointer transition-colors ${
                 isValid
                   ? "bg-orange-500 text-white"
                   : "bg-orange-500/40 text-white/80 cursor-not-allowed"
