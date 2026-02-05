@@ -71,13 +71,20 @@ update_realtimekit_cdn_imports() {
         return 0
     fi
 
+    local -a sed_inplace
+    if sed --version >/dev/null 2>&1; then
+        sed_inplace=(-i)
+    else
+        sed_inplace=(-i '')
+    fi
+
     # Replace any jsDelivr npm URL for @cloudflare/realtimekit* packages to use the chosen dist-tag.
     # Example:
     #   https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@latest/dist/browser.js
     # becomes:
     #   https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@staging/dist/browser.js
-    sed -E -i '' \
-        "s|(https://cdn\\.jsdelivr\\.net/npm/@cloudflare/realtimekit[^@/]*@)[^/]+(/)|\\1${NPM_TAG}\\2|g" \
+    sed -E "${sed_inplace[@]}" \
+        -e "s|(https://cdn\\.jsdelivr\\.net/npm/@cloudflare/realtimekit[^@/]*@)[^/]+(/)|\\1${NPM_TAG}\\2|g" \
         "$file_path"
 }
 
