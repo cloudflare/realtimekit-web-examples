@@ -5,5 +5,10 @@
   "compatibility_date": "2024-11-01",
   "site": {
     "bucket": "./dist"
+  },
+  "env": {
+    "staging": {
+      "name": "react-examples-staging"
+    }
   }
 }

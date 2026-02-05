@@ -1,0 +1,45 @@
+name: Deploy React Examples (Staging)
+
+on:
+  push:
+    branches:
+      - staging
+    paths:
+      - 'react-examples/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy React Examples (Staging)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: ./
+
+      - name: Build
+        run: pnpm run build
+        working-directory: ./react-examples
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.42.1'
+          command: deploy --env staging
+          workingDirectory: ./react-examples
