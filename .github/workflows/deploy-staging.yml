@@ -32,7 +32,7 @@ jobs:
         working-directory: ./
 
       - name: Build
-        run: pnpm run build -- --mode staging
+        run: pnpm run build
         working-directory: ./demo-app
         env:
           CLOUDFLARE_ENV: staging
