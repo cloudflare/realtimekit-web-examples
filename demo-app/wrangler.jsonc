@@ -20,7 +20,8 @@
   },
   "env": {
     "staging": {
-      "name": "examples-staging"
+      "name": "examples-staging",
+      "main": "./workers/app.ts"
     }
   }
 }

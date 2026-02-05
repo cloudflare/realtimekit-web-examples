@@ -6,6 +6,6 @@ export default defineConfig({
   base:'/active-speaker-ui/',
   plugins: [react()],
   build: {
-    chunkSizeWarningLimit: 1500,
+    chunkSizeWarningLimit: 6000,
   },
 });
