@@ -5,4 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base:'/active-speaker-ui/',
   plugins: [react()],
+  build: {
+    chunkSizeWarningLimit: 1500,
+  },
 });
