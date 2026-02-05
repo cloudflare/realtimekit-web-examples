@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'demo-app/**'
 
 jobs:
   deploy:
@@ -36,12 +34,24 @@ jobs:
       - name: Build
         run: pnpm run build
         working-directory: ./demo-app
+        env:
+          CLOUDFLARE_ENV: production
+          VITE_ENV: production
+          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '4.42.1'
+          wranglerVersion: '4.40.2'
           command: deploy
           workingDirectory: ./demo-app
+        env:
+          CLOUDFLARE_ENV: production
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_ENV: production
