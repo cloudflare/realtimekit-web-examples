@@ -1,16 +1,16 @@
-name: Deploy Web Examples
+name: Deploy Web Examples (Staging)
 permissions:
   contents: read
 
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy Web Examples
+    name: Deploy Web Examples (Staging)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,8 +35,8 @@ jobs:
         run: pnpm run build
         working-directory: ./demo-app
         env:
-          CLOUDFLARE_ENV: production
-          VITE_ENV: production
+          CLOUDFLARE_ENV: staging
+          VITE_ENV: staging
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
           VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
@@ -50,8 +50,8 @@ jobs:
           command: deploy
           workingDirectory: ./demo-app
         env:
-          CLOUDFLARE_ENV: production
+          CLOUDFLARE_ENV: staging
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
           VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
-          VITE_ENV: production
+          VITE_ENV: staging
