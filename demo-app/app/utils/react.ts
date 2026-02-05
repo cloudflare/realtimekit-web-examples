@@ -122,8 +122,8 @@ const sampleFiles = [
   {
     name: "background-effects",
     platform: "web",
-    id: "react-examples/with-background-effects",
-    url: "https://react-examples.realtime.cloudflare.com/with-background-effects",
+    id: "react-examples/with-background-transformer",
+    url: "https://react-examples.realtime.cloudflare.com/with-background-transformer",
     preset: "",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/with-background-transformer",
     description: "A video calling demo with background blur/replacement using a video transformer pipeline.",

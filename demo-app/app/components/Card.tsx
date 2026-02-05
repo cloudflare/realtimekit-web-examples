@@ -36,7 +36,7 @@ const Card = ({
 
   return (
     <div
-      className="light:bg-white bg-black rounded-xl overflow-hidden border border-[#1d1d21] light:border-gray-200 text-left flex flex-col w-full min-w-[300px] min-h-[380px]"
+      className="light:bg-white bg-black rounded-xl overflow-hidden border border-[#1d1d21] light:border-gray-200 text-left flex flex-col w-full max-w-[460px] min-w-[300px] min-h-[380px] self-center"
     >
       <div className="w-full h-40">
         {
