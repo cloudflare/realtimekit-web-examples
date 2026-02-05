@@ -58,6 +58,13 @@ if [ "$ENV" = "staging" ]; then
     NPM_TAG="staging"
 fi
 
+SED_INPLACE=()
+if sed --version >/dev/null 2>&1; then
+    SED_INPLACE=(-i)
+else
+    SED_INPLACE=(-i '')
+fi
+
 print_info "Using env: $ENV"
 print_info "Using npm dist-tag: $NPM_TAG"
 
@@ -142,27 +149,27 @@ for example_dir in "$EXAMPLES_DIR"/*; do
         # Update RealtimeKit packages in package.json
         if grep -q "@cloudflare/realtimekit\"" package.json; then
             print_info "Updating @cloudflare/realtimekit version in package.json..."
-            sed -i '' "s/\"@cloudflare\/realtimekit\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit\": \"^$REALTIMEKIT_VERSION\"/g" package.json
+            sed "${SED_INPLACE[@]}" -e "s/\"@cloudflare\/realtimekit\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit\": \"^$REALTIMEKIT_VERSION\"/g" package.json
         fi
         
         if grep -q "@cloudflare/realtimekit-react\"" package.json; then
             print_info "Updating @cloudflare/realtimekit-react version in package.json..."
-            sed -i '' "s/\"@cloudflare\/realtimekit-react\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit-react\": \"^$REALTIMEKIT_REACT_VERSION\"/g" package.json
+            sed "${SED_INPLACE[@]}" -e "s/\"@cloudflare\/realtimekit-react\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit-react\": \"^$REALTIMEKIT_REACT_VERSION\"/g" package.json
         fi
         
         if grep -q "@cloudflare/realtimekit-react-ui\"" package.json; then
             print_info "Updating @cloudflare/realtimekit-react-ui version in package.json..."
-            sed -i '' "s/\"@cloudflare\/realtimekit-react-ui\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit-react-ui\": \"^$REALTIMEKIT_REACT_UI_VERSION\"/g" package.json
+            sed "${SED_INPLACE[@]}" -e "s/\"@cloudflare\/realtimekit-react-ui\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit-react-ui\": \"^$REALTIMEKIT_REACT_UI_VERSION\"/g" package.json
         fi
         
         if grep -q "@cloudflare/realtimekit-ui\"" package.json; then
             print_info "Updating @cloudflare/realtimekit-ui version in package.json..."
-            sed -i '' "s/\"@cloudflare\/realtimekit-ui\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit-ui\": \"^$REALTIMEKIT_UI_VERSION\"/g" package.json
+            sed "${SED_INPLACE[@]}" -e "s/\"@cloudflare\/realtimekit-ui\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit-ui\": \"^$REALTIMEKIT_UI_VERSION\"/g" package.json
         fi
         
         if grep -q "@cloudflare/realtimekit-ui-addons\"" package.json; then
             print_info "Updating @cloudflare/realtimekit-ui-addons version in package.json..."
-            sed -i '' "s/\"@cloudflare\/realtimekit-ui-addons\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit-ui-addons\": \"^$REALTIMEKIT_UI_ADDONS_VERSION\"/g" package.json
+            sed "${SED_INPLACE[@]}" -e "s/\"@cloudflare\/realtimekit-ui-addons\": \"[\^~]*[^\"]*\"/\"@cloudflare\/realtimekit-ui-addons\": \"^$REALTIMEKIT_UI_ADDONS_VERSION\"/g" package.json
         fi
 
         # Single npm install after updating all versions
