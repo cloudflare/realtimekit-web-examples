@@ -31,3 +31,6 @@ html-examples
 .react-router
 
 *.tsbuildinfo
+
+.env.production
+.env.staging
