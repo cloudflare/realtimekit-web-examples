@@ -7,7 +7,6 @@
     height: 100%;
     box-sizing: border-box;
   }
-  
 
   body {
     /* Tailwind preflight already resets margin */
