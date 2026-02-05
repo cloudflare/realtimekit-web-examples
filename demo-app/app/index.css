@@ -8,7 +8,6 @@
     box-sizing: border-box;
   }
 
-
   body {
     /* Tailwind preflight already resets margin */
     min-height: 100vh;
