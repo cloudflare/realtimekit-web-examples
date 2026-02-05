@@ -9,6 +9,8 @@ on:
 
 jobs:
   deploy:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     name: Deploy Angular Examples (Staging)
     steps:
