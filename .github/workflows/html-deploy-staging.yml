@@ -1,4 +1,6 @@
 name: Deploy HTML Examples (Staging)
+permissions:
+  contents: read
 
 on:
   push:
