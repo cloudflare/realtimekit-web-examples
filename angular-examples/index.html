@@ -26,7 +26,10 @@
 <body></body>
 <script>
     if (window.location.pathname === '/') {
-        window.location.href = 'https://examples.realtime.cloudflare.com/angular';
+        const isStagingWorker = window.location.hostname === 'angular-examples-staging.cf-realtime.workers.dev';
+        window.location.href = isStagingWorker
+            ? 'https://examples.staging.realtime.cloudflare.com/angular'
+            : 'https://examples.realtime.cloudflare.com/angular';
     }
 
 </script>

@@ -82,11 +82,13 @@ EXAMPLES_DIR="$SCRIPT_DIR/examples"
 print_info "Fetching latest package versions..."
 if [ -n "$NPM_TAG" ]; then
     REALTIMEKIT_VERSION=$(npm view "@cloudflare/realtimekit" version --tag "$NPM_TAG" 2>/dev/null || echo "1.1.5")
+    REALTIMEKIT_REACT_VERSION=$(npm view "@cloudflare/realtimekit-react" version --tag "$NPM_TAG" 2>/dev/null || echo "1.2.0")
     REALTIMEKIT_REACT_UI_VERSION=$(npm view "@cloudflare/realtimekit-react-ui" version --tag "$NPM_TAG" 2>/dev/null || echo "1.0.4")
     REALTIMEKIT_UI_VERSION=$(npm view "@cloudflare/realtimekit-ui" version --tag "$NPM_TAG" 2>/dev/null || echo "1.0.4")
     REALTIMEKIT_UI_ADDONS_VERSION=$(npm view "@cloudflare/realtimekit-ui-addons" version --tag "$NPM_TAG" 2>/dev/null || echo "0.0.4")
 else
     REALTIMEKIT_VERSION=$(npm view "@cloudflare/realtimekit" version 2>/dev/null || echo "1.1.5")
+    REALTIMEKIT_REACT_VERSION=$(npm view "@cloudflare/realtimekit-react" version 2>/dev/null || echo "1.2.0")
     REALTIMEKIT_REACT_UI_VERSION=$(npm view "@cloudflare/realtimekit-react-ui" version 2>/dev/null || echo "1.0.4")
     REALTIMEKIT_UI_VERSION=$(npm view "@cloudflare/realtimekit-ui" version 2>/dev/null || echo "1.0.4")
     REALTIMEKIT_UI_ADDONS_VERSION=$(npm view "@cloudflare/realtimekit-ui-addons" version 2>/dev/null || echo "0.0.4")

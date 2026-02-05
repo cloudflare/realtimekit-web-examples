@@ -32,7 +32,7 @@ jobs:
         working-directory: ./
 
       - name: Build
-        run: pnpm run build
+        run: pnpm run build -- --env staging
         working-directory: ./react-examples
 
       - name: Deploy to Cloudflare Workers
