@@ -25,7 +25,7 @@
 <body></body>
 <script>
     if (window.location.pathname === '/') {
-        const isStagingWorker = window.location.hostname === 'react-examples-staging.cf-realtime.workers.dev';
+        const isStagingWorker = window.location.hostname === 'react-examples.staging.realtime.cloudflare.com';
         window.location.href = isStagingWorker
             ? 'https://examples.staging.realtime.cloudflare.com/react'
             : 'https://examples.realtime.cloudflare.com/react';
