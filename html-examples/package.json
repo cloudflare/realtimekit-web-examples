@@ -2,7 +2,8 @@
   "name": "html-examples",
   "scripts": {
     "format": "prettier -w examples",
-    "build": "npm run postbuild",
+    "update-cloudflare-realtime-deps": "./update-cloudflare-realtime-deps.sh",
+    "build": "bash -c 'npm run update-cloudflare-realtime-deps -- \"$@\" && npm run postbuild' -- \"$@\"",
     "postbuild": "./postbuild.sh",
     "deploy": "wrangler deploy"
   },
