@@ -19,7 +19,7 @@ const env = import.meta.env.VITE_ENV;
 const defaultBaseURL =
   env === "production"
     ? "react-examples.realtime.cloudflare.com"
-    : "react-examples-staging.realtime.cloudflare.com";
+    : "react-examples.staging.realtime.cloudflare.com";
 
 
 const defaultPayload = {

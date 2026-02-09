@@ -2,7 +2,7 @@ const env = import.meta.env.VITE_ENV;
 const htmlExamplesDomain =
   env === "production"
     ? "html-examples.realtime.cloudflare.com"
-    : "html-examples-staging.realtime.cloudflare.com";
+    : "html-examples.staging.realtime.cloudflare.com";
 const sampleFiles = [
   {
     name: "background-effects",

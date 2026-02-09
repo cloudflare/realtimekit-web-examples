@@ -2,7 +2,7 @@ const env = import.meta.env.VITE_ENV;
 const angularExamplesDomain =
   env === "production"
     ? "angular-examples.realtime.cloudflare.com"
-    : "angular-examples-staging.realtime.cloudflare.com";
+    : "angular-examples.staging.realtime.cloudflare.com";
 const sampleFiles = [
   {
     name: "create-your-own-ui",
