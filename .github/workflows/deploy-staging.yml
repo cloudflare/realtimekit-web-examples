@@ -37,9 +37,9 @@ jobs:
         env:
           CLOUDFLARE_ENV: staging
           VITE_ENV: staging
-          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID_STAGING }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY_STAGING }}
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL_STAGING }}
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
