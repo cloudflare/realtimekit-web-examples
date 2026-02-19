@@ -7,11 +7,11 @@
     "dev": "react-router dev",
     "build": "react-router build",
     "lint": "eslint .",
-    "preview": "npm run build && vite preview",
-    "deploy": "npm run build && wrangler deploy",
+    "preview": "pnpm run build && vite preview",
+    "deploy": "pnpm run build && wrangler deploy",
     "cf-typegen": "wrangler types",
-    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
-    "postinstall": "npm run typecheck"
+    "typecheck": "pnpm run cf-typegen && react-router typegen && tsc -b",
+    "postinstall": "pnpm run typecheck"
   },
   "dependencies": {
     "isbot": "5.1.31",

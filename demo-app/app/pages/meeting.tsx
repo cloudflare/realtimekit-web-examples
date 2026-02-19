@@ -14,11 +14,19 @@ const fromBase64Url = (input: string) => {
   return json;
 }
 
+
+const env = import.meta.env.VITE_ENV;
+const defaultBaseURL =
+  env === "production"
+    ? "react-examples.realtime.cloudflare.com"
+    : "react-examples.staging.realtime.cloudflare.com";
+
+
 const defaultPayload = {
   name: 'default-meeting-ui',
   framework: 'react',
   usecase: 'video',
-  url: 'https://react-examples.realtime.cloudflare.com/default-meeting-ui',
+  url: `https://${defaultBaseURL}/default-meeting-ui`,
 }
 
 type Mode = "create" | "join";

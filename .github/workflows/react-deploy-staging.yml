@@ -1,16 +1,19 @@
-name: Deploy Web Examples
+name: Deploy React Examples (Staging)
+
 permissions:
   contents: read
 
 on:
   push:
     branches:
-      - main
+      - staging
+    paths:
+      - 'react-examples/**'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy Web Examples
+    name: Deploy React Examples (Staging)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,26 +35,14 @@ jobs:
         working-directory: ./
 
       - name: Build
-        run: pnpm run build
-        working-directory: ./demo-app
-        env:
-          CLOUDFLARE_ENV: production
-          VITE_ENV: production
-          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+        run: pnpm run build -- --env staging
+        working-directory: ./react-examples
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '4.40.2'
-          command: deploy
-          workingDirectory: ./demo-app
-        env:
-          CLOUDFLARE_ENV: production
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
-          VITE_ENV: production
+          wranglerVersion: '4.42.1'
+          command: deploy --env staging
+          workingDirectory: ./react-examples

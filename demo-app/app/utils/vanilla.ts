@@ -1,10 +1,15 @@
+const env = import.meta.env.VITE_ENV;
+const htmlExamplesDomain =
+  env === "production"
+    ? "html-examples.realtime.cloudflare.com"
+    : "html-examples.staging.realtime.cloudflare.com";
 const sampleFiles = [
   {
     name: "background-effects",
     platform: "web",
     usecase: "all",
     id: "html-examples/with-background-transformer",
-    url: "https://html-examples.realtime.cloudflare.com/with-background-transformer",
+    url: `https://${htmlExamplesDomain}/with-background-transformer`,
     preset: "",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20with%20AR%20Filters.png",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/with-background-transformer",
@@ -16,7 +21,7 @@ const sampleFiles = [
     platform: "web",
     usecase: "all",
     id: "html-examples/default-meeting-ui",
-    url: "https://html-examples.realtime.cloudflare.com/default-meeting-ui",
+    url: `https://${htmlExamplesDomain}/default-meeting-ui`,
     preset: "",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/default-meeting",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
@@ -28,7 +33,7 @@ const sampleFiles = [
     platform: "web",
     usecase: "video",
     id: "html-examples/create-your-own-ui",
-    url: "https://html-examples.realtime.cloudflare.com/create-your-own-ui",
+    url: `https://${htmlExamplesDomain}/create-your-own-ui`,
     preset: "Video Call Host Demo",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/create-your-own-ui",
     description: "A vanilla JS starter for building a custom meeting UI without a framework.",
@@ -40,7 +45,7 @@ const sampleFiles = [
     platform: "web",
     usecase: "all",
     id: "html-examples/with-ui-addons",
-    url: "https://html-examples.realtime.cloudflare.com/with-ui-addons",
+    url: `https://${htmlExamplesDomain}/with-ui-addons`,
     preset: "",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Chess%20with%20Live%20Video%20Calling.png",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/with-ui-addons",
