@@ -1,0 +1,47 @@
+name: Bonk AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  review:
+    # Skip release PRs (staging → main); those changes were already reviewed individually.
+    if: >-
+      !(github.event.pull_request.head.ref == 'staging'
+        && github.event.pull_request.base.ref == 'main')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Bonk
+        uses: ask-bonk/ask-bonk/github@main
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.BONK_CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_GATEWAY_ID: ${{ secrets.BONK_CLOUDFLARE_GATEWAY_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.BONK_CLOUDFLARE_API_TOKEN }}
+        with:
+          model: "cloudflare-ai-gateway/anthropic/claude-opus-4-6"
+          token_permissions: "NO_PUSH"
+          prompt: |
+            Review this PR for bugs, security issues, performance problems, and style.
+            Read the full file for context, not just the diff.
+
+            Use the gh CLI to submit a single batch review via the GitHub API with
+            inline comments on specific files and line numbers. Use code suggestions
+            where you have high confidence in the fix — ensure they account for
+            surrounding code (braces, indentation, comments).
+
+            Separate "Needs Fix" (bugs, type errors, broken conventions, security)
+            from "Suggestions" (style, minor improvements, maintenance guidance).
+            Flag only medium and high priority issues — skip formatting the linter
+            handles, pre-existing issues, and hypothetical edge cases.
+            If the PR is clean, respond with only "LGTM!" and nothing else.
+
+            Leave the final review body empty — OpenCode posts the summary for you.
