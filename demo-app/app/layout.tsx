@@ -5,7 +5,7 @@ import Footer from "~/components/Footer";
 
 export default function Layout() {
   const location = useLocation();
-  const isMeetingPage = location.pathname === '/meeting';
+  const isMeetingPage = location.pathname.includes('/meeting');
 
   if (isMeetingPage) {
     return <ContextProvider><Outlet /></ContextProvider>
