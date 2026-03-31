@@ -52,17 +52,17 @@ importers:
         specifier: ^15.0.0
         version: 15.2.10(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(@angular/platform-browser@15.2.10(@angular/animations@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(rxjs@7.5.7)
       '@cloudflare/realtimekit':
-        specifier: ^1.1.7
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-angular-ui':
-        specifier: ^1.0.5
-        version: 1.0.6(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
+        specifier: ^1.1.2
+        version: 1.1.2(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.5
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       rxjs:
         specifier: ~7.5.0
         version: 7.5.7
@@ -143,17 +143,17 @@ importers:
         specifier: ^15.0.0
         version: 15.2.10(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(@angular/platform-browser@15.2.10(@angular/animations@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(rxjs@7.5.7)
       '@cloudflare/realtimekit':
-        specifier: ^1.1.7
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-angular-ui':
-        specifier: ^1.0.5
-        version: 1.0.6(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
+        specifier: ^1.1.2
+        version: 1.1.2(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.5
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       rxjs:
         specifier: ~7.5.0
         version: 7.5.7
@@ -225,17 +225,17 @@ importers:
         specifier: ^15.0.0
         version: 15.2.10(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(@angular/platform-browser@15.2.10(@angular/animations@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(rxjs@7.5.7)
       '@cloudflare/realtimekit':
-        specifier: ^1.1.7
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-angular-ui':
-        specifier: ^1.0.5
-        version: 1.0.6(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
+        specifier: ^1.1.2
+        version: 1.1.2(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.5
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       rxjs:
         specifier: ~7.5.0
         version: 7.5.7
@@ -385,20 +385,20 @@ importers:
   react-examples/examples/active-speaker-ui:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
@@ -440,20 +440,20 @@ importers:
   react-examples/examples/async-video-survey:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       autoprefixer:
         specifier: ^10.4.15
         version: 10.4.21(postcss@8.5.6)
@@ -495,20 +495,20 @@ importers:
   react-examples/examples/audio-room:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -550,20 +550,20 @@ importers:
   react-examples/examples/back-to-back-meetings:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -605,20 +605,20 @@ importers:
   react-examples/examples/chat:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -660,20 +660,20 @@ importers:
   react-examples/examples/chat-widget:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -745,20 +745,20 @@ importers:
   react-examples/examples/clubhouse:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -800,20 +800,20 @@ importers:
   react-examples/examples/create-your-own-ui:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -855,20 +855,20 @@ importers:
   react-examples/examples/default-meeting-ui:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -895,20 +895,20 @@ importers:
   react-examples/examples/facetime:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -953,20 +953,20 @@ importers:
   react-examples/examples/live-auction:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1008,20 +1008,20 @@ importers:
   react-examples/examples/multi-meeting:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1063,20 +1063,20 @@ importers:
   react-examples/examples/multi-meeting-custom:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1121,20 +1121,20 @@ importers:
   react-examples/examples/screenshare-focused-ui-with-custom-addons:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       '@cloudflare/realtimekit-virtual-background':
         specifier: 0.0.2
         version: 0.0.2
@@ -1179,20 +1179,20 @@ importers:
   react-examples/examples/simple-group-call:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -1234,20 +1234,20 @@ importers:
   react-examples/examples/simple-ui:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1286,20 +1286,20 @@ importers:
   react-examples/examples/with-background-transformer:
     dependencies:
       '@cloudflare/realtimekit':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.3.0
+        version: 1.3.0
       '@cloudflare/realtimekit-react':
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.3.1)
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
       '@cloudflare/realtimekit-react-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.1.2
+        version: 1.1.2
       '@cloudflare/realtimekit-ui-addons':
-        specifier: ^0.0.4
-        version: 0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)
       '@cloudflare/realtimekit-virtual-background':
         specifier: 0.0.2
         version: 0.0.2
@@ -1336,7 +1336,7 @@ importers:
         version: 1.0.6
       '@cloudflare/realtimekit-recording-sdk':
         specifier: 0.0.1
-        version: 0.0.1(@cloudflare/realtimekit@1.2.0)
+        version: 0.0.1(@cloudflare/realtimekit@1.3.0)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1385,13 +1385,13 @@ importers:
         version: 1.0.6
       '@cloudflare/realtimekit-recording-sdk':
         specifier: 0.0.1
-        version: 0.0.1(@cloudflare/realtimekit@1.2.0)
+        version: 0.0.1(@cloudflare/realtimekit@1.3.0)
       '@dyteinternals/utils':
         specifier: ^3.0.0
         version: 3.4.0
       axios:
-        specifier: ^1.7.3
-        version: 1.13.1
+        specifier: 1.7.3
+        version: 1.7.3
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -1449,7 +1449,7 @@ importers:
         version: 1.0.6
       '@cloudflare/realtimekit-recording-sdk':
         specifier: 0.0.1
-        version: 0.0.1(@cloudflare/realtimekit@1.2.0)
+        version: 0.0.1(@cloudflare/realtimekit@1.3.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -1501,7 +1501,7 @@ importers:
         version: 1.0.6
       '@cloudflare/realtimekit-recording-sdk':
         specifier: 0.0.1
-        version: 0.0.1(@cloudflare/realtimekit@1.2.0)
+        version: 0.0.1(@cloudflare/realtimekit@1.3.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -2355,45 +2355,59 @@ packages:
     engines: {node: '>=6.9.0'}
 
   '@cloudflare/kv-asset-handler@0.4.0':
-    resolution: {integrity: sha512-+tv3z+SPp+gqTIcImN9o0hqE9xyfQjI1XD9pL6NuKjua9B1y7mNYv0S9cP+QEbA4ppVgGZEmKOvHX5G5Ei1CVA==, tarball: https://registry.npmjs.org/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.4.0.tgz}
+    resolution: {integrity: sha512-+tv3z+SPp+gqTIcImN9o0hqE9xyfQjI1XD9pL6NuKjua9B1y7mNYv0S9cP+QEbA4ppVgGZEmKOvHX5G5Ei1CVA==}
     engines: {node: '>=18.0.0'}
 
-  '@cloudflare/realtimekit-angular-ui@1.0.6':
-    resolution: {integrity: sha512-aZFAo3jkjTk+HHJlYRxrO7hIrGLP0PZOhTxd4mYw3DuDnFzemYRtVa84aF+KEc2ZH9MfX6DlJs6IKpFwjbyhHg==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-angular-ui/-/realtimekit-angular-ui-1.0.6.tgz}
+  '@cloudflare/realtimekit-angular-ui@1.1.2':
+    resolution: {integrity: sha512-ilAGEShiQizZjDoWRN8131mVjusT2ZX/7ec2Wl3yChqu2Qwzq+lxVHtsPryVol0MRglY8J39Aw/1oPQ8hIEJPw==}
     peerDependencies:
       '@angular/common': '>=12'
       '@angular/core': '>=12'
 
   '@cloudflare/realtimekit-react-ui@1.0.6':
-    resolution: {integrity: sha512-QZRCtj7ecxE4nqWYroOPCehdT3GCw3ah8h75bl4ORm05CjdxQ0ATU6HM1/OvjpeHVYwXnDY3aT+7VSftswYS9w==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-react-ui/-/realtimekit-react-ui-1.0.6.tgz}
+    resolution: {integrity: sha512-QZRCtj7ecxE4nqWYroOPCehdT3GCw3ah8h75bl4ORm05CjdxQ0ATU6HM1/OvjpeHVYwXnDY3aT+7VSftswYS9w==}
+
+  '@cloudflare/realtimekit-react-ui@1.1.2':
+    resolution: {integrity: sha512-OOzC51+EJekIvnaJwf6Zv4U+YFdr9LK7bfMuvDY5EGBO6n+Zww4jq6mTiWMfxtrh/fUUX3HjlqusH/VElxJAWg==}
 
   '@cloudflare/realtimekit-react@1.2.0':
-    resolution: {integrity: sha512-oajZirLj+rjPCL/QwsgKh8RpDKxQBIcocH8boBoA0JMQm4dQL3mYKvBbS+vct+qx3H0jM8QKFpDvYguiWqKROA==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-react/-/realtimekit-react-1.2.0.tgz}
+    resolution: {integrity: sha512-oajZirLj+rjPCL/QwsgKh8RpDKxQBIcocH8boBoA0JMQm4dQL3mYKvBbS+vct+qx3H0jM8QKFpDvYguiWqKROA==}
+    peerDependencies:
+      react: '>=16.8.6'
+
+  '@cloudflare/realtimekit-react@1.3.0':
+    resolution: {integrity: sha512-9CAm4qXrQj+P7Hz3lPbHvh1FkDC5jvK++dFZiFcmsQsiscQEc8u2bmurcwUZaF3N31BSTwdIJ0QrTLoRGFN8GA==}
     peerDependencies:
       react: '>=16.8.6'
 
   '@cloudflare/realtimekit-recording-sdk@0.0.1':
-    resolution: {integrity: sha512-Y/aKDuDIq1JSwIhVMgFGgcLY/O2JMnoI09ih1UBcMPaDgX1CVTMchnz2jLQXuPVmDBRftSiep+8/lwGy4reUTA==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-recording-sdk/-/realtimekit-recording-sdk-0.0.1.tgz}
+    resolution: {integrity: sha512-Y/aKDuDIq1JSwIhVMgFGgcLY/O2JMnoI09ih1UBcMPaDgX1CVTMchnz2jLQXuPVmDBRftSiep+8/lwGy4reUTA==}
     peerDependencies:
       '@cloudflare/realtimekit': '>=1.0.1'
 
-  '@cloudflare/realtimekit-ui-addons@0.0.4':
-    resolution: {integrity: sha512-DsSbwUtixCbSJwb3c9mnAQvGOKj393VG77GkCySMal4yIPrLNLd6tqcnI5j1kPA0pRck1EMXakLfgTdr3JFDWQ==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-ui-addons/-/realtimekit-ui-addons-0.0.4.tgz}
+  '@cloudflare/realtimekit-ui-addons@0.1.0':
+    resolution: {integrity: sha512-e7qi+1Z6P3Yb+oeZD573IZn9s55EI1tHOEIqVMuuo61uoKexbFdwYbrBxlkIk4gkZd4LZlXlT23nFeZNo4m7RA==}
     peerDependencies:
       '@cloudflare/realtimekit': '>=1.0.1'
       '@cloudflare/realtimekit-ui': '>=1.0.1'
 
   '@cloudflare/realtimekit-ui@1.0.6':
-    resolution: {integrity: sha512-EQSh7HogAsCt3n/V2t7eERwqHVjt3Q/M3qsYBknzVbVaiZJiKhwD1Hb7FvTQDvrcKGAxsqnt+ngX9nnwuk3hwg==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-ui/-/realtimekit-ui-1.0.6.tgz}
+    resolution: {integrity: sha512-EQSh7HogAsCt3n/V2t7eERwqHVjt3Q/M3qsYBknzVbVaiZJiKhwD1Hb7FvTQDvrcKGAxsqnt+ngX9nnwuk3hwg==}
+
+  '@cloudflare/realtimekit-ui@1.1.2':
+    resolution: {integrity: sha512-7mOci9dCundT0ATSPf3Iqn1MkwWf5fUHpuF/vXhOinQHV2Jv6jnkcs3WNgDjKIMNcMgsbHgGXfuWvlWMQ3fcaw==}
 
   '@cloudflare/realtimekit-virtual-background@0.0.2':
-    resolution: {integrity: sha512-4rP9zswpnDwizlfZdf/Ym4AzZiKCQedK4/BqkWhxqk05SKCYNp9nIW+OEot/2dVJgA5/O9mR3X5hoZ5/EGURhw==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit-virtual-background/-/realtimekit-virtual-background-0.0.2.tgz}
+    resolution: {integrity: sha512-4rP9zswpnDwizlfZdf/Ym4AzZiKCQedK4/BqkWhxqk05SKCYNp9nIW+OEot/2dVJgA5/O9mR3X5hoZ5/EGURhw==}
 
   '@cloudflare/realtimekit@1.2.0':
-    resolution: {integrity: sha512-y/fmonqXlTCGMpGNoxT3S11FJMV3/Cf4dyp7xMPnnIQ3g1Gi5o2Ey9FxBY/8HUJlJIGtghikPsBbPpcojkxUxw==, tarball: https://registry.npmjs.org/@cloudflare/realtimekit/-/realtimekit-1.2.0.tgz}
+    resolution: {integrity: sha512-y/fmonqXlTCGMpGNoxT3S11FJMV3/Cf4dyp7xMPnnIQ3g1Gi5o2Ey9FxBY/8HUJlJIGtghikPsBbPpcojkxUxw==}
+
+  '@cloudflare/realtimekit@1.3.0':
+    resolution: {integrity: sha512-b9qQdoPZqW/24uvCAIcwNenArsao0F2powPlGhi+lYRE44HVAnCDmAlYP2kdO6fmEA+l0Z4aY5evJe7VTjDg1w==}
 
   '@cloudflare/unenv-preset@2.7.4':
-    resolution: {integrity: sha512-KIjbu/Dt50zseJIoOOK5y4eYpSojD9+xxkePYVK1Rg9k/p/st4YyMtz1Clju/zrenJHrOH+AAcjNArOPMwH4Bw==, tarball: https://registry.npmjs.org/@cloudflare/unenv-preset/-/unenv-preset-2.7.4.tgz}
+    resolution: {integrity: sha512-KIjbu/Dt50zseJIoOOK5y4eYpSojD9+xxkePYVK1Rg9k/p/st4YyMtz1Clju/zrenJHrOH+AAcjNArOPMwH4Bw==}
     peerDependencies:
       unenv: 2.0.0-rc.21
       workerd: ^1.20250912.0
@@ -2402,7 +2416,7 @@ packages:
         optional: true
 
   '@cloudflare/unenv-preset@2.7.8':
-    resolution: {integrity: sha512-Ky929MfHh+qPhwCapYrRPwPVHtA2Ioex/DbGZyskGyNRDe9Ru3WThYZivyNVaPy5ergQSgMs9OKrM9Ajtz9F6w==, tarball: https://registry.npmjs.org/@cloudflare/unenv-preset/-/unenv-preset-2.7.8.tgz}
+    resolution: {integrity: sha512-Ky929MfHh+qPhwCapYrRPwPVHtA2Ioex/DbGZyskGyNRDe9Ru3WThYZivyNVaPy5ergQSgMs9OKrM9Ajtz9F6w==}
     peerDependencies:
       unenv: 2.0.0-rc.21
       workerd: ^1.20250927.0
@@ -2411,67 +2425,67 @@ packages:
         optional: true
 
   '@cloudflare/vite-plugin@1.13.7':
-    resolution: {integrity: sha512-yQz5G0Bw3wqHBcWTPJKOQrWv7PPtl/S3kKNhqsHoQaS99Eal8AS/EYljyR7uv+nrf//zgDY1rSsVESmXm7ZoAg==, tarball: https://registry.npmjs.org/@cloudflare/vite-plugin/-/vite-plugin-1.13.7.tgz}
+    resolution: {integrity: sha512-yQz5G0Bw3wqHBcWTPJKOQrWv7PPtl/S3kKNhqsHoQaS99Eal8AS/EYljyR7uv+nrf//zgDY1rSsVESmXm7ZoAg==}
     peerDependencies:
       vite: ^6.1.0 || ^7.0.0
       wrangler: ^4.40.2
 
   '@cloudflare/workerd-darwin-64@1.20250924.0':
-    resolution: {integrity: sha512-/+nWoNDIzdQaQib7MrWYEfeDt1vA40Ah68nXlZGXHonkIqJvkjaTP8dzdKZLuwnQokiV/SpnAXNMH0WGH31XMw==, tarball: https://registry.npmjs.org/@cloudflare/workerd-darwin-64/-/workerd-darwin-64-1.20250924.0.tgz}
+    resolution: {integrity: sha512-/+nWoNDIzdQaQib7MrWYEfeDt1vA40Ah68nXlZGXHonkIqJvkjaTP8dzdKZLuwnQokiV/SpnAXNMH0WGH31XMw==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [darwin]
 
   '@cloudflare/workerd-darwin-64@1.20251011.0':
-    resolution: {integrity: sha512-0DirVP+Z82RtZLlK2B+VhLOkk+ShBqDYO/jhcRw4oVlp0TOvk3cOVZChrt3+y3NV8Y/PYgTEywzLKFSziK4wCg==, tarball: https://registry.npmjs.org/@cloudflare/workerd-darwin-64/-/workerd-darwin-64-1.20251011.0.tgz}
+    resolution: {integrity: sha512-0DirVP+Z82RtZLlK2B+VhLOkk+ShBqDYO/jhcRw4oVlp0TOvk3cOVZChrt3+y3NV8Y/PYgTEywzLKFSziK4wCg==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [darwin]
 
   '@cloudflare/workerd-darwin-arm64@1.20250924.0':
-    resolution: {integrity: sha512-UAjC5mra+WNWy6jMbIDe9orsFmYvvMlfvZdUyn5p3NlQhhU6cc4FkFuXJ/bV+6oVw5hIhlLlFCTnsGatki/uHg==, tarball: https://registry.npmjs.org/@cloudflare/workerd-darwin-arm64/-/workerd-darwin-arm64-1.20250924.0.tgz}
+    resolution: {integrity: sha512-UAjC5mra+WNWy6jMbIDe9orsFmYvvMlfvZdUyn5p3NlQhhU6cc4FkFuXJ/bV+6oVw5hIhlLlFCTnsGatki/uHg==}
     engines: {node: '>=16'}
     cpu: [arm64]
     os: [darwin]
 
   '@cloudflare/workerd-darwin-arm64@1.20251011.0':
-    resolution: {integrity: sha512-1WuFBGwZd15p4xssGN/48OE2oqokIuc51YvHvyNivyV8IYnAs3G9bJNGWth1X7iMDPe4g44pZrKhRnISS2+5dA==, tarball: https://registry.npmjs.org/@cloudflare/workerd-darwin-arm64/-/workerd-darwin-arm64-1.20251011.0.tgz}
+    resolution: {integrity: sha512-1WuFBGwZd15p4xssGN/48OE2oqokIuc51YvHvyNivyV8IYnAs3G9bJNGWth1X7iMDPe4g44pZrKhRnISS2+5dA==}
     engines: {node: '>=16'}
     cpu: [arm64]
     os: [darwin]
 
   '@cloudflare/workerd-linux-64@1.20250924.0':
-    resolution: {integrity: sha512-IcwaoZFXGHq+yOBEj91QZH4qU61ws5upE7T43wVcrUAk8VXgxL12IGUVkMCEqfFXTO40PjKZBmK16B2q1HoFow==, tarball: https://registry.npmjs.org/@cloudflare/workerd-linux-64/-/workerd-linux-64-1.20250924.0.tgz}
+    resolution: {integrity: sha512-IcwaoZFXGHq+yOBEj91QZH4qU61ws5upE7T43wVcrUAk8VXgxL12IGUVkMCEqfFXTO40PjKZBmK16B2q1HoFow==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [linux]
 
   '@cloudflare/workerd-linux-64@1.20251011.0':
-    resolution: {integrity: sha512-BccMiBzFlWZyFghIw2szanmYJrJGBGHomw2y/GV6pYXChFzMGZkeCEMfmCyJj29xczZXxcZmUVJxNy4eJxO8QA==, tarball: https://registry.npmjs.org/@cloudflare/workerd-linux-64/-/workerd-linux-64-1.20251011.0.tgz}
+    resolution: {integrity: sha512-BccMiBzFlWZyFghIw2szanmYJrJGBGHomw2y/GV6pYXChFzMGZkeCEMfmCyJj29xczZXxcZmUVJxNy4eJxO8QA==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [linux]
 
   '@cloudflare/workerd-linux-arm64@1.20250924.0':
-    resolution: {integrity: sha512-NgKG/cJiRNoJFa8QqweG0/bpkrUYKpR9mA9/qLJcGiwfvJrfK9b+ucw0lCru1BVMlyuS3kWDjagjMWqfujdBkA==, tarball: https://registry.npmjs.org/@cloudflare/workerd-linux-arm64/-/workerd-linux-arm64-1.20250924.0.tgz}
+    resolution: {integrity: sha512-NgKG/cJiRNoJFa8QqweG0/bpkrUYKpR9mA9/qLJcGiwfvJrfK9b+ucw0lCru1BVMlyuS3kWDjagjMWqfujdBkA==}
     engines: {node: '>=16'}
     cpu: [arm64]
     os: [linux]
 
   '@cloudflare/workerd-linux-arm64@1.20251011.0':
-    resolution: {integrity: sha512-79o/216lsbAbKEVDZYXR24ivEIE2ysDL9jvo0rDTkViLWju9dAp3CpyetglpJatbSi3uWBPKZBEOqN68zIjVsQ==, tarball: https://registry.npmjs.org/@cloudflare/workerd-linux-arm64/-/workerd-linux-arm64-1.20251011.0.tgz}
+    resolution: {integrity: sha512-79o/216lsbAbKEVDZYXR24ivEIE2ysDL9jvo0rDTkViLWju9dAp3CpyetglpJatbSi3uWBPKZBEOqN68zIjVsQ==}
     engines: {node: '>=16'}
     cpu: [arm64]
     os: [linux]
 
   '@cloudflare/workerd-windows-64@1.20250924.0':
-    resolution: {integrity: sha512-PntewemtjgLO2+8Gjw3G/NowDjpWZNKpKk/n4KmOQaWS9jIRq3IG1LkTqxj/BbMXqa4Oyrywk2kdqspj6QllOw==, tarball: https://registry.npmjs.org/@cloudflare/workerd-windows-64/-/workerd-windows-64-1.20250924.0.tgz}
+    resolution: {integrity: sha512-PntewemtjgLO2+8Gjw3G/NowDjpWZNKpKk/n4KmOQaWS9jIRq3IG1LkTqxj/BbMXqa4Oyrywk2kdqspj6QllOw==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [win32]
 
   '@cloudflare/workerd-windows-64@1.20251011.0':
-    resolution: {integrity: sha512-RIXUQRchFdqEvaUqn1cXZXSKjpqMaSaVAkI5jNZ8XzAw/bw2bcdOVUtakrflgxDprltjFb0PTNtuss1FKtH9Jg==, tarball: https://registry.npmjs.org/@cloudflare/workerd-windows-64/-/workerd-windows-64-1.20251011.0.tgz}
+    resolution: {integrity: sha512-RIXUQRchFdqEvaUqn1cXZXSKjpqMaSaVAkI5jNZ8XzAw/bw2bcdOVUtakrflgxDprltjFb0PTNtuss1FKtH9Jg==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [win32]
@@ -4383,8 +4397,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axios@1.13.1:
-    resolution: {integrity: sha512-hU4EGxxt+j7TQijx1oYdAjw4xuIp1wRQSsbMFwSthCWeBQur1eF+qJ5iQ5sN3Tw8YRzQNKb8jszgBdMDVqwJcw==}
+  axios@1.7.3:
+    resolution: {integrity: sha512-Ar7ND9pU99eJ9GpoGQKhKf58GpUOgnzuaB7ueNQ5BMi0p+LZ5oaEnfF999fAArcTIBwXTCHAmGcHOZJaWPq9Nw==}
 
   babel-dead-code-elimination@1.0.10:
     resolution: {integrity: sha512-DV5bdJZTzZ0zn0DC24v3jD7Mnidh6xhKa4GfKCbq3sfW8kaWhDdZjP3i81geA8T33tdYqWKw4D3fVv0CwEgKVA==}
@@ -8578,7 +8592,7 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.2.0
       '@angular-devkit/architect': 0.1502.11(chokidar@3.5.3)
-      '@angular-devkit/build-webpack': 0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1))(webpack@5.76.1(esbuild@0.17.8))
+      '@angular-devkit/build-webpack': 0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)))(webpack@5.76.1(esbuild@0.17.8))
       '@angular-devkit/core': 15.2.11(chokidar@3.5.3)
       '@angular/compiler-cli': 15.2.10(@angular/compiler@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(typescript@4.8.4)
       '@babel/core': 7.20.12
@@ -8635,7 +8649,7 @@ snapshots:
       typescript: 4.8.4
       webpack: 5.76.1(esbuild@0.17.8)
       webpack-dev-middleware: 6.1.2(webpack@5.76.1(esbuild@0.17.8))
-      webpack-dev-server: 4.11.1(webpack@5.76.1)
+      webpack-dev-server: 4.11.1(webpack@5.76.1(esbuild@0.17.8))
       webpack-merge: 5.8.0
       webpack-subresource-integrity: 5.1.0(webpack@5.76.1(esbuild@0.17.8))
     optionalDependencies:
@@ -8656,12 +8670,12 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@angular-devkit/build-webpack@0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1))(webpack@5.76.1(esbuild@0.17.8))':
+  '@angular-devkit/build-webpack@0.1502.11(chokidar@3.5.3)(webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)))(webpack@5.76.1(esbuild@0.17.8))':
     dependencies:
       '@angular-devkit/architect': 0.1502.11(chokidar@3.5.3)
       rxjs: 6.6.7
       webpack: 5.76.1(esbuild@0.17.8)
-      webpack-dev-server: 4.11.1(webpack@5.76.1)
+      webpack-dev-server: 4.11.1(webpack@5.76.1(esbuild@0.17.8))
     transitivePeerDependencies:
       - chokidar
 
@@ -9757,30 +9771,39 @@ snapshots:
     dependencies:
       mime: 3.0.0
 
-  '@cloudflare/realtimekit-angular-ui@1.0.6(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))':
+  '@cloudflare/realtimekit-angular-ui@1.1.2(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))':
     dependencies:
       '@angular/common': 15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7)
       '@angular/core': 15.2.10(rxjs@7.5.7)(zone.js@0.12.0)
-      '@cloudflare/realtimekit-ui': 1.0.6
+      '@cloudflare/realtimekit-ui': 1.1.2
       tslib: 2.8.1
 
   '@cloudflare/realtimekit-react-ui@1.0.6':
     dependencies:
       '@cloudflare/realtimekit-ui': 1.0.6
 
+  '@cloudflare/realtimekit-react-ui@1.1.2':
+    dependencies:
+      '@cloudflare/realtimekit-ui': 1.1.2
+
   '@cloudflare/realtimekit-react@1.2.0(react@18.3.1)':
     dependencies:
       '@cloudflare/realtimekit': 1.2.0
       react: 18.3.1
 
-  '@cloudflare/realtimekit-recording-sdk@0.0.1(@cloudflare/realtimekit@1.2.0)':
+  '@cloudflare/realtimekit-react@1.3.0(react@18.3.1)':
     dependencies:
-      '@cloudflare/realtimekit': 1.2.0
+      '@cloudflare/realtimekit': 1.3.0
+      react: 18.3.1
 
-  '@cloudflare/realtimekit-ui-addons@0.0.4(@cloudflare/realtimekit-ui@1.0.6)(@cloudflare/realtimekit@1.2.0)':
+  '@cloudflare/realtimekit-recording-sdk@0.0.1(@cloudflare/realtimekit@1.3.0)':
     dependencies:
-      '@cloudflare/realtimekit': 1.2.0
-      '@cloudflare/realtimekit-ui': 1.0.6
+      '@cloudflare/realtimekit': 1.3.0
+
+  '@cloudflare/realtimekit-ui-addons@0.1.0(@cloudflare/realtimekit-ui@1.1.2)(@cloudflare/realtimekit@1.3.0)':
+    dependencies:
+      '@cloudflare/realtimekit': 1.3.0
+      '@cloudflare/realtimekit-ui': 1.1.2
       '@cloudflare/realtimekit-virtual-background': 0.0.2
 
   '@cloudflare/realtimekit-ui@1.0.6':
@@ -9791,9 +9814,25 @@ snapshots:
       lodash-es: 4.17.21
       resize-observer-polyfill: 1.5.1
 
+  '@cloudflare/realtimekit-ui@1.1.2':
+    dependencies:
+      '@floating-ui/dom': 1.7.4
+      hark: 1.2.3
+      hls.js: 1.6.13
+      lodash-es: 4.17.21
+      resize-observer-polyfill: 1.5.1
+
   '@cloudflare/realtimekit-virtual-background@0.0.2': {}
 
   '@cloudflare/realtimekit@1.2.0':
+    dependencies:
+      '@protobuf-ts/runtime': 2.11.1
+      bowser: 2.12.1
+      sdp-transform: 2.15.0
+      uuid: 8.3.2
+      worker-timers: 7.0.60
+
+  '@cloudflare/realtimekit@1.3.0':
     dependencies:
       '@protobuf-ts/runtime': 2.11.1
       bowser: 2.12.1
@@ -11629,7 +11668,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axios@1.13.1:
+  axios@1.7.3:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.4
@@ -15967,7 +16006,7 @@ snapshots:
 
   web-vitals@2.1.4: {}
 
-  webpack-dev-middleware@5.3.4(webpack@5.76.1):
+  webpack-dev-middleware@5.3.4(webpack@5.76.1(esbuild@0.17.8)):
     dependencies:
       colorette: 2.0.20
       memfs: 3.5.3
@@ -15986,7 +16025,7 @@ snapshots:
     optionalDependencies:
       webpack: 5.76.1(esbuild@0.17.8)
 
-  webpack-dev-server@4.11.1(webpack@5.76.1):
+  webpack-dev-server@4.11.1(webpack@5.76.1(esbuild@0.17.8)):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4
@@ -16016,7 +16055,7 @@ snapshots:
       sockjs: 0.3.24
       spdy: 4.0.2
       webpack: 5.76.1(esbuild@0.17.8)
-      webpack-dev-middleware: 5.3.4(webpack@5.76.1)
+      webpack-dev-middleware: 5.3.4(webpack@5.76.1(esbuild@0.17.8))
       ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
