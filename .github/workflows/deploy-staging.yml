@@ -1,16 +1,16 @@
-name: Deploy Angular Examples
+name: Deploy Web Examples (Staging)
+permissions:
+  contents: read
 
 on:
   push:
     branches:
-      - main
-    paths:
-      - 'angular-examples/**'
+      - staging
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy Angular Examples
+    name: Deploy Web Examples (Staging)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,13 +33,25 @@ jobs:
 
       - name: Build
         run: pnpm run build
-        working-directory: ./angular-examples
+        working-directory: ./demo-app
+        env:
+          CLOUDFLARE_ENV: staging
+          VITE_ENV: staging
+          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID_STAGING }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY_STAGING }}
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL_STAGING }}
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '4.42.1'
+          wranglerVersion: '4.40.2'
           command: deploy
-          workingDirectory: ./angular-examples
+          workingDirectory: ./demo-app
+        env:
+          CLOUDFLARE_ENV: staging
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_ENV: staging

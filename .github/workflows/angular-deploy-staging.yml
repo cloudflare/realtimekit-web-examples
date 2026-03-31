@@ -1,16 +1,18 @@
-name: Deploy Angular Examples
+name: Deploy Angular Examples (Staging)
 
 on:
   push:
     branches:
-      - main
+      - staging
     paths:
       - 'angular-examples/**'
 
 jobs:
   deploy:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
-    name: Deploy Angular Examples
+    name: Deploy Angular Examples (Staging)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,7 +34,7 @@ jobs:
         working-directory: ./
 
       - name: Build
-        run: pnpm run build
+        run: pnpm run build -- --env staging
         working-directory: ./angular-examples
 
       - name: Deploy to Cloudflare Workers
@@ -41,5 +43,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4.42.1'
-          command: deploy
+          command: deploy --env staging
           workingDirectory: ./angular-examples
