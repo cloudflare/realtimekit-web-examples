@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { StatesService } from './services/states.service';
 import RealtimeKitClient from '@cloudflare/realtimekit';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +37,7 @@ export class AppComponent implements OnInit {
         // Initialize RealtimeKit client
         const meeting = await RealtimeKitClient.init({
           authToken,
-          baseURI: process.env['VITE_BASE_URL'],
+          baseURI: environment.baseUrl,
         });
 
         this.meeting = meeting;
