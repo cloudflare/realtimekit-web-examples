@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "default-meeting-ui": {
+    "with-video-transformer": {
       "projectType": "application",
       "schematics": {},
       "root": "",
