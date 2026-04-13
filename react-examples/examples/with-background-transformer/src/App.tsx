@@ -27,6 +27,7 @@ function App() {
     (
       initMeeting({
         authToken,
+        baseURI: import.meta.env.VITE_BASE_URL,
       }) as any
     ).then(async (meeting: any) => {
       window.meeting = meeting;
