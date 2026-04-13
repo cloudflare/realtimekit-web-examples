@@ -62,6 +62,6 @@ pnpm cf-typegen  # Regenerate worker-configuration.d.ts
 ## NOTES
 
 - `.env.example` includes a real shared demo `VITE_ORG_ID` — intentional for preset compatibility
-- `VITE_BASE_URL=https://api.dyte.io/v2` in `.env.example` is a legacy URL — verify actual endpoint in CI secrets
+- `VITE_BASE_URL=dyte.io` in `.env.example` is a legacy URL — verify actual endpoint in CI secrets
 - `demo-app/README.md` is blank ("TODO") — this file is the authoritative reference
 - Stack: React 18 + React Router 7 + Tailwind CSS v4 + `@cloudflare/vite-plugin` + Wrangler
