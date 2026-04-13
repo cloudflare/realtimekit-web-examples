@@ -24,6 +24,7 @@ function App() {
 
     initMeeting({
       authToken,
+      baseURI: import.meta.env.VITE_BASE_URL,
       defaults: {
         video: false,
         audio: false,

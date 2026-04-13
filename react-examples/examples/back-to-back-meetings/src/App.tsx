@@ -5,7 +5,7 @@ function App() {
   const url = new URL(window.location.href);
   const urlAuthToken1 = url.searchParams.get('authToken1');
   const urlAuthToken2 = url.searchParams.get('authToken2');
-  const baseURI = url.searchParams.get('baseURI') || 'dyte.io';
+  const baseURI = import.meta.env.VITE_BASE_URL;
 
   const [authToken1] = useState(urlAuthToken1 || '');
   const [authToken2] = useState(urlAuthToken2 || '');

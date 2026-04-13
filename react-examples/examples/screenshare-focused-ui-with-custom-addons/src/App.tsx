@@ -82,6 +82,7 @@ function App() {
   
       const meeting = await initMeeting({
         authToken,
+        baseURI: import.meta.env.VITE_BASE_URL,
         defaults: {
           audio: false,
           video: false,

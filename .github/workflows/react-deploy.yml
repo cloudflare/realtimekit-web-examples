@@ -34,6 +34,10 @@ jobs:
       - name: Build
         run: pnpm run build
         working-directory: ./react-examples
+        env:
+          CLOUDFLARE_ENV: production
+          VITE_ENV: production
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3

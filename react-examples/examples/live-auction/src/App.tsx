@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from 'react';
-import { RealtimeKitProvider, useRealtimeKitClient, useRealtimeKitSelector } from '@cloudflare/realtimekit-react';
-import { provideRtkDesignSystem, RtkEndedScreen, RtkLeaveMeeting, RtkUiProvider } from '@cloudflare/realtimekit-react-ui';
+import { RealtimeKitProvider, useRealtimeKitClient } from '@cloudflare/realtimekit-react';
+import { provideRtkDesignSystem, RtkEndedScreen, RtkUiProvider } from '@cloudflare/realtimekit-react-ui';
 import { LoadingScreen } from './pages';
 import { Meeting, SetupScreen } from './pages';
 import './App.css';
@@ -25,6 +25,7 @@ function App() {
 
     initMeeting({
       authToken,
+      baseURI: import.meta.env.VITE_BASE_URL,
       defaults: {
         audio: false,
         video: false,
