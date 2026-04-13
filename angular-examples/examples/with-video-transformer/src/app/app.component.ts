@@ -29,6 +29,7 @@ export class AppComponent {
 
     const meeting = await RealtimeKitClient.init({
       authToken,
+      baseURI: process.env['VITE_BASE_URL'],
     });
 
     this.$meetingEl.meeting = meeting;

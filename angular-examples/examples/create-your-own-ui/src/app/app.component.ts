@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
         // Initialize RealtimeKit client
         const meeting = await RealtimeKitClient.init({
           authToken,
+          baseURI: process.env['VITE_BASE_URL'],
         });
 
         this.meeting = meeting;
