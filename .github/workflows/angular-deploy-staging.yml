@@ -36,6 +36,10 @@ jobs:
       - name: Build
         run: pnpm run build -- --env staging
         working-directory: ./angular-examples
+        env:
+          CLOUDFLARE_ENV: staging
+          VITE_ENV: staging
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL_STAGING }}
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
