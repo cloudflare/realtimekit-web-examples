@@ -101,7 +101,7 @@
           // Initialize RealtimeKit client
           meeting = await RealtimeKitClient.init({
             authToken,
-            baseURL: import.meta.env.VITE_BASE_URL,
+            baseURI: import.meta.env.VITE_BASE_URL,
             defaults: {
               audio: false,
               video: false,
