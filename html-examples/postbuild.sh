@@ -3,6 +3,13 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+# Load environment variables from .env file if it exists
+if [ -f ".env" ]; then
+    set -a
+    source .env
+    set +a
+fi
+
 # Define the root directory for output and source examples
 OUTPUT_DIR="dist"
 EXAMPLES_DIR="examples"
@@ -61,6 +68,20 @@ if [ -f "$WORKER_FILE" ]; then
     echo "Worker file copied successfully."
 else
     echo "Warning: $WORKER_FILE not found in the root directory."
+fi
+
+# Replace import.meta.env.VITE_BASE_URL with actual value in HTML files
+if [ -n "$VITE_BASE_URL" ]; then
+    echo "Replacing import.meta.env.VITE_BASE_URL with '$VITE_BASE_URL' in HTML files..."
+    find "$OUTPUT_DIR" -name "*.html" -type f | while read html_file; do
+        # Use a different delimiter in sed to avoid issues with URL slashes
+        sed -i.bak "s|import\.meta\.env\.VITE_BASE_URL|'${VITE_BASE_URL}'|g" "$html_file"
+        rm -f "${html_file}.bak"
+        echo "Updated: $html_file"
+    done
+    echo "Environment variable replacement complete."
+else
+    echo "Warning: VITE_BASE_URL is not set. Skipping environment variable replacement."
 fi
 
 # Create .assetsignore to prevent worker.js from being uploaded as an asset
