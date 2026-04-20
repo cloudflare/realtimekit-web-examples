@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "dev": "ng serve",
+    "set-env": "bash scripts/set-env.sh",
+    "prebuild": "bash scripts/set-env.sh",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { RtkMeeting, registerAddons } from '@cloudflare/realtimekit-angular-ui';
 import RealtimeKitClient from '@cloudflare/realtimekit';
 import VideoBackground from '@cloudflare/realtimekit-ui-addons/video-background';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,7 @@ export class AppComponent {
 
     const meeting = await RealtimeKitClient.init({
       authToken,
+      baseURI: environment.baseUrl,
     });
 
     this.$meetingEl.meeting = meeting;

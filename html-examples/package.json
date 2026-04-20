@@ -3,9 +3,12 @@
   "scripts": {
     "format": "prettier -w examples",
     "update-cloudflare-realtime-deps": "./update-cloudflare-realtime-deps.sh",
-    "build": "bash -c 'npm run update-cloudflare-realtime-deps -- \"$@\" && npm run postbuild' -- \"$@\"",
+    "set-env": "bash scripts/set-env.sh",
+    "prebuild": "bash scripts/set-env.sh",
+    "build": "bash -c 'npm run prebuild && npm run update-cloudflare-realtime-deps -- \"$@\" && npm run postbuild' -- \"$@\"",
     "postbuild": "./postbuild.sh",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "dev": "npm run prebuild && npx serve examples/default-meeting-ui"
   },
   "prettier": {
     "singleQuote": true,
