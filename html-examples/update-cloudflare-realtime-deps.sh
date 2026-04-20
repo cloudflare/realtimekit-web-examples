@@ -31,8 +31,8 @@ print_error() {
 
 # Parse optional env argument
 # Supported:
-#   npm run build -- --env staging
-#   npm run build -- --env prod
+#   npm run build --env staging
+#   npm run build --env prod
 #
 # Defaults to prod for:
 # - no args
