@@ -3,7 +3,7 @@
 /** NOTE: This code should be on the server side */
 const ORG_ID = import.meta.env.VITE_ORG_ID;
 const API_KEY = import.meta.env.VITE_API_KEY;
-const API_BASE = 'https://api.dyte.io';
+const API_BASE = 'https://api.realtime.cloudflare.com';
 
 const getAuthToken = () => {
 	return `Basic ${btoa(`${ORG_ID}:${API_KEY}`)}`;
@@ -49,7 +49,7 @@ export const createMeeting = async (name: string, email: string) => {
 	const meeting = meetingResponse.data;
 
 	// create participant for agent and notify them that someone has initiated a chat
-	const _agentToken = await createParticipant(meeting.id, 'Agent', 'support@dyte.io');
+	const _agentToken = await createParticipant(meeting.id, 'Agent', 'support@cloudflare.com');
 	// notify(_agentToken);
 
 	const token = await createParticipant(meeting.id, name, email);
