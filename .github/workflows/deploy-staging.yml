@@ -51,7 +51,7 @@ jobs:
           workingDirectory: ./demo-app
         env:
           CLOUDFLARE_ENV: staging
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY_STAGING }}
+          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID_STAGING }}
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL_STAGING }}
           VITE_ENV: staging

@@ -31,6 +31,17 @@ jobs:
         run: pnpm install --frozen-lockfile
         working-directory: ./
 
+      - name: Debug env vars
+        run: |
+          echo "VITE_BASE_URL is set: ${{ secrets.VITE_BASE_URL != '' }}"
+          echo "VITE_API_KEY is set: ${{ secrets.VITE_API_KEY != '' }}"
+          echo "VITE_ORG_ID is set: ${{ secrets.VITE_ORG_ID != '' }}"
+          echo "VITE_BASE_URL length: ${#VITE_BASE_URL}"
+        env:
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
+
       - name: Build
         run: pnpm run build
         working-directory: ./demo-app
