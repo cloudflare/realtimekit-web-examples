@@ -1,5 +1,8 @@
 import { useEffect } from "react";
-import { RealtimeKitProvider, useRealtimeKitClient } from "@cloudflare/realtimekit-react";
+import {
+  RealtimeKitProvider,
+  useRealtimeKitClient,
+} from "@cloudflare/realtimekit-react";
 import RecordingView from "./components/RecordingView";
 import { RealtimeKitRecording } from "@cloudflare/realtimekit-recording-sdk";
 
@@ -7,35 +10,35 @@ function App() {
   const [meeting, initMeeting] = useRealtimeKitClient();
 
   useEffect(() => {
-    async function setupRealtimeKitMeeting(){
+    async function setupRealtimeKitMeeting() {
       const searchParams = new URL(window.location.href).searchParams;
-  
+
       const authToken = searchParams.get("authToken");
-  
+
       if (!authToken) {
         alert(
-          "An authToken wasn't passed, please pass an authToken in the URL query to join a meeting."
+          "An authToken wasn't passed, please pass an authToken in the URL query to join a meeting.",
         );
         return;
       }
-  
-      const baseURI = searchParams.get('baseURI');
-  
-      const recordingSDK = new RealtimeKitRecording({ });
+
+      const baseURI = searchParams.get("baseURI");
+
+      const recordingSDK = new RealtimeKitRecording({});
       const meetingObj = await initMeeting({
         authToken,
         defaults: {
           video: false,
           audio: false,
         },
-        baseURI: baseURI ?? "dyte.io",
+        baseURI: baseURI ?? "realtime.cloudflare.com",
       });
       if (!meetingObj) {
         return;
       }
       await recordingSDK.init(meetingObj);
     }
-    if(!meeting){
+    if (!meeting) {
       setupRealtimeKitMeeting();
     }
   }, [meeting]);

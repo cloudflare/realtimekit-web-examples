@@ -27,7 +27,7 @@ export default class FlagsmithController {
     constructor(authToken: string, baseURI: string | null) {
         const { meetingId } = JSON.parse(atob(authToken.split('.')[1]));
         this.requests = axios.create({
-            baseURL: baseURI? `https://api.${baseURI}`: 'https://api.dyte.io',
+            baseURL: baseURI? `https://api.${baseURI}`: 'https://api.realtime.cloudflare.com',
             timeout: 5000,
             headers: {
                 Authorization: `Bearer ${authToken}`,

@@ -71,6 +71,6 @@ cd demo-app && pnpm dev
 
 - `pnpm-workspace.yaml` has a stale path: `recording-sdk-app-examples/react-examples/*` (actual dir: `recording-sdk-app-samples`) — this workspace glob is broken
 - `demo-app/README.md` contains only "TODO" — consult root `README.md`
-- `VITE_BASE_URL=https://api.dyte.io/v2` in `.env.example` is a legacy URL (pre-Cloudflare branding) — verify the actual endpoint in CI secrets
+- `VITE_BASE_URL=realtime.cloudflare.com` in `.env.example` is a legacy URL (pre-Cloudflare branding) — verify the actual endpoint in CI secrets
 - Node version unspecified in the repo; CI uses Node 20 — match locally
 - `@dyteinternals/utils` in `recording-sdk-app-samples/react-examples/recording-with-watermark/package.json` is a vestigial upstream dependency
