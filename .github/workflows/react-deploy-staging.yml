@@ -35,6 +35,13 @@ jobs:
         run: pnpm install --frozen-lockfile
         working-directory: ./
 
+      - name: Debug env vars
+        run: |
+          echo "VITE_BASE_URL_STAGING is set: ${{ secrets.VITE_BASE_URL_STAGING != '' }}"
+          echo "VITE_BASE_URL_STAGING value: $VITE_BASE_URL"
+        env:
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL_STAGING }}
+
       - name: Build
         run: pnpm run build --env staging
         working-directory: ./react-examples
