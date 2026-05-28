@@ -16,17 +16,17 @@ jobs:
     name: Deploy HTML Examples (Staging)
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 9
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
@@ -38,15 +38,17 @@ jobs:
         run: pnpm run build --env staging
         working-directory: ./html-examples
         env:
-          CLOUDFLARE_ENV: staging
+          CLOUDFLARE_ENV: staging # for vite.config.ts to figure out which environment to build for
           VITE_ENV: staging
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL_STAGING }}
+          VITE_BASE_URL: staging.realtime.cloudflare.com
 
       - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '4.42.1'
           command: deploy --env staging
           workingDirectory: ./html-examples
+        env:
+          CLOUDFLARE_ENV: staging # for vite.config.ts to figure out which environment to deploy to
+          VITE_ENV: staging

@@ -14,17 +14,17 @@ jobs:
     name: Deploy Web Examples
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 9
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
@@ -39,7 +39,7 @@ jobs:
           echo "VITE_ORG_ID is set: ${{ secrets.VITE_ORG_ID != '' }}"
           echo "VITE_BASE_URL length: ${#VITE_BASE_URL}"
         env:
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_BASE_URL: realtime.cloudflare.com
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
 
@@ -47,23 +47,22 @@ jobs:
         run: pnpm run build
         working-directory: ./demo-app
         env:
-          CLOUDFLARE_ENV: production
+          CLOUDFLARE_ENV: production # for vite.config.ts to figure out which environment to build for
           VITE_ENV: production
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_BASE_URL: realtime.cloudflare.com
 
       - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '4.40.2'
           command: deploy
           workingDirectory: ./demo-app
         env:
-          CLOUDFLARE_ENV: production
+          VITE_ENV: production
+          CLOUDFLARE_ENV: production # for vite.config.ts to figure out which environment to deploy to
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
-          VITE_ENV: production
+          VITE_BASE_URL: realtime.cloudflare.com
