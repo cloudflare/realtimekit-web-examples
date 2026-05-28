@@ -39,7 +39,7 @@ jobs:
           echo "VITE_ORG_ID is set: ${{ secrets.VITE_ORG_ID != '' }}"
           echo "VITE_BASE_URL length: ${#VITE_BASE_URL}"
         env:
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_BASE_URL: realtime.cloudflare.com
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
 
@@ -47,11 +47,10 @@ jobs:
         run: pnpm run build
         working-directory: ./demo-app
         env:
-          CLOUDFLARE_ENV: production
           VITE_ENV: production
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_BASE_URL: realtime.cloudflare.com
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v4
@@ -61,8 +60,7 @@ jobs:
           command: deploy
           workingDirectory: ./demo-app
         env:
-          CLOUDFLARE_ENV: production
+          VITE_ENV: production
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
-          VITE_ENV: production
+          VITE_BASE_URL: realtime.cloudflare.com

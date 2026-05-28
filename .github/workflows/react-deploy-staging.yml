@@ -39,9 +39,7 @@ jobs:
         run: pnpm run build --env staging
         working-directory: ./react-examples
         env:
-          CLOUDFLARE_ENV: staging
-          VITE_ENV: staging
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL_STAGING }}
+          VITE_BASE_URL: staging.realtime.cloudflare.com
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v4
