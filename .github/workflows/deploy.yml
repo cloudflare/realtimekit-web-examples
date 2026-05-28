@@ -47,6 +47,7 @@ jobs:
         run: pnpm run build
         working-directory: ./demo-app
         env:
+          CLOUDFLARE_ENV: production # for vite.config.ts to figure out which environment to build for
           VITE_ENV: production
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
@@ -61,6 +62,7 @@ jobs:
           workingDirectory: ./demo-app
         env:
           VITE_ENV: production
+          CLOUDFLARE_ENV: production # for vite.config.ts to figure out which environment to deploy to
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
           VITE_ORG_ID: ${{ secrets.VITE_ORG_ID }}
           VITE_BASE_URL: realtime.cloudflare.com
