@@ -39,6 +39,8 @@ jobs:
         run: pnpm run build --env staging
         working-directory: ./angular-examples
         env:
+          CLOUDFLARE_ENV: staging # for vite.config.ts to figure out which environment to build for
+          VITE_ENV: staging
           VITE_BASE_URL: staging.realtime.cloudflare.com
 
       - name: Deploy to Cloudflare Workers
@@ -48,3 +50,6 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env staging
           workingDirectory: ./angular-examples
+        env:
+          CLOUDFLARE_ENV: staging # for vite.config.ts to figure out which environment to deploy to
+          VITE_ENV: staging

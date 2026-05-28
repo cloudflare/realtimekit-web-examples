@@ -39,6 +39,8 @@ jobs:
         run: pnpm run build
         working-directory: ./react-examples
         env:
+          CLOUDFLARE_ENV: production # for vite.config.ts to figure out which environment to build for
+          VITE_ENV: production
           VITE_BASE_URL: realtime.cloudflare.com
 
       - name: Deploy to Cloudflare Workers
@@ -48,3 +50,6 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
           workingDirectory: ./react-examples
+        env:
+          CLOUDFLARE_ENV: production # for vite.config.ts to figure out which environment to deploy to
+          VITE_ENV: production
