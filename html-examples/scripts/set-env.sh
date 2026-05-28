@@ -3,14 +3,16 @@
 
 EXAMPLES_DIR="examples"
 
-# Read from .env file in html-examples root
-ENV_FILE="$(dirname "$0")/../.env"
-if [ -f "$ENV_FILE" ]; then
-  BASE_URL=$(grep '^VITE_BASE_URL=' "$ENV_FILE" | cut -d= -f2-)
+# Priority: env var > .env file > default
+if [ -n "${VITE_BASE_URL:-}" ]; then
+  BASE_URL="$VITE_BASE_URL"
+else
+  ENV_FILE="$(dirname "$0")/../.env"
+  if [ -f "$ENV_FILE" ]; then
+    BASE_URL=$(grep -m1 '^VITE_BASE_URL=' "$ENV_FILE" | sed 's/^VITE_BASE_URL=//')
+  fi
+  BASE_URL="${BASE_URL:-realtime.cloudflare.com}"
 fi
-
-# Fallback to env var or default
-BASE_URL="${BASE_URL:-${VITE_BASE_URL:-https://realtime.cloudflare.com}}"
 
 echo "Replacing import.meta.env.VITE_BASE_URL with '${BASE_URL}' in source HTML files..."
 
