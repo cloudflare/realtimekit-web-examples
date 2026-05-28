@@ -8,6 +8,9 @@
   "env": {
     "staging": {
       "name": "html-examples-staging"
+    },
+    "production": {
+      "name": "html-examples"
     }
   }
 }

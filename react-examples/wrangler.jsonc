@@ -9,6 +9,9 @@
   "env": {
     "staging": {
       "name": "react-examples-staging"
+    },
+    "production": {
+      "name": "react-examples"
     }
   }
 }
