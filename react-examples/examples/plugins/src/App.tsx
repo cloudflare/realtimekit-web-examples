@@ -31,7 +31,7 @@ function App() {
       return;
     }
 
-    const BASEURL = 'staging.realtime.cloudflare.com';
+    const BASEURL = import.meta.env.VITE_BASE_URL || 'staging.realtime.cloudflare.com';
 
     initMeeting({
       authToken,
