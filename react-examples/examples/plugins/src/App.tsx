@@ -31,11 +31,9 @@ function App() {
       return;
     }
 
-    const BASEURL = import.meta.env.VITE_BASE_URL || 'staging.realtime.cloudflare.com';
-
     initMeeting({
       authToken,
-      baseURI: BASEURL,
+      baseURI: import.meta.env.VITE_BASE_URL,
       defaults: {
         plugins: [
           {
@@ -65,7 +63,7 @@ function App() {
       }
 
       iframeRef.current.src = `${WHITEBOARD_URL}?${params.toString()}`;
-    });
+    }).catch(console.error);
   }, []);
 
   // By default this component will cover the entire viewport.
