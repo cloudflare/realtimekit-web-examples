@@ -65,7 +65,7 @@ function App() {
         params.set('profilePicture', m.self.picture);
       }
 
-      iframeRef.current.src = `${WHITEBOARD_URL}?${params.toString()}`;
+      iframeRef.current!.src = `${WHITEBOARD_URL}?${params.toString()}`;
     }).catch(console.error);
   }, []);
 
