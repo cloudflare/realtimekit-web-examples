@@ -9,6 +9,7 @@ declare namespace Cloudflare {
 		VITE_ORG_ID: string;
 		VITE_API_KEY: string;
 		VITE_BASE_URL: string;
+		VITE_ENV: string;
 	}
 }
 interface Env extends Cloudflare.Env {}
