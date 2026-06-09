@@ -17,7 +17,10 @@ function createWhiteboardIframe(): HTMLIFrameElement {
 
 function App() {
   const [meeting, initMeeting] = useRealtimeKitClient();
-  const iframeRef = useRef<HTMLIFrameElement>(createWhiteboardIframe());
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  if (!iframeRef.current) {
+    iframeRef.current = createWhiteboardIframe();
+  }
 
   useEffect(() => {
     const searchParams = new URL(window.location.href).searchParams;
@@ -62,7 +65,7 @@ function App() {
         params.set('profilePicture', m.self.picture);
       }
 
-      iframeRef.current.src = `${WHITEBOARD_URL}?${params.toString()}`;
+      iframeRef.current!.src = `${WHITEBOARD_URL}?${params.toString()}`;
     }).catch(console.error);
   }, []);
 
