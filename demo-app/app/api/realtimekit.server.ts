@@ -8,17 +8,9 @@ const getRuntimeEnv = (context: AppLoadContext): RuntimeEnv => {
 
 export const getRealtimeKitConfig = (context: AppLoadContext) => {
   const env = getRuntimeEnv(context);
-  const buildEnv = import.meta.env as unknown as RuntimeEnv;
-  const apiKey =
-    env.REALTIMEKIT_API_KEY ??
-    env.VITE_API_KEY ??
-    buildEnv.VITE_API_KEY;
-  const orgId = env.REALTIMEKIT_ORG_ID ?? env.VITE_ORG_ID ?? buildEnv.VITE_ORG_ID;
-  const baseUrl =
-    env.REALTIMEKIT_BASE_URL ??
-    env.VITE_BASE_URL ??
-    buildEnv.VITE_BASE_URL ??
-    "realtime.cloudflare.com";
+  const apiKey = env.REALTIMEKIT_API_KEY;
+  const orgId = env.REALTIMEKIT_ORG_ID;
+  const baseUrl = env.REALTIMEKIT_BASE_URL ?? "realtime.cloudflare.com";
 
   if (!apiKey || !orgId) {
     throw new Error("RealtimeKit credentials are not configured");

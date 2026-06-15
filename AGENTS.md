@@ -31,7 +31,7 @@ realtimekit-web-examples/
 | Update SDK versions | `<workspace>/update-cloudflare-realtime-deps.sh` | Fetches from npm; pass `--env staging\|prod` |
 | Gallery example catalog | `demo-app/app/utils/react.ts`, `angular.ts`, `vanilla.ts` | Hardcoded; new examples won't appear without editing |
 | CI / deploy config | `.github/workflows/` | Per-framework staging + prod deploy workflows |
-| API credentials | `demo-app/.env.example` | `VITE_ORG_ID`, `VITE_API_KEY`, `VITE_BASE_URL`, `VITE_ENV` |
+| API credentials | `demo-app/.dev.vars.example` | `REALTIMEKIT_ORG_ID`, `REALTIMEKIT_API_KEY`, `REALTIMEKIT_BASE_URL` |
 
 ## COMMANDS
 
