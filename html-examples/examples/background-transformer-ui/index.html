@@ -287,9 +287,13 @@
           );
         }
 
+        const baseURI = searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+        const logInConsole = searchParams.get('logInConsole') === 'true';
+
         const meeting = await RealtimeKitClient.init({
-          baseURI: import.meta.env.VITE_BASE_URL,
+          baseURI,
           authToken,
+          modules: { devTools: { logs: logInConsole } },
         });
 
         document.getElementById('my-meeting').meeting = meeting;

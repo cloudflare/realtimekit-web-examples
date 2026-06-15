@@ -18,13 +18,18 @@ const Widget = () => {
 	const onSubmit = async ({ name, email }: { name: string; email: string }) => {
 		setStep(STEP.CHAT);
 		const authToken = await createMeeting(name, email);
+		const searchParams = new URL(window.location.href).searchParams;
+		const baseURI = searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+		const logInConsole = searchParams.get('logInConsole') === 'true';
+
 		initMeeting({
 			authToken,
-			baseURI: import.meta.env.VITE_BASE_URL,
+			baseURI,
 			defaults: {
 				audio: false,
 				video: false,
 			},
+			modules: { devTools: { logs: logInConsole } },
 		});
 	};
 

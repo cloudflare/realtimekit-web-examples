@@ -5,7 +5,8 @@ function App() {
   const url = new URL(window.location.href);
   const urlAuthToken1 = url.searchParams.get('authToken1');
   const urlAuthToken2 = url.searchParams.get('authToken2');
-  const baseURI = import.meta.env.VITE_BASE_URL;
+  const urlBaseURI = url.searchParams.get('baseURI');
+  const baseURI = urlBaseURI || import.meta.env.VITE_BASE_URL;
 
   const [authToken1] = useState(urlAuthToken1 || '');
   const [authToken2] = useState(urlAuthToken2 || '');

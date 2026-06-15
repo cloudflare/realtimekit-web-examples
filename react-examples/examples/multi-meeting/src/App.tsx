@@ -9,7 +9,8 @@ function App() {
   const autoInitializeMeeting2 = url.searchParams.get('autoInitializeMeeting2');
   const showSetupScreen1 = url.searchParams.get('showSetupScreen1') !== 'false';
   const showSetupScreen2 = url.searchParams.get('showSetupScreen2') !== 'false';
-  const baseURI = import.meta.env.VITE_BASE_URL;
+  const urlBaseURI = url.searchParams.get('baseURI');
+  const baseURI = urlBaseURI || import.meta.env.VITE_BASE_URL;
 
   const [authToken1, setAuthToken1] = useState(urlAuthToken1 || '');
   const [authToken2, setAuthToken2] = useState(urlAuthToken2 || '');
