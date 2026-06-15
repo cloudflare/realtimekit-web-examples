@@ -146,6 +146,9 @@ export function Meeting(
       theme: 'light',
     });
 
+    const searchParams = new URL(window.location.href).searchParams;
+    const logInConsole = searchParams.get('logInConsole') === 'true';
+
     initMeeting({
       authToken,
       defaults: {
@@ -153,11 +156,7 @@ export function Meeting(
         video: false,
       },
       ...(baseURI && { baseURI }),
-      modules: {
-        devTools: {
-          logs: false,
-        }
-      }
+      modules: { devTools: { logs: logInConsole } },
     })
     .then(() => {
       console.log(`[${meetingIdentifier}] Meeting initialized`);

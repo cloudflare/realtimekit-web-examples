@@ -8,15 +8,15 @@
 
     <!-- Import helper to load UI Kit components -->
     <script type="module">
-      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/loader/index.es2017.js';
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@staging/loader/index.es2017.js';
       defineCustomElements();
     </script>
 
     <!-- Import RealtimeKit Core via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@latest/dist/browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@staging/dist/browser.js"></script>
 
     <!-- Video Background Transformer -->
-    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-virtual-background@latest/dist/index.iife.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-virtual-background@staging/dist/index.iife.js"></script>
   </head>
   <body>
     <rtk-meeting id="my-meeting" show-setup-screen="true" />
@@ -32,11 +32,15 @@
         );
       }
 
+      const baseURI = searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+      const logInConsole = searchParams.get('logInConsole') === 'true';
+
       // Initialize a meeting
 
       RealtimeKitClient.init({
-        baseURI: import.meta.env.VITE_BASE_URL,
+        baseURI,
         authToken,
+        modules: { devTools: { logs: logInConsole } },
       }).then(async (meeting) => {
         document.getElementById('my-meeting').meeting = meeting;
 

@@ -34,9 +34,13 @@ function App() {
       return;
     }
 
+    const baseURI = searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+    const logInConsole = searchParams.get('logInConsole') === 'true';
+
     initMeeting({
       authToken,
-      baseURI: import.meta.env.VITE_BASE_URL,
+      baseURI,
+      modules: { devTools: { logs: logInConsole } },
       defaults: {
         plugins: [
           {

@@ -25,9 +25,13 @@ export class AppComponent {
       return;
     }
 
+    const baseURI = searchParams.get('baseURI') || environment.baseUrl;
+    const logInConsole = searchParams.get('logInConsole') === 'true';
+
     const meeting = await RealtimeKitClient.init({
       authToken,
-      baseURI: environment.baseUrl,
+      baseURI,
+      modules: { devTools: { logs: logInConsole } },
     });
 
     this.$meetingEl.meeting = meeting;
