@@ -3,10 +3,10 @@ import { apiError, getAuthHeaders, getRealtimeKitConfig } from "./realtimekit.se
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
   try {
-    const { baseUrl } = getRealtimeKitConfig(context);
-    const response = await fetch(`${baseUrl}/presets`, {
+    const config = getRealtimeKitConfig(context);
+    const response = await fetch(`${config.baseUrl}/presets`, {
       method: "GET",
-      headers: getAuthHeaders(context),
+      headers: getAuthHeaders(config),
     });
     const data = await response.json() as {
       data: {

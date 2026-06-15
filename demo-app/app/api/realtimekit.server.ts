@@ -2,6 +2,12 @@ import type { AppLoadContext } from "react-router";
 
 type RuntimeEnv = Record<string, string | undefined>;
 
+type RealtimeKitConfig = {
+  apiKey: string;
+  orgId: string;
+  baseUrl: string;
+};
+
 const getRuntimeEnv = (context: AppLoadContext): RuntimeEnv => {
   return context.cloudflare.env as unknown as RuntimeEnv;
 };
@@ -23,8 +29,7 @@ export const getRealtimeKitConfig = (context: AppLoadContext) => {
   };
 };
 
-export const getAuthHeaders = (context: AppLoadContext) => {
-  const { apiKey, orgId } = getRealtimeKitConfig(context);
+export const getAuthHeaders = ({ apiKey, orgId }: RealtimeKitConfig) => {
   const authHeader = btoa(`${orgId}:${apiKey}`);
 
   return {
@@ -34,7 +39,7 @@ export const getAuthHeaders = (context: AppLoadContext) => {
 };
 
 export const apiError = (error: unknown) => {
-  const message = error instanceof Error ? error.message : "Request failed";
+  console.error("RealtimeKit API route failed", error);
 
-  return Response.json({ message }, { status: 500 });
+  return Response.json({ message: "Request failed" }, { status: 500 });
 };

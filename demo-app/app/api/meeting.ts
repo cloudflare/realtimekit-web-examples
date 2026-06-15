@@ -8,10 +8,10 @@ export const action = async ({ context, request }: ActionFunctionArgs) => {
       recordOnStart: boolean;
       aiSummary: boolean;
     };
-    const { baseUrl } = getRealtimeKitConfig(context);
-    const response = await fetch(`${baseUrl}/meetings`, {
+    const config = getRealtimeKitConfig(context);
+    const response = await fetch(`${config.baseUrl}/meetings`, {
       method: "POST",
-      headers: getAuthHeaders(context),
+      headers: getAuthHeaders(config),
       body: JSON.stringify({
         title: meetingName ?? "RealtimeKit Meeting",
         record_on_start: recordOnStart,

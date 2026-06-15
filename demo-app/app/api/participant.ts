@@ -13,10 +13,10 @@ export const action = async ({ context, request }: ActionFunctionArgs) => {
       return Response.json({ message: "Invalid meetingId" }, { status: 400 });
     }
 
-    const { baseUrl } = getRealtimeKitConfig(context);
-    const response = await fetch(`${baseUrl}/meetings/${encodeURIComponent(normalizedMeetingId)}/participants`, {
+    const config = getRealtimeKitConfig(context);
+    const response = await fetch(`${config.baseUrl}/meetings/${encodeURIComponent(normalizedMeetingId)}/participants`, {
       method: "POST",
-      headers: getAuthHeaders(context),
+      headers: getAuthHeaders(config),
       body: JSON.stringify({
         name,
         preset_name: presetName,
