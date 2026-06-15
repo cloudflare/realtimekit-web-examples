@@ -8,7 +8,7 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@staging/dist/browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/dist/browser.js"></script>
 
     <!-- Simple reactive state management -->
     <script>
@@ -38,17 +38,17 @@
 
     <!-- Import helper to load UI Kit components -->
     <script type="module">
-      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@staging/loader/index.es2017.js';
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/loader/index.es2017.js';
       defineCustomElements();
     </script>
 
     <script type="module">
-      import * as RealtimeKitUI from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@staging/dist/index.js';
+      import * as RealtimeKitUI from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/dist/index.js';
       window.RealtimeKitUI = RealtimeKitUI;
     </script>
 
     <!-- Import RealtimeKit Core via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@staging/dist/browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@latest/dist/browser.js"></script>
 
     <!-- Import our modules -->
     <script src="./types.js"></script>
