@@ -10,13 +10,17 @@ const Widget = () => {
 
 	useEffect(() => {
 		if (!authToken) return;
+		const searchParams = new URL(window.location.href).searchParams;
+		const baseURI = searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+		const logInConsole = searchParams.get('logInConsole') === 'true';
 		initMeeting({
 			authToken,
-			baseURI: import.meta.env.VITE_BASE_URL,
+			baseURI,
 			defaults: {
 				audio: false,
 				video: false,
 			},
+			modules: { devTools: { logs: logInConsole } },
 		});
 	}, [authToken, initMeeting]);
 
@@ -33,7 +37,7 @@ const Widget = () => {
 					) : (
 						<div className="w-96 rounded-md bg-white p-6 text-sm text-gray-700">
 							Missing authToken. Generate a participant token on your server and pass it as
-							 <code className="rounded bg-gray-100 px-1">?authToken=...</code>.
+							<code className="rounded bg-gray-100 px-1">?authToken=...</code>.
 						</div>
 					)}
 				</div>
