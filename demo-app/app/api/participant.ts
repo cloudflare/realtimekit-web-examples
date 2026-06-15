@@ -8,8 +8,13 @@ export const action = async ({ context, request }: ActionFunctionArgs) => {
       meetingId: string;
       presetName: string;
     };
+    const normalizedMeetingId = meetingId?.trim();
+    if (!normalizedMeetingId || !/^[A-Za-z0-9_-]+$/.test(normalizedMeetingId)) {
+      return Response.json({ message: "Invalid meetingId" }, { status: 400 });
+    }
+
     const { baseUrl } = getRealtimeKitConfig(context);
-    const response = await fetch(`${baseUrl}/meetings/${meetingId}/participants`, {
+    const response = await fetch(`${baseUrl}/meetings/${encodeURIComponent(normalizedMeetingId)}/participants`, {
       method: "POST",
       headers: getAuthHeaders(context),
       body: JSON.stringify({
