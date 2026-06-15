@@ -2,7 +2,34 @@ import reactExamples from './react';
 import angularExamples from './angular';
 import vanillaExamples from './vanilla';
 import { type Framework, type Usecase } from '~/context/index';
-import { addParticipant } from '~/api';
+
+type AddParticipantResponse = {
+  message?: string;
+  data: { token: string };
+};
+
+const addParticipant = async ({
+  name,
+  meetingId,
+  presetName,
+}: {
+  name: string;
+  meetingId: string;
+  presetName: string;
+}) => {
+  const response = await fetch('/api/participants', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, meetingId, presetName }),
+  });
+  const data = await response.json() as AddParticipantResponse;
+
+  if (!response.ok) {
+    throw new Error(data.message || `API request failed with status ${response.status}`);
+  }
+
+  return data;
+};
 
 export const getList = (framework: Framework, usecase: Usecase, search: string) => {
 

@@ -38,20 +38,30 @@ jobs:
         env:
           CLOUDFLARE_ENV: staging # for vite.config.ts to figure out which environment to build for
           VITE_ENV: staging
-          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID_STAGING }}
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY_STAGING }}
-          VITE_BASE_URL: staging.realtime.cloudflare.com
+
+      - name: Configure RealtimeKit API key
+        run: pnpm wrangler secret put REALTIMEKIT_API_KEY --env staging <<< "$REALTIMEKIT_API_KEY"
+        working-directory: ./demo-app
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          REALTIMEKIT_API_KEY: ${{ secrets.VITE_API_KEY_STAGING }}
+
+      - name: Configure RealtimeKit org ID
+        run: pnpm wrangler secret put REALTIMEKIT_ORG_ID --env staging <<< "$REALTIMEKIT_ORG_ID"
+        working-directory: ./demo-app
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          REALTIMEKIT_ORG_ID: ${{ secrets.VITE_ORG_ID_STAGING }}
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
+          command: deploy --env staging
           workingDirectory: ./demo-app
         env:
           VITE_ENV: staging
           CLOUDFLARE_ENV: staging # for vite.config.ts to figure out which environment to deploy to
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY_STAGING }}
-          VITE_ORG_ID: ${{ secrets.VITE_ORG_ID_STAGING }}
-          VITE_BASE_URL: staging.realtime.cloudflare.com

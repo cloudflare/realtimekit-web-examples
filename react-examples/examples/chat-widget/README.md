@@ -14,6 +14,9 @@ This example showcases how you can build a Chat widget using RealtimeKit Chat SD
 
 ## Getting started
 
-1. rename `.env.example` to `.env` and update the variables with your organization details
+1. Generate a participant token on your server.
 2. `npm install`
 3. `npm run dev`
+4. Open the example with `?authToken=<participant-token>`.
+
+Do not put RealtimeKit API credentials in this example. API keys and org IDs must stay on your server.

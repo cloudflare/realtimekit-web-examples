@@ -1,0 +1,3 @@
+REALTIMEKIT_ORG_ID=your-org-id-here
+REALTIMEKIT_API_KEY=your-api-key-here
+REALTIMEKIT_BASE_URL=staging.realtime.cloudflare.com
