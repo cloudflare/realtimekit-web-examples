@@ -103,6 +103,9 @@ export function Meeting(
       theme: 'light',
     });
 
+    const searchParams = new URL(window.location.href).searchParams;
+    const logInConsole = searchParams.get('logInConsole') === 'true';
+
     initMeeting({
       authToken,
       defaults: {
@@ -110,6 +113,7 @@ export function Meeting(
         video: false,
       },
       baseURI,
+      modules: { devTools: { logs: logInConsole } },
     })
     /*.then((m) => m?.joinRoom())*/;
   }, [initMeeting, authToken]);

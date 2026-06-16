@@ -21,20 +21,21 @@ This application lists, filters, and launches all SDK examples. It creates meeti
 
 ### Environment Setup
 
-Copy `.env.example` to `.env` and fill in your credentials:
+Copy `.env.example` to `.env` for browser-safe Vite values, and copy `.dev.vars.example` to `.dev.vars` for Worker runtime credentials:
 
 ```bash
 cp .env.example .env
+cp .dev.vars.example .dev.vars
 ```
 
 Required environment variables:
 
 | Variable | Description |
 |----------|-------------|
-| `VITE_ORG_ID` | Your RealtimeKit organization ID |
-| `VITE_API_KEY` | Your RealtimeKit API key |
-| `VITE_BASE_URL` | RealtimeKit API base URL (e.g., `https://api.cloudflare.com/client/v2` or legacy `https://api.dyte.io/v2`) |
 | `VITE_ENV` | Environment identifier (e.g., `staging`, `production`) |
+| `REALTIMEKIT_ORG_ID` | Your RealtimeKit organization ID, stored in `.dev.vars` locally or Worker secrets in deploys |
+| `REALTIMEKIT_API_KEY` | Your RealtimeKit API key, stored in `.dev.vars` locally or Worker secrets in deploys |
+| `REALTIMEKIT_BASE_URL` | RealtimeKit API base hostname (e.g., `realtime.cloudflare.com`) |
 
 ### Development
 
@@ -42,7 +43,7 @@ Required environment variables:
 # Install dependencies
 pnpm install
 
-# Start dev server (requires .env with valid credentials)
+# Start dev server (requires .dev.vars with valid credentials)
 pnpm dev
 ```
 
@@ -79,7 +80,8 @@ demo-app/
 ├── worker-configuration.d.ts # Auto-generated Wrangler env bindings
 ├── vite.config.ts
 ├── wrangler.jsonc
-└── .env.example
+├── .env.example
+└── .dev.vars.example
 ```
 
 ## Adding Examples to the Gallery
@@ -129,7 +131,7 @@ The gallery catalog is **hardcoded** (not auto-discovered). To add a new example
 
 - **Type errors after route changes**: Run `pnpm typecheck` to regenerate `.react-router/types/`
 - **Wrangler env binding errors**: Run `pnpm cf-typegen` to update `worker-configuration.d.ts`
-- **Meeting creation fails**: Verify your `.env` contains valid `VITE_ORG_ID` and `VITE_API_KEY`
+- **Meeting creation fails**: Verify your `.dev.vars` contains valid `REALTIMEKIT_ORG_ID` and `REALTIMEKIT_API_KEY`
 
 ## Related
 

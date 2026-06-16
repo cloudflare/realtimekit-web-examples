@@ -79,15 +79,18 @@ function App() {
         );
         return;
       }
+
+      const baseURI = searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+      const logInConsole = searchParams.get('logInConsole') === 'true';
   
       const meeting = await initMeeting({
         authToken,
-        baseURI: import.meta.env.VITE_BASE_URL,
+        baseURI,
         defaults: {
           audio: false,
           video: false,
         },
-        modules: {devTools: {logs: true}}
+        modules: { devTools: { logs: logInConsole } },
       });
 
       // await meeting!.joinRoom();

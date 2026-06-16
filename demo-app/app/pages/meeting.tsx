@@ -1,11 +1,59 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router";
-import { createMeeting } from "~/api";
-import { getPresets } from "~/api/preset";
 import { Icon } from "~/components/icons";
 import type { Usecase } from "~/context";
 import { useSharedState } from "~/context/hook";
 import { generateUrl, getGuestPreset, getPresetName } from "~/utils/utils";
+
+type Preset = {
+  created_at: string;
+  updated_at: string;
+  name: string;
+  id: string;
+};
+
+type CreateMeetingResponse = {
+  message?: string;
+  data: { id: string };
+};
+
+const createMeeting = async ({
+  meetingName,
+  recordOnStart,
+  aiSummary,
+}: {
+  meetingName: string;
+  recordOnStart: boolean;
+  aiSummary: boolean;
+}) => {
+  const response = await fetch("/api/meetings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ meetingName, recordOnStart, aiSummary }),
+  });
+  const data = await response.json() as CreateMeetingResponse;
+
+  if (!response.ok) {
+    throw new Error(data.message || `API request failed with status ${response.status}`);
+  }
+
+  return data;
+};
+
+const getPresets = async () => {
+  const response = await fetch("/api/presets");
+  const data = await response.json() as Preset[] | { message?: string };
+
+  if (!response.ok) {
+    throw new Error(
+      "message" in data && data.message
+        ? data.message
+        : `API request failed with status ${response.status}`,
+    );
+  }
+
+  return data as Preset[];
+};
 
 const fromBase64Url = (input: string) => {
   const b64 =
@@ -42,9 +90,7 @@ const Meeting = () => {
   const [authURL, setAuthURL] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadingState, setLoadingState] = useState<LoadingState>("loading");
-  const [presets, setPresets] = useState<
-    Awaited<ReturnType<typeof getPresets>>
-  >([]);
+  const [presets, setPresets] = useState<Preset[]>([]);
 
   const { url, preset, name } = useMemo(() => {
     const searchParams = new URLSearchParams(location.search);

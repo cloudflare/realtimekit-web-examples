@@ -34,3 +34,4 @@ html-examples
 
 .env.production
 .env.staging
+.dev.vars
