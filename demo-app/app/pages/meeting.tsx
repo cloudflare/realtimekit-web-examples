@@ -31,10 +31,12 @@ const createMeeting = async ({
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ meetingName, recordOnStart, aiSummary }),
   });
-  const data = await response.json() as CreateMeetingResponse;
+  const data = (await response.json()) as CreateMeetingResponse;
 
   if (!response.ok) {
-    throw new Error(data.message || `API request failed with status ${response.status}`);
+    throw new Error(
+      data.message || `API request failed with status ${response.status}`,
+    );
   }
 
   return data;
@@ -42,7 +44,7 @@ const createMeeting = async ({
 
 const getPresets = async () => {
   const response = await fetch("/api/presets");
-  const data = await response.json() as Preset[] | { message?: string };
+  const data = (await response.json()) as Preset[] | { message?: string };
 
   if (!response.ok) {
     throw new Error(
@@ -69,11 +71,14 @@ const defaultBaseURL =
     ? "react-examples.realtime.cloudflare.com"
     : "react-examples.staging.realtime.cloudflare.com";
 
+/**
+ * NOTE: it is okay to change the default payload. It is a non breaking change.
+ */
 const defaultPayload = {
-  name: "plugins",
+  name: "default-meeting",
   framework: "react",
   usecase: "all",
-  url: `https://${defaultBaseURL}/plugins`,
+  url: `https://${defaultBaseURL}/default-meeting-ui`,
 };
 
 type Mode = "create" | "join";
