@@ -96,11 +96,7 @@ export class RtkStateListenersUtils{
           this.meeting.self.addListener('roomLeft', this.roomLeftListener);
           this.meeting.self.addListener('mediaPermissionUpdate', this.mediaPermissionUpdateListener);
           this.meeting.stage.addListener('stageRequestApproved', this.joinStateAcceptedListener);
-      
-          if (this.meeting.connectedMeetings.supportsConnectedMeetings) {
-            this.meeting.connectedMeetings.once('changingMeeting', this.handleChangingMeeting);
-          }
-
+          this.meeting.connectedMeetings.once('changingMeeting', this.handleChangingMeeting);
     }
     cleanupRtkEventListeners(){
 

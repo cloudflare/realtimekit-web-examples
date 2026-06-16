@@ -136,6 +136,18 @@ const sampleFiles = [
     blogUrl:"",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20with%20AR%20Filters.png",
     usecase: "all",
+  },
+  {
+    name: "plugins",
+    platform: "web",
+    id: "react-examples/plugins",
+    url: `https://${reactExamplesDomain}/plugins`,
+    preset: "",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/plugins",
+    description: "A meeting UI demonstrating RealtimeKit plugin integration.",
+    blogUrl:"",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
+    usecase: "all",
   }
 ];
 

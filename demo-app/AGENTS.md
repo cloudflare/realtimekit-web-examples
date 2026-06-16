@@ -22,6 +22,7 @@ demo-app/
 │   └── app.ts              # Cloudflare Worker entry point (SSR)
 ├── worker-configuration.d.ts  # Auto-generated Wrangler env bindings — do not edit manually
 ├── .env.example
+├── .dev.vars.example
 ├── vite.config.ts
 └── tsconfig.cloudflare.json   # Primary TS config; includes .react-router/types/**/*
 ```
@@ -52,7 +53,7 @@ demo-app/
 ## COMMANDS
 
 ```bash
-pnpm dev         # Local dev (requires .env with valid VITE_ORG_ID + VITE_API_KEY)
+pnpm dev         # Local dev (requires .dev.vars with valid REALTIMEKIT_ORG_ID + REALTIMEKIT_API_KEY)
 pnpm build       # Production build
 pnpm deploy      # Build + wrangler deploy
 pnpm typecheck   # wrangler types + react-router typegen + tsc
@@ -61,7 +62,7 @@ pnpm cf-typegen  # Regenerate worker-configuration.d.ts
 
 ## NOTES
 
-- `.env.example` includes a real shared demo `VITE_ORG_ID` — intentional for preset compatibility
-- `VITE_BASE_URL=dyte.io` in `.env.example` is a legacy URL — verify actual endpoint in CI secrets
+- `.env.example` is browser-exposed and must not include API credentials
+- `.dev.vars.example` documents local Worker runtime credentials for meeting creation
 - `demo-app/README.md` is blank ("TODO") — this file is the authoritative reference
 - Stack: React 18 + React Router 7 + Tailwind CSS v4 + `@cloudflare/vite-plugin` + Wrangler

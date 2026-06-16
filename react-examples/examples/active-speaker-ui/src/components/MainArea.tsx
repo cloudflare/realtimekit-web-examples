@@ -12,7 +12,7 @@ import { useRealtimeKitMeeting, useRealtimeKitSelector } from '@cloudflare/realt
 import type { RTKParticipant, RTKPlugin, RTKSelf } from '@cloudflare/realtimekit';
 import clsx from 'clsx';
 import { useState, useEffect, useRef } from 'react';
-import HOST_PRESET, { iconPack, saveWhiteboard, WHITEBOARD_ID } from '../lib/const';
+import HOST_PRESET, { iconPack } from '../lib/const';
 
 type ActiveTab =
   | { type: 'plugin'; plugin: RTKPlugin }
@@ -34,12 +34,9 @@ function ActiveSpeakerView({
   const showTabBar = screenshares.length + plugins.length > 1;
 
   const size = useMeetingStore((s) => s.size);
-  const whiteboardPlugin = useRealtimeKitSelector(m => m.plugins.active.get(WHITEBOARD_ID)) 
   const [states, setStates] = useMeetingStore((s) => [s.states, s.setStates]);
 
   const activeTab = useRealtimeKitSelector((m) => m.meta.selfActiveTab);
-  const isHost = meeting.self.presetName === HOST_PRESET;
-  const isDarkMode = useMeetingStore((s) => s.darkMode);
 
   useEffect(() => {
     if (activeTab) {
@@ -129,45 +126,8 @@ function ActiveSpeakerView({
     setSelectedTab(tab);
   };
 
-  const setConfig = () => {
-    const hostId = 
-      isHost
-      ? meeting.self.id
-      : meeting.participants.joined.toArray().find(x => x.presetName === HOST_PRESET)?.id;
-
-    whiteboardPlugin?.sendData({
-      eventName: 'config',
-      data: {
-        eventName: 'config',
-        follow: hostId,
-        role: isHost ? 'editor' : 'viewer',
-        infiniteCanvas: false,
-        darkMode: isDarkMode,
-        exportMode: 'pdf', 
-      }
-    })
-  }
-
-  // NOTE(ishita1805): Set whiteboard config on launch 
-  useEffect(() => {
-    if (!whiteboardPlugin) return;
-    setConfig();
-    whiteboardPlugin.on('ready', setConfig);
-    return () => {
-      whiteboardPlugin.off('ready', setConfig);
-    }
-  }, [whiteboardPlugin])
-
-  // NOTE(ishita1805): Update whiteboard config when dark mode is toggled
-  useEffect(() => {
-    setConfig();
-  }, [isDarkMode])
-
   // NOTE(ishita1805): Save whiteboard before closing
   const closePlugin = async (plugin: RTKPlugin) => {
-    if (plugin.id === whiteboardPlugin?.id) {
-      await saveWhiteboard(whiteboardPlugin);
-    }
     plugin.deactivate();
   }
   
@@ -208,7 +168,7 @@ function ActiveSpeakerView({
                 key={plugin.id}
                 onClick={() => setActiveTab({ type: 'plugin', plugin })}
               >
-                <img className="h-6 w-6 rounded-sm" src={plugin.picture} />
+                <img className="h-6 w-6 rounded-sm" src={plugin.icon} />
                 <span>{plugin.name}</span>
               </button>
             ))}

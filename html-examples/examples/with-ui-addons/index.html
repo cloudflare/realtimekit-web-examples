@@ -46,10 +46,14 @@
             return;
         }
 
+        const baseURI = url.searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+        const logInConsole = url.searchParams.get('logInConsole') === 'true';
+
         // Initializes a meeting.
         const meeting = await RealtimeKitClient.init({
           authToken,
-          baseURI: import.meta.env.VITE_BASE_URL,
+          baseURI,
+          modules: { devTools: { logs: logInConsole } },
           defaults: {
             audio: true,
             video: true,

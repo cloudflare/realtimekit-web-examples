@@ -11,8 +11,8 @@ import {
   RtkPluginsToggle,
   RtkControlbarButton,
 } from '@cloudflare/realtimekit-react-ui';
-import { useRealtimeKitMeeting, useRealtimeKitSelector } from '@cloudflare/realtimekit-react';
-import HOST_PRESET, { iconPack, saveWhiteboard, WHITEBOARD_ID } from '../lib/const';
+import { useRealtimeKitMeeting } from '@cloudflare/realtimekit-react';
+import HOST_PRESET, { iconPack } from '../lib/const';
 
 export default function Controlbar() {
   const { meeting } = useRealtimeKitMeeting();
@@ -22,16 +22,12 @@ export default function Controlbar() {
   const isDarkMode = useMeetingStore((s) => s.darkMode);
   const toggleDarkMode = useMeetingStore((s) => s.toggleDarkMode);
   const setStates = useMeetingStore((s) => s.setStates);
-  const whiteboardPlugin = useRealtimeKitSelector(m => m.plugins.active.get(WHITEBOARD_ID)) 
 
   const buttonSize = size === 'lg' ? 'lg' : 'sm';
 
   const isHost = meeting.self.presetName === HOST_PRESET;
 
   const leaveMeeting = async () => {
-    if (whiteboardPlugin?.active) {
-      await saveWhiteboard(whiteboardPlugin);
-    }
     setStates({
       activeLeaveConfirmation: true,
     })

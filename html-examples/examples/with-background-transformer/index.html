@@ -32,11 +32,15 @@
         );
       }
 
+      const baseURI = searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+      const logInConsole = searchParams.get('logInConsole') === 'true';
+
       // Initialize a meeting
 
       RealtimeKitClient.init({
-        baseURI: import.meta.env.VITE_BASE_URL,
+        baseURI,
         authToken,
+        modules: { devTools: { logs: logInConsole } },
       }).then(async (meeting) => {
         document.getElementById('my-meeting').meeting = meeting;
 

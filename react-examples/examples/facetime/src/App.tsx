@@ -17,13 +17,17 @@ function App() {
       return;
     }
 
+    const baseURI = searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+    const logInConsole = searchParams.get('logInConsole') === 'true';
+
     initMeeting({
       authToken,
-      baseURI: import.meta.env.VITE_BASE_URL,
+      baseURI,
       defaults: {
         video: false,
         audio: false,
       },
+      modules: { devTools: { logs: logInConsole } },
     }).then((m) => m?.joinRoom());
   }, []);
 

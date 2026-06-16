@@ -16,14 +16,23 @@
       "head_sampling_rate": 1
     }
   },
+  "vars": {
+    "REALTIMEKIT_BASE_URL": "realtime.cloudflare.com"
+  },
   "env": {
     "staging": {
       "name": "examples-staging",
-      "main": "./workers/app.ts"
+      "main": "./workers/app.ts",
+      "vars": {
+        "REALTIMEKIT_BASE_URL": "staging.realtime.cloudflare.com"
+      }
     },
     "production": {
       "name": "examples",
-      "main": "./workers/app.ts"
+      "main": "./workers/app.ts",
+      "vars": {
+        "REALTIMEKIT_BASE_URL": "realtime.cloudflare.com"
+      }
     }
   }
 }

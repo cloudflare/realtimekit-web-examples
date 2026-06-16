@@ -8,8 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-build
 dist-ssr
 *.local
 
@@ -23,15 +21,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-react-examples
-angular-examples
-html-examples
-
-.wrangler
-.react-router
-
-*.tsbuildinfo
-
-.env.production
-.env.staging
-.dev.vars

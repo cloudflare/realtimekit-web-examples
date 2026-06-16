@@ -1,32 +1,24 @@
-export const getPresets = async () => {
-    const apiKey = import.meta.env.VITE_API_KEY;
-    const orgId = import.meta.env.VITE_ORG_ID;
-    const baseUrl = `https://api.${import.meta.env.VITE_BASE_URL}/v2`;
-    const authHeader = btoa(`${orgId}:${apiKey}`);
-    const response = await fetch(`${baseUrl}/presets`, {
-        method: "GET",
-        headers: {
-            "Authorization": `Basic ${authHeader}`,
-            "Content-Type": "application/json"
-        }
-    })
-    const data = await response.json() as { 
-        success: boolean,
-        data: {
-            created_at: string;
-            updated_at: string;
-            name: string;
-            id: string;
-        }[], 
-        paging: {
-        end_offset: number,
-        start_offset: number,
-        total_count: number,
-    }};
+import type { LoaderFunctionArgs } from "react-router";
+import { apiError, getAuthHeaders, getRealtimeKitConfig } from "./realtimekit.server";
 
-    if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
-    }
+export const loader = async ({ context }: LoaderFunctionArgs) => {
+  try {
+    const config = getRealtimeKitConfig(context);
+    const response = await fetch(`${config.baseUrl}/presets`, {
+      method: "GET",
+      headers: getAuthHeaders(config),
+    });
+    const data = await response.json() as {
+      data: {
+        created_at: string;
+        updated_at: string;
+        name: string;
+        id: string;
+      }[];
+    };
 
-    return data.data;
+    return Response.json(response.ok ? data.data : data, { status: response.status });
+  } catch (error) {
+    return apiError(error);
+  }
 };

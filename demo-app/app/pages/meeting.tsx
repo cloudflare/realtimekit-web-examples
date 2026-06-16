@@ -1,19 +1,67 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router";
-import { createMeeting } from "~/api";
-import { getPresets } from "~/api/preset";
 import { Icon } from "~/components/icons";
 import type { Usecase } from "~/context";
 import { useSharedState } from "~/context/hook";
 import { generateUrl, getGuestPreset, getPresetName } from "~/utils/utils";
 
+type Preset = {
+  created_at: string;
+  updated_at: string;
+  name: string;
+  id: string;
+};
+
+type CreateMeetingResponse = {
+  message?: string;
+  data: { id: string };
+};
+
+const createMeeting = async ({
+  meetingName,
+  recordOnStart,
+  aiSummary,
+}: {
+  meetingName: string;
+  recordOnStart: boolean;
+  aiSummary: boolean;
+}) => {
+  const response = await fetch("/api/meetings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ meetingName, recordOnStart, aiSummary }),
+  });
+  const data = await response.json() as CreateMeetingResponse;
+
+  if (!response.ok) {
+    throw new Error(data.message || `API request failed with status ${response.status}`);
+  }
+
+  return data;
+};
+
+const getPresets = async () => {
+  const response = await fetch("/api/presets");
+  const data = await response.json() as Preset[] | { message?: string };
+
+  if (!response.ok) {
+    throw new Error(
+      "message" in data && data.message
+        ? data.message
+        : `API request failed with status ${response.status}`,
+    );
+  }
+
+  return data as Preset[];
+};
 
 const fromBase64Url = (input: string) => {
-  const b64 = input.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((input.length + 3) % 4);
+  const b64 =
+    input.replace(/-/g, "+").replace(/_/g, "/") +
+    "===".slice((input.length + 3) % 4);
   const json = decodeURIComponent(escape(atob(b64)));
   return json;
-}
-
+};
 
 const env = import.meta.env.VITE_ENV;
 const defaultBaseURL =
@@ -21,13 +69,12 @@ const defaultBaseURL =
     ? "react-examples.realtime.cloudflare.com"
     : "react-examples.staging.realtime.cloudflare.com";
 
-
 const defaultPayload = {
-  name: 'default-meeting-ui',
-  framework: 'react',
-  usecase: 'video',
-  url: `https://${defaultBaseURL}/default-meeting-ui`,
-}
+  name: "plugins",
+  framework: "react",
+  usecase: "all",
+  url: `https://${defaultBaseURL}/plugins`,
+};
 
 type Mode = "create" | "join";
 type LoadingState = "loaded" | "loading" | "errored";
@@ -43,9 +90,9 @@ const Meeting = () => {
   const [authURL, setAuthURL] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadingState, setLoadingState] = useState<LoadingState>("loading");
-  const [presets, setPresets] = useState<Awaited<ReturnType<typeof getPresets>>>([]);
+  const [presets, setPresets] = useState<Preset[]>([]);
 
-  const {url, preset, name} = useMemo(() => {
+  const { url, preset, name } = useMemo(() => {
     const searchParams = new URLSearchParams(location.search);
     const stateParam = searchParams.get("state");
     let presetParam = searchParams.get("preset");
@@ -55,12 +102,19 @@ const Meeting = () => {
       payload = JSON.parse(fromBase64Url(stateParam));
     }
     if (!presetParam) {
-      presetParam = mode === "create" ? getPresetName(payload.usecase as Usecase) : getGuestPreset(payload.usecase as Usecase) as string;
+      presetParam =
+        mode === "create"
+          ? getPresetName(payload.usecase as Usecase)
+          : (getGuestPreset(payload.usecase as Usecase) as string);
     }
     return {
-      ...payload, 
-      preset: presetParam, 
-      name: payload.name.replaceAll("-", " ").split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+      ...payload,
+      preset: presetParam,
+      name: payload.name
+        .replaceAll("-", " ")
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" "),
     };
   }, [location.search]);
 
@@ -73,7 +127,7 @@ const Meeting = () => {
       setAuthURL(`${url}?authToken=${authToken}`);
     }
     setLoading(false);
-  }, [url, location.search])
+  }, [url, location.search]);
 
   const [form, setForm] = useState({
     recordOnStart: false,
@@ -86,18 +140,17 @@ const Meeting = () => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const meetingId = searchParams.get('meetingId');
+    const meetingId = searchParams.get("meetingId");
     if (meetingId) {
-      setForm(prev => ({ ...prev, meetingId }));
+      setForm((prev) => ({ ...prev, meetingId }));
       setMode("join");
     }
   }, [location.search]);
 
   useEffect(() => {
     if (!preset) return;
-    setForm((prev) => ({ ...prev, preset }))
-  }, [preset])
-
+    setForm((prev) => ({ ...prev, preset }));
+  }, [preset]);
 
   const isValid = useMemo(() => {
     if (mode === "create") return form.yourName.trim().length > 0;
@@ -107,7 +160,7 @@ const Meeting = () => {
   const joinMeeting = async () => {
     setLoading(true);
     let meetingId = form.meetingId;
-    if (!meetingId || mode === 'create') {
+    if (!meetingId || mode === "create") {
       const meeting = await createMeeting({
         meetingName: form.meetingName,
         recordOnStart: form.recordOnStart,
@@ -116,60 +169,63 @@ const Meeting = () => {
       meetingId = meeting.data.id;
     }
     const searchParams = new URLSearchParams(location.search);
-    searchParams.set('meetingId', meetingId);
-    window.history.replaceState(null, '', `${location.pathname}?${searchParams.toString()}`);
+    searchParams.set("meetingId", meetingId);
+    window.history.replaceState(
+      null,
+      "",
+      `${location.pathname}?${searchParams.toString()}`,
+    );
     const _url = await generateUrl({
       name: form.yourName,
       meetingId,
       presetName: form.preset,
       sampleName: name,
-      url
+      url,
     });
     setLoading(false);
     setAuthURL(_url);
   };
 
   useEffect(() => {
-    getPresets()
-      .then((resp) => {
-        setPresets(resp);
-      })
+    getPresets().then((resp) => {
+      setPresets(resp);
+    });
   }, []);
 
-
-
   if (authURL) {
-    return <div className="fixed top-0 right-0 z-50 w-full light:bg-white bg-black h-full flex items-center justify-center">
-      {loadingState === "loading" && (
-        <div className="w-full min-h-screen flex absolute z-40 flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
-          <pre className="bg-orange-900/20 border border-orange-700/20 p-2 rounded text-sm">
-            Loading...
-          </pre>
-        </div>
-      )}
-      <iframe
-        src={authURL}
-        className="w-full h-[100vh] border-none"
-        allow="camera; microphone; display-capture"
-        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
-        onError={() => setLoadingState("errored")}
-        onLoad={() => setLoadingState("loaded")}
-      />
-    </div>
+    return (
+      <div className="fixed top-0 right-0 z-50 w-full light:bg-white bg-black h-full flex items-center justify-center">
+        {loadingState === "loading" && (
+          <div className="w-full min-h-screen flex absolute z-40 flex-col justify-center items-center gap-4 text-orange-200 light:text-gray-700">
+            <pre className="bg-orange-900/20 border border-orange-700/20 p-2 rounded text-sm">
+              Loading...
+            </pre>
+          </div>
+        )}
+        <iframe
+          src={authURL}
+          className="w-full h-[100vh] border-none"
+          allow="camera; microphone; display-capture"
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+          onError={() => setLoadingState("errored")}
+          onLoad={() => setLoadingState("loaded")}
+        />
+      </div>
+    );
   }
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center font-sans px-4">
       <a
-          className="text-orange-500 flex items-center justify-center py-4 absolute top-4 right-12"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        >
-          {theme === "dark" ? (
-            <Icon name="dark" className="cursor-pointer " />
-          ) : (
-            <Icon name="light" className="cursor-pointer " />
-          )}
-        </a>
+        className="text-orange-500 flex items-center justify-center py-4 absolute top-4 right-12"
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      >
+        {theme === "dark" ? (
+          <Icon name="dark" className="cursor-pointer " />
+        ) : (
+          <Icon name="light" className="cursor-pointer " />
+        )}
+      </a>
       <div className="w-full max-w-[400px] h-[60vh]">
         <div className="flex justify-center mb-4">
           <div className="inline-flex bg-neutral-800 light:bg-neutral-200 rounded-full p-1">
@@ -207,31 +263,41 @@ const Meeting = () => {
               <input
                 autoFocus
                 value={form.yourName}
-                onChange={(e) => setForm((prev) => ({ ...prev, yourName: e.target.value }))}
+                onChange={(e) =>
+                  setForm((prev) => ({ ...prev, yourName: e.target.value }))
+                }
                 placeholder={"Your name"}
                 className="w-full p-2 rounded-md bg-neutral-800 light:bg-neutral-200 text-neutral-50 light:text-neutral-900 placeholder:text-neutral-400 light:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-300"
               />
             </div>
 
             {mode === "create" ? (
-                <div>
-                  <label className="block text-sm text-neutral-50 light:text-neutral-500 mb-1">
-                    Meeting Name
-                  </label>
-                  <input
-                    value={form.meetingName}
-                    onChange={(e) => setForm((prev) => ({ ...prev, meetingName: e.target.value }))}
-                    placeholder="What's your meeting about?"
-                    className="w-full p-2 rounded-md bg-neutral-800 light:bg-neutral-200 text-neutral-50 light:text-neutral-900 placeholder:text-neutral-400 light:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-300"
-                  />
-                </div>
-              ) : (<div>
+              <div>
+                <label className="block text-sm text-neutral-50 light:text-neutral-500 mb-1">
+                  Meeting Name
+                </label>
+                <input
+                  value={form.meetingName}
+                  onChange={(e) =>
+                    setForm((prev) => ({
+                      ...prev,
+                      meetingName: e.target.value,
+                    }))
+                  }
+                  placeholder="What's your meeting about?"
+                  className="w-full p-2 rounded-md bg-neutral-800 light:bg-neutral-200 text-neutral-50 light:text-neutral-900 placeholder:text-neutral-400 light:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-300"
+                />
+              </div>
+            ) : (
+              <div>
                 <label className="block text-sm text-neutral-50 light:text-neutral-500 mb-1">
                   Meeting ID <span className="text-red-500">*</span>
                 </label>
                 <input
                   value={form.meetingId}
-                  onChange={(e) => setForm((prev) => ({ ...prev, meetingId: e.target.value }))}
+                  onChange={(e) =>
+                    setForm((prev) => ({ ...prev, meetingId: e.target.value }))
+                  }
                   placeholder="Meeting ID"
                   className="w-full p-2 rounded-md bg-neutral-800 light:bg-neutral-200 text-neutral-50 light:text-neutral-900 placeholder:text-neutral-400 light:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-300"
                 />
@@ -249,18 +315,25 @@ const Meeting = () => {
                   <Icon name="code" />
                 </div>
                 <div>
-                  <div className="text-base font-medium text-neutral-50 light:text-neutral-900">Advanced</div>
+                  <div className="text-base font-medium text-neutral-50 light:text-neutral-900">
+                    Advanced
+                  </div>
                   <div className="text-sm text-neutral-400 light:text-neutral-600">
                     Manage host controls and settings
                   </div>
                 </div>
               </div>
               <div className="text-neutral-300 light:text-neutral-700">
-                {advanced ? <Icon name="chevron-up" /> : <Icon name="chevron-down" />}
+                {advanced ? (
+                  <Icon name="chevron-up" />
+                ) : (
+                  <Icon name="chevron-down" />
+                )}
               </div>
             </button>
-            {advanced ? (<div className="border-t border-b border-neutral-700 light:border-neutral-200 py-4 flex flex-col gap-4">
-              {/* <label className="flex items-center gap-3 text-neutral-50 light:text-neutral-900">
+            {advanced ? (
+              <div className="border-t border-b border-neutral-700 light:border-neutral-200 py-4 flex flex-col gap-4">
+                {/* <label className="flex items-center gap-3 text-neutral-50 light:text-neutral-900">
                 <input
                   type="checkbox"
                   checked={form.waitingRoom}
@@ -270,51 +343,74 @@ const Meeting = () => {
                 <span className="text-sm">Waiting Room</span>
               </label> */}
 
-                {mode === 'create' ? (<div className="space-y-2">
+                {mode === "create" ? (
+                  <div className="space-y-2">
+                    <div className="text-md font-semibold text-neutral-50 light:text-neutral-900">
+                      Demos
+                    </div>
+                    <div className="grid grid-cols-2 gap-6">
+                      <label className="flex items-center gap-3 text-neutral-50 light:text-neutral-900">
+                        <input
+                          type="checkbox"
+                          checked={form.recordOnStart}
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              recordOnStart: e.target.checked,
+                            }))
+                          }
+                          className="h-4 w-4 rounded border"
+                        />
+                        <span className="text-sm">Record on Start</span>
+                      </label>
+                      <label className="flex items-center gap-3 text-neutral-50 light:text-neutral-900">
+                        <input
+                          type="checkbox"
+                          checked={form.aiSummary}
+                          onChange={(e) =>
+                            setForm((prev) => ({
+                              ...prev,
+                              aiSummary: e.target.checked,
+                            }))
+                          }
+                          className="h-4 w-4 rounded border cursor-pointer"
+                        />
+                        <span className="text-sm">AI Summary</span>
+                      </label>
+                    </div>
+                  </div>
+                ) : null}
+                <div className="space-y-2">
                   <div className="text-md font-semibold text-neutral-50 light:text-neutral-900">
-                    Demos
+                    Presets
                   </div>
-                  <div className="grid grid-cols-2 gap-6">
-                    <label className="flex items-center gap-3 text-neutral-50 light:text-neutral-900">
-                      <input
-                        type="checkbox"
-                        checked={form.recordOnStart}
-                        onChange={(e) => setForm((prev) => ({ ...prev, recordOnStart: e.target.checked }))}
-                        className="h-4 w-4 rounded border"
-                      />
-                      <span className="text-sm">Record on Start</span>
-                    </label>
-                    <label className="flex items-center gap-3 text-neutral-50 light:text-neutral-900">
-                      <input
-                        type="checkbox"
-                        checked={form.aiSummary}
-                        onChange={(e) => setForm((prev) => ({ ...prev, aiSummary: e.target.checked }))}
-                        className="h-4 w-4 rounded border cursor-pointer"
-                      />
-                      <span className="text-sm">AI Summary</span>
-                    </label>
+                  <div className="relative">
+                    <select
+                      disabled={!presets?.length}
+                      value={form.preset}
+                      onChange={(e) =>
+                        setForm((prev) => ({ ...prev, preset: e.target.value }))
+                      }
+                      className="w-full py-2 px-3 rounded-md cursor-pointer bg-neutral-800 light:bg-neutral-200 text-neutral-50 light:text-neutral-900 focus:outline-none outline-none appearance-none"
+                    >
+                      <option value="none">
+                        {presets?.length ? "None" : "Loading..."}
+                      </option>
+                      {presets?.map((preset) => (
+                        <option key={preset.id} value={preset.name}>
+                          {preset.name}
+                        </option>
+                      ))}
+                    </select>
+                    <Icon
+                      size={18}
+                      name="chevron-down"
+                      className="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-50 light:text-neutral-500"
+                    />
                   </div>
-                </div>): null}
-              <div className="space-y-2">
-                <div className="text-md font-semibold text-neutral-50 light:text-neutral-900">
-                  Presets
-                </div>
-                <div className="relative">
-                <select
-                  disabled={!presets?.length}
-                  value={form.preset}
-                  onChange={(e) => setForm((prev) => ({ ...prev, preset: e.target.value }))}
-                  className="w-full py-2 px-3 rounded-md cursor-pointer bg-neutral-800 light:bg-neutral-200 text-neutral-50 light:text-neutral-900 focus:outline-none outline-none appearance-none"
-                >
-                  <option value="none">{presets?.length ? 'None' : 'Loading...'}</option>
-                  {
-                    presets?.map((preset) => <option key={preset.id} value={preset.name}>{preset.name}</option>)
-                  }
-                </select>
-                <Icon size={18} name="chevron-down" className="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-50 light:text-neutral-500" />
                 </div>
               </div>
-            </div>): null}
+            ) : null}
 
             <button
               type="button"
@@ -326,7 +422,11 @@ const Meeting = () => {
                   : "bg-orange-500/40 text-white/80 cursor-not-allowed"
               }`}
             >
-              {loading ? "Loading..." : mode === "create" ? "Start Meeting" : "Join Meeting"}
+              {loading
+                ? "Loading..."
+                : mode === "create"
+                  ? "Start Meeting"
+                  : "Join Meeting"}
             </button>
           </div>
         </div>
