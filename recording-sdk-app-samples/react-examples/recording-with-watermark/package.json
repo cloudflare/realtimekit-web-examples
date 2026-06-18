@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@dyteinternals/utils": "^3.0.0",
-    "@cloudflare/realtimekit-react-ui": "^1.0.2",
-    "@cloudflare/realtimekit-react": "^1.1.3",
+    "@cloudflare/realtimekit": "^2.0.0",
+    "@cloudflare/realtimekit-ui": "^2.0.0",
+    "@cloudflare/realtimekit-react-ui": "^2.0.0",
+    "@cloudflare/realtimekit-react": "^2.0.0",
     "@cloudflare/realtimekit-recording-sdk": "0.0.1",
     "axios": "1.7.3",
     "clsx": "^1.2.1",

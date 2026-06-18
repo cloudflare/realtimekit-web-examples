@@ -8,10 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@cloudflare/realtimekit": "^1.5.1",
-    "@cloudflare/realtimekit-react": "^1.5.1",
-    "@cloudflare/realtimekit-ui": "^1.2.0",
-    "@cloudflare/realtimekit-react-ui": "^1.2.0",
+    "@cloudflare/realtimekit": "^2.0.0",
+    "@cloudflare/realtimekit-react": "^2.0.0",
+    "@cloudflare/realtimekit-ui": "^2.0.0",
+    "@cloudflare/realtimekit-react-ui": "^2.0.0",
     "@cloudflare/realtimekit-ui-addons": "^0.1.0",
     "@cloudflare/realtimekit-virtual-background": "0.0.2",
     "react": "^18.2.0",
