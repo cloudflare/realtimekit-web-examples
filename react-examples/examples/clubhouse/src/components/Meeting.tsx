@@ -104,7 +104,7 @@ export default function Meeting() {
           </div>
 
           <div className="flex items-center gap-2">
-            {meeting.self.permissions.acceptPresentRequests && (
+            {meeting.self.permissions.acceptStageRequests && (
               <button
                 className="icon-btn"
                 onClick={() => setShowRequests((r) => !r)}

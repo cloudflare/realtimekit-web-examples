@@ -115,7 +115,7 @@ export function Meeting(
       baseURI,
       modules: { devTools: { logs: logInConsole } },
     })
-    /*.then((m) => m?.joinRoom())*/;
+    /*.then((m) => m?.join())*/;
   }, [initMeeting, authToken]);
 
   return (

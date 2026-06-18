@@ -28,7 +28,7 @@ const SetupScreen = () => {
 
   const joinMeeting = () => {
     meeting?.self.setName(name);
-    meeting.joinRoom();
+    meeting.join();
   }
 
   return (

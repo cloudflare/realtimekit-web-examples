@@ -10,7 +10,7 @@ export default function Requests() {
     (p) => p.stageStatus === 'REQUESTED_TO_JOIN_STAGE'
   );
 
-  if (!meeting.self.permissions.acceptPresentRequests) {
+  if (!meeting.self.permissions.acceptStageRequests) {
     return null;
   }
 

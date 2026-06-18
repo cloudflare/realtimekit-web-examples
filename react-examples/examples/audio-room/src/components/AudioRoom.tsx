@@ -29,7 +29,7 @@ export default function AudioRoom() {
         <p>By default you will join with your mic disabled.</p>
         <RtkButton
           size="lg"
-          onClick={() => meeting.joinRoom()}
+          onClick={() => meeting.join()}
           kind="wide"
           className="max-w-sm"
         >
