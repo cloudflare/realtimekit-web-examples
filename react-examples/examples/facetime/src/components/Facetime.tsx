@@ -61,7 +61,7 @@ function Controlbar() {
   };
 
   const leaveMeeting = () => {
-    meeting.leaveRoom();
+    meeting.leave();
   };
 
   return (

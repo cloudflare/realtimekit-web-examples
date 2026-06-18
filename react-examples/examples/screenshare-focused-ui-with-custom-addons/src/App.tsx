@@ -93,7 +93,7 @@ function App() {
         modules: { devTools: { logs: logInConsole } },
       });
 
-      // await meeting!.joinRoom();
+      // await meeting!.join();
 
     }
 

@@ -28,7 +28,7 @@ function App() {
         audio: false,
       },
       modules: { devTools: { logs: logInConsole } },
-    }).then((m) => m?.joinRoom());
+    }).then((m) => m?.join());
   }, []);
 
   Object.assign(window, { meeting });
