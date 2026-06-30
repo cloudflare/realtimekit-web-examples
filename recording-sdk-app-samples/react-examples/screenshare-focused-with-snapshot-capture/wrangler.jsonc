@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "recording-app-screenshare-focused-with-snapshot-capture-production",
+  "compatibility_date": "2024-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  },
+  "env": {
+    "staging": {
+      "name": "recording-app-screenshare-focused-with-snapshot-capture-staging"
+    },
+    "production": {
+      "name": "recording-app-screenshare-focused-with-snapshot-capture-production"
+    }
+  }
+}

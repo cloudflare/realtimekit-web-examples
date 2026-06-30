@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import RecordingView from '../components/RecordingView';
 import Watermark, { WatermarkConfig, WatermarkPosition } from '../components/Watermark';
 import { MeetingConfig } from '../types';
-import FlagsmithController from '../controllers/FlagsmithController';
 
 
 const DEFAULT_WATERMARK_CONFIG: WatermarkConfig = {
@@ -18,43 +17,23 @@ const DEFAULT_WATERMARK_CONFIG: WatermarkConfig = {
 
 const DEFAULT_UIKIT = false;
 const DEFAULT_WAIT_TIME_MS = 60000;
+const DEFAULT_VIDEO_UNSUBSCRIBE_PRESETS_REGEX: string[] = []; // Eg: ["Host$","interviewer*"]
 
 const DEFAULT_MEETING_CONFIG: MeetingConfig = {
   uiKit: DEFAULT_UIKIT,
   waitTimeMs: DEFAULT_WAIT_TIME_MS,
   watermark: DEFAULT_WATERMARK_CONFIG,
+  videoUnsubscribePresetsRegex: DEFAULT_VIDEO_UNSUBSCRIBE_PRESETS_REGEX,
 }
 
 function RecordingPage() {
   const [searchParams,] = useSearchParams();
   const [config, setConfig] = useState<MeetingConfig | null>(null);
-  const [flagsmith, setFlagsmith] = useState<FlagsmithController | null>(null);
 
   const authToken = searchParams.get('authToken') as string;
   let baseURI = searchParams.get('baseURI');
 
   useEffect(() => {
-
-    const initializeFlagsmith = async (authToken: string) => {
-      const controller = new FlagsmithController(authToken, baseURI);
-
-      try {
-        await controller.init();
-      } catch (err) {
-        console.error("Failed to initialize flagsmith with error", err);
-      }
-      setFlagsmith(controller);
-    };
-    if (authToken) {
-      initializeFlagsmith(authToken);
-    }
-  }, [authToken, setFlagsmith , baseURI]);
-
-  useEffect(() => {
-    if (flagsmith === null) {
-      return;
-    }
-  
     const configJson = searchParams.get("config");
 
     let parsedConfig: MeetingConfig;
@@ -75,7 +54,9 @@ function RecordingPage() {
       parsedConfig.waitTimeMs = DEFAULT_WAIT_TIME_MS;
     }
 
-    parsedConfig.waitTimeMs = flagsmith.getWaitTimeMS() || parsedConfig.waitTimeMs;
+    if(!parsedConfig.videoUnsubscribePresetsRegex) {
+      parsedConfig.videoUnsubscribePresetsRegex = DEFAULT_VIDEO_UNSUBSCRIBE_PRESETS_REGEX;
+    }
 
     if (parsedConfig.watermark === undefined) {
       parsedConfig.watermark = DEFAULT_WATERMARK_CONFIG;
@@ -87,7 +68,7 @@ function RecordingPage() {
     }
 
     setConfig(parsedConfig);
-  }, [setConfig, searchParams, flagsmith]);
+  }, [setConfig, searchParams]);
 
   if (!authToken) {
     return (
@@ -95,7 +76,7 @@ function RecordingPage() {
     );
   }
 
-  if (config == null || flagsmith == null) {
+  if (config == null) {
     return (
       <p>Initializing.....</p>
     )

@@ -45,9 +45,9 @@ cd react-examples/recording-with-watermark
    development server and open up the page.
 
 ```sh
-npm install
+pnpm install
 # and to start a dev server
-npm run dev
+pnpm dev
 ```
 
 4. Load the dev server in your browser and make sure you pass the `authToken`
@@ -56,9 +56,46 @@ npm run dev
 ```
 http://localhost:5173/?authToken=<your-token>
 ```
-5. Deploy your app using Vercel.
+
+### Custom Configuration (recording-with-watermark)
+
+The `recording-with-watermark` example supports an optional base64-encoded `config` query parameter to customize behavior:
+
+```ts
+interface MeetingConfig {
+  uiKit: boolean;                          // Use UI Kit for rendering (default: false)
+  waitTimeMs: number;                      // Wait time before recording starts in ms (default: 60000)
+  watermark: WatermarkConfig;              // Watermark overlay settings (position, size, opacity, etc.)
+  videoUnsubscribePresetsRegex?: string[]; // Regex patterns to unsubscribe video for matching presets
+}
+```
+
+**`videoUnsubscribePresetsRegex`** — an array of regex patterns to selectively unsubscribe video for participants whose preset name matches any pattern. For example, `["Host$", "interviewer*"]` would unsubscribe video for participants with presets ending in "Host" or starting with "interviewer".
+
+To use it, base64-encode the JSON config and pass it as a query parameter:
+
+```
+http://localhost:5173/?authToken=<your-token>&config=<base64-encoded-json>
+```
+
+Example:
+```js
+const config = {
+  uiKit: false,
+  waitTimeMs: 60000,
+  watermark: { enabled: false },
+  videoUnsubscribePresetsRegex: ["Host$"]
+};
+const encoded = btoa(JSON.stringify(config));
+// Use: ?authToken=<token>&config=<encoded>
+```
+
+5. Deploy to Cloudflare Workers.
 
 ```sh
-npm install -g vercel
-vercel
+# Deploy to staging
+pnpm deploy:staging
+
+# Deploy to production
+pnpm deploy:production
 ```

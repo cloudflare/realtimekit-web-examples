@@ -86,16 +86,12 @@ export default function UIKitMeeting(props: {
       let uiKitConfig = defaultUIConfig as UIConfig;
 
       if (
-        client.__internals__.features.hasFeature("video_subscription_override")
+        config.videoUnsubscribePresetsRegex && 
+        config.videoUnsubscribePresetsRegex.length > 0
       ) {
-        console.log("enbale video subscription override");
+        console.log("enable video subscription override");
         try {
-          const overrides = JSON.parse(
-            client.__internals__.features.getFeatureValue(
-              "video_subscription_override",
-            ),
-          );
-          const preset = overrides[client.self.organizationId] ?? [];
+          const preset = config.videoUnsubscribePresetsRegex;
           console.log("subscription override", preset);
           if (preset && preset.length > 0) {
             setOverrides({ videoUnsubscribed: { preset } });

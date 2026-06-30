@@ -1,5 +1,4 @@
-/.vercel
 /node_modules
 /dist
-.vercel
+.wrangler
 .DS_Store
