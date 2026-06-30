@@ -89,16 +89,8 @@ export default function UIKitMeeting(props: {
         config.videoUnsubscribePresetsRegex && 
         config.videoUnsubscribePresetsRegex.length > 0
       ) {
-        console.log("enable video subscription override");
-        try {
-          const preset = config.videoUnsubscribePresetsRegex;
-          console.log("subscription override", preset);
-          if (preset && preset.length > 0) {
-            setOverrides({ videoUnsubscribed: { preset } });
-          }
-        } catch (error) {
-          console.log(error);
-        }
+        console.log("subscription override", config.videoUnsubscribePresetsRegex);
+        setOverrides({ videoUnsubscribed: { preset: config.videoUnsubscribePresetsRegex } });
       }
 
       if (uiKitConfig.root) {

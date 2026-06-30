@@ -16,7 +16,6 @@
     "@cloudflare/realtimekit-react-ui": "^2.0.0",
     "@cloudflare/realtimekit-react": "^2.0.0",
     "@cloudflare/realtimekit-recording-sdk": "0.0.1",
-    "axios": "1.7.3",
     "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

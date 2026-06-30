@@ -17,7 +17,7 @@ const DEFAULT_WATERMARK_CONFIG: WatermarkConfig = {
 
 const DEFAULT_UIKIT = false;
 const DEFAULT_WAIT_TIME_MS = 60000;
-const DEFAULT_VIDEO_UNSUBSCRIBE_PRESETS_REGEX: string[] = []; // Eg: ["Host$","interviewer*"]
+const DEFAULT_VIDEO_UNSUBSCRIBE_PRESETS_REGEX: string[] = []; // Eg: ["Host$","^interviewer"]
 
 const DEFAULT_MEETING_CONFIG: MeetingConfig = {
   uiKit: DEFAULT_UIKIT,

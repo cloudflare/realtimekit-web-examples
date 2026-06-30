@@ -70,7 +70,7 @@ interface MeetingConfig {
 }
 ```
 
-**`videoUnsubscribePresetsRegex`** — an array of regex patterns to selectively unsubscribe video for participants whose preset name matches any pattern. For example, `["Host$", "interviewer*"]` would unsubscribe video for participants with presets ending in "Host" or starting with "interviewer".
+**`videoUnsubscribePresetsRegex`** — an array of regex patterns to selectively unsubscribe video for participants whose preset name matches any pattern. For example, `["Host$", "^interviewer"]` would unsubscribe video for participants with presets ending in "Host" or starting with "interviewer".
 
 To use it, base64-encode the JSON config and pass it as a query parameter:
 

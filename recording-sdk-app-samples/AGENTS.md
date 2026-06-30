@@ -49,7 +49,7 @@ interface MeetingConfig {
 }
 ```
 
-**`videoUnsubscribePresetsRegex`** — pass an array of regex patterns (e.g., `["Host$", "interviewer*"]`) to unsubscribe video for participants whose preset name matches. This replaces the previous Flagsmith-based feature flag approach — no external feature flag service is needed.
+**`videoUnsubscribePresetsRegex`** — pass an array of regex patterns (e.g., `["Host$", "^interviewer"]`) to unsubscribe video for participants whose preset name matches. This replaces the previous Flagsmith-based feature flag approach — no external feature flag service is needed.
 
 Example URL with config:
 ```
