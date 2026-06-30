@@ -30,7 +30,7 @@ recording-sdk-app-samples/
 - Auth: `authToken` passed via URL query param — same as main react-examples
 - Versions pinned manually in each `package.json` — no `update-cloudflare-realtime-deps.sh`
 - Worker names follow the pattern `recording-app-<example-name>-staging` / `recording-app-<example-name>-production`
-- Vite ^5 + TypeScript ^5 (newer than main react-examples workspace)
+- `record-single-preset` uses Vite ^5 + TypeScript ^5; the other three examples use Vite ^3 + TypeScript ^4
 
 ## ANTI-PATTERNS
 
