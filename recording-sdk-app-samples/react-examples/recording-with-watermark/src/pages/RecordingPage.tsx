@@ -43,7 +43,12 @@ function RecordingPage() {
     if (configJson == null) {
       parsedConfig = DEFAULT_MEETING_CONFIG;
     } else {
-      parsedConfig = JSON.parse(atob(configJson));
+      try {
+        parsedConfig = JSON.parse(atob(configJson));
+      } catch (error) {
+        console.error("Failed to parse config query parameter, using defaults:", error);
+        parsedConfig = DEFAULT_MEETING_CONFIG;
+      }
     }
 
     if (parsedConfig.uiKit === undefined) {
