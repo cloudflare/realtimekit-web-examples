@@ -15,7 +15,7 @@ realtimekit-web-examples/
 ├── angular-examples/          # 3 Angular CLI examples → deployed as Cloudflare Worker
 ├── html-examples/             # 5 vanilla HTML/JS examples → deployed as Cloudflare Worker
 ├── demo-app/                  # Gallery portal (React Router 7 SSR) → examples.realtime.cloudflare.com
-├── recording-sdk-app-samples/ # 4 recording SDK examples → Vercel (NOT Cloudflare Workers)
+├── recording-sdk-app-samples/ # 4 recording SDK examples → deployed as individual Cloudflare Workers
 ├── pnpm-workspace.yaml        # Workspace definitions
 └── .github/workflows/         # 9 CI/CD workflows (staging + prod per framework)
 ```
@@ -27,7 +27,7 @@ realtimekit-web-examples/
 | Add React example | `react-examples/examples/<name>/` | Also add to `demo-app/app/utils/react.ts` |
 | Add Angular example | `angular-examples/examples/<name>/` | Also add to `demo-app/app/utils/angular.ts` |
 | Add HTML example | `html-examples/examples/<name>/` | Also add to `demo-app/app/utils/vanilla.ts` |
-| Add recording example | `recording-sdk-app-samples/react-examples/<name>/` | Vercel deploy; no wrangler config |
+| Add recording example | `recording-sdk-app-samples/react-examples/<name>/` | Each example has own `wrangler.jsonc`; deploy via `pnpm deploy:staging` / `pnpm deploy:production` |
 | Update SDK versions | `<workspace>/update-cloudflare-realtime-deps.sh` | Fetches from npm; pass `--env staging\|prod` |
 | Gallery example catalog | `demo-app/app/utils/react.ts`, `angular.ts`, `vanilla.ts` | Hardcoded; new examples won't appear without editing |
 | CI / deploy config | `.github/workflows/` | Per-framework staging + prod deploy workflows |
@@ -63,7 +63,7 @@ cd demo-app && pnpm dev
 ## ANTI-PATTERNS
 
 - Do NOT use npm or yarn — preinstall hook will abort
-- Do NOT add wrangler deploy config to `recording-sdk-app-samples` — it deploys to Vercel
+- `recording-sdk-app-samples` examples each have their own `wrangler.jsonc` — deploy individually via `pnpm deploy:staging` / `pnpm deploy:production`
 - Do NOT add shared packages or libs — every example is intentionally isolated
 - Do NOT forget to register new examples in `demo-app/app/utils/` — they won't appear in the gallery
 
