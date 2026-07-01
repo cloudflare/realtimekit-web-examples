@@ -1,0 +1,7 @@
+<app-recording-view
+  *ngIf="meeting"
+  [meeting]="meeting"
+></app-recording-view>
+<div *ngIf="!meeting" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  Loading...
+</div>

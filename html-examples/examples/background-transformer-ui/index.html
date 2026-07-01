@@ -35,7 +35,7 @@
       }
 
       #app {
-        font-family: var(--dyte-font-family);
+        font-family: var(--rtk-font-family);
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -43,10 +43,10 @@
 
         color: var(--color-text);
 
-        --color-background: rgb(var(--dyte-colors-background-1000, 8 8 8));
-        --color-text: rgb(var(--dyte-colors-text-1000, 255 255 255));
+        --color-background: rgb(var(--rtk-colors-background-1000, 8 8 8));
+        --color-text: rgb(var(--rtk-colors-text-1000, 255 255 255));
 
-        --color-border: rgb(var(--dyte-colors-background-800, 24 24 24));
+        --color-border: rgb(var(--rtk-colors-background-800, 24 24 24));
       }
 
       header {
@@ -250,15 +250,13 @@
 
       function loadBackgroundChangerUI() {
         const backgroundImages = [
-          'https://assets.dyte.io/backgrounds/bg-dyte-office.jpg',
-          'https://assets.dyte.io/backgrounds/bg_0.jpg',
-          'https://assets.dyte.io/backgrounds/bg_1.jpg',
-          'https://assets.dyte.io/backgrounds/bg_2.jpg',
-          'https://assets.dyte.io/backgrounds/bg_3.jpg',
-          'https://assets.dyte.io/backgrounds/bg_4.jpg',
-          'https://assets.dyte.io/backgrounds/bg_5.jpg',
-          'https://assets.dyte.io/backgrounds/bg_6.jpg',
-          'https://assets.dyte.io/backgrounds/bg_7.jpg',
+          'https://rtk-assets.realtime.cloudflare.com/backgrounds/bg_1.jpg',
+          'https://rtk-assets.realtime.cloudflare.com/backgrounds/bg_2.jpg',
+          'https://rtk-assets.realtime.cloudflare.com/backgrounds/bg_3.jpg',
+          'https://rtk-assets.realtime.cloudflare.com/backgrounds/bg_4.jpg',
+          'https://rtk-assets.realtime.cloudflare.com/backgrounds/bg_5.jpg',
+          'https://rtk-assets.realtime.cloudflare.com/backgrounds/bg_6.jpg',
+          'https://rtk-assets.realtime.cloudflare.com/backgrounds/bg_7.jpg',
         ];
 
         for (const image of backgroundImages) {

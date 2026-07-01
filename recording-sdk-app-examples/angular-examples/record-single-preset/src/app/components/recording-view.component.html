@@ -1,0 +1,24 @@
+<main
+  style="display: flex; position: relative; padding-top: 0; flex-wrap: wrap; flex-shrink: 0; justify-content: center; align-content: center; width: 100vw; height: 100vh;"
+>
+  <ng-container *ngIf="hasScreenshare; else noScreenshare">
+    <rtk-mixed-grid
+      [participants]="targetParticipants"
+      [pinnedParticipants]="targetParticipants"
+      [screenShareParticipants]="screensharedParticipants"
+      [plugins]="[]"
+      [meeting]="meeting"
+      style="width: 100vw; height: 100vh;"
+    ></rtk-mixed-grid>
+  </ng-container>
+
+  <ng-template #noScreenshare>
+    <rtk-simple-grid
+      [meeting]="meeting"
+      [participants]="targetParticipants"
+      style="width: 100vw; height: 100vh;"
+    ></rtk-simple-grid>
+  </ng-template>
+
+  <rtk-participants-audio [meeting]="meeting"></rtk-participants-audio>
+</main>

@@ -13,8 +13,6 @@ Open `http://localhost:5173/?authToken=<your-token>` in your browser.
 
 ## Deploy to Cloudflare Workers
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/realtimekit-web-examples/tree/staging/recording-sdk-app-samples/react-examples/screenshare-focused)
-
 ### Staging
 
 ```bash

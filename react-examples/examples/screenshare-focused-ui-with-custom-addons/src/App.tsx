@@ -28,7 +28,7 @@ function Meeting() {
       const { config } = generateConfig(theme, meeting!);
 
       /**
-       * NOTE(ravindra-dyte):
+       * NOTE(ravindra-cloudflare):
        * Full screen by default requests rtk-meeting/RtkMeeting element to be in full screen.
        * Since RtkMeeting element is not here,
        *  we need to pass rtk-fullscreen-toggle, an targetElementId through config.
@@ -38,7 +38,7 @@ function Meeting() {
       setConfig({...config});
 
     /**
-     * NOTE(ravindra-dyte):
+     * NOTE(ravindra-cloudflare):
      * Add listeners on meeting & self to monitor leave meeting, join meeting and so on.
      * This work was earlier done by RtkMeeting component internally.
      */
@@ -48,7 +48,7 @@ function Meeting() {
 
     if(meeting){
     /**
-     * NOTE(ravindra-dyte):
+     * NOTE(ravindra-cloudflare):
      * During development phase, make sure to expose meeting object to window,
      * for debugging purposes.
      */

@@ -14,7 +14,7 @@ function Meeting() {
   useEffect(() => {
     if (meeting) {
       /**
-       * NOTE(ravindra-dyte):
+       * NOTE(ravindra-cloudflare):
        * During development phase, make sure to expose meeting object to window,
        * for debugging purposes.
        */

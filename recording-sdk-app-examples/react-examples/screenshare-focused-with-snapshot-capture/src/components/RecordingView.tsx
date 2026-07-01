@@ -68,7 +68,7 @@ export default function RecordingView() {
                     const dataURL = canvasElement!.toDataURL("image/jpeg")
                     
                     /**
-                     * NOTE(ravindra-dyte): alter the body params as per your need.
+                     * NOTE(ravindra-cloudflare): alter the body params as per your need.
                      * Below is just a example
                      */
                     await fetch(import.meta.env.VITE_THUMBNAIL_POST_ENDPOINT, {

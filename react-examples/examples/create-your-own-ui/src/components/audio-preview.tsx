@@ -74,7 +74,7 @@ function AudioPreviewWithCustomUI() {
     <div className="flex flex-col p-4">
       <audio
         preload="auto"
-        src="https://assets.dyte.io/ui-kit/speaker-test.mp3"
+        src="https://rtk-assets.realtime.cloudflare.com/ui-kit/speaker-test.mp3"
         ref={testAudioEl}
       />
       {meeting.self.permissions.canProduceAudio === 'ALLOWED' && (
