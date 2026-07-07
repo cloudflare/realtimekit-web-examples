@@ -8,10 +8,6 @@ jobs:
   review:
     # Guard 1: Skip fork PRs — the workflow should only review internal PRs.
     # Guard 2: Skip release PRs (staging -> main) — already reviewed individually.
-    if: >-
-      github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name
-      && !(github.event.pull_request.head.ref == 'staging'
-        && github.event.pull_request.base.ref == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
