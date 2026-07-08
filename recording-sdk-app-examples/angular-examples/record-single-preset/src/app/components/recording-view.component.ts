@@ -16,8 +16,6 @@ export class RecordingViewComponent implements OnInit, OnDestroy {
   screensharedParticipants: RTKParticipant[] = [];
   hasScreenshare = false;
 
-  private participantListener: (() => void) | null = null;
-
   ngOnInit() {
     this.updateParticipants();
     this.meeting.participants.joined.addListener('participantJoined', () => this.updateParticipants());
