@@ -18,7 +18,7 @@ window.AudioPreview = (function() {
           <audio
             id="test-audio"
             preload="auto"
-            src="https://assets.dyte.io/ui-kit/speaker-test.mp3">
+            src="https://rtk-assets.realtime.cloudflare.com/ui-kit/speaker-test.mp3">
           </audio>
           ${canProduceAudio ? `
             <div class="mb-4">

@@ -7,7 +7,7 @@ import RealtimeKitVideoBackgroundTransformer from '@cloudflare/realtimekit-virtu
 import type RealtimeKitClient from '@cloudflare/realtimekit';
 import type { VideoMiddleware } from '@cloudflare/realtimekit';
 
-export const getBackgroundImage = (name: string) => `https://assets.dyte.io/backgrounds/${name}`;
+export const getBackgroundImage = (name: string) => `https://rtk-assets.realtime.cloudflare.com/backgrounds/${name}`;
 const IMAGE_URLS = [
   'bg_0.jpg',
   'bg_1.jpg',
@@ -70,7 +70,7 @@ const EffectsManager = ({
       }
       await meeting.self.setVideoMiddlewareGlobalConfig({ disablePerFrameCanvasRendering: true });
       if (effects.video.background === 'image') {
-        const imageURL = `https://assets.dyte.io/backgrounds/${effects.video.backgroundImage}`;
+        const imageURL = `https://rtk-assets.realtime.cloudflare.com/backgrounds/${effects.video.backgroundImage}`;
         MiddlewareHolder.transformer
           ?.createStaticBackgroundVideoMiddleware(imageURL)
           .then((middleware: any) => {

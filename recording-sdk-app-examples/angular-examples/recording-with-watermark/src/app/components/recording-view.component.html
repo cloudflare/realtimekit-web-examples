@@ -1,0 +1,19 @@
+<div
+  *ngIf="loading"
+  style="display: flex; justify-content: center; align-items: center; height: 100vh;"
+>
+  <rtk-spinner></rtk-spinner>
+</div>
+
+<div
+  *ngIf="!loading && client && uiconfig"
+  #gridContainer
+  style="width: 100vw; height: 100vh; background-color: rgba(var(--rtk-colors-background-1000, 8 8 8));"
+>
+  <rtk-grid
+    [config]="uiconfig"
+    [meeting]="client"
+    [overrides]="overrides"
+  ></rtk-grid>
+  <rtk-participants-audio [meeting]="client"></rtk-participants-audio>
+</div>

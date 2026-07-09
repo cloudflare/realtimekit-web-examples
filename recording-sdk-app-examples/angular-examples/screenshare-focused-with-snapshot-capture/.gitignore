@@ -1,0 +1,18 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+
+# Node
+/node_modules
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+
+# Miscellaneous
+/.angular/cache
+.wrangler
+.DS_Store

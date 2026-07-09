@@ -123,9 +123,9 @@ export function Meeting(
       // Handle smaller screens
       ['rtk-more-toggle.activeMoreMenu', 'rtk-more-toggle.activeMoreMenu.md', 'rtk-more-toggle.activeMoreMenu.sm'].forEach((configElemKey) => {
           const configElem = newConfig?.root?.[configElemKey] as any;
-          configElem?.forEach((dyteElemConfigSet: any) => {
-              if (dyteElemConfigSet[0] === 'rtk-fullscreen-toggle') {
-                  dyteElemConfigSet[1].targetElement = document.getElementById(meetingIdentifier)!;
+          configElem?.forEach((rtkElemConfigSet: any) => {
+              if (rtkElemConfigSet[0] === 'rtk-fullscreen-toggle') {
+                  rtkElemConfigSet[1].targetElement = document.getElementById(meetingIdentifier)!;
               }
           });
       });

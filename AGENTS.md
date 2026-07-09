@@ -5,7 +5,7 @@
 
 ## OVERVIEW
 
-Example gallery for **Cloudflare RealtimeKit** — a real-time video/audio SDK. Contains 17 React, 3 Angular, 5 HTML, and 4 recording SDK examples, plus a gallery portal. Live at `examples.realtime.cloudflare.com`. Docs: `developers.cloudflare.com/realtime/realtimekit/`.
+Example gallery for **Cloudflare RealtimeKit** — a real-time video/audio SDK. Contains 17 React, 3 Angular, 5 HTML, and 8 recording SDK examples (4 React + 4 Angular), plus a gallery portal. Live at `examples.realtime.cloudflare.com`. Docs: `developers.cloudflare.com/realtime/realtimekit/`.
 
 ## STRUCTURE
 
@@ -15,7 +15,7 @@ realtimekit-web-examples/
 ├── angular-examples/          # 3 Angular CLI examples → deployed as Cloudflare Worker
 ├── html-examples/             # 5 vanilla HTML/JS examples → deployed as Cloudflare Worker
 ├── demo-app/                  # Gallery portal (React Router 7 SSR) → examples.realtime.cloudflare.com
-├── recording-sdk-app-samples/ # 4 recording SDK examples → deployed as individual Cloudflare Workers
+├── recording-sdk-app-examples/ # 8 recording SDK examples (4 React + 4 Angular) → deployed as individual Cloudflare Workers
 ├── pnpm-workspace.yaml        # Workspace definitions
 └── .github/workflows/         # 9 CI/CD workflows (staging + prod per framework)
 ```
@@ -27,7 +27,8 @@ realtimekit-web-examples/
 | Add React example | `react-examples/examples/<name>/` | Also add to `demo-app/app/utils/react.ts` |
 | Add Angular example | `angular-examples/examples/<name>/` | Also add to `demo-app/app/utils/angular.ts` |
 | Add HTML example | `html-examples/examples/<name>/` | Also add to `demo-app/app/utils/vanilla.ts` |
-| Add recording example | `recording-sdk-app-samples/react-examples/<name>/` | Each example has own `wrangler.jsonc`; deploy via `pnpm deploy:staging` / `pnpm deploy:production` |
+| Add recording example (React) | `recording-sdk-app-examples/react-examples/<name>/` | Each example has own `wrangler.jsonc`; deploy via `pnpm deploy:staging` / `pnpm deploy:production` |
+| Add recording example (Angular) | `recording-sdk-app-examples/angular-examples/<name>/` | Same deploy pattern; uses Angular CLI (`ng build`), not Vite |
 | Update SDK versions | `<workspace>/update-cloudflare-realtime-deps.sh` | Fetches from npm; pass `--env staging\|prod` |
 | Gallery example catalog | `demo-app/app/utils/react.ts`, `angular.ts`, `vanilla.ts` | Hardcoded; new examples won't appear without editing |
 | CI / deploy config | `.github/workflows/` | Per-framework staging + prod deploy workflows |
@@ -63,14 +64,12 @@ cd demo-app && pnpm dev
 ## ANTI-PATTERNS
 
 - Do NOT use npm or yarn — preinstall hook will abort
-- `recording-sdk-app-samples` examples each have their own `wrangler.jsonc` — deploy individually via `pnpm deploy:staging` / `pnpm deploy:production`
+- `recording-sdk-app-examples` examples each have their own `wrangler.jsonc` — deploy individually via `pnpm deploy:staging` / `pnpm deploy:production`
 - Do NOT add shared packages or libs — every example is intentionally isolated
 - Do NOT forget to register new examples in `demo-app/app/utils/` — they won't appear in the gallery
 
 ## NOTES
 
-- `pnpm-workspace.yaml` has a stale path: `recording-sdk-app-examples/react-examples/*` (actual dir: `recording-sdk-app-samples`) — this workspace glob is broken
 - `demo-app/README.md` contains only "TODO" — consult root `README.md`
 - `REALTIMEKIT_BASE_URL=realtime.cloudflare.com` is the server-side API base hostname for production; public SDK example builds use `VITE_BASE_URL` with staging using `staging.realtime.cloudflare.com`
 - Node version unspecified in the repo; CI uses Node 20 — match locally
-- `@dyteinternals/utils` in `recording-sdk-app-samples/react-examples/recording-with-watermark/package.json` is a vestigial upstream dependency
