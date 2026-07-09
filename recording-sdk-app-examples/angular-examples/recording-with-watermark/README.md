@@ -34,7 +34,7 @@ const encoded = btoa(JSON.stringify(config));
 // Use: ?authToken=<token>&config=<encoded>
 ```
 
-Pre-built URL with watermark enabled (default Cloudflare favicon, 200px, top-left):
+Pre-built URL with watermark enabled (default Cloudflare favicon, 50px, top-left):
 
 ```
 ?authToken=<token>&config=eyJ3YXRlcm1hcmsiOnsiZW5hYmxlZCI6dHJ1ZX19
@@ -50,7 +50,7 @@ const config = {
     enabled: true,
     url: "https://dash.cloudflare.com/favicon.ico",
     position: "left top",    // "left top" | "right top" | "left bottom" | "right bottom"
-    size: { width: 200 },
+    size: { width: 50 },
     opacity: 1
   },
   videoUnsubscribePresetsRegex: ["Host$"]
