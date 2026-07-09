@@ -69,7 +69,6 @@ cd demo-app && pnpm dev
 
 ## NOTES
 
-- `pnpm-workspace.yaml` has a stale path: `recording-sdk-app-examples/react-examples/*` (actual dir: `recording-sdk-app-examples`) — this workspace glob is broken
 - `demo-app/README.md` contains only "TODO" — consult root `README.md`
 - `REALTIMEKIT_BASE_URL=realtime.cloudflare.com` is the server-side API base hostname for production; public SDK example builds use `VITE_BASE_URL` with staging using `staging.realtime.cloudflare.com`
 - Node version unspecified in the repo; CI uses Node 20 — match locally

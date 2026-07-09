@@ -4,22 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import Meeting from './pages/RecordingPage';
 import reportWebVitals from './reportWebVitals';
-import RealtimeKitClient from "@cloudflare/realtimekit";
-
-
-declare global {
-  interface Window {
-      triggerRealtimeKitRecording: boolean;
-      realtimeKitRecording?: {
-          getParticipantCount: () => number;
-          isMeetingEnded: () => boolean;
-          isMeetingJoined: () => boolean;
-          getMeeting: () => RealtimeKitClient;
-      }
-  }
-}
-
-window.triggerRealtimeKitRecording = true;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

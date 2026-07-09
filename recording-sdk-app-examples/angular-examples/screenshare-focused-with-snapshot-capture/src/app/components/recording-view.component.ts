@@ -19,19 +19,21 @@ export class RecordingViewComponent implements OnInit, OnDestroy {
 
   private intervalId: ReturnType<typeof setInterval> | null = null;
 
+  private onUpdate = () => this.updateParticipants();
+
   ngOnInit() {
     this.updateParticipants();
-    this.meeting.participants.joined.addListener('participantJoined', () => this.updateParticipants());
-    this.meeting.participants.joined.addListener('participantLeft', () => this.updateParticipants());
-    this.meeting.participants.joined.addListener('screenShareUpdate', () => this.updateParticipants());
+    this.meeting.participants.joined.addListener('participantJoined', this.onUpdate);
+    this.meeting.participants.joined.addListener('participantLeft', this.onUpdate);
+    this.meeting.participants.joined.addListener('screenShareUpdate', this.onUpdate);
 
     this.startSnapshotCapture();
   }
 
   ngOnDestroy() {
-    this.meeting.participants.joined.removeAllListeners('participantJoined');
-    this.meeting.participants.joined.removeAllListeners('participantLeft');
-    this.meeting.participants.joined.removeAllListeners('screenShareUpdate');
+    this.meeting.participants.joined.removeListener('participantJoined', this.onUpdate);
+    this.meeting.participants.joined.removeListener('participantLeft', this.onUpdate);
+    this.meeting.participants.joined.removeListener('screenShareUpdate', this.onUpdate);
 
     if (this.intervalId) {
       clearInterval(this.intervalId);

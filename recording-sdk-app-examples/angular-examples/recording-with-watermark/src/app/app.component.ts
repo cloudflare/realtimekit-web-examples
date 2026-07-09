@@ -9,10 +9,10 @@ const DEFAULT_MEETING_CONFIG: MeetingConfig = {
   uiKit: false,
   waitTimeMs: DEFAULT_WAIT_TIME_MS,
   watermark: {
-    url: '',
+    url: 'https://dash.cloudflare.com/favicon.ico',
     position: WatermarkPosition.TopLeft,
-    size: { width: 100, height: 100 },
-    opacity: 0.5,
+    size: { width: 50 },
+    opacity: 1,
     enabled: false,
   },
   videoUnsubscribePresetsRegex: DEFAULT_VIDEO_UNSUBSCRIBE_PRESETS_REGEX,

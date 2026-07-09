@@ -9,7 +9,7 @@ const DEFAULT_WATERMARK_CONFIG: WatermarkConfig = {
   url: "https://dash.cloudflare.com/favicon.ico",
   position: WatermarkPosition.TopLeft,
   size: {
-    width: 200,
+    width: 50,
   },
   opacity: 1,
   enabled: false,

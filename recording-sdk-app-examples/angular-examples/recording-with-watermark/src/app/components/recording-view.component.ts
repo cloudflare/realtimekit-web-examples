@@ -1,10 +1,11 @@
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import RealtimeKitClient from '@cloudflare/realtimekit';
 import { RealtimeKitRecording } from '@cloudflare/realtimekit-recording-sdk';
-import { generateConfig, provideRtkDesignSystem, UIConfig } from '@cloudflare/realtimekit-ui';
+import { createDefaultConfig, provideRtkDesignSystem, UIConfig } from '@cloudflare/realtimekit-ui';
 import { MeetingConfig } from '../types';
 
 const defaultUIConfig: any = {
+  ...createDefaultConfig(),
   designTokens: {
     borderRadius: 'rounded',
     borderWidth: 'thin',
