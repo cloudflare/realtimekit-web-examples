@@ -3,7 +3,6 @@
   "private": true,
   "scripts": {
     "install-all": "pnpm -r install",
-    "build": "pnpm -r run build",
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {

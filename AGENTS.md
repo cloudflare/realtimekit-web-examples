@@ -40,9 +40,6 @@ realtimekit-web-examples/
 # Install all workspaces
 pnpm install-all
 
-# Build all workspaces
-pnpm build
-
 # Run a specific example
 cd react-examples/examples/<name> && pnpm dev
 
