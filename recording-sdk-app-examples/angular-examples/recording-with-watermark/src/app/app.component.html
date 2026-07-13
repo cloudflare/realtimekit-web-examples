@@ -1,0 +1,13 @@
+<app-recording-view
+  *ngIf="authToken"
+  [authToken]="authToken"
+  [config]="config"
+  [baseURI]="baseURI"
+></app-recording-view>
+<app-watermark
+  *ngIf="config.watermark.enabled"
+  [config]="config.watermark"
+></app-watermark>
+<div *ngIf="!authToken" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  Please provide an authToken in the URL query parameter.
+</div>
