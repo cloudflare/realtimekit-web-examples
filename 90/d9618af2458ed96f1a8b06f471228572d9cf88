@@ -1,0 +1,25 @@
+media-middlewares/README.md
+  s_a6e9ab7bac2fcb::t_65966b548a8501 1-76
+media-middlewares/html-examples/longpipe-video/.gitignore
+  s_a6e9ab7bac2fcb::t_25b3f650c5816a 1-24
+media-middlewares/html-examples/longpipe-video/src/effects/icons.js
+  s_a6e9ab7bac2fcb::t_292301b9c1e2e2 1-13
+pnpm-lock.yaml
+  s_a6e9ab7bac2fcb::t_0a740e5e4925d8 381-399,3840,3846,3852,3858,3864,3870,3877,3884,3891,3898,3905,3912,4139,4145,4151,4157,4163,4169,4175,4181,4187,4193,4199,4205,4211,4295,4302,4309,4316,5860,6787,6794,6801,6808,6877-6879,9162,9219,9248,9253,11182,12463,14589-14590,14925,16551,16689,16708,16738
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "90d9618af2458ed96f1a8b06f471228572d9cf88",
+  "prompts": {},
+  "sessions": {
+    "s_a6e9ab7bac2fcb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f2d3046f9ffeXlrgyymSeHYSZC",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Aman Kumar <amankumar@cloudflare.com>"
+    }
+  }
+}
