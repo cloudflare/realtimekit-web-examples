@@ -8,7 +8,9 @@ Guide: https://developers.cloudflare.com/realtime/realtimekit/media-middleware/
 
 Here are a few available examples.
 
-1. HTML examples
+1. React examples
+   A. longpipe-video: virtual backgrounds and blur using [Longpipe](https://longpipe.dev/) <br>
+2. HTML examples
    A. longpipe-video: virtual backgrounds and blur using [Longpipe](https://longpipe.dev/) <br>
 
 ## Usage
@@ -32,10 +34,10 @@ Here are steps to try out the examples:
 git clone https://github.com/cloudflare/realtimekit-web-examples.git
 ```
 
-2. Change directory to the example you want to try, for example: to use longpipe-video html-example use the following command:
+2. Change directory to the example you want to try, for example: to use longpipe-video react-example use the following command:
 
 ```sh
-cd media-middlewares/html-examples/longpipe-video
+cd media-middlewares/react-examples/longpipe-video
 ```
 
 3. Install the packages with your preferred package manager and start a
