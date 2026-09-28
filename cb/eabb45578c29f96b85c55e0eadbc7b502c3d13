@@ -1,0 +1,43 @@
+media-middlewares/react-examples/longpipe-video/.gitignore
+  s_a6e9ab7bac2fcb::t_21c29a188a2208 1-24
+media-middlewares/react-examples/longpipe-video/src/App.tsx
+  s_a6e9ab7bac2fcb::t_67af96ea445366 1-66
+media-middlewares/react-examples/longpipe-video/src/effects/effects-addon.ts
+  s_17d45417b8aa9e::t_a44b3cc846362b 1-51
+media-middlewares/react-examples/longpipe-video/src/effects/icons.ts
+  s_a6e9ab7bac2fcb::t_59465f3e998a78 1-13
+media-middlewares/react-examples/longpipe-video/src/vite-env.d.ts
+  s_a6e9ab7bac2fcb::t_5b6336bb49423f 1
+media-middlewares/react-examples/longpipe-video/tsconfig.app.json
+  s_a6e9ab7bac2fcb::t_8bedddd7f26b4c 1-27
+media-middlewares/react-examples/longpipe-video/tsconfig.json
+  s_a6e9ab7bac2fcb::t_d521ea9dfcd865 1-11
+media-middlewares/react-examples/longpipe-video/tsconfig.node.json
+  s_a6e9ab7bac2fcb::t_7ef3cfc0528ce5 1-13
+pnpm-lock.yaml
+  s_a6e9ab7bac2fcb::t_3d22dac82db2ac 400-442
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "cbeabb45578c29f96b85c55e0eadbc7b502c3d13",
+  "prompts": {},
+  "sessions": {
+    "s_17d45417b8aa9e": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f16930846ffer9h0ocbfUAG0u9",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Aman Kumar <amankumar@cloudflare.com>"
+    },
+    "s_a6e9ab7bac2fcb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f2d3046f9ffeXlrgyymSeHYSZC",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Aman Kumar <amankumar@cloudflare.com>"
+    }
+  }
+}
