@@ -114,6 +114,18 @@ const sampleFiles = [
     usecase: "livestream",
   },
   {
+    name: "manual-subscription",
+    platform: "web",
+    id: "react-examples/manual-subscription",
+    url: `https://${reactExamplesDomain}/manual-subscription`,
+    preset: "Video Call Host Demo",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/manual-subscription",
+    description: "Use RealtimeKit's manual subscription APIs to choose which participants' audio, video, and screen-share streams you receive.",
+    blogUrl:"",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
+    usecase: "video",
+  },
+  {
     name: "multi-meeting",
     platform: "web",
     id: "react-examples/multi-meeting",
