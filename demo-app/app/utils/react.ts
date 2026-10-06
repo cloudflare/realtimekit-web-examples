@@ -122,7 +122,7 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/manual-subscription",
     description: "Use RealtimeKit's manual subscription APIs to choose which participants' audio, video, and screen-share streams you receive.",
     blogUrl:"",
-    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Manual%20Subscription.png",
     usecase: "video",
   },
   {

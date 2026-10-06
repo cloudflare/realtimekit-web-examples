@@ -11,7 +11,7 @@ const sampleFiles = [
     id: "html-examples/manual-subscription",
     url: `https://${htmlExamplesDomain}/manual-subscription`,
     preset: "",
-    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Manual%20Subscription.png",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/manual-subscription",
     description: "Select which participants' audio, video, and screen-share streams to receive using manual subscriptions.",
     blogUrl: "",
