@@ -1,0 +1,12 @@
+<rtk-meeting
+  #meetingUI
+  [showSetupScreen]="true"
+  (rtkStatesUpdate)="handleMeetingStateChange($event.detail)"
+></rtk-meeting>
+
+<app-manual-subscriptions-dialog
+  *ngIf="meeting as currentMeeting"
+  [meeting]="currentMeeting"
+  [open]="subscriptionsOpen"
+  (closed)="closeDialog()"
+></app-manual-subscriptions-dialog>

@@ -1,0 +1,36 @@
+{
+  "name": "manual-subscription-angular",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "prestart": "bash scripts/set-env.sh",
+    "start": "ng serve",
+    "predev": "bash scripts/set-env.sh",
+    "dev": "ng serve",
+    "prebuild": "bash scripts/set-env.sh",
+    "build": "ng build"
+  },
+  "dependencies": {
+    "@angular/animations": "^15.0.0",
+    "@angular/common": "^15.0.0",
+    "@angular/compiler": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@angular/platform-browser": "^15.0.0",
+    "@angular/platform-browser-dynamic": "^15.0.0",
+    "@cloudflare/realtimekit": "^2.0.0",
+    "@cloudflare/realtimekit-angular-ui": "^2.0.0",
+    "@cloudflare/realtimekit-ui": "^2.0.0",
+    "@cloudflare/realtimekit-ui-addons": "^0.1.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.12.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.0.4",
+    "@angular/cli": "~15.0.4",
+    "@angular/compiler-cli": "^15.0.0",
+    "@types/node": "^18.0.0",
+    "typescript": "~4.8.2"
+  }
+}
