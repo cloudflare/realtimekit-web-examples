@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   useRealtimeKitMeeting,
   useRealtimeKitSelector,
@@ -28,27 +28,16 @@ export default function ManualSubscriptionsDialog({
   const isManualMode = useRealtimeKitSelector(
     (meeting) => meeting.participants.viewMode === 'MANUAL'
   );
-  const [participants, setParticipants] = useState<RTKParticipant[]>([]);
-  const [isUpdatingSubscriptions, setIsUpdatingSubscriptions] = useState(false);
-  const [error, setError] = useState('');
+  const joinedParticipants = useRealtimeKitSelector(
+    (meeting) => meeting.participants.joined
+  ).toArray();
 
-  useEffect(() => {
-    if (!open) return undefined;
-
-    const { joined } = meeting.participants;
-    const refreshParticipants = () => setParticipants(joined.toArray());
-
-    joined.addListener('participantJoined', refreshParticipants);
-    joined.addListener('participantLeft', refreshParticipants);
-    joined.addListener('participantsCleared', refreshParticipants);
-    refreshParticipants();
-
-    return () => {
-      joined.removeListener('participantJoined', refreshParticipants);
-      joined.removeListener('participantLeft', refreshParticipants);
-      joined.removeListener('participantsCleared', refreshParticipants);
-    };
-  }, [open, meeting]);
+  // Use a new status object when an update finishes so the switches refresh,
+  // even when the participant list has not changed.
+  const [{ isUpdatingSubscriptions, error }, setSubscriptionUpdate] = useState({
+    isUpdatingSubscriptions: false,
+    error: '',
+  });
 
   // Subscription maps group microphone/camera and screen-share media together.
   // The per-kind config distinguishes the individual subscriptions.
@@ -73,8 +62,7 @@ export default function ManualSubscriptionsDialog({
       return;
     }
 
-    setIsUpdatingSubscriptions(true);
-    setError('');
+    setSubscriptionUpdate({ isUpdatingSubscriptions: true, error: '' });
 
     try {
       if (checked) {
@@ -95,10 +83,15 @@ export default function ManualSubscriptionsDialog({
       }
     } catch (cause) {
       console.error('Unable to change subscription mode', { checked, cause });
-      setError('Could not change subscription mode. Please try again.');
+      setSubscriptionUpdate({
+        isUpdatingSubscriptions: true,
+        error: 'Could not change subscription mode. Please try again.',
+      });
     } finally {
-      setParticipants(meeting.participants.joined.toArray());
-      setIsUpdatingSubscriptions(false);
+      setSubscriptionUpdate((state) => ({
+        ...state,
+        isUpdatingSubscriptions: false,
+      }));
     }
   };
 
@@ -117,8 +110,7 @@ export default function ManualSubscriptionsDialog({
       return;
     }
 
-    setIsUpdatingSubscriptions(true);
-    setError('');
+    setSubscriptionUpdate({ isUpdatingSubscriptions: true, error: '' });
 
     try {
       // New peers allow all media kinds by default. Clear those defaults before
@@ -144,11 +136,15 @@ export default function ManualSubscriptionsDialog({
         checked,
         cause,
       });
-      setError('Could not update the subscription. Please try again.');
+      setSubscriptionUpdate({
+        isUpdatingSubscriptions: true,
+        error: 'Could not update the subscription. Please try again.',
+      });
     } finally {
-      // Refresh even when map membership is unchanged, or an API call fails.
-      setParticipants(meeting.participants.joined.toArray());
-      setIsUpdatingSubscriptions(false);
+      setSubscriptionUpdate((state) => ({
+        ...state,
+        isUpdatingSubscriptions: false,
+      }));
     }
   };
 
@@ -186,9 +182,9 @@ export default function ManualSubscriptionsDialog({
           {isManualMode && (
             <section aria-labelledby="subscriptions-participants-title">
               <h3 id="subscriptions-participants-title">
-                Participants ({participants.length})
+                Participants ({joinedParticipants.length})
               </h3>
-              {participants.length === 0 ? (
+              {joinedParticipants.length === 0 ? (
                 <p>No other participants have joined yet.</p>
               ) : (
                 <div
@@ -212,7 +208,7 @@ export default function ManualSubscriptionsDialog({
                       </tr>
                     </thead>
                     <tbody>
-                      {participants.map((participant) => {
+                      {joinedParticipants.map((participant) => {
                         const name = participant.name || 'Unnamed participant';
 
                         return (
