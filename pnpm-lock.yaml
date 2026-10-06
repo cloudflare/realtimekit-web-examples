@@ -204,6 +204,64 @@ importers:
         specifier: ~4.8.2
         version: 4.8.4
 
+  angular-examples/examples/manual-subscription:
+    dependencies:
+      '@angular/animations':
+        specifier: ^15.0.0
+        version: 15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
+      '@angular/common':
+        specifier: ^15.0.0
+        version: 15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7)
+      '@angular/compiler':
+        specifier: ^15.0.0
+        version: 15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
+      '@angular/core':
+        specifier: ^15.0.0
+        version: 15.2.10(rxjs@7.5.7)(zone.js@0.12.0)
+      '@angular/platform-browser':
+        specifier: ^15.0.0
+        version: 15.2.10(@angular/animations@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
+      '@angular/platform-browser-dynamic':
+        specifier: ^15.0.0
+        version: 15.2.10(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/compiler@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(@angular/platform-browser@15.2.10(@angular/animations@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))
+      '@cloudflare/realtimekit':
+        specifier: ^2.0.0
+        version: 2.0.0
+      '@cloudflare/realtimekit-angular-ui':
+        specifier: ^2.0.0
+        version: 2.0.0(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
+      '@cloudflare/realtimekit-ui':
+        specifier: ^2.0.0
+        version: 2.0.0
+      '@cloudflare/realtimekit-ui-addons':
+        specifier: ^0.1.0
+        version: 0.1.0(@cloudflare/realtimekit-ui@2.0.0)(@cloudflare/realtimekit@2.0.0)
+      rxjs:
+        specifier: ~7.5.0
+        version: 7.5.7
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+      zone.js:
+        specifier: ~0.12.0
+        version: 0.12.0
+    devDependencies:
+      '@angular-devkit/build-angular':
+        specifier: ^15.0.4
+        version: 15.2.11(@angular/compiler-cli@15.2.10(@angular/compiler@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(typescript@4.8.4))(karma@6.4.4)(tailwindcss@3.4.19)(typescript@4.8.4)
+      '@angular/cli':
+        specifier: ~15.0.4
+        version: 15.0.5(chokidar@3.6.0)
+      '@angular/compiler-cli':
+        specifier: ^15.0.0
+        version: 15.2.10(@angular/compiler@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0)))(typescript@4.8.4)
+      '@types/node':
+        specifier: ^18.0.0
+        version: 18.19.130
+      typescript:
+        specifier: ~4.8.2
+        version: 4.8.4
+
   angular-examples/examples/with-video-transformer:
     dependencies:
       '@angular/animations':

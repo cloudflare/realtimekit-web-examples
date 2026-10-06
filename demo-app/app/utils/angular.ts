@@ -5,6 +5,18 @@ const angularExamplesDomain =
     : "angular-examples.staging.realtime.cloudflare.com";
 const sampleFiles = [
   {
+    name: "manual-subscription",
+    platform: "web",
+    id: "angular-examples/manual-subscription",
+    url: `https://${angularExamplesDomain}/manual-subscription`,
+    usecase: "all",
+    preset: "",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/manual-subscription",
+    description: "Select which participants' audio, video, and screen-share streams to receive using manual subscriptions.",
+    blogUrl: "",
+  },
+  {
     name: "create-your-own-ui",
     platform: "web",
     id: "angular-examples/create-your-own-ui",
