@@ -1,0 +1,107 @@
+<rtk-dialog [open]="open" (rtkDialogClose)="closeDialog()">
+  <section class="subscriptions-dialog" aria-labelledby="subscriptions-title">
+    <header class="subscriptions-dialog__header">
+      <h2 id="subscriptions-title">Manual Subscriptions</h2>
+    </header>
+    <div class="subscriptions-dialog__content">
+      <div class="subscriptions-dialog__toggle">
+        <span id="manual-subscription-label">Manual subscription mode</span>
+        <rtk-switch
+          #modeSwitch
+          [checked]="isManualMode"
+          [disabled]="isUpdatingSubscriptions"
+          [readonly]="isUpdatingSubscriptions"
+          aria-labelledby="manual-subscription-label"
+          tabindex="0"
+          (rtkChange)="handleModeChange($event.detail, modeSwitch)"
+        ></rtk-switch>
+      </div>
+      <p>
+        {{
+          isManualMode
+            ? 'Choose which participant audio, video, and screen share streams you receive.'
+            : 'The default grid manages subscriptions automatically.'
+        }}
+      </p>
+      <p *ngIf="error" class="subscriptions-dialog__error" role="alert">
+        {{ error }}
+      </p>
+      <section
+        *ngIf="isManualMode"
+        aria-labelledby="subscriptions-participants-title"
+      >
+        <h3 id="subscriptions-participants-title">
+          Participants ({{ joinedParticipants.length }})
+        </h3>
+        <p *ngIf="joinedParticipants.length === 0; else participantTable">
+          No other participants have joined yet.
+        </p>
+        <ng-template #participantTable>
+          <div
+            class="subscriptions-dialog__table-scroll"
+            role="region"
+            aria-labelledby="subscriptions-participants-title"
+            tabindex="0"
+          >
+            <table
+              class="subscriptions-dialog__table"
+              aria-labelledby="subscriptions-participants-title"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Participant</th>
+                  <th *ngFor="let mediaType of mediaTypes" scope="col">
+                    {{ mediaType.label }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="
+                    let participant of joinedParticipants;
+                    trackBy: trackByParticipantId
+                  "
+                >
+                  <th scope="row">
+                    <div class="subscriptions-dialog__identity">
+                      <rtk-avatar
+                        [participant]="participant"
+                        size="sm"
+                        aria-hidden="true"
+                      ></rtk-avatar>
+                      <span [title]="participant.name || 'Unnamed participant'">
+                        {{ participant.name || 'Unnamed participant' }}
+                      </span>
+                    </div>
+                  </th>
+                  <td *ngFor="let mediaType of mediaTypes">
+                    <rtk-switch
+                      #mediaSwitch
+                      [checked]="isSubscribed(participant, mediaType.kind)"
+                      [disabled]="isUpdatingSubscriptions"
+                      [readonly]="isUpdatingSubscriptions"
+                      [attr.aria-label]="
+                        mediaType.label +
+                        ' subscription for ' +
+                        (participant.name || 'Unnamed participant')
+                      "
+                      tabindex="0"
+                      (rtkChange)="
+                        handleSubscriptionChange(
+                          participant.id,
+                          mediaType.kind,
+                          $event.detail,
+                          mediaSwitch
+                        )
+                      "
+                    ></rtk-switch>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+      </section>
+    </div>
+  </section>
+</rtk-dialog>

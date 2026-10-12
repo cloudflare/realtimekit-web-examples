@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual Subscriptions - RealtimeKit</title>
+    <link rel="stylesheet" href="/manual-subscription/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@latest/dist/browser.js"></script>
+  </head>
+  <body>
+    <rtk-meeting id="my-meeting" show-setup-screen="true"></rtk-meeting>
+
+    <rtk-dialog id="subscriptions-dialog" open="false">
+      <section
+        class="subscriptions-dialog"
+        aria-labelledby="subscriptions-title"
+      >
+        <header class="subscriptions-dialog__header">
+          <h2 id="subscriptions-title">Manual Subscriptions</h2>
+        </header>
+        <div class="subscriptions-dialog__content">
+          <div class="subscriptions-dialog__toggle">
+            <span id="manual-subscription-label">Manual subscription mode</span>
+            <rtk-switch
+              id="mode-switch"
+              aria-labelledby="manual-subscription-label"
+              tabindex="0"
+            ></rtk-switch>
+          </div>
+          <p id="subscriptions-description"></p>
+          <p
+            id="subscriptions-error"
+            class="subscriptions-dialog__error"
+            role="alert"
+            hidden
+          ></p>
+          <section
+            id="participants-section"
+            aria-labelledby="subscriptions-participants-title"
+            hidden
+          >
+            <h3 id="subscriptions-participants-title"></h3>
+            <p id="empty-participants">
+              No other participants have joined yet.
+            </p>
+            <div
+              id="participants-table-scroll"
+              class="subscriptions-dialog__table-scroll"
+              role="region"
+              aria-labelledby="subscriptions-participants-title"
+              tabindex="0"
+            >
+              <table
+                class="subscriptions-dialog__table"
+                aria-labelledby="subscriptions-participants-title"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Participant</th>
+                    <th scope="col">Audio</th>
+                    <th scope="col">Video</th>
+                    <th scope="col">Screen share audio</th>
+                    <th scope="col">Screen share video</th>
+                  </tr>
+                </thead>
+                <tbody id="participant-rows"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </section>
+    </rtk-dialog>
+
+    <template id="participant-row">
+      <tr>
+        <th scope="row">
+          <div class="subscriptions-dialog__identity">
+            <rtk-avatar size="sm" aria-hidden="true"></rtk-avatar>
+            <span></span>
+          </div>
+        </th>
+      </tr>
+    </template>
+
+    <script type="module">
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/loader/index.es2017.js';
+      import {
+        defaultIconPack,
+        registerAddons,
+      } from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/dist/esm/index.js';
+      import CustomControlbarButton from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui-addons@latest/dist/custom-controlbar-button.js';
+
+      const mediaTypes = [
+        { kind: 'audio', label: 'Audio' },
+        { kind: 'video', label: 'Video' },
+        { kind: 'screenshareAudio', label: 'Screen share audio' },
+        { kind: 'screenshareVideo', label: 'Screen share video' },
+      ];
+      const participantEvents = [
+        'participantJoined',
+        'participantLeft',
+        'participantsCleared',
+        'participantsUpdate',
+      ];
+
+      const meetingElement = document.getElementById('my-meeting');
+      const dialog = document.getElementById('subscriptions-dialog');
+      const modeSwitch = document.getElementById('mode-switch');
+      const description = document.getElementById('subscriptions-description');
+      const errorMessage = document.getElementById('subscriptions-error');
+      const participantsSection = document.getElementById(
+        'participants-section'
+      );
+      const participantsTitle = document.getElementById(
+        'subscriptions-participants-title'
+      );
+      const emptyParticipants = document.getElementById('empty-participants');
+      const tableScroll = document.getElementById('participants-table-scroll');
+      const participantRows = document.getElementById('participant-rows');
+      const rowTemplate = document.getElementById('participant-row');
+
+      let meeting;
+      let isUpdatingSubscriptions = false;
+
+      // Subscription maps group microphone/camera and screen-share media together.
+      // The per-kind config distinguishes the individual subscriptions.
+      function isSubscribed(participant, kind) {
+        const subscribed =
+          kind === 'audio' || kind === 'screenshareAudio'
+            ? meeting.participants.audioSubscribed
+            : meeting.participants.videoSubscribed;
+        return (
+          subscribed.has(participant.id) &&
+          participant.manualProducerConfig[kind]
+        );
+      }
+
+      function refreshDialog() {
+        const isManualMode = meeting.participants.viewMode === 'MANUAL';
+        modeSwitch.checked = isManualMode;
+        modeSwitch.disabled = isUpdatingSubscriptions;
+        modeSwitch.readonly = isUpdatingSubscriptions;
+        description.textContent = isManualMode
+          ? 'Choose which participant audio, video, and screen share streams you receive.'
+          : 'The default grid manages subscriptions automatically.';
+        participantsSection.hidden = !isManualMode;
+
+        const joinedParticipants = meeting.participants.joined.toArray();
+        participantsTitle.textContent = `Participants (${joinedParticipants.length})`;
+        emptyParticipants.hidden = joinedParticipants.length !== 0;
+        tableScroll.hidden = joinedParticipants.length === 0;
+        updateParticipantRows(joinedParticipants);
+      }
+
+      function updateParticipantRows(joinedParticipants) {
+        const existingRows = new Map(
+          Array.from(participantRows.children, (row) => [
+            row.dataset.participantId,
+            row,
+          ])
+        );
+        // Keep existing rows so updating a switch does not lose keyboard focus.
+        for (const [participantId, row] of existingRows) {
+          if (!meeting.participants.joined.has(participantId)) {
+            row.remove();
+          }
+        }
+
+        for (const participant of joinedParticipants) {
+          let row = existingRows.get(participant.id);
+          if (!row) {
+            row = rowTemplate.content.firstElementChild.cloneNode(true);
+            row.dataset.participantId = participant.id;
+            for (const { kind } of mediaTypes) {
+              const cell = document.createElement('td');
+              const mediaSwitch = document.createElement('rtk-switch');
+              mediaSwitch.dataset.kind = kind;
+              mediaSwitch.tabIndex = 0;
+              mediaSwitch.addEventListener('rtkChange', ({ detail }) => {
+                handleSubscriptionChange(participant.id, kind, detail);
+              });
+              cell.append(mediaSwitch);
+              row.append(cell);
+            }
+          }
+
+          const name = participant.name || 'Unnamed participant';
+          row.querySelector('rtk-avatar').participant = participant;
+          const nameElement = row.querySelector('span');
+          nameElement.textContent = name;
+          nameElement.title = name;
+          for (const { kind, label } of mediaTypes) {
+            const mediaSwitch = row.querySelector(`[data-kind="${kind}"]`);
+            mediaSwitch.checked = isSubscribed(participant, kind);
+            mediaSwitch.disabled = isUpdatingSubscriptions;
+            mediaSwitch.readonly = isUpdatingSubscriptions;
+            mediaSwitch.setAttribute(
+              'aria-label',
+              `${label} subscription for ${name}`
+            );
+          }
+          // Set checked values before connecting the row: switches emit
+          // change events when they connect.
+          if (!row.parentElement) participantRows.append(row);
+        }
+      }
+
+      async function handleModeChange(checked) {
+        // RtkSwitch emits rtkChange on initialization and checked-prop updates.
+        // Ignore notifications that already match the SDK state.
+        if (
+          isUpdatingSubscriptions ||
+          checked === (meeting.participants.viewMode === 'MANUAL')
+        ) {
+          return;
+        }
+
+        isUpdatingSubscriptions = true;
+        errorMessage.hidden = true;
+        refreshDialog();
+        try {
+          if (checked) {
+            await meeting.participants.setViewMode('MANUAL');
+          }
+          const participantIds = meeting.participants.joined
+            .toArray()
+            .map(({ id }) => id);
+
+          if (checked) {
+            // Omitting kinds unsubscribes all media, so each activation starts fresh.
+            await meeting.participants.unsubscribe(participantIds);
+          } else {
+            // Allow all media before returning control to automatic subscriptions.
+            await meeting.participants.subscribe(participantIds);
+            await meeting.participants.setViewMode('ACTIVE_GRID');
+          }
+        } catch (cause) {
+          console.error('Unable to change subscription mode', {
+            checked,
+            cause,
+          });
+          errorMessage.textContent =
+            'Could not change subscription mode. Please try again.';
+          errorMessage.hidden = false;
+        } finally {
+          isUpdatingSubscriptions = false;
+          refreshDialog();
+        }
+      }
+
+      async function handleSubscriptionChange(participantId, kind, checked) {
+        const participant = meeting.participants.joined.get(participantId);
+        if (
+          isUpdatingSubscriptions ||
+          meeting.participants.viewMode !== 'MANUAL' ||
+          !participant ||
+          checked === isSubscribed(participant, kind)
+        ) {
+          return;
+        }
+
+        isUpdatingSubscriptions = true;
+        errorMessage.hidden = true;
+        refreshDialog();
+        try {
+          // New peers allow all media kinds by default. Clear those defaults before
+          // selecting their first stream, so only the chosen kind is subscribed.
+          if (
+            checked &&
+            !meeting.participants.audioSubscribed.has(participantId) &&
+            !meeting.participants.videoSubscribed.has(participantId) &&
+            Object.values(participant.manualProducerConfig).some(Boolean)
+          ) {
+            await meeting.participants.unsubscribe([participantId]);
+          }
+
+          if (checked) {
+            await meeting.participants.subscribe([participantId], [kind]);
+          } else {
+            await meeting.participants.unsubscribe([participantId], [kind]);
+          }
+        } catch (cause) {
+          console.error('Unable to update participant subscription', {
+            participantId,
+            kind,
+            checked,
+            cause,
+          });
+          errorMessage.textContent =
+            'Could not update the subscription. Please try again.';
+          errorMessage.hidden = false;
+        } finally {
+          isUpdatingSubscriptions = false;
+          // Changing a media kind may not emit a subscription-map event,
+          // so refresh the switches after the operation completes.
+          refreshDialog();
+        }
+      }
+
+      function openDialog() {
+        if (dialog.open) return;
+        for (const participants of [
+          meeting.participants.joined,
+          meeting.participants.audioSubscribed,
+          meeting.participants.videoSubscribed,
+        ]) {
+          for (const event of participantEvents) {
+            participants.on(event, refreshDialog);
+          }
+        }
+        meeting.participants.on('viewModeChanged', refreshDialog);
+        refreshDialog();
+        dialog.open = true;
+      }
+
+      function closeDialog() {
+        dialog.open = false;
+        for (const participants of [
+          meeting.participants.joined,
+          meeting.participants.audioSubscribed,
+          meeting.participants.videoSubscribed,
+        ]) {
+          for (const event of participantEvents) {
+            participants.removeListener(event, refreshDialog);
+          }
+        }
+        meeting.participants.removeListener('viewModeChanged', refreshDialog);
+      }
+
+      async function initMeeting() {
+        await defineCustomElements();
+        // Mount the meeting before initialization so preset loading precedes addon config.
+        await meetingElement.componentOnReady();
+
+        const searchParams = new URL(window.location.href).searchParams;
+        const authToken = searchParams.get('authToken');
+        if (!authToken) {
+          alert(
+            "An authToken wasn't passed, please pass an authToken in the URL query to join a meeting."
+          );
+          return;
+        }
+        const baseURI =
+          searchParams.get('baseURI') || import.meta.env.VITE_BASE_URL;
+        const logInConsole = searchParams.get('logInConsole') === 'true';
+
+        meeting = await RealtimeKitClient.init({
+          authToken,
+          baseURI,
+          modules: { devTools: { logs: logInConsole } },
+        });
+
+        const subscriptionsButton = new CustomControlbarButton({
+          position: 'left',
+          label: 'Subscriptions',
+          icon: defaultIconPack.people_checked,
+          onClick: openDialog,
+          attributes: { 'aria-haspopup': 'dialog' },
+        });
+        meetingElement.meeting = meeting;
+        meetingElement.config = registerAddons([subscriptionsButton], meeting);
+        modeSwitch.addEventListener('rtkChange', ({ detail }) => {
+          handleModeChange(detail);
+        });
+        dialog.addEventListener('rtkDialogClose', closeDialog);
+        meetingElement.addEventListener('rtkStatesUpdate', ({ detail }) => {
+          if (detail.meeting && detail.meeting !== 'joined') closeDialog();
+        });
+      }
+
+      initMeeting().catch((cause) => {
+        console.error('Unable to initialize the meeting', cause);
+      });
+    </script>
+  </body>
+</html>
