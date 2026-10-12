@@ -3,7 +3,12 @@ import { useLocation } from "react-router";
 import { Icon } from "~/components/icons";
 import type { Usecase } from "~/context";
 import { useSharedState } from "~/context/hook";
-import { generateUrl, getGuestPreset, getPresetName } from "~/utils/utils";
+import {
+  generateUrl,
+  getGuestPreset,
+  getPresetName,
+  withDebugParams,
+} from "~/utils/utils";
 
 type Preset = {
   created_at: string;
@@ -129,7 +134,9 @@ const Meeting = () => {
     const searchParams = new URLSearchParams(location.search);
     const authToken = searchParams.get("authToken");
     if (authToken) {
-      setAuthURL(`${url}?authToken=${authToken}`);
+      setAuthURL(
+        withDebugParams(`${url}?authToken=${authToken}`, location.search),
+      );
     }
     setLoading(false);
   }, [url, location.search]);
@@ -188,7 +195,7 @@ const Meeting = () => {
       url,
     });
     setLoading(false);
-    setAuthURL(_url);
+    setAuthURL(withDebugParams(_url, location.search));
   };
 
   useEffect(() => {
