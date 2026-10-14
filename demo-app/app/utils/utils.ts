@@ -80,11 +80,8 @@ export const withDebugParams = (url: string, search: string) => {
   const searchParams = new URLSearchParams(search);
   const target = new URL(url);
 
-  if (searchParams.has('logInConsole')) {
-    const value = searchParams.get('logInConsole')?.toLowerCase();
-    if (value !== 'false' && value !== '0') {
-      target.searchParams.set('logInConsole', 'true');
-    }
+  if (searchParams.get('logInConsole') === 'true') {
+    target.searchParams.set('logInConsole', 'true');
   }
 
   const baseURI = searchParams.get('baseURI')?.trim();
