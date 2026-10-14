@@ -2,7 +2,7 @@
 
 This repository consists of recording example apps created using Cloudflare RealtimeKit Recording SDK, our Core SDKs, and, fully customizeable UI kits.
 
-Guide: https://docs.realtime.cloudflare.com/guides/recording/create-record-app-using-sdks
+Guide: https://developers.cloudflare.com/realtime/realtimekit/recording-guide/create-record-app-using-sdks/
 
 ## Examples
 
