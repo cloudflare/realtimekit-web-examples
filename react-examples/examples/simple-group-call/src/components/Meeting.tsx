@@ -57,7 +57,7 @@ function UI() {
       <header className="h-12 flex items-center justify-between px-4 border-b">
         <div className="flex items-center gap-1 md:gap-2">
           <img
-            src="https://docs.realtime.cloudflare.com/logo/cf.svg"
+            src="https://developers.cloudflare.com/logo.svg"
             className="h-6 md:h-7"
           />
           <div className="w-px h-7 mx-1 rotate-[18deg] bg-zinc-200"></div>
