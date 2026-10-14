@@ -24,6 +24,8 @@ const Widget = () => {
 		});
 	}, [authToken, initMeeting]);
 
+	Object.assign(window, { meeting });
+
 	const togglePopup = () => {
 		setPopupVisible(!popupVisible);
 	};

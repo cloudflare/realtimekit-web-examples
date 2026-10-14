@@ -78,6 +78,8 @@ function App() {
 
   }, [meeting])
 
+  Object.assign(window, { meeting });
+
   return (
     <div ref={meetingEl} >
       <RealtimeKitProvider value={meeting} fallback={<LoadingScreen />}>

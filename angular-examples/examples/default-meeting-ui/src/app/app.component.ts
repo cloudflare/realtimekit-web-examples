@@ -34,6 +34,8 @@ export class AppComponent {
       modules: { devTools: { logs: logInConsole } },
     });
 
+    Object.assign(window, { meeting });
+
     this.$meetingEl.meeting = meeting;
   }
 }

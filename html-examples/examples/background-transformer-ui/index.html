@@ -294,6 +294,8 @@
           modules: { devTools: { logs: logInConsole } },
         });
 
+        Object.assign(window, { meeting });
+
         document.getElementById('my-meeting').meeting = meeting;
 
         /**

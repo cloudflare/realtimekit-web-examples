@@ -118,6 +118,9 @@ export function Meeting(
     /*.then((m) => m?.join())*/;
   }, [initMeeting, authToken]);
 
+  // Exposes window.meeting1 / window.meeting2
+  Object.assign(window, { [meetingIdentifier]: meeting });
+
   return (
     <div className="flex flex-col w-full h-full">
         <RealtimeKitProvider value={meeting}>

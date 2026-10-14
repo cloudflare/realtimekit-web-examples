@@ -166,6 +166,7 @@ export function Meeting(
     });
   }, [initMeeting, authToken, baseURI, meetingIdentifier]);
 
+  Object.assign(window, { meeting });
 
 
   return (

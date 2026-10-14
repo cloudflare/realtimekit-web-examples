@@ -146,6 +146,8 @@ export function Meeting(
     });
   }, [initMeeting, authToken, baseURI, meetingIdentifier]);
 
+  // Exposes window.meeting1 / window.meeting2
+  Object.assign(window, { [meetingIdentifier]: meeting });
 
 
   return (

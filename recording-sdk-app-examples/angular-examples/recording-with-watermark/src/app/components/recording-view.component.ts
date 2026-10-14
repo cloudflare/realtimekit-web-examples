@@ -76,6 +76,8 @@ export class RecordingViewComponent implements OnInit {
     await recordingSDK.init(meetingObj);
     this.client = meetingObj;
 
+    Object.assign(window, { meeting: meetingObj });
+
     this.setupUIConfig();
   }
 
