@@ -113,7 +113,7 @@
           });
 
           // Expose meeting object to window for debugging
-          window.meeting = meeting;
+          Object.assign(window, { meeting });
 
           // Create RTK UI Provider wrapper
           const appElement = document.getElementById('app');

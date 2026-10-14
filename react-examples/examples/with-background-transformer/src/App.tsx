@@ -3,12 +3,6 @@ import { RtkMeeting } from '@cloudflare/realtimekit-react-ui';
 import { useRealtimeKitClient } from '@cloudflare/realtimekit-react';
 import RealtimeKitVideoBackgroundTransformer from '@cloudflare/realtimekit-virtual-background';
 
-declare global {
-  interface Window {
-    meeting: any;
-  }
-}
-
 function App() {
   const [meeting, initMeeting] = useRealtimeKitClient();
 
@@ -34,7 +28,7 @@ function App() {
         modules: { devTools: { logs: logInConsole } },
       }) as any
     ).then(async (meeting: any) => {
-      window.meeting = meeting;
+      Object.assign(window, { meeting });
 
       /**
        * To customise RealtimeKitVideoBackgroundTransformer configs, please refer to https://www.npmjs.com/package/@cloudflare/realtimekit-virtual-background?activeTab=readme.

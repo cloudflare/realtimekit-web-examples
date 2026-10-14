@@ -24,6 +24,8 @@ function App() {
       authToken,
       baseURI,
       modules: { devTools: { logs: logInConsole } },
+    }).then((meeting) => {
+      Object.assign(window, { meeting });
     });
   }, []);
 

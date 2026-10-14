@@ -91,6 +91,8 @@ function App() {
     }).then((m) => {
       if (!m) return;
 
+      Object.assign(window, { meeting: m });
+
       const params = new URLSearchParams({
         roomId: m.meta.meetingId,
         roomName: m.meta.meetingTitle || 'Whiteboard',

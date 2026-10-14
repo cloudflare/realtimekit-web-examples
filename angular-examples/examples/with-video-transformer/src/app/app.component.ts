@@ -37,6 +37,8 @@ export class AppComponent {
       modules: { devTools: { logs: logInConsole } },
     });
 
+    Object.assign(window, { meeting });
+
     this.$meetingEl.meeting = meeting;
 
     const videoBackground = await VideoBackground.init({

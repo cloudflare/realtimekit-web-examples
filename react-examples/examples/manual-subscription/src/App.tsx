@@ -36,6 +36,8 @@ function App() {
       authToken,
       ...(baseURI ? { baseURI } : {}),
       modules: { devTools: { logs: logInConsole } },
+    }).then((meeting) => {
+      Object.assign(window, { meeting });
     }).catch((cause: unknown) => {
       console.error('Unable to initialize the meeting', cause);
     });
