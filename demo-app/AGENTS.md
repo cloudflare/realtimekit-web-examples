@@ -43,6 +43,7 @@ demo-app/
 - `verbatimModuleSyntax: true` in tsconfig — `import type` required for all type-only imports
 - Run `pnpm typecheck` after route changes — regenerates types from `.react-router/types/`
 - `worker-configuration.d.ts` is Wrangler-generated — run `pnpm cf-typegen` to update it; never edit by hand
+- When adding examples, place broadly applicable integrations and core capabilities before specialized applications and workflows.
 
 ## ANTI-PATTERNS
 
