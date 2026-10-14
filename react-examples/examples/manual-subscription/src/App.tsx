@@ -36,6 +36,8 @@ function App() {
       authToken,
       ...(baseURI ? { baseURI } : {}),
       modules: { devTools: { logs: logInConsole } },
+    }).then((meeting) => {
+      Object.assign(window, { meeting });
     }).catch((cause: unknown) => {
       console.error('Unable to initialize the meeting', cause);
     });
@@ -54,8 +56,6 @@ function App() {
 
     setConfig(registerAddons([subscriptionsButton], meeting));
   }, [meeting]);
-
-  Object.assign(window, { meeting });
 
   // By default this component will cover the entire viewport.
   // To avoid that and to make it fill a parent container, pass the prop:

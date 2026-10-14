@@ -34,6 +34,8 @@ function App() {
         video: false,
       },
       modules: { devTools: { logs: logInConsole } },
+    }).then((meeting) => {
+      Object.assign(window, { meeting });
     });
   }, []);
 
@@ -77,8 +79,6 @@ function App() {
     }
 
   }, [meeting])
-
-  Object.assign(window, { meeting });
 
   return (
     <div ref={meetingEl} >

@@ -21,10 +21,10 @@ const Widget = () => {
 				video: false,
 			},
 			modules: { devTools: { logs: logInConsole } },
+		}).then((meeting) => {
+			Object.assign(window, { meeting });
 		});
 	}, [authToken, initMeeting]);
-
-	Object.assign(window, { meeting });
 
 	const togglePopup = () => {
 		setPopupVisible(!popupVisible);

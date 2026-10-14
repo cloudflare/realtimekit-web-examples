@@ -124,10 +124,10 @@ function App() {
         video: false,
       },
       modules: { devTools: { logs: logInConsole } },
-    })
+    }).then((meeting) => {
+      Object.assign(window, { meeting });
+    });
   }, []);
-
-  Object.assign(window, { meeting });
 
   // By default this component will cover the entire viewport.
   // To avoid that and to make it fill a parent container, pass the prop:
