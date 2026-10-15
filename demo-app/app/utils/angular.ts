@@ -5,16 +5,16 @@ const angularExamplesDomain =
     : "angular-examples.staging.realtime.cloudflare.com";
 const sampleFiles = [
   {
-    name: "manual-subscription",
+    name: "default-meeting",
     platform: "web",
-    id: "angular-examples/manual-subscription",
-    url: `https://${angularExamplesDomain}/manual-subscription`,
+    id: "angular-examples/default-meeting-ui",
+    url: `https://${angularExamplesDomain}/default-meeting-ui`,
     usecase: "all",
     preset: "",
-    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Manual%20Subscription.png",
-    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/manual-subscription",
-    description: "Select which participants' audio, video, and screen-share streams to receive using manual subscriptions.",
-    blogUrl: "",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
+    description: "A default Angular meeting UI showcasing the standard RealtimeKit meeting experience.",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/default-meeting",
+    blogUrl:"",
   },
   {
     name: "create-your-own-ui",
@@ -29,18 +29,6 @@ const sampleFiles = [
     blogUrl:"",
   },
   {
-    name: "default-meeting",
-    platform: "web",
-    id: "angular-examples/default-meeting-ui",
-    url: `https://${angularExamplesDomain}/default-meeting-ui`,
-    usecase: "all",
-    preset: "",
-    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
-    description: "A default Angular meeting UI showcasing the standard RealtimeKit meeting experience.",
-    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/default-meeting",
-    blogUrl:"",
-  },
-  {
     name: "background-effects",
     platform: "web",
     id: "angular-examples/with-video-transformer",
@@ -51,6 +39,18 @@ const sampleFiles = [
     description: "An Angular demo enabling background effects via a video transformer during calls.",
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/with-video-transformer",
     blogUrl:"",
+  },
+  {
+    name: "manual-subscription",
+    platform: "web",
+    id: "angular-examples/manual-subscription",
+    url: `https://${angularExamplesDomain}/manual-subscription`,
+    usecase: "all",
+    preset: "",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Manual%20Subscription.png",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/manual-subscription",
+    description: "Select which participants' audio, video, and screen-share streams to receive using manual subscriptions.",
+    blogUrl: "",
   }
 ];
 
