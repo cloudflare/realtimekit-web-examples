@@ -1,0 +1,49 @@
+name: Build HTML Examples
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    branches:
+      - main
+      - staging
+    paths:
+      - 'html-examples/**'
+      - '.github/workflows/html-examples-ci.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build HTML Examples
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: ./
+
+      - name: Build
+        run: pnpm run build ${{ github.base_ref == 'staging' && '--env staging' || '' }}
+        working-directory: ./html-examples
+        env:
+          CLOUDFLARE_ENV: ${{ github.base_ref == 'staging' && 'staging' || 'production' }} # for vite.config.ts to figure out which environment to build for
+          VITE_ENV: ${{ github.base_ref == 'staging' && 'staging' || 'production' }}
+          VITE_BASE_URL: ${{ github.base_ref == 'staging' && 'staging.realtime.cloudflare.com' || 'realtime.cloudflare.com' }}
