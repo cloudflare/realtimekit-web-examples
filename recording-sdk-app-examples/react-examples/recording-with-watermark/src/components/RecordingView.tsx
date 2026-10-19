@@ -76,6 +76,7 @@ export default function UIKitMeeting(props: {
         },
         baseURI: baseURI ?? "realtime.cloudflare.com",
       });
+      Object.assign(window, { meeting: meetingObj });
       await recordingSDK.init(meetingObj!);
     }
     setupRealtimeKitMeeting();

@@ -38,6 +38,7 @@
         authToken,
         modules: { devTools: { logs: logInConsole } },
       }).then((meeting) => {
+        Object.assign(window, { meeting });
         document.getElementById('my-meeting').meeting = meeting;
       });
     </script>

@@ -76,6 +76,22 @@ export const getGuestPreset = (usecase: Usecase): string => {
 }
 
 
+export const withDebugParams = (url: string, search: string) => {
+  const searchParams = new URLSearchParams(search);
+  const target = new URL(url);
+
+  if (searchParams.get('logInConsole') === 'true') {
+    target.searchParams.set('logInConsole', 'true');
+  }
+
+  const baseURI = searchParams.get('baseURI')?.trim();
+  if (baseURI) {
+    target.searchParams.set('baseURI', baseURI);
+  }
+
+  return target.toString();
+};
+
 export const generateUrl = async ({
     name,
     meetingId,

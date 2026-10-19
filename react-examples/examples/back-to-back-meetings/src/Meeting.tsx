@@ -158,7 +158,8 @@ export function Meeting(
       ...(baseURI && { baseURI }),
       modules: { devTools: { logs: logInConsole } },
     })
-    .then(() => {
+    .then((meeting) => {
+      Object.assign(window, { meeting });
       console.log(`[${meetingIdentifier}] Meeting initialized`);
     })
     .catch((error) => {

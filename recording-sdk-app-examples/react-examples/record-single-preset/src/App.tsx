@@ -36,14 +36,13 @@ function App() {
       if (!meetingObj) {
         return;
       }
+      Object.assign(window, { meeting: meetingObj });
       await recordingSDK.init(meetingObj);
     }
     if (!meeting) {
       setupRealtimeKitMeeting();
     }
   }, [meeting]);
-
-  Object.assign(window, { meeting });
 
   // By default this component will cover the entire viewport.
   // To avoid that and to make it fill a parent container, pass the prop:

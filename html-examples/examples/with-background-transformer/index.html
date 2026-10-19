@@ -42,6 +42,7 @@
         authToken,
         modules: { devTools: { logs: logInConsole } },
       }).then(async (meeting) => {
+        Object.assign(window, { meeting });
         document.getElementById('my-meeting').meeting = meeting;
 
         /**

@@ -60,6 +60,9 @@ export class AppComponent implements AfterViewInit {
       baseURI,
       modules: { devTools: { logs: logInConsole } },
     });
+
+    Object.assign(window, { meeting });
+
     const subscriptionsButton = new CustomControlbarButton({
       position: 'left',
       label: 'Subscriptions',

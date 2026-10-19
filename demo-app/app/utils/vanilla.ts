@@ -5,30 +5,6 @@ const htmlExamplesDomain =
     : "html-examples.staging.realtime.cloudflare.com";
 const sampleFiles = [
   {
-    name: "manual-subscription",
-    platform: "web",
-    usecase: "all",
-    id: "html-examples/manual-subscription",
-    url: `https://${htmlExamplesDomain}/manual-subscription`,
-    preset: "",
-    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Manual%20Subscription.png",
-    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/manual-subscription",
-    description: "Select which participants' audio, video, and screen-share streams to receive using manual subscriptions.",
-    blogUrl: "",
-  },
-  {
-    name: "background-effects",
-    platform: "web",
-    usecase: "all",
-    id: "html-examples/with-background-transformer",
-    url: `https://${htmlExamplesDomain}/with-background-transformer`,
-    preset: "",
-    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20with%20AR%20Filters.png",
-    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/with-background-transformer",
-    description: "Add background blur/replacement to live video in a vanilla JS calling UI.",
-    blogUrl:"",
-  },
-  {
     name: "default-meeting",
     platform: "web",
     usecase: "all",
@@ -63,6 +39,30 @@ const sampleFiles = [
     githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/with-ui-addons",
     description: "A vanilla JS meeting UI showcasing optional UI add-ons and enhancements.",
     blogUrl:"",
+  },
+  {
+    name: "background-effects",
+    platform: "web",
+    usecase: "all",
+    id: "html-examples/with-background-transformer",
+    url: `https://${htmlExamplesDomain}/with-background-transformer`,
+    preset: "",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20with%20AR%20Filters.png",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/with-background-transformer",
+    description: "Add background blur/replacement to live video in a vanilla JS calling UI.",
+    blogUrl:"",
+  },
+  {
+    name: "manual-subscription",
+    platform: "web",
+    usecase: "all",
+    id: "html-examples/manual-subscription",
+    url: `https://${htmlExamplesDomain}/manual-subscription`,
+    preset: "",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Manual%20Subscription.png",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/manual-subscription",
+    description: "Select which participants' audio, video, and screen-share streams to receive using manual subscriptions.",
+    blogUrl: "",
   }
 ];
 

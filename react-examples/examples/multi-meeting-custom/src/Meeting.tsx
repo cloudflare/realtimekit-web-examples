@@ -139,6 +139,8 @@ export function Meeting(
       modules: { devTools: { logs: logInConsole } },
     })
     .then((m) => {
+      // Exposes window.meeting1 / window.meeting2
+      Object.assign(window, { [meetingIdentifier]: m });
       console.log(`[${meetingIdentifier}] Meeting initialized`);
     })
     .catch((error) => {

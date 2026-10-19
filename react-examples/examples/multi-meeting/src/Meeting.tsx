@@ -115,7 +115,11 @@ export function Meeting(
       baseURI,
       modules: { devTools: { logs: logInConsole } },
     })
-    /*.then((m) => m?.join())*/;
+    .then((m) => {
+      // Exposes window.meeting1 / window.meeting2
+      Object.assign(window, { [meetingIdentifier]: m });
+      // m?.join();
+    });
   }, [initMeeting, authToken]);
 
   return (

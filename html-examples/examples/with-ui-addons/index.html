@@ -65,6 +65,8 @@
             }
           },
         });
+
+        Object.assign(window, { meeting });
       
         const chatHostControl = await ChatHostControl.init({
           meeting,
