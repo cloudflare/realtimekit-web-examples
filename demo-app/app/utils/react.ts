@@ -78,6 +78,18 @@ const sampleFiles = [
     usecase: "all",
   },
   {
+    name: "noise-cancellation",
+    platform: "web",
+    id: "react-examples/with-noise-cancellation",
+    url: `https://${reactExamplesDomain}/with-noise-cancellation`,
+    preset: "",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/with-noise-cancellation",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
+    description: "The default meeting UI with Noise Cancellation by default",
+    blogUrl:"",
+    usecase: "all",
+  },
+  {
     name: "manual-subscription",
     platform: "web",
     id: "react-examples/manual-subscription",
@@ -160,7 +172,7 @@ const sampleFiles = [
     blogUrl:"",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Live%20Auction.png",
     usecase: "livestream",
-  }
+  },
 ];
 
 export default sampleFiles;

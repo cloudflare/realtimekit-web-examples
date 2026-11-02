@@ -26,6 +26,7 @@ Here are the list of available examples at the moment.
 4. [Facetime](./examples/facetime/)
 5. [Chat](./examples/chat/)
 6. [Live Auction App](./examples/live-auction/)
+7. [Noise Cancellation](./examples/with-noise-cancellation/)
 
 ## Usage
 
