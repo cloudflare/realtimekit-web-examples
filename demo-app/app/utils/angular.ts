@@ -41,6 +41,18 @@ const sampleFiles = [
     blogUrl:"",
   },
   {
+    name: "noise-cancellation",
+    platform: "web",
+    id: "angular-examples/with-noise-cancellation",
+    url: `https://${angularExamplesDomain}/with-noise-cancellation`,
+    usecase: "all",
+    preset: "",
+    picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
+    description: "The default meeting UI with noise cancellation enabled automatically after initialization, without delaying join.",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/with-noise-cancellation",
+    blogUrl: "",
+  },
+  {
     name: "manual-subscription",
     platform: "web",
     id: "angular-examples/manual-subscription",

@@ -2,7 +2,7 @@
 
 ## OVERVIEW
 
-3 Angular example apps demonstrating Cloudflare RealtimeKit. Deployed as a single Cloudflare Worker, same sub-path pattern as react-examples.
+5 Angular example apps demonstrating Cloudflare RealtimeKit. Deployed as a single Cloudflare Worker, same sub-path pattern as react-examples.
 
 ## STRUCTURE
 
@@ -11,6 +11,8 @@ angular-examples/
 ├── examples/
 │   ├── default-meeting-ui/    # Drop-in <rtk-meeting> web component — minimal integration
 │   ├── create-your-own-ui/    # Full custom Angular UI with services, sidebar, setup screen
+│   ├── with-noise-cancellation/ # Default UI + automatic noise cancellation after init
+│   ├── manual-subscription/   # Select participant streams to receive
 │   └── with-video-transformer/ # Default UI + background blur via realtimekit-ui-addons
 ├── update-cloudflare-realtime-deps.sh
 ├── postbuild.sh
@@ -20,7 +22,7 @@ angular-examples/
 
 ## CONVENTIONS
 
-- **NgModule-based** — all three examples use `@NgModule` with traditional module architecture. Do NOT use standalone components or `bootstrapApplication`.
+- **NgModule-based** — all examples use `@NgModule` with traditional module architecture. Do NOT use standalone components or `bootstrapApplication`.
 - `useDefineForClassFields: false` in `tsconfig.json` — required for Angular decorators; do not change
 - `experimentalDecorators: true` + `strictTemplates: true` enforced across all examples
 - Build uses Angular CLI (`ng build` via `@angular-devkit/build-angular:browser`) — no Vite
@@ -31,12 +33,13 @@ angular-examples/
 
 - `@cloudflare/realtimekit-angular-ui` — Angular-specific wrapper exposing `<rtk-meeting>` and other components as Angular directives
 - `@cloudflare/realtimekit-ui` — underlying web components (loaded via `@cloudflare/realtimekit-angular-ui`)
+- `@cloudflare/realtimekit-noise-cancellation` — `with-noise-cancellation`; default `autoManage: true`, initialized without awaiting after attaching the meeting UI
 - `@cloudflare/realtimekit-ui-addons` — background transformer (`with-video-transformer` only)
 
 ## ANTI-PATTERNS
 
 - Do NOT add `vite.config.ts` — Angular examples use `ng build`, not Vite
-- Do NOT switch to standalone components without updating all three examples consistently
+- Do NOT switch to standalone components without updating all examples consistently
 
 ## NOTES
 
