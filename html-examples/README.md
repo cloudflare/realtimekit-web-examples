@@ -7,10 +7,12 @@ This repository consists of all the different ways in which you can use Cloudfla
 Here are the list of available examples at the moment.
 
 1. [Default Meeting UI](./examples/default-meeting-ui/)
-2. [Using Background Transformer to modify your background](./examples/with-background-transformer/)
-3. [Background Transformer UI example](./examples/background-transformer-ui/)
-4. [Create Your Own UI](./examples/create-your-own-ui/)
-5. [With UI Addons](./examples/with-ui-addons/)
+2. [Noise Cancellation](./examples/with-noise-cancellation/)
+3. [Using Background Transformer to modify your background](./examples/with-background-transformer/)
+4. [Background Transformer UI example](./examples/background-transformer-ui/)
+5. [Create Your Own UI](./examples/create-your-own-ui/)
+6. [With UI Addons](./examples/with-ui-addons/)
+7. [Manual Subscription](./examples/manual-subscription/)
 
 ## Usage
 

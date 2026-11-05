@@ -2,7 +2,7 @@
 
 ## OVERVIEW
 
-17 self-contained React+Vite+Tailwind example apps demonstrating Cloudflare RealtimeKit. All deployed together as a single Cloudflare Worker, each served at `/<example-name>/`.
+20 self-contained React+Vite+Tailwind example apps demonstrating Cloudflare RealtimeKit. All deployed together as a single Cloudflare Worker, each served at `/<example-name>/`.
 
 ## STRUCTURE
 
@@ -10,9 +10,12 @@
 react-examples/
 ├── examples/
 │   ├── default-meeting-ui/        # Drop-in <RtkMeeting> — minimal integration
+│   ├── with-noise-cancellation/   # Default UI + automatic microphone noise cancellation
 │   ├── simple-ui/                 # Atom-level custom UI from individual SDK primitives
 │   ├── simple-group-call/         # Custom UI with setup screen
 │   ├── create-your-own-ui/        # Full custom UI reference; commented-export swap pattern
+│   ├── manual-subscription/       # Explicit audio/video/screenshare subscriptions
+│   ├── plugins/                   # Default UI + RealtimeKit plugins
 │   ├── active-speaker-ui/         # Custom layout highlighting loudest speaker; useActiveSpeaker hook
 │   ├── screenshare-focused-ui-with-custom-addons/ # Fullscreen screenshare + custom addons
 │   ├── facetime/                  # Two-person PiP layout; auto-joins on init
@@ -38,6 +41,7 @@ react-examples/
 | Task | Location | Notes |
 |------|----------|-------|
 | Minimal default UI | `default-meeting-ui/` | Single `<RtkMeeting meeting={meeting} />` |
+| Noise cancellation | `with-noise-cancellation/` | Default meeting UI; initializes noise cancellation after meeting init without delaying join |
 | Custom UI from atoms | `simple-ui/` | `RtkGrid`, `RtkMicToggle`, `RtkCameraToggle`, etc. + `useRealtimeKitSelector` |
 | Full bespoke UI reference | `create-your-own-ui/` | `onRtkStatesUpdate`, custom store, `RtkDialogManager` retained |
 | Virtual background | `with-background-transformer/` | `meeting.self.addVideoMiddleware`, canvas2dCpu pipeline |
@@ -54,6 +58,7 @@ react-examples/
 | `@cloudflare/realtimekit-react-ui` | `RtkMeeting`, `RtkGrid`, `RtkUiProvider`, `RtkDialogManager`, control atoms, `provideRtkDesignSystem` |
 | `@cloudflare/realtimekit-ui-addons` | `VideoBackground`, `HandRaise`, host controls |
 | `@cloudflare/realtimekit-virtual-background` | Background blur/image: `addVideoMiddleware` |
+| `@cloudflare/realtimekit-noise-cancellation` | Microphone noise cancellation: `RealtimeKitNoiseCancellation.init({ meeting })`; `autoManage` defaults to `true` |
 
 ## CONVENTIONS
 
