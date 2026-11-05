@@ -28,7 +28,7 @@ html-examples/
 | Task | Location | Notes |
 |------|----------|-------|
 | Minimal no-framework integration | `default-meeting-ui/` | HTML file + web component; understand before building custom |
-| Noise cancellation | `with-noise-cancellation/` | Dynamically imports `@cloudflare/realtimekit-noise-cancellation@0.1.0-staging.0` after attaching the meeting UI; default `autoManage: true` enables processing without delaying join |
+| Noise cancellation | `with-noise-cancellation/` | Dynamically imports `@cloudflare/realtimekit-noise-cancellation@0.1.0-staging.1` after attaching the meeting UI; default `autoManage: true` enables processing without delaying join |
 | Full custom UI without a framework | `create-your-own-ui/` | Best reference; hand-rolled store, custom setup/control/sidebar |
 | Background blur headless | `with-background-transformer/` | API-only; no custom UI |
 | Background blur with controls | `background-transformer-ui/` | Adds toggle UI over `with-background-transformer` pattern |

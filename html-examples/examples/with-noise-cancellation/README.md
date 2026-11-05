@@ -1,7 +1,7 @@
 # Noise Cancellation Example
 
 The [default meeting UI](../default-meeting-ui/) with
-[`@cloudflare/realtimekit-noise-cancellation@0.1.0-staging.0`](https://www.npmjs.com/package/@cloudflare/realtimekit-noise-cancellation/v/0.1.0-staging.0).
+[`@cloudflare/realtimekit-noise-cancellation@0.1.0-staging.1`](https://www.npmjs.com/package/@cloudflare/realtimekit-noise-cancellation/v/0.1.0-staging.1).
 
 After meeting initialization, attach the meeting to `<rtk-meeting>`, then load
 the noise cancellation package with a dynamic import and call
