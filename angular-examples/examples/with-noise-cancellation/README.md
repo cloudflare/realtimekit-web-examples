@@ -1,6 +1,6 @@
 # Noise Cancellation Example
 
-The [default meeting UI](../default-meeting-ui/) with [`@cloudflare/realtimekit-noise-cancellation@0.1.0-staging.1`](https://www.npmjs.com/package/@cloudflare/realtimekit-noise-cancellation/v/0.1.0-staging.1).
+The [default meeting UI](../default-meeting-ui/) with [`@cloudflare/realtimekit-noise-cancellation@0.1.0`](https://www.npmjs.com/package/@cloudflare/realtimekit-noise-cancellation/v/0.1.0).
 
 After `RealtimeKitClient.init()` resolves, attach the meeting to the UI and start noise cancellation without awaiting it:
 
