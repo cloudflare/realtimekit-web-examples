@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@cloudflare/realtimekit-noise-cancellation": "0.1.0-staging.1",
+    "@cloudflare/realtimekit-noise-cancellation": "0.1.0",
     "@cloudflare/realtimekit-react": "^2.0.4",
     "@cloudflare/realtimekit-react-ui": "^2.0.3",
     "react": "^18.2.0",

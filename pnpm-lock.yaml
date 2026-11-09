@@ -295,8 +295,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3(@angular/common@15.2.10(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))(rxjs@7.5.7))(@angular/core@15.2.10(rxjs@7.5.7)(zone.js@0.12.0))
       '@cloudflare/realtimekit-noise-cancellation':
-        specifier: 0.1.0-staging.1
-        version: 0.1.0-staging.1(@cloudflare/realtimekit@2.0.4)
+        specifier: 0.1.0
+        version: 0.1.0(@cloudflare/realtimekit@2.0.4)
       '@cloudflare/realtimekit-ui':
         specifier: ^2.0.3
         version: 2.0.3
@@ -1567,8 +1567,8 @@ importers:
         specifier: ^2.0.4
         version: 2.0.4
       '@cloudflare/realtimekit-noise-cancellation':
-        specifier: 0.1.0-staging.1
-        version: 0.1.0-staging.1(@cloudflare/realtimekit@2.0.4)
+        specifier: 0.1.0
+        version: 0.1.0(@cloudflare/realtimekit@2.0.4)
       '@cloudflare/realtimekit-react':
         specifier: ^2.0.4
         version: 2.0.4(react@18.3.1)
@@ -2942,8 +2942,8 @@ packages:
       '@angular/common': '>=12'
       '@angular/core': '>=12'
 
-  '@cloudflare/realtimekit-noise-cancellation@0.1.0-staging.1':
-    resolution: {integrity: sha512-oiCfp6RN3a576nDyTaK5DAvdUD/TZ0gtPapetdIxHN7dfltilGf0FwYA8CEjANG3Pw0qky3ArkDoNP92GQZfbQ==}
+  '@cloudflare/realtimekit-noise-cancellation@0.1.0':
+    resolution: {integrity: sha512-jypea3q2iWM7618YahvX6KrtWdiYgc0lRxZS5cdz6jvjGj6GY6EJKfbxpGzcvapocBv87oYGx5l4kOnoqmzFZg==}
     peerDependencies:
       '@cloudflare/realtimekit': '*'
 
@@ -6591,6 +6591,7 @@ packages:
   image-size@0.5.5:
     resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please migrate to image-size@2.x
     hasBin: true
 
   immutable@4.3.8:
@@ -10611,7 +10612,7 @@ snapshots:
       '@cloudflare/realtimekit-ui': 2.0.3
       tslib: 2.8.1
 
-  '@cloudflare/realtimekit-noise-cancellation@0.1.0-staging.1(@cloudflare/realtimekit@2.0.4)':
+  '@cloudflare/realtimekit-noise-cancellation@0.1.0(@cloudflare/realtimekit@2.0.4)':
     dependencies:
       '@cloudflare/realtimekit': 2.0.4
 
