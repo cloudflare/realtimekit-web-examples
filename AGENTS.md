@@ -5,15 +5,15 @@
 
 ## OVERVIEW
 
-Example gallery for **Cloudflare RealtimeKit** — a real-time video/audio SDK. Contains 17 React, 3 Angular, 5 HTML, and 8 recording SDK examples (4 React + 4 Angular), plus a gallery portal. Live at `examples.realtime.cloudflare.com`. Docs: `developers.cloudflare.com/realtime/realtimekit/`.
+Example gallery for **Cloudflare RealtimeKit** — a real-time video/audio SDK. Contains 20 React, 5 Angular, 7 HTML, and 8 recording SDK examples (4 React + 4 Angular), plus a gallery portal. Live at `examples.realtime.cloudflare.com`. Docs: `developers.cloudflare.com/realtime/realtimekit/`.
 
 ## STRUCTURE
 
 ```
 realtimekit-web-examples/
-├── react-examples/            # 17 React+Vite examples → deployed as Cloudflare Worker
-├── angular-examples/          # 3 Angular CLI examples → deployed as Cloudflare Worker
-├── html-examples/             # 5 vanilla HTML/JS examples → deployed as Cloudflare Worker
+├── react-examples/            # 20 React+Vite examples → deployed as Cloudflare Worker
+├── angular-examples/          # 5 Angular CLI examples → deployed as Cloudflare Worker
+├── html-examples/             # 7 vanilla HTML/JS examples → deployed as Cloudflare Worker
 ├── demo-app/                  # Gallery portal (React Router 7 SSR) → examples.realtime.cloudflare.com
 ├── recording-sdk-app-examples/ # 8 recording SDK examples (4 React + 4 Angular) → deployed as individual Cloudflare Workers
 ├── pnpm-workspace.yaml        # Workspace definitions
@@ -25,6 +25,7 @@ realtimekit-web-examples/
 | Task | Location | Notes |
 |------|----------|-------|
 | Add React example | `react-examples/examples/<name>/` | Also add to `demo-app/app/utils/react.ts` |
+| Noise cancellation | `react-examples/examples/with-noise-cancellation/`, `angular-examples/examples/with-noise-cancellation/`, `html-examples/examples/with-noise-cancellation/` | Default meeting UI with `@cloudflare/realtimekit-noise-cancellation`; enabled after init without delaying join |
 | Add Angular example | `angular-examples/examples/<name>/` | Also add to `demo-app/app/utils/angular.ts` |
 | Add HTML example | `html-examples/examples/<name>/` | Also add to `demo-app/app/utils/vanilla.ts` |
 | Add recording example (React) | `recording-sdk-app-examples/react-examples/<name>/` | Each example has own `wrangler.jsonc`; deploy via `pnpm deploy:staging` / `pnpm deploy:production` |

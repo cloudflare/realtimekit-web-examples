@@ -6,3 +6,5 @@ yarn.lock
 pnpm-lock.yaml
 bun.lockb
 package-lock.json
+
+.wrangler

@@ -24,8 +24,10 @@ audio/video experience.
 Here are the list of available examples at the moment.
 
 1. [Default Meeting UI](./examples/default-meeting-ui/)
-2. [Using Background Transformer to modify your background](./examples/with-background-transformer/)
-3. [Create Your Own UI](./examples/create-your-own-ui/)
+2. [Noise Cancellation](./examples/with-noise-cancellation/)
+3. [Using Background Transformer to modify your background](./examples/with-video-transformer/)
+4. [Create Your Own UI](./examples/create-your-own-ui/)
+5. [Manual Subscription](./examples/manual-subscription/)
 
 ## Usage
 
