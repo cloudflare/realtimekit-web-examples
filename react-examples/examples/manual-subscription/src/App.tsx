@@ -35,6 +35,7 @@ function App() {
     initMeeting({
       authToken,
       ...(baseURI ? { baseURI } : {}),
+      defaults: { viewMode: 'MANUAL' },
       modules: { devTools: { logs: logInConsole } },
     }).then((meeting) => {
       Object.assign(window, { meeting });

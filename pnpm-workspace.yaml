@@ -6,3 +6,22 @@ packages:
   - '*/html-examples/*'
   - 'recording-sdk-app-examples/react-examples/*'
   - 'recording-sdk-app-examples/angular-examples/*'
+allowBuilds:
+  '@tailwindcss/oxide@4.1.13': true
+  'esbuild@0.15.18': true
+  'esbuild@0.17.8': true
+  'esbuild@0.17.19': true
+  'esbuild@0.18.20': true
+  'esbuild@0.21.5': true
+  'esbuild@0.25.4': true
+  'esbuild@0.25.12': true
+  'nice-napi@1.0.2': true
+  'sharp@0.33.5': true
+  'workerd@1.20250718.0': true
+  'workerd@1.20250924.0': true
+minimumReleaseAgeExclude:
+  - '@cloudflare/realtimekit-angular-ui@2.1.0'
+  - '@cloudflare/realtimekit-react-ui@2.1.0'
+  - '@cloudflare/realtimekit-react@2.1.0'
+  - '@cloudflare/realtimekit-ui@2.1.0'
+  - '@cloudflare/realtimekit@2.1.0'

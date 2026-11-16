@@ -58,6 +58,7 @@ export class AppComponent implements AfterViewInit {
     const meeting = await RealtimeKitClient.init({
       authToken,
       baseURI,
+      defaults: { viewMode: 'MANUAL' },
       modules: { devTools: { logs: logInConsole } },
     });
 
