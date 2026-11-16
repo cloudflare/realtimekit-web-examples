@@ -347,6 +347,7 @@
         meeting = await RealtimeKitClient.init({
           authToken,
           baseURI,
+          defaults: { viewMode: 'MANUAL' },
           modules: { devTools: { logs: logInConsole } },
         });
 

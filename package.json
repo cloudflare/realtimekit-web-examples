@@ -1,11 +1,13 @@
 {
   "name": "realtimekit-web-examples-monorepo",
   "private": true,
+  "packageManager": "pnpm@11.28.2",
   "scripts": {
-    "install-all": "pnpm -r install",
-    "preinstall": "npx only-allow pnpm"
+    "install-all": "corepack pnpm -r install",
+    "preinstall": "npx only-allow pnpm",
+    "sync-root-deps": "corepack pnpm install --lockfile-only --ignore-scripts"
   },
   "devDependencies": {
-    "pnpm": "^7.0.0"
+    "pnpm": "11.28.2"
   }
 }
