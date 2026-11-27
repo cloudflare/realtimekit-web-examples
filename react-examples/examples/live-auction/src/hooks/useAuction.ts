@@ -100,13 +100,15 @@ export const useAuction = () => {
     };
   }, [meeting]);
 
+  // Returns false if the store isn't ready yet, in which case nothing is saved
   const update = useCallback(
     (changes: Partial<AuctionState>) => {
-      if (!store) return;
+      if (!store) return false;
       setAuction((prev) => ({ ...prev, ...changes }));
       store.bulkSet(
         Object.entries(changes).map(([key, payload]) => ({ key, payload }))
       );
+      return true;
     },
     [store]
   );
@@ -151,8 +153,7 @@ export const useAuction = () => {
       });
       return false;
     }
-    update({ [`bid-${item}`]: { bid, user: meeting.self.name } });
-    return true;
+    return update({ [`bid-${item}`]: { bid, user: meeting.self.name } });
   };
 
   // The auction can't be changed until the store is ready

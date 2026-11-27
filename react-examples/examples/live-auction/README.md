@@ -4,6 +4,9 @@ This example showcases how you can build a Live Auction App with RealtimeKit's R
 
 A host presents items one at a time and bidders place bids on the item being shown. The auction state is shared with everyone in the session through a [meeting key-value store](https://developers.cloudflare.com/realtime/realtimekit/collaboration/meeting-key-value-store/).
 
+> [!NOTE]
+> This is an example, not production-ready code. The meeting store can be updated by anyone in the meeting, so for a real auction use your own secure mechanism to sync state and store bids.
+
 ## Features
 
 - Custom setup screen that tells the user whether they are joining as the host or as a bidder
@@ -23,8 +26,8 @@ The role is decided from the name of the preset the participant joins with:
 ## Running the example
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Open the dev server in your browser with an `authToken` in the URL. Use a token from a host preset in one tab and a token from a bidder preset in another.
