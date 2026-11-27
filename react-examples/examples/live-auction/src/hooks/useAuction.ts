@@ -14,11 +14,16 @@ export interface Bid {
 // The highest bid of each item is kept under its own `bid-<item>` key.
 interface AuctionState {
   started: boolean;
+  // Set while a host is starting or stopping the auction
+  transition: 'starting' | 'stopping' | null;
   item: number;
   [bidKey: `bid-${number}`]: Bid | undefined;
 }
 
 const STORE_NAME = 'auction';
+
+// A transition is ignored after this long, in case the host who began it left midway
+const TRANSITION_TIMEOUT = 60000;
 
 const getStartingBid = (item: number): Bid => ({
   bid: bidItems[item].startingBid,
@@ -27,6 +32,7 @@ const getStartingBid = (item: number): Bid => ({
 
 const initialState: AuctionState = {
   started: false,
+  transition: null,
   item: 0,
 };
 
@@ -80,6 +86,12 @@ export const useAuction = () => {
       })
       .catch((error) => {
         console.error('Failed to create the auction store', error);
+        if (!active) return;
+        sendNotification({
+          id: 'auction-error',
+          message: 'Could not load the auction, please rejoin the meeting',
+          duration: 4000,
+        });
       });
 
     return () => {
@@ -99,16 +111,37 @@ export const useAuction = () => {
     [store]
   );
 
-  const { started, item } = auction;
+  const { started, transition, item } = auction;
+
+  useEffect(() => {
+    if (!transition) return;
+    const timeout = setTimeout(() => {
+      setAuction((prev) => ({ ...prev, transition: null }));
+    }, TRANSITION_TIMEOUT);
+    return () => clearTimeout(timeout);
+  }, [transition]);
+
   const highestBid = auction[`bid-${item}`] ?? getStartingBid(item);
 
-  const toggleAuction = () => update({ started: !started });
+  // Runs `action` and toggles the auction once it is done. Until then
+  // everyone sees the auction as starting or stopping.
+  const toggleAuction = async (action: () => Promise<void>) => {
+    update({ transition: started ? 'stopping' : 'starting' });
+    try {
+      await action();
+      update({ started: !started, transition: null });
+    } catch (error) {
+      update({ transition: null });
+      throw error;
+    }
+  };
 
   const showItem = (newItem: number) => {
     if (newItem < 0 || newItem >= bidItems.length) return;
     update({ item: newItem });
   };
 
+  // Returns whether the bid was accepted
   const placeBid = (bid: number) => {
     if (!(bid > highestBid.bid)) {
       sendNotification({
@@ -116,10 +149,12 @@ export const useAuction = () => {
         message: `Your bid must be higher than $ ${highestBid.bid}`,
         duration: 2000,
       });
-      return;
+      return false;
     }
     update({ [`bid-${item}`]: { bid, user: meeting.self.name } });
+    return true;
   };
 
-  return { started, item, highestBid, toggleAuction, showItem, placeBid };
+  // The auction can't be changed until the store is ready
+  return { ready: !!store, started, transition, item, highestBid, toggleAuction, showItem, placeBid };
 };

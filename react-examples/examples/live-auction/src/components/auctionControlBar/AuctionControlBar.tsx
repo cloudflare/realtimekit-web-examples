@@ -9,15 +9,16 @@ interface Props {
     highestBid: Bid,
     handlePrev: () => void;
     handleNext: () => void;
-    placeBid: (bid: number) => void;
+    placeBid: (bid: number) => boolean;
 }
 
 const AuctionControlBar = (props: Props) => {
     const [bid, setBid] = useState<string>('');
     const { isHost, item, highestBid, handleNext, handlePrev, placeBid } = props;
     const submitBid = () => {
-        placeBid(Number(parseFloat(bid).toFixed(2)));
-        setBid('');
+        if (placeBid(Number(parseFloat(bid).toFixed(2)))) {
+            setBid('');
+        }
     }
 
     return (

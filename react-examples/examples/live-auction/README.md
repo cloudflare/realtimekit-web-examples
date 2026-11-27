@@ -8,7 +8,7 @@ A host presents items one at a time and bidders place bids on the item being sho
 
 - Custom setup screen that tells the user whether they are joining as the host or as a bidder
 - Host can start and stop the auction and move between the auction items
-- Starting the auction first starts the livestream and stopping it stops the livestream; the button shows a loading state until the livestream has actually started or stopped
+- Starting the auction first starts the livestream and stopping it stops the livestream; the button shows a loading state for every host until the livestream has actually started or stopped
 - Bidders can place a bid; everyone sees the highest bid and gets a notification for each new one
 - Participants who join late see the ongoing auction, the current item and the highest bid
 - Custom branding with `provideRtkDesignSystem`
@@ -40,6 +40,7 @@ All the store code lives in the [`useAuction`](./src/hooks/useAuction.ts) hook. 
 | Key | Value | Updated by |
 | --- | --- | --- |
 | `started` | `boolean`, whether the auction is ongoing | Host |
+| `transition` | `'starting'`, `'stopping'` or `null`, set while a host is starting or stopping the auction | Host |
 | `item` | `number`, index of the item being shown from [`constants.ts`](./src/constants.ts) | Host |
 | `bid-<item>` | `{ bid: number, user: string }`, highest bid for that item (for example `bid-0`), kept when the host moves between items | Bidders |
 

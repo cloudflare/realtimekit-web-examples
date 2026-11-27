@@ -50,10 +50,9 @@ const waitForLivestreamState = (livestream: RTKLivestream, target: LivestreamSta
 const Meeting = () => {
   const { meeting } = useRealtimeKitMeeting();
 
-  const { started: auctionStarted, item, highestBid, toggleAuction: toggleAuctionState, showItem, placeBid } = useAuction();
+  const { ready: auctionReady, started: auctionStarted, transition: auctionTransition, item, highestBid, toggleAuction: toggleAuctionState, showItem, placeBid } = useAuction();
   const [isHost, setIsHost] = useState<boolean>(false);
   const [showPopup, setShowPopup] = useState<boolean>(true);
-  const [auctionLoading, setAuctionLoading] = useState<boolean>(false);
   const [activeSidebar, setActiveSidebar] = useState<boolean>(false);
 
   const handlePrev = () => showItem(item - 1);
@@ -83,24 +82,24 @@ const Meeting = () => {
   }, [meeting])
 
   const toggleAuction = async () => {
-    if (!isHost || auctionLoading) return;
+    if (!isHost || !auctionReady || auctionTransition) return;
     const { livestream } = meeting;
-    setAuctionLoading(true);
     try {
-      if (!auctionStarted) {
-        if (livestream.state !== 'LIVESTREAMING') {
-          if (livestream.state === 'IDLE') await livestream.start();
-          await waitForLivestreamState(livestream, 'LIVESTREAMING', 'IDLE');
+      await toggleAuctionState(async () => {
+        if (!auctionStarted) {
+          if (livestream.state !== 'LIVESTREAMING') {
+            if (livestream.state === 'IDLE') await livestream.start();
+            await waitForLivestreamState(livestream, 'LIVESTREAMING', 'IDLE');
+          }
+          meeting.self.pin();
+        } else {
+          if (livestream.state !== 'IDLE') {
+            if (livestream.state !== 'STOPPING') await livestream.stop();
+            await waitForLivestreamState(livestream, 'IDLE');
+          }
+          meeting.self.unpin();
         }
-        meeting.self.pin();
-      } else {
-        if (livestream.state !== 'IDLE') {
-          if (livestream.state !== 'STOPPING') await livestream.stop();
-          await waitForLivestreamState(livestream, 'IDLE');
-        }
-        meeting.self.unpin();
-      }
-      toggleAuctionState();
+      });
     } catch (error) {
       console.error(error);
       sendNotification({
@@ -108,8 +107,6 @@ const Meeting = () => {
         message: `Could not ${auctionStarted ? 'stop' : 'start'} the auction: ${error instanceof Error ? error.message : error}`,
         duration: 4000,
       });
-    } finally {
-      setAuctionLoading(false);
     }
   }
 
@@ -169,10 +166,10 @@ const Meeting = () => {
         <RtkChatToggle size='md' meeting={meeting} />
         {
           isHost && (
-            <button className='auction-toggle-button' onClick={toggleAuction} disabled={auctionLoading}>
+            <button className='auction-toggle-button' onClick={toggleAuction} disabled={!auctionReady || !!auctionTransition}>
               <Icon size='lg' icon='auction' />
-              {auctionLoading
-                ? (auctionStarted ? 'Stopping...' : 'Starting...')
+              {auctionTransition
+                ? (auctionTransition === 'stopping' ? 'Stopping...' : 'Starting...')
                 : `${auctionStarted ? 'Stop' : 'Start'} Auction`}
             </button>
           )
