@@ -13,7 +13,7 @@ const sampleFiles = [
     preset: "",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
     description: "A default Angular meeting UI showcasing the standard RealtimeKit meeting experience.",
-    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/default-meeting",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/angular-examples/examples/default-meeting-ui",
     blogUrl:"",
   },
   {
