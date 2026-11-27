@@ -21,7 +21,7 @@ const SetupScreen = () => {
     const name = meeting.self.name;
     setName(name);
 
-    if (preset.includes('host')) {
+    if (preset.toLowerCase().includes('host')) {
       setIsHost(true);
     }
   }, [meeting])
