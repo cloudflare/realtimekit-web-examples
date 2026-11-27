@@ -11,7 +11,7 @@ const sampleFiles = [
     id: "react-examples/default-meeting-ui",
     url: `https://${reactExamplesDomain}/default-meeting-ui`,
     preset: "",
-    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/default-meeting",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/react-examples/examples/default-meeting-ui",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
     description: "The standard batteries-included meeting UI showcasing the default RealtimeKit experience.",
     blogUrl:"",

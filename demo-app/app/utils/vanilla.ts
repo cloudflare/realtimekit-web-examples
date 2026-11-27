@@ -11,7 +11,7 @@ const sampleFiles = [
     id: "html-examples/default-meeting-ui",
     url: `https://${htmlExamplesDomain}/default-meeting-ui`,
     preset: "",
-    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/default-meeting",
+    githubUrl: "https://github.com/cloudflare/realtimekit-web-examples/tree/main/html-examples/examples/default-meeting-ui",
     picture: "https://rtk-assets.realtime.cloudflare.com/examples/Video%20Calling%20App%20-%20React.png",
     description: "A ready-to-run vanilla JS meeting UI using the default RealtimeKit experience.",
     blogUrl:"",
