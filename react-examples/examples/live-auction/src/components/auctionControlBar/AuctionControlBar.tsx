@@ -1,32 +1,24 @@
-import { useRealtimeKitMeeting } from '@cloudflare/realtimekit-react';
 import './auctionControlBar.css';
 import { useState } from 'react';
 import Icon from '../icon/Icon';
+import type { Bid } from '../../hooks/useAuction';
 
-interface Bid {
-    bid: number;
-    user: string;
-}
-
-  
 interface Props {
     isHost: boolean,
     item: number,
     highestBid: Bid,
     handlePrev: () => void;
     handleNext: () => void;
+    placeBid: (bid: number) => boolean;
 }
 
 const AuctionControlBar = (props: Props) => {
-    const { meeting } = useRealtimeKitMeeting();
     const [bid, setBid] = useState<string>('');
-    const { isHost, item, highestBid, handleNext, handlePrev } = props;
-    const placeBid = () => {
-        const parsedBid = parseFloat(bid).toFixed(2);
-        meeting.participants.broadcastMessage('new-bid', {
-            bid: parsedBid,
-            user: meeting.self.name,
-        });
+    const { isHost, item, highestBid, handleNext, handlePrev, placeBid } = props;
+    const submitBid = () => {
+        if (placeBid(Number(parseFloat(bid).toFixed(2)))) {
+            setBid('');
+        }
     }
 
     return (
@@ -49,7 +41,7 @@ const AuctionControlBar = (props: Props) => {
                 <input onChange={(e) => {
                     setBid(e.target.value);
                 }} placeholder='$ 345' value={bid} />
-                <button onClick={placeBid}>Your Bid</button>
+                <button onClick={submitBid}>Your Bid</button>
             </div>
             }
         </div>

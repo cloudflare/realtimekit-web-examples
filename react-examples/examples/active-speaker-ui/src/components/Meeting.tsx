@@ -33,12 +33,10 @@ function UI() {
                 notification_sounds: {
                   participant_joined: false,
                   participant_left: false,
-                  chat: false,
                 },
                 notifications: {
                   participant_joined: false,
                   participant_left: false,
-                  chat: false,
                 },
               },
             }}

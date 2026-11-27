@@ -70,6 +70,10 @@
 .auction-toggle-button:hover {
     background: rgb(228, 224, 224);
 }
+.auction-toggle-button:disabled {
+    opacity: 0.6;
+    cursor: progress;
+}
 
 .auction-desc {
     position: absolute;

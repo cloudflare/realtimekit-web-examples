@@ -15,75 +15,56 @@ import {
   sendNotification,
 } from '@cloudflare/realtimekit-react-ui'
 import { useRealtimeKitMeeting } from '@cloudflare/realtimekit-react';
+import type { LivestreamState, RTKLivestream } from '@cloudflare/realtimekit';
 import { AuctionControlBar, Icon } from '../../components';
 import { bidItems } from '../../constants';
+import { useAuction } from '../../hooks/useAuction';
 import './meeting.css'
 
-interface Bid {
-  bid: number;
-  user: string;
-}
+const LIVESTREAM_TIMEOUT = 30000;
+
+// start() and stop() resolve once the request is accepted, the state changes later
+const waitForLivestreamState = (livestream: RTKLivestream, target: LivestreamState, failed?: LivestreamState) =>
+  new Promise<void>((resolve, reject) => {
+    if (livestream.state === target) {
+      resolve();
+      return;
+    }
+    const listener = (state: LivestreamState) => {
+      if (state !== target && state !== failed) return;
+      cleanup();
+      if (state === target) resolve();
+      else reject(new Error('Livestream failed'));
+    };
+    const timeout = setTimeout(() => {
+      cleanup();
+      reject(new Error('Livestream did not respond in 30 seconds'));
+    }, LIVESTREAM_TIMEOUT);
+    const cleanup = () => {
+      clearTimeout(timeout);
+      livestream.removeListener('livestreamUpdate', listener);
+    };
+    livestream.on('livestreamUpdate', listener);
+  });
 
 const Meeting = () => {
   const { meeting } = useRealtimeKitMeeting();
 
-  const [item, setItem] = useState(0);
+  const { ready: auctionReady, started: auctionStarted, transition: auctionTransition, item, highestBid, toggleAuction: toggleAuctionState, showItem, placeBid } = useAuction();
   const [isHost, setIsHost] = useState<boolean>(false);
   const [showPopup, setShowPopup] = useState<boolean>(true);
-  const [auctionStarted, setAuctionStarted] = useState<boolean>(false);
   const [activeSidebar, setActiveSidebar] = useState<boolean>(false);
-  const [highestBid, setHighestBid] = useState<Bid>({ bid: 100, user: 'default' });
 
-  const handlePrev = () => {
-    if (item - 1 < 0) return;
-    setItem(item - 1)
-    meeting.participants.broadcastMessage('item-changed', { item: item - 1 })
-  }
-  const handleNext = () => {
-    if ( item + 1 >= bidItems.length) return;
-    setItem(item + 1)
-    meeting.participants.broadcastMessage('item-changed', { item: item + 1 })
-  }
-
-  useEffect(() => {
-    setHighestBid({
-      bid: bidItems[item].startingBid,
-      user: 'default'
-    })
-  }, [item])
+  const handlePrev = () => showItem(item - 1);
+  const handleNext = () => showItem(item + 1);
 
   useEffect(() => {
     if (!meeting) return;
 
     const preset = meeting.self.presetName;
-    if (preset.includes('host')) {
+    if (preset.toLowerCase().includes('host')) {
       setIsHost(true);
     }
-
-    const handleBroadcastedMessage = ({ type, payload }: { type: string, payload: any }) => {
-      switch(type) {
-        case 'auction-toggle': {
-          setAuctionStarted(payload.started);
-          break;
-        }
-        case 'item-changed': {
-          setItem(payload.item);
-          break;
-        }
-        case 'new-bid': {
-          sendNotification({
-            id: 'new-bid',
-            message: `${payload.user} just made a bid of $ ${payload.bid}!`,
-            duration: 2000,
-          })
-          if (parseFloat(payload.bid) > highestBid.bid) setHighestBid(payload)
-          break;
-        }
-        default:
-          break;
-      }
-    }
-    meeting.participants.on('broadcastedMessage', handleBroadcastedMessage);
 
     const handleRtkStateUpdate = ({detail}: any) => {
         if (detail.activeSidebar) {
@@ -97,37 +78,36 @@ const Meeting = () => {
 
     return () => {
       document.body.removeEventListener('rtkStateUpdate', handleRtkStateUpdate);
-      meeting.participants.removeListener('broadcastedMessage', handleBroadcastedMessage);
     };
   }, [meeting])
 
-  useEffect(() => {
-    const participantJoinedListener = () => {
-      if (!auctionStarted) return;
-      setTimeout(() => {
-        meeting.participants.broadcastMessage('auction-toggle', {
-          started: auctionStarted
-        })
-      }, 500)
-    
+  const toggleAuction = async () => {
+    if (!isHost || !auctionReady || auctionTransition) return;
+    const { livestream } = meeting;
+    try {
+      await toggleAuctionState(async () => {
+        if (!auctionStarted) {
+          if (livestream.state !== 'LIVESTREAMING') {
+            if (livestream.state === 'IDLE') await livestream.start();
+            await waitForLivestreamState(livestream, 'LIVESTREAMING', 'IDLE');
+          }
+          meeting.self.pin();
+        } else {
+          if (livestream.state !== 'IDLE') {
+            if (livestream.state !== 'STOPPING') await livestream.stop();
+            await waitForLivestreamState(livestream, 'IDLE');
+          }
+          meeting.self.unpin();
+        }
+      });
+    } catch (error) {
+      console.error(error);
+      sendNotification({
+        id: 'auction-error',
+        message: `Could not ${auctionStarted ? 'stop' : 'start'} the auction: ${error instanceof Error ? error.message : error}`,
+        duration: 4000,
+      });
     }
-    meeting.participants.joined.on('participantJoined', participantJoinedListener);
-    return () => {
-      meeting.participants.joined.removeListener('participantJoined', participantJoinedListener);
-    }
-  }, [meeting, auctionStarted])
-
-  const toggleAuction = () => {
-    if (!isHost) return;
-    meeting.participants.broadcastMessage('auction-toggle', {
-      started: !auctionStarted
-    })
-    if (!auctionStarted) {
-      meeting.self.pin();
-    } else {
-      meeting.self.unpin();
-    }
-    setAuctionStarted(!auctionStarted);
   }
 
   return (
@@ -170,6 +150,7 @@ const Meeting = () => {
                 highestBid={highestBid}
                 handleNext={handleNext}
                 handlePrev={handlePrev}
+                placeBid={placeBid}
                 isHost={isHost}
               />
           </div>
@@ -185,9 +166,11 @@ const Meeting = () => {
         <RtkChatToggle size='md' meeting={meeting} />
         {
           isHost && (
-            <button className='auction-toggle-button' onClick={toggleAuction}>
+            <button className='auction-toggle-button' onClick={toggleAuction} disabled={!auctionReady || !!auctionTransition}>
               <Icon size='lg' icon='auction' />
-              {auctionStarted ? 'Stop' : 'Start'} Auction
+              {auctionTransition
+                ? (auctionTransition === 'stopping' ? 'Stopping...' : 'Starting...')
+                : `${auctionStarted ? 'Stop' : 'Start'} Auction`}
             </button>
           )
         }
