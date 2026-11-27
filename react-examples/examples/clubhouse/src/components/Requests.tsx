@@ -29,7 +29,7 @@ export default function Requests() {
             <div className="flex gap-2">
               <button
                 className="icon-btn text-red-600"
-                onClick={() => meeting.stage.denyAccess([p.id])}
+                onClick={() => meeting.stage.denyAccess([p.userId])}
               >
                 <X />
               </button>
