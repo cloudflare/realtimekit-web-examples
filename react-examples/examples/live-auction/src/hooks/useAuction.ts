@@ -113,7 +113,9 @@ export const useAuction = () => {
     [store]
   );
 
-  const { started, transition, item } = auction;
+  const { started, transition } = auction;
+  // The store can hold any value, fall back to the first item if it isn't a valid index
+  const item = Number.isInteger(auction.item) && bidItems[auction.item] ? auction.item : 0;
 
   useEffect(() => {
     if (!transition) return;
